@@ -24,7 +24,7 @@
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
       </div>
-      <a href="https://calendly.com/axautomations" target="_blank" class="btn btn-sm">Book a Demo</a>
+      <a href="book-demo.html" class="btn btn-sm">Book a Demo</a>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -39,7 +39,7 @@
         <h1 class="fade-in delay-1">Your phone rings.<br>Nobody answers.<br><span class="text-accent">You just lost $1,200.</span></h1>
         <p class="hero-sub fade-in delay-2">62% of calls to small businesses go unanswered. Every missed call is a missed customer. We fix that — with AI that picks up, texts back, and follows up, so you never lose another lead.</p>
         <div class="hero-ctas fade-in delay-3">
-          <a href="https://calendly.com/axautomations" target="_blank" class="btn btn-primary">Book a Free Demo</a>
+          <a href="book-demo.html" class="btn btn-primary">Book a Free Demo</a>
           <a href="#services" class="btn btn-ghost">See How It Works →</a>
         </div>
         <div class="hero-proof fade-in delay-4">
@@ -228,7 +228,7 @@
         </div>
       </div>
       <div class="how-cta fade-in">
-        <a href="https://calendly.com/axautomations" target="_blank" class="btn btn-primary">Book Your Free Demo →</a>
+        <a href="book-demo.html" class="btn btn-primary">Book Your Free Demo →</a>
       </div>
     </div>
   </section>
@@ -286,7 +286,7 @@
     <div class="container fade-in">
       <h2>Stop losing customers to<br>your voicemail.</h2>
       <p>Book a 15-minute demo. We'll show you exactly how many calls you're missing — and how to fix it.</p>
-      <a href="https://calendly.com/axautomations" target="_blank" class="btn btn-primary btn-lg">Book a Free Demo</a>
+      <a href="book-demo.html" class="btn btn-primary btn-lg">Book a Free Demo</a>
       <span class="cta-note">Free. No credit card. No pressure.</span>
     </div>
   </section>
@@ -312,7 +312,7 @@
           <h4>Company</h4>
           <a href="#about">About</a>
           <a href="#faq">FAQ</a>
-          <a href="https://calendly.com/axautomations" target="_blank">Book a Demo</a>
+          <a href="book-demo.html">Book a Demo</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
@@ -403,7 +403,7 @@ Key facts:
 - Setup takes 24-48 hours
 - Free demo available
 - Contact: ethan@axautomations.com or (215) 769-9707
-- Book a demo: calendly.com/axautomations
+- Book a demo: book-demo.html
 
 Keep responses short (2-3 sentences max). Be conversational, not corporate. If someone wants to book a demo or learn more, give them the Calendly link or phone number.`;
 
@@ -476,7 +476,7 @@ Keep responses short (2-3 sentences max). Be conversational, not corporate. If s
     function getFallbackResponse(text) {
       const t = text.toLowerCase();
       if (t.includes('price') || t.includes('cost') || t.includes('how much'))
-        return "Our services start at $97/mo for Missed Call Text-Back, up to $297/mo for AI Phone Answering. No contracts. Want to book a free demo? calendly.com/axautomations";
+        return "Our services start at $97/mo for Missed Call Text-Back, up to $297/mo for AI Phone Answering. No contracts. Want to book a free demo? book-demo.html";
       if (t.includes('phone') || t.includes('answer') || t.includes('call'))
         return "Our AI Phone Agent answers your calls 24/7 — books appointments, answers FAQs, takes messages. $297/mo, setup in 24-48hrs. Want a demo?";
       if (t.includes('review'))
@@ -484,14 +484,14 @@ Keep responses short (2-3 sentences max). Be conversational, not corporate. If s
       if (t.includes('text') || t.includes('sms') || t.includes('miss'))
         return "Missed Call Text-Back instantly sends a text when you miss a call — 'Hey, sorry we missed you!' Starts at $97/mo. Simple but powerful.";
       if (t.includes('demo') || t.includes('book') || t.includes('meet') || t.includes('talk'))
-        return "Let's do it! Book a free demo here: calendly.com/axautomations — or call us at (215) 769-9707.";
+        return "Let's do it! Book a free demo here: book-demo.html — or call us at (215) 769-9707.";
       if (t.includes('lead') || t.includes('follow'))
         return "Our Lead Nurture Bot follows up with new leads instantly via text, then continues a 7-touch sequence over 2 weeks. Catches the customers your competitors let slip. $247/mo.";
       if (t.includes('reputation') || t.includes('respond'))
         return "We monitor all your reviews across Google, Yelp, and Facebook. AI writes personalized responses and alerts you on negatives instantly. $197/mo.";
       if (t.includes('market'))
         return "Our SMS Marketing sends AI-written promos to your customer list — holiday specials, weekly deals, etc. 97% open rate vs 20% for email. $197/mo.";
-      return "Great question! We help local businesses automate their phone answering, follow-ups, reviews, and marketing with AI. What specifically are you curious about? Or book a free demo: calendly.com/axautomations";
+      return "Great question! We help local businesses automate their phone answering, follow-ups, reviews, and marketing with AI. What specifically are you curious about? Or book a free demo: book-demo.html";
     }
 
     chatToggle.addEventListener('click', function() {
