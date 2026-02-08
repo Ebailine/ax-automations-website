@@ -623,29 +623,23 @@ Keep responses short (2-3 sentences max). Be conversational, not corporate. If s
       messages.push({ role: 'user', content: text });
       showTyping();
 
-      if (!apiKey) {
-        // Fallback responses when no API key
-        hideTyping();
-        const fallback = getFallbackResponse(text);
-        addMessage(fallback, false);
-        messages.push({ role: 'assistant', content: fallback });
-        return;
-      }
-
       try {
-        const res = await fetch('https://api.openai.com/v1/chat/completions', {
+        const res = await fetch('https://vercel-ethans-projects-f6bdd8c2.vercel.app/api/chat', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey },
-          body: JSON.stringify({ model: 'gpt-4o-mini', messages: messages, max_tokens: 200, temperature: 0.7 })
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: messages })
         });
         const data = await res.json();
         hideTyping();
-        const reply = data.choices?.[0]?.message?.content || "Sorry, I'm having trouble right now. You can reach us at (215) 769-9707 or ethan@axautomations.com.";
+        const reply = data.reply || "Sorry, I'm having trouble right now. You can reach us at (215) 769-9707 or ethan@axautomations.com.";
         addMessage(reply, false);
         messages.push({ role: 'assistant', content: reply });
       } catch (e) {
         hideTyping();
-        addMessage("Sorry, I'm having trouble connecting. Call us at (215) 769-9707 or email ethan@axautomations.com.", false);
+        // Fallback to local responses if proxy is down
+        const fallback = getFallbackResponse(text);
+        addMessage(fallback, false);
+        messages.push({ role: 'assistant', content: fallback });
       }
     }
 
