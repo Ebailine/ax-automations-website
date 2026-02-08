@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Dentists — Ax Automations</title>
+  <meta name="description" content="AI phone answering and patient communication automation for dental offices in Philadelphia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .industry-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px; transition: color var(--transition); }
+    .industry-back:hover { color: var(--text); }
+    .roi-section { padding: 120px 0; }
+    .roi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+    .roi-card { background: var(--accent-soft); border-radius: var(--radius); padding: 36px 32px; text-align: center; }
+    .roi-card .roi-num { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; color: var(--accent-blue); margin-bottom: 8px; }
+    .roi-card .roi-label { font-size: 0.9375rem; color: var(--text-secondary); }
+    @media (max-width: 768px) {
+      .roi-grid { grid-template-columns: 1fr; }
+      .roi-section { padding: 80px 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo"><span class="logo-mark">⚡</span> Ax Automations</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#problem">Problem</a>
+        <a href="#services">Services</a>
+        <a href="#roi">ROI</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a href="https://calendly.com/axautomations" target="_blank" class="btn btn-sm">Book a Demo</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <a href="index.html" class="industry-back fade-in">← Back to Ax Automations</a>
+        <div class="hero-badge fade-in">Built for dental practices</div>
+        <h1 class="fade-in delay-1">You're with a patient.<br>The phone rings again.<br><span class="text-accent">That's a $600 crown walking out the door.</span></h1>
+        <p class="hero-sub fade-in delay-2">Dental offices miss 35% of incoming calls during procedures. Each missed new patient call costs an average of $600 in lifetime value. Our AI receptionist never misses a call, books appointments, and follows up automatically.</p>
+        <div class="hero-ctas fade-in delay-3">
+          <a href="https://calendly.com/axautomations" target="_blank" class="btn btn-primary">Book a Free Demo</a>
+          <a href="#services" class="btn btn-ghost">See Services →</a>
+        </div>
+        <div class="hero-proof fade-in delay-4">
+          <div class="proof-item"><span class="proof-num">35%</span><span class="proof-label">Calls missed during procedures</span></div>
+          <div class="proof-divider"></div>
+          <div class="proof-item"><span class="proof-num">$600</span><span class="proof-label">Avg new patient value</span></div>
+          <div class="proof-divider"></div>
+          <div class="proof-item"><span class="proof-num">98%</span><span class="proof-label">Calls answered with AI</span></div>
+        </div>
+      </div>
+      <div class="hero-visual fade-in delay-3">
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-header"><span class="phone-time">9:41</span><span class="phone-status">●●● ▶ ■</span></div>
+            <div class="chat-messages">
+              <div class="chat-bubble incoming"><div class="chat-name">Ax Automations</div><div class="chat-text">Hi! Thanks for calling Broad Street Dental. How can I help you?</div><div class="chat-time">10:15 AM</div></div>
+              <div class="chat-bubble outgoing"><div class="chat-text">I need to schedule a cleaning, I'm a new patient</div><div class="chat-time">10:15 AM</div></div>
+              <div class="chat-bubble incoming"><div class="chat-name">Ax Automations</div><div class="chat-text">Welcome! We'd love to see you. We have openings Tuesday at 2 PM or Thursday at 10 AM. Which works better?</div><div class="chat-time">10:16 AM</div></div>
+              <div class="chat-bubble outgoing"><div class="chat-text">Thursday at 10 works!</div><div class="chat-time">10:16 AM</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem" id="problem">
+    <div class="container">
+      <div class="section-label fade-in">The Problem</div>
+      <h2 class="fade-in">Your front desk can't answer<br>when they're chairside.</h2>
+      <div class="problem-grid fade-in">
+        <div class="problem-card"><div class="problem-stat">35%</div><p>of calls to dental offices go unanswered during procedures</p></div>
+        <div class="problem-card"><div class="problem-stat">$600</div><p>average lifetime value of each new patient lost to a missed call</p></div>
+        <div class="problem-card"><div class="problem-stat">50%</div><p>of patients choose the first dentist who answers the phone</p></div>
+        <div class="problem-card"><div class="problem-stat">4.5hrs</div><p>per week your front desk spends on phone tag and appointment reminders</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-label fade-in">Our Services</div>
+      <h2 class="fade-in">AI tools built for your industry</h2>
+      <p class="section-desc fade-in">Everything you need to stop losing customers and start growing — on autopilot.</p>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">📞</div>
+          <h3>AI Phone Receptionist</h3>
+          <p>Your AI receptionist answers every call — schedules cleanings, confirms insurance questions, and handles new patient intake 24/7.</p>
+          <div class="service-meta"><span class="service-price">$297/mo</span><span class="service-roi">↑ 45% new patients</span></div>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">💬</div>
+          <h3>Missed Call Text-Back</h3>
+          <p>Patient called during a procedure? They instantly get: "Thanks for calling! Reply to book an appointment or ask a question."</p>
+          <div class="service-meta"><span class="service-price">$97/mo</span><span class="service-roi">↑ 70% callback rate</span></div>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">⭐</div>
+          <h3>Review Automation</h3>
+          <p>After each appointment, patients get a friendly text asking for a Google review. Builds your online reputation effortlessly.</p>
+          <div class="service-meta"><span class="service-price">$147/mo</span><span class="service-roi">↑ 3x more reviews</span></div>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">🔔</div>
+          <h3>Appointment Reminders</h3>
+          <p>AI sends automated text reminders 48hrs and 2hrs before appointments. Reduces no-shows by up to 40%.</p>
+          <div class="service-meta"><span class="service-price">$147/mo</span><span class="service-roi">↓ 40% no-shows</span></div>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">🤖</div>
+          <h3>Reactivation Bot</h3>
+          <p>Patients who haven't visited in 6+ months get a personalized text sequence encouraging them to rebook.</p>
+          <div class="service-meta"><span class="service-price">$247/mo</span><span class="service-roi">↑ 25% reactivations</span></div>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-icon">📊</div>
+          <h3>Reputation Management</h3>
+          <p>Monitor and respond to every review across Google and Healthgrades from one dashboard.</p>
+          <div class="service-meta"><span class="service-price">$197/mo</span><span class="service-roi">Save 4+ hrs/week</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="roi-section" id="roi">
+    <div class="container">
+      <div class="section-label fade-in">ROI Calculator</div>
+      <h2 class="fade-in">The numbers don't lie.</h2>
+      <p class="section-desc fade-in">Here's what AI automation typically delivers for a dental practice with 800+ patients.</p>
+      <div class="roi-grid fade-in">
+        <div class="roi-card"><div class="roi-num">$7,200</div><div class="roi-label">New patient revenue recovered monthly</div></div>
+        <div class="roi-card"><div class="roi-num">18hrs</div><div class="roi-label">Front desk hours saved per month</div></div>
+        <div class="roi-card"><div class="roi-num">425%</div><div class="roi-label">Average ROI in the first 90 days</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-label fade-in">How It Works</div>
+      <h2 class="fade-in">Live in 48 hours.<br>No tech skills needed.</h2>
+      <div class="steps">
+        <div class="step fade-in"><div class="step-num">01</div><div class="step-content"><h3>Quick setup call</h3><p>Tell us about your practice — services, hours, insurance accepted, appointment types. We handle the rest.</p></div></div>
+        <div class="step fade-in"><div class="step-num">02</div><div class="step-content"><h3>AI learns your practice</h3><p>We train your AI on your services, scheduling rules, insurance FAQ, and office policies.</p></div></div>
+        <div class="step fade-in"><div class="step-num">03</div><div class="step-content"><h3>Go live in 48 hours</h3><p>Every call gets answered, appointments get booked, reviews start flowing. Your front desk can breathe.</p></div></div>
+      </div>
+      <div class="how-cta fade-in">
+        <a href="https://calendly.com/axautomations" target="_blank" class="btn btn-primary btn-lg">Book a Free Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-label fade-in">FAQ</div>
+      <h2 class="fade-in">Common questions</h2>
+      <div class="faq-list">
+        <details class="faq-item fade-in"><summary>Can the AI handle insurance questions?</summary><p>Yes. We train it on which insurance plans you accept, and it can answer common coverage questions. For complex billing, it routes to your office manager.</p></details>
+        <details class="faq-item fade-in"><summary>Does it integrate with my practice management software?</summary><p>We integrate with Dentrix, Eaglesoft, Open Dental, and most major PMS platforms for seamless appointment scheduling.</p></details>
+        <details class="faq-item fade-in"><summary>What about emergency calls?</summary><p>The AI identifies urgent situations and immediately routes them to your emergency line or on-call dentist.</p></details>
+        <details class="faq-item fade-in"><summary>Will patients know they're talking to AI?</summary><p>The AI is transparent but natural. Most patients appreciate getting an immediate answer rather than voicemail.</p></details>
+        <details class="faq-item fade-in"><summary>How does the reactivation bot work?</summary><p>It identifies patients overdue for visits and sends a personalized text sequence over 2 weeks, making it easy to rebook with one tap.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="fade-in">Ready to stop losing customers?</h2>
+      <p class="fade-in">Book a free 15-minute demo. We'll show you exactly how much revenue you're leaving on the table — and how to capture it.</p>
+      <a href="https://calendly.com/axautomations" target="_blank" class="btn btn-primary btn-lg fade-in">Book a Free Demo</a>
+      <span class="cta-note fade-in">No contracts. Cancel anytime. Setup in 24-48 hours.</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo"><span class="logo-mark">⚡</span> Ax Automations</div>
+          <p>AI-powered automation for small businesses. Based in Philadelphia.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Industries</h4>
+          <a href="ai-for-restaurants.html">Restaurants</a>
+          <a href="ai-for-dentists.html">Dentists</a>
+          <a href="ai-for-hvac.html">HVAC & Plumbing</a>
+          <a href="ai-for-lawyers.html">Law Firms</a>
+          <a href="ai-for-salons.html">Salons</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <span>(215) 769-9707</span>
+          <span>ethan@axautomations.com</span>
+          <span>Philadelphia, PA</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Ax Automations. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.fade-in').forEach(el => {
+      new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1 }).observe(el);
+    });
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+      document.querySelector('.nav-links')?.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
