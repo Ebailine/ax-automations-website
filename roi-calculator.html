@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROI Calculator | Ax Automations</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #e8e8e8;
+    --text: #111111;
+    --text-secondary: #555555;
+    --text-muted: #888888;
+    --accent: #111111;
+    --accent-blue: #2563eb;
+    --green: #059669;
+    --orange: #ff6b2b;
+    --radius: 12px;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --max-width: 1120px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+  body { font-family:var(--font); color:var(--text); background:var(--bg); line-height:1.6; font-size:16px; }
+  a { color:inherit; text-decoration:none; }
+
+  /* Nav */
+  .nav { background:var(--surface); border-bottom:1px solid var(--border); padding:16px 24px; position:sticky; top:0; z-index:100; }
+  .nav-inner { max-width:var(--max-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+  .nav .logo { font-weight:800; font-size:18px; }
+  .nav a.back { font-size:14px; color:var(--text-secondary); }
+  .nav a.back:hover { color:var(--text); }
+
+  .container { max-width:var(--max-width); margin:0 auto; padding:0 24px; }
+
+  /* Hero */
+  .hero { text-align:center; padding:80px 24px 48px; }
+  .hero h1 { font-size:clamp(2rem,4vw,3rem); font-weight:800; letter-spacing:-0.03em; line-height:1.1; }
+  .hero p { color:var(--text-secondary); font-size:18px; margin-top:12px; max-width:600px; margin-left:auto; margin-right:auto; }
+
+  /* Calculator */
+  .calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; max-width:960px; margin:0 auto 80px; padding:0 24px; }
+  @media(max-width:768px) { .calc-grid { grid-template-columns:1fr; } }
+
+  .calc-inputs { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:32px; }
+  .calc-inputs h2 { font-size:18px; font-weight:700; margin-bottom:24px; }
+
+  .field { margin-bottom:20px; }
+  .field label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.5px; }
+  .field select, .field input { width:100%; padding:12px 16px; border:1px solid var(--border); border-radius:8px; font-family:var(--font); font-size:15px; background:var(--bg); color:var(--text); outline:none; transition:border 0.2s; }
+  .field select:focus, .field input:focus { border-color:var(--accent); }
+  .field input[type=range] { padding:0; background:none; border:none; margin-top:4px; }
+  .field .range-row { display:flex; justify-content:space-between; align-items:center; }
+  .field .range-val { font-weight:700; font-size:18px; color:var(--orange); min-width:50px; text-align:right; }
+
+  .calc-results { position:sticky; top:80px; align-self:start; }
+  .results-card { background:var(--accent); color:#fff; border-radius:var(--radius); padding:32px; margin-bottom:16px; }
+  .results-card h2 { font-size:18px; font-weight:700; margin-bottom:24px; opacity:0.9; }
+
+  .result-item { margin-bottom:20px; }
+  .result-item .label { font-size:12px; text-transform:uppercase; letter-spacing:0.5px; opacity:0.7; }
+  .result-item .value { font-size:32px; font-weight:800; line-height:1.2; }
+  .result-item .sub { font-size:13px; opacity:0.6; }
+  .result-item.highlight .value { color:var(--orange); }
+
+  .results-note { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; }
+  .results-note p { font-size:13px; color:var(--text-secondary); }
+
+  .cta-section { text-align:center; padding:60px 24px 80px; }
+  .cta-btn { display:inline-block; background:var(--accent); color:#fff; padding:16px 40px; border-radius:8px; font-weight:700; font-size:16px; transition:opacity 0.2s; }
+  .cta-btn:hover { opacity:0.85; }
+
+  /* Footer */
+  .footer { border-top:1px solid var(--border); padding:32px 24px; text-align:center; font-size:13px; color:var(--text-muted); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">⚡ Ax Automations</div>
+    <a href="index.html" class="back">← Back to Home</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>See What You're Leaving on the Table</h1>
+  <p>Enter your numbers below and we'll show you exactly how much revenue you could recover with AI automation.</p>
+</div>
+
+<div class="calc-grid">
+
+  <div class="calc-inputs">
+    <h2>Your Business</h2>
+
+    <div class="field">
+      <label>Industry</label>
+      <select id="industry" onchange="calculate()">
+        <option value="restaurant">Restaurant / Food Service</option>
+        <option value="salon">Salon / Spa</option>
+        <option value="hvac">HVAC / Home Services</option>
+        <option value="dental">Dental / Medical</option>
+        <option value="insurance">Insurance</option>
+        <option value="legal">Legal / Law Firm</option>
+        <option value="auto">Auto Repair / Dealership</option>
+        <option value="other">Other Local Business</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Monthly Incoming Calls</label>
+      <div class="range-row">
+        <input type="range" id="calls" min="20" max="500" value="120" step="10" oninput="calculate()">
+        <span class="range-val" id="callsVal">120</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Estimated Missed Call %</label>
+      <div class="range-row">
+        <input type="range" id="missedPct" min="5" max="60" value="25" step="1" oninput="calculate()">
+        <span class="range-val" id="missedPctVal">25%</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Average Customer Value ($)</label>
+      <div class="range-row">
+        <input type="range" id="custValue" min="20" max="5000" value="200" step="10" oninput="calculate()">
+        <span class="range-val" id="custValueVal">$200</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Current Google Review Count</label>
+      <div class="range-row">
+        <input type="range" id="reviews" min="0" max="500" value="45" step="5" oninput="calculate()">
+        <span class="range-val" id="reviewsVal">45</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="calc-results">
+    <div class="results-card">
+      <h2>Your Estimated Results</h2>
+
+      <div class="result-item highlight">
+        <div class="label">Revenue Recovered / Year</div>
+        <div class="value" id="revenueRecovered">$0</div>
+        <div class="sub">from missed call recovery alone</div>
+      </div>
+
+      <div class="result-item">
+        <div class="label">Projected Review Growth (6 mo)</div>
+        <div class="value" id="reviewGrowth">0 → 0</div>
+        <div class="sub">reviews on Google</div>
+      </div>
+
+      <div class="result-item">
+        <div class="label">Estimated Rating Impact</div>
+        <div class="value" id="ratingImpact">+0.0 stars</div>
+        <div class="sub">from increased positive reviews</div>
+      </div>
+
+      <div class="result-item highlight">
+        <div class="label">ROI Multiple</div>
+        <div class="value" id="roiMultiple">0x</div>
+        <div class="sub">return on your investment</div>
+      </div>
+    </div>
+
+    <div class="results-note">
+      <p>💡 These are conservative estimates based on industry averages. Actual results may vary — most clients exceed these projections.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-section">
+  <p style="font-size:18px; margin-bottom:16px; color:var(--text-secondary);">Ready to stop losing revenue?</p>
+  <a href="book-demo.html" class="cta-btn">Book a Free Demo →</a>
+</div>
+
+<footer class="footer">
+  <p>© 2026 Ax Automations. All rights reserved.</p>
+</footer>
+
+<script>
+const industryDefaults = {
+  restaurant: { value: 45, convRate: 0.15 },
+  salon:      { value: 80, convRate: 0.20 },
+  hvac:       { value: 350, convRate: 0.25 },
+  dental:     { value: 500, convRate: 0.30 },
+  insurance:  { value: 1200, convRate: 0.20 },
+  legal:      { value: 2000, convRate: 0.15 },
+  auto:       { value: 400, convRate: 0.20 },
+  other:      { value: 200, convRate: 0.18 }
+};
+
+const industryEl = document.getElementById('industry');
+industryEl.addEventListener('change', function() {
+  const d = industryDefaults[this.value];
+  document.getElementById('custValue').value = d.value;
+  calculate();
+});
+
+function calculate() {
+  const industry = document.getElementById('industry').value;
+  const calls = +document.getElementById('calls').value;
+  const missedPct = +document.getElementById('missedPct').value;
+  const custValue = +document.getElementById('custValue').value;
+  const reviews = +document.getElementById('reviews').value;
+
+  // Update display values
+  document.getElementById('callsVal').textContent = calls;
+  document.getElementById('missedPctVal').textContent = missedPct + '%';
+  document.getElementById('custValueVal').textContent = '$' + custValue.toLocaleString();
+  document.getElementById('reviewsVal').textContent = reviews;
+
+  const convRate = industryDefaults[industry]?.convRate || 0.18;
+  const missedCalls = calls * (missedPct / 100);
+  // TextBack recovers ~40% of missed calls, of those, convRate close
+  const recoveredCalls = missedCalls * 0.40;
+  const newCustomers = recoveredCalls * convRate;
+  const monthlyRevenue = newCustomers * custValue;
+  const yearlyRevenue = monthlyRevenue * 12;
+
+  // Review projections: ~15% of customers leave a review with the bot
+  const monthlyOrders = calls * 0.6; // rough orders from calls
+  const newReviewsPerMonth = monthlyOrders * 0.15;
+  const projectedReviews6mo = Math.round(reviews + (newReviewsPerMonth * 6));
+  const ratingBoost = Math.min(1.2, (newReviewsPerMonth * 6) / (reviews + 1) * 0.5);
+
+  // ROI: assume $300/mo average service cost
+  const monthlyCost = 300;
+  const roi = monthlyRevenue > 0 ? (yearlyRevenue / (monthlyCost * 12)) : 0;
+
+  document.getElementById('revenueRecovered').textContent = '$' + Math.round(yearlyRevenue).toLocaleString();
+  document.getElementById('reviewGrowth').textContent = reviews + ' → ' + projectedReviews6mo;
+  document.getElementById('ratingImpact').textContent = '+' + ratingBoost.toFixed(1) + ' stars';
+  document.getElementById('roiMultiple').textContent = roi.toFixed(1) + 'x';
+}
+
+calculate();
+</script>
+
+</body>
+</html>
