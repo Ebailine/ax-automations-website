@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Which AI Tool Does Your Business Need? — Free Quiz | Ax Automations</title>
+  <meta name="description" content="Take this 60-second quiz to discover which AI automation will have the biggest impact on your business. Free personalized recommendation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .quiz-hero {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+    .quiz-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      margin-bottom: 16px;
+    }
+    .quiz-hero p {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .quiz-container {
+      max-width: 640px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .quiz-progress {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 32px;
+    }
+    .quiz-progress .bar {
+      flex: 1;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--border);
+      transition: background 0.3s;
+    }
+    .quiz-progress .bar.active {
+      background: var(--accent);
+    }
+    .quiz-question {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .quiz-question.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .quiz-question h2 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .quiz-question .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .quiz-option {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 1rem;
+      background: var(--surface);
+    }
+    .quiz-option:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .quiz-option .icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .quiz-option .label {
+      font-weight: 500;
+    }
+    .quiz-option .desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Results */
+    .quiz-results {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .quiz-results.active {
+      display: block;
+    }
+    .result-card {
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 24px;
+      background: var(--accent-soft);
+    }
+    .result-card .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .result-card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .result-card .price {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .result-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .result-extras {
+      margin-top: 32px;
+    }
+    .result-extras h3 {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+    .extra-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .extra-card:last-child { border-bottom: none; }
+    .extra-card .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .extra-card .name { font-weight: 600; margin-bottom: 2px; }
+    .extra-card .reason { font-size: 0.9rem; color: var(--text-muted); }
+    .result-cta {
+      margin-top: 32px;
+      text-align: center;
+    }
+    .result-cta .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .result-cta .btn:hover { opacity: 0.85; }
+    .result-cta p {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .restart-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#111"/><path d="M8 24l8-18 8 18M11 18h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Ax Automations</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#solutions">Solutions</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="roi-calculator.html">ROI Calculator</a>
+        <a href="book-demo.html" class="btn-nav">Book a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="quiz-hero">
+    <div class="container">
+      <h1>Which AI Tool Does Your<br>Business Need?</h1>
+      <p>Answer 5 quick questions and get a personalized recommendation in 60 seconds. No signup required.</p>
+    </div>
+  </section>
+
+  <div class="quiz-container">
+    <!-- Progress -->
+    <div class="quiz-progress" id="progress">
+      <div class="bar active"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="quiz-question active" data-q="1">
+      <h2>What type of business do you run?</h2>
+      <p class="subtitle">This helps us tailor the recommendation to your industry.</p>
+      <div class="quiz-options">
+        <div class="quiz-option" data-value="restaurant" onclick="answer(1,this)">
+          <span class="icon">🍽️</span>
+          <div><div class="label">Restaurant / Food Service</div></div>
+        </div>
+        <div class="quiz-option" data-value="services" onclick="answer(1,this)">
+          <span class="icon">🔧</span>
+          <div><div class="label">Home Services (HVAC, Plumbing, etc.)</div></div>
+        </div>
+        <div class="quiz-option" data-value="health" onclick="answer(1,this)">
+          <span class="icon">🦷</span>
+          <div><div class="label">Healthcare / Dental / Med Spa</div></div>
+        </div>
+        <div class="quiz-option" data-value="professional" onclick="answer(1,this)">
+          <span class="icon">⚖️</span>
+          <div><div class="label">Professional Services (Legal, Accounting, Insurance)</div></div>
+        </div>
+        <div class="quiz-option" data-value="retail" onclick="answer(1,this)">
+          <span class="icon">🛍️</span>
+          <div><div class="label">Retail / Salon / Other</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-question" data-q="2">
+      <h2>What's your biggest pain point right now?</h2>
+      <p class="subtitle">Pick the one that costs you the most.</p>
+      <div class="quiz-options">
+        <div class="quiz-option" data-value="missed-calls" onclick="answer(2,this)">
+          <span class="icon">📞</span>
+          <div><div class="label">Missing calls & losing leads</div><div class="desc">Customers call but no one picks up</div></div>
+        </div>
+        <div class="quiz-option" data-value="reviews" onclick="answer(2,this)">
+          <span class="icon">⭐</span>
+          <div><div class="label">Not enough online reviews</div><div class="desc">Competitors have more & better reviews</div></div>
+        </div>
+        <div class="quiz-option" data-value="no-shows" onclick="answer(2,this)">
+          <span class="icon">🚫</span>
+          <div><div class="label">Appointment no-shows</div><div class="desc">People book but don't show up</div></div>
+        </div>
+        <div class="quiz-option" data-value="follow-up" onclick="answer(2,this)">
+          <span class="icon">💬</span>
+          <div><div class="label">No time to follow up with leads</div><div class="desc">Inquiries go cold because you're busy</div></div>
+        </div>
+        <div class="quiz-option" data-value="marketing" onclick="answer(2,this)">
+          <span class="icon">📱</span>
+          <div><div class="label">Marketing feels impossible</div><div class="desc">Social media, emails — who has time?</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-question" data-q="3">
+      <h2>How many customer calls do you get per day?</h2>
+      <p class="subtitle">Roughly — doesn't need to be exact.</p>
+      <div class="quiz-options">
+        <div class="quiz-option" data-value="low" onclick="answer(3,this)">
+          <span class="icon">📊</span>
+          <div><div class="label">Under 10 calls/day</div></div>
+        </div>
+        <div class="quiz-option" data-value="medium" onclick="answer(3,this)">
+          <span class="icon">📊</span>
+          <div><div class="label">10–30 calls/day</div></div>
+        </div>
+        <div class="quiz-option" data-value="high" onclick="answer(3,this)">
+          <span class="icon">📊</span>
+          <div><div class="label">30+ calls/day</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-question" data-q="4">
+      <h2>What's your monthly budget for automation?</h2>
+      <p class="subtitle">No wrong answer — we have options for every level.</p>
+      <div class="quiz-options">
+        <div class="quiz-option" data-value="starter" onclick="answer(4,this)">
+          <span class="icon">🌱</span>
+          <div><div class="label">Under $300/month</div><div class="desc">Just getting started</div></div>
+        </div>
+        <div class="quiz-option" data-value="growth" onclick="answer(4,this)">
+          <span class="icon">🚀</span>
+          <div><div class="label">$300–$700/month</div><div class="desc">Ready to invest in growth</div></div>
+        </div>
+        <div class="quiz-option" data-value="scale" onclick="answer(4,this)">
+          <span class="icon">💎</span>
+          <div><div class="label">$700+/month</div><div class="desc">Want the full automation stack</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-question" data-q="5">
+      <h2>How tech-savvy are you?</h2>
+      <p class="subtitle">Be honest — we set everything up for you either way.</p>
+      <div class="quiz-options">
+        <div class="quiz-option" data-value="low-tech" onclick="answer(5,this)">
+          <span class="icon">🤷</span>
+          <div><div class="label">"Just make it work"</div><div class="desc">I don't want to touch anything technical</div></div>
+        </div>
+        <div class="quiz-option" data-value="mid-tech" onclick="answer(5,this)">
+          <span class="icon">👍</span>
+          <div><div class="label">I can handle a dashboard</div><div class="desc">Comfortable with basic apps & settings</div></div>
+        </div>
+        <div class="quiz-option" data-value="high-tech" onclick="answer(5,this)">
+          <span class="icon">⚡</span>
+          <div><div class="label">I'm pretty technical</div><div class="desc">I want to see how everything works</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="quiz-results" id="results">
+      <div class="result-card">
+        <span class="badge">🎯 #1 Recommendation</span>
+        <h2 id="rec-title"></h2>
+        <div class="price" id="rec-price"></div>
+        <p id="rec-desc"></p>
+      </div>
+      <div class="result-extras">
+        <h3>Also great for your business:</h3>
+        <div id="extras"></div>
+      </div>
+      <div class="result-cta">
+        <a href="book-demo.html" class="btn">Book a Free Demo →</a>
+        <p>15 minutes. No pressure. See it in action.</p>
+      </div>
+      <div style="text-align:center">
+        <span class="restart-link" onclick="restart()">↩ Retake quiz</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const answers = {};
+    const totalQ = 5;
+
+    function answer(q, el) {
+      answers[q] = el.dataset.value;
+      // Update progress
+      document.querySelectorAll('.quiz-progress .bar').forEach((b, i) => {
+        b.classList.toggle('active', i < q);
+      });
+      // Next question or results
+      if (q < totalQ) {
+        document.querySelector(`.quiz-question[data-q="${q}"]`).classList.remove('active');
+        const next = document.querySelector(`.quiz-question[data-q="${q + 1}"]`);
+        next.classList.add('active');
+        // re-trigger animation
+        next.style.animation = 'none';
+        next.offsetHeight;
+        next.style.animation = '';
+      } else {
+        document.querySelector(`.quiz-question[data-q="${q}"]`).classList.remove('active');
+        document.getElementById('progress').style.display = 'none';
+        showResults();
+      }
+    }
+
+    const products = {
+      'missed-call-textback': {
+        title: 'Missed Call Text-Back',
+        price: 'Starting at $150/mo',
+        desc: 'Never lose a lead again. When you miss a call, an instant text goes out automatically — "Hey, sorry we missed you! How can we help?" Most customers reply within minutes. Businesses using this recover 30-40% of missed calls.',
+        icon: '📞'
+      },
+      'review-bot': {
+        title: 'Google Review Automation',
+        price: 'Starting at $150/mo',
+        desc: 'Automatically send every happy customer a review request via text. Our clients see 3-5x more reviews within the first month. More reviews = higher Google ranking = more customers finding you.',
+        icon: '⭐'
+      },
+      'ai-phone': {
+        title: 'AI Phone Answering Agent',
+        price: 'Starting at $500/mo',
+        desc: 'A virtual receptionist that answers every call 24/7, books appointments, answers FAQs, and routes urgent calls — all in a natural voice. Like hiring a full-time receptionist for a fraction of the cost.',
+        icon: '🤖'
+      },
+      'appointment-reminders': {
+        title: 'Smart Appointment Reminders',
+        price: 'Starting at $150/mo',
+        desc: 'Reduce no-shows by up to 70% with automated text and email reminders. Sends 24h and 1h before appointments with easy confirm/reschedule options. Fills cancelled slots automatically.',
+        icon: '📅'
+      },
+      'lead-nurture': {
+        title: 'AI Lead Nurture & Follow-Up',
+        price: 'Starting at $300/mo',
+        desc: 'Automatically follow up with every lead via text and email. Personalized sequences that feel human. Keeps leads warm until they\'re ready to buy — without you lifting a finger.',
+        icon: '💬'
+      },
+      'sms-marketing': {
+        title: 'SMS Marketing Campaigns',
+        price: 'Starting at $300/mo',
+        desc: 'Send targeted text campaigns to your customer list — promotions, seasonal offers, loyalty rewards. 98% open rate (vs 20% for email). The most direct line to your customers.',
+        icon: '📱'
+      }
+    };
+
+    function showResults() {
+      const pain = answers[2];
+      const budget = answers[4];
+      const calls = answers[3];
+
+      // Primary recommendation based on pain point
+      let primary, extras = [];
+
+      if (pain === 'missed-calls') {
+        primary = calls === 'high' || budget !== 'starter' ? 'ai-phone' : 'missed-call-textback';
+        extras = primary === 'ai-phone' ? ['missed-call-textback', 'review-bot'] : ['review-bot', 'lead-nurture'];
+      } else if (pain === 'reviews') {
+        primary = 'review-bot';
+        extras = ['missed-call-textback', 'sms-marketing'];
+      } else if (pain === 'no-shows') {
+        primary = 'appointment-reminders';
+        extras = ['review-bot', 'missed-call-textback'];
+      } else if (pain === 'follow-up') {
+        primary = 'lead-nurture';
+        extras = ['missed-call-textback', 'review-bot'];
+      } else if (pain === 'marketing') {
+        primary = 'sms-marketing';
+        extras = ['review-bot', 'lead-nurture'];
+      }
+
+      // Upgrade if budget allows
+      if (budget === 'scale' && primary !== 'ai-phone') {
+        extras.unshift(primary);
+        primary = 'ai-phone';
+        extras = extras.filter(e => e !== 'ai-phone').slice(0, 2);
+      }
+
+      const p = products[primary];
+      document.getElementById('rec-title').textContent = p.title;
+      document.getElementById('rec-price').textContent = p.price;
+      document.getElementById('rec-desc').textContent = p.desc;
+
+      let extrasHTML = '';
+      extras.forEach(key => {
+        const e = products[key];
+        extrasHTML += `<div class="extra-card"><span class="icon">${e.icon}</span><div><div class="name">${e.title}</div><div class="reason">${e.price}</div></div></div>`;
+      });
+      document.getElementById('extras').innerHTML = extrasHTML;
+      document.getElementById('results').classList.add('active');
+    }
+
+    function restart() {
+      Object.keys(answers).forEach(k => delete answers[k]);
+      document.getElementById('results').classList.remove('active');
+      document.getElementById('progress').style.display = 'flex';
+      document.querySelectorAll('.quiz-question').forEach((q, i) => {
+        q.classList.toggle('active', i === 0);
+      });
+      document.querySelectorAll('.quiz-progress .bar').forEach((b, i) => {
+        b.classList.toggle('active', i === 0);
+      });
+    }
+  </script>
+</body>
+</html>
