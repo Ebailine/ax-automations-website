@@ -3,17 +3,19 @@
 
 :root {
   --white: #ffffff;
-  --bg: #fafafa;
+  --bg: #f8fafc;
   --surface: #ffffff;
-  --border: #e8e8e8;
-  --border-light: #f0f0f0;
-  --text: #111111;
-  --text-secondary: #555555;
-  --text-muted: #888888;
-  --accent: #111111;
-  --accent-soft: #f5f5f5;
-  --accent-blue: #2563eb;
-  --green: #059669;
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  --text: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent: #0f172a;
+  --accent-soft: #f1f5f9;
+  --accent-blue: #3b82f6;
+  --accent-amber: #f59e0b;
+  --green: #10b981;
+  --navy: #0f172a;
   --radius: 12px;
   --radius-sm: 8px;
   --radius-lg: 20px;
@@ -87,15 +89,15 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
 }
 
 .btn-primary {
-  background: var(--text);
+  background: var(--accent-blue);
   color: var(--white);
   padding: 14px 28px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(59,130,246,0.15), 0 1px 2px rgba(59,130,246,0.1);
 }
 .btn-primary:hover {
-  background: #333;
+  background: #2563eb;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 14px rgba(59,130,246,0.3);
 }
 
 .btn-ghost {
@@ -109,10 +111,11 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
   padding: 8px 18px;
   font-size: 0.8125rem;
   border-radius: var(--radius-sm);
-  background: var(--text);
+  background: var(--accent-blue);
   color: var(--white);
+  transition: all var(--transition);
 }
-.btn-sm:hover { background: #333; }
+.btn-sm:hover { background: #2563eb; transform: translateY(-1px); }
 
 .btn-lg {
   padding: 18px 40px;
@@ -127,10 +130,10 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-light);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
 }
 
@@ -200,12 +203,13 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
 .hero-badge {
   display: inline-block;
   font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  background: var(--accent-soft);
+  font-weight: 600;
+  color: var(--accent-amber);
+  background: #fffbeb;
   padding: 6px 14px;
   border-radius: 100px;
   margin-bottom: 24px;
+  border: 1px solid #fef3c7;
 }
 
 .hero-sub {
@@ -252,16 +256,16 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
 .phone-mockup {
   width: 280px;
   margin: 0 auto;
-  background: var(--text);
+  background: var(--navy);
   border-radius: 36px;
   padding: 12px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.06);
+  box-shadow: 0 25px 60px rgba(15,23,42,0.18), 0 0 0 1px rgba(15,23,42,0.08);
 }
 
 .phone-notch {
   width: 100px;
   height: 24px;
-  background: var(--text);
+  background: var(--navy);
   border-radius: 0 0 16px 16px;
   margin: 0 auto -12px;
   position: relative;
@@ -401,17 +405,19 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
 
 .service-card {
   padding: 36px 32px;
+  background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .service-card:hover {
-  border-color: #ccc;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-  transform: translateY(-2px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 30px rgba(59,130,246,0.08);
+  transform: translateY(-3px);
 }
 
 .service-icon {
@@ -420,10 +426,10 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-soft);
+  background: #eff6ff;
   border-radius: 10px;
   margin-bottom: 20px;
-  color: var(--text);
+  color: var(--accent-blue);
 }
 
 .service-card h3 {
@@ -477,12 +483,13 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
   border-radius: var(--radius);
   padding: 36px 32px;
   transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .result-card:hover {
-  border-color: #ccc;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-  transform: translateY(-2px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 30px rgba(59,130,246,0.08);
+  transform: translateY(-3px);
 }
 
 .result-type {
@@ -567,7 +574,7 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
 }
 
 .comparison-header {
-  background: var(--text);
+  background: var(--navy);
   color: var(--white);
   font-weight: 600;
   font-size: 0.9375rem;
@@ -734,6 +741,8 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
 .final-cta {
   padding: 120px 0;
   text-align: center;
+  background: var(--navy);
+  color: var(--white);
 }
 
 .final-cta h2 {
@@ -742,17 +751,26 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
 
 .final-cta p {
   font-size: 1.125rem;
-  color: var(--text-secondary);
+  color: #94a3b8;
   max-width: 480px;
   margin: 0 auto 40px;
   line-height: 1.65;
+}
+
+.final-cta .btn-primary {
+  background: var(--accent-amber);
+  color: var(--navy);
+}
+.final-cta .btn-primary:hover {
+  background: #eab308;
+  box-shadow: 0 4px 14px rgba(245,158,11,0.3);
 }
 
 .cta-note {
   display: block;
   margin-top: 16px;
   font-size: 0.8125rem;
-  color: var(--text-muted);
+  color: #64748b;
 }
 
 /* === FOOTER === */
@@ -894,7 +912,7 @@ h4 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-s
     font-size: 0.8125rem;
     padding: 12px 24px 4px;
   }
-  .comparison-header > div:first-child { background: var(--text); }
+  .comparison-header > div:first-child { background: var(--navy); }
   .comparison-without, .comparison-with { padding-top: 4px !important; padding-bottom: 12px !important; }
 
   .results, .comparison { padding: 80px 0; }
