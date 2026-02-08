@@ -20,7 +20,6 @@
   <meta name="twitter:description" content="AI-powered phone answering, missed call text-back, and review automation for small businesses.">
   <meta name="twitter:image" content="https://axautomations.com/og-image.png">
 
-  <!-- Additional SEO -->
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://axautomations.com/">
 
@@ -29,9 +28,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <!-- GA: paste tracking code here -->
 
-  <!-- LocalBusiness Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,6 +61,7 @@
   </script>
 </head>
 <body>
+
   <!-- Nav -->
   <nav class="nav" aria-label="Main navigation" id="nav">
     <div class="container nav-inner">
@@ -71,17 +69,14 @@
         <span class="logo-mark">⚡</span> Ax Automations
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#problem">Why</a>
+        <a href="#demo">Demo</a>
         <a href="#services">Services</a>
-        <a href="#results">Results</a>
         <a href="#how">How It Works</a>
         <a href="#about">About</a>
         <a href="pricing.html">Pricing</a>
-        <a href="compare.html">Compare</a>
-        <a href="quiz.html">Free Quiz</a>
         <a href="#faq">FAQ</a>
       </div>
-      <a href="book-demo.html" class="btn btn-sm">Book a Demo</a>
+      <a href="book-demo.html" class="btn btn-nav">Book a Demo</a>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -90,58 +85,43 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
+    <div class="container hero-grid">
       <div class="hero-content">
-        <div class="hero-badge fade-in">For small businesses that can't afford to miss calls</div>
-        <h1 class="fade-in delay-1">Your phone rings.<br>Nobody answers.<br><span class="text-accent">You just lost $1,200.</span></h1>
-        <p class="hero-sub fade-in delay-2">62% of calls to small businesses go unanswered (<a href="https://www.forbes.com/sites/forbestechcouncil/2023/03/28/the-importance-of-answering-every-phone-call/" style="color:var(--accent-blue)">Forbes</a>). Every missed call is a missed customer. We set up AI that picks up, texts back, and follows up so you never have to choose between doing the work and answering the phone.</p>
-        <div class="hero-ctas fade-in delay-3">
+        <h1 class="fade-in">Every missed call is a customer calling your competitor.</h1>
+        <p class="hero-sub fade-in delay-1">AI that answers your phone, texts back missed callers, and books appointments. So you can do the actual work.</p>
+        <div class="hero-ctas fade-in delay-2">
           <a href="book-demo.html" class="btn btn-primary">Book a Free Demo</a>
-          <a href="#services" class="btn btn-ghost">See How It Works →</a>
-        </div>
-        <div class="hero-proof fade-in delay-4">
-          <div class="proof-item">
-            <span class="proof-num">62%</span>
-            <span class="proof-label">of SMB calls go unanswered*</span>
-          </div>
-          <div class="proof-divider"></div>
-          <div class="proof-item">
-            <span class="proof-num">5 min</span>
-            <span class="proof-label">response = 100x more connects*</span>
-          </div>
-          <div class="proof-divider"></div>
-          <div class="proof-item">
-            <span class="proof-num">$0</span>
-            <span class="proof-label">to try. Free demo</span>
-          </div>
         </div>
       </div>
-      <div class="hero-visual fade-in delay-3">
+      <div class="hero-visual fade-in delay-2">
         <div class="phone-mockup">
           <div class="phone-notch"></div>
           <div class="phone-screen">
-            <div class="phone-header">
-              <span class="phone-time">9:41</span>
-              <span class="phone-status">●●● ▶ ■</span>
+            <div class="phone-status-bar">
+              <span>9:41</span>
+              <span class="phone-icons">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+              </span>
             </div>
-            <div class="chat-messages">
-              <div class="chat-bubble incoming">
-                <div class="chat-name">Ax Automations</div>
-                <div class="chat-text">Hi! Thanks for calling Mike's Plumbing. We missed your call. How can we help?</div>
-                <div class="chat-time">9:41 AM</div>
+            <div class="phone-call-missed" id="heroMissedCall">
+              <div class="missed-call-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
-              <div class="chat-bubble outgoing">
-                <div class="chat-text">I have a leak in my kitchen, need someone ASAP</div>
-                <div class="chat-time">9:42 AM</div>
+              <div class="missed-call-text">
+                <span class="missed-label">Missed Call</span>
+                <span class="missed-number">Philadelphia, PA</span>
               </div>
-              <div class="chat-bubble incoming">
-                <div class="chat-name">Ax Automations</div>
-                <div class="chat-text">We can have someone there today. Does 2 PM work? I'll confirm with Mike right now.</div>
-                <div class="chat-time">9:42 AM</div>
+              <span class="missed-time">9:41 AM</span>
+            </div>
+            <div class="chat-container" id="heroChatContainer">
+              <div class="chat-header-bar">
+                <span class="chat-header-name">Ax Automations</span>
+                <span class="chat-header-tag">AI Assistant</span>
               </div>
-              <div class="chat-bubble outgoing">
-                <div class="chat-text">Perfect, 2 PM works great!</div>
-                <div class="chat-time">9:43 AM</div>
+              <div class="chat-messages" id="heroChatMessages"></div>
+              <div class="typing-indicator" id="heroTyping">
+                <span></span><span></span><span></span>
               </div>
             </div>
           </div>
@@ -150,31 +130,166 @@
     </div>
   </section>
 
-  <!-- Problem -->
-  <section class="problem" id="problem">
+  <!-- Interactive Demo -->
+  <section class="demo" id="demo">
     <div class="container">
-      <div class="section-label fade-in">The Problem</div>
-      <h2 class="fade-in">You're losing customers<br>right now. Here's how.</h2>
-      <div class="problem-grid">
-        <div class="problem-card fade-in">
-          <div class="problem-stat">62%</div>
-          <p>of phone calls to small businesses go unanswered. <span style="font-size:0.8rem;opacity:0.7">(Forbes, 2023)</span></p>
+      <div class="section-header fade-in">
+        <p class="section-label">See It In Action</p>
+        <h2>Watch the AI work in real time.</h2>
+      </div>
+      <div class="demo-tabs fade-in">
+        <button class="demo-tab active" data-tab="missed-call">Missed Call Recovery</button>
+        <button class="demo-tab" data-tab="review">Review Automation</button>
+        <button class="demo-tab" data-tab="ai-phone">AI Phone Agent</button>
+      </div>
+      <div class="demo-panels">
+        <!-- Missed Call Recovery -->
+        <div class="demo-panel active" id="panel-missed-call">
+          <div class="demo-phone fade-in">
+            <div class="demo-phone-frame">
+              <div class="demo-steps-visual">
+                <div class="demo-step-item active" data-step="0">
+                  <div class="demo-step-icon ringing">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div class="demo-step-text">
+                    <strong>Incoming call</strong>
+                    <span>Customer calls your business</span>
+                  </div>
+                </div>
+                <div class="demo-step-connector"></div>
+                <div class="demo-step-item" data-step="1">
+                  <div class="demo-step-icon missed">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div class="demo-step-text">
+                    <strong>Call missed</strong>
+                    <span>You're busy with a customer</span>
+                  </div>
+                </div>
+                <div class="demo-step-connector"></div>
+                <div class="demo-step-item" data-step="2">
+                  <div class="demo-step-icon texted">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                  <div class="demo-step-text">
+                    <strong>AI texts back instantly</strong>
+                    <span>"Sorry we missed you! How can we help?"</span>
+                  </div>
+                </div>
+                <div class="demo-step-connector"></div>
+                <div class="demo-step-item" data-step="3">
+                  <div class="demo-step-icon reply">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  </div>
+                  <div class="demo-step-text">
+                    <strong>Customer replies</strong>
+                    <span>"I need an appointment this week"</span>
+                  </div>
+                </div>
+                <div class="demo-step-connector"></div>
+                <div class="demo-step-item" data-step="4">
+                  <div class="demo-step-icon booked">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  </div>
+                  <div class="demo-step-text">
+                    <strong>Appointment booked</strong>
+                    <span>Customer saved. Revenue kept.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="problem-card fade-in">
-          <div class="problem-stat">$1,200</div>
-          <p>is the average lifetime value of one customer. Miss the call, miss the money. It's that simple.</p>
+
+        <!-- Review Automation -->
+        <div class="demo-panel" id="panel-review">
+          <div class="demo-phone fade-in">
+            <div class="demo-phone-frame">
+              <div class="review-demo">
+                <div class="review-step active" data-step="0">
+                  <div class="review-phone-mockup">
+                    <div class="review-sms">
+                      <p class="review-sms-sender">Mike's Plumbing</p>
+                      <p class="review-sms-text">Thanks for choosing us today! If you have a moment, we'd love a quick review. It really helps.</p>
+                      <a class="review-sms-link">⭐ Leave a Review</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-step" data-step="1">
+                  <div class="review-stars-display">
+                    <div class="review-stars-row">
+                      <span class="review-star" data-i="1">★</span>
+                      <span class="review-star" data-i="2">★</span>
+                      <span class="review-star" data-i="3">★</span>
+                      <span class="review-star" data-i="4">★</span>
+                      <span class="review-star" data-i="5">★</span>
+                    </div>
+                    <p class="review-tap-text">Customer taps 5 stars</p>
+                  </div>
+                </div>
+                <div class="review-step" data-step="2">
+                  <div class="review-result">
+                    <div class="review-rating-card">
+                      <p class="review-biz-name">Mike's Plumbing</p>
+                      <div class="review-rating-number" id="reviewCounter">4.2</div>
+                      <div class="review-rating-stars">★★★★★</div>
+                      <p class="review-rating-count"><span id="reviewCount">47</span> reviews on Google</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="problem-card fade-in">
-          <div class="problem-stat">85%</div>
-          <p>of callers who reach voicemail won't call back. They call your competitor instead. <span style="font-size:0.8rem;opacity:0.7">(Vonage)</span></p>
-        </div>
-        <div class="problem-card fade-in">
-          <div class="problem-stat">53%</div>
-          <p>of consumers won't use a business with less than 4 stars. Reviews aren't optional. They're revenue. <span style="font-size:0.8rem;opacity:0.7">(BrightLocal, 2023)</span></p>
+
+        <!-- AI Phone Agent -->
+        <div class="demo-panel" id="panel-ai-phone">
+          <div class="demo-phone fade-in">
+            <div class="demo-phone-frame">
+              <div class="ai-phone-demo">
+                <div class="ai-call-active" id="aiCallActive">
+                  <div class="ai-call-status">
+                    <div class="ai-waveform">
+                      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <p class="ai-call-label">AI Agent is speaking...</p>
+                    <p class="ai-call-duration" id="aiCallTimer">0:00</p>
+                  </div>
+                </div>
+                <div class="ai-transcript" id="aiTranscript"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="problem-bottom fade-in">
-        <p class="problem-kicker">You didn't start your business to stare at your phone all day.<br>But ignoring it is costing you thousands.</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card fade-in">
+          <div class="stat-number" data-target="62" data-suffix="%">0%</div>
+          <p class="stat-desc">of calls to small businesses go unanswered</p>
+          <cite class="stat-source"><a href="https://www.forbes.com/advisor/business/software/missed-call-statistics/">Forbes, 2023</a></cite>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number" data-target="85" data-suffix="%">0%</div>
+          <p class="stat-desc">of callers who reach voicemail won't call back</p>
+          <cite class="stat-source">Vonage Research, 2019</cite>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number" data-target="100" data-suffix="x">0x</div>
+          <p class="stat-desc">more likely to connect when you respond within 5 minutes</p>
+          <cite class="stat-source">Harvard Business Review, 2011</cite>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-number" data-target="9" data-suffix="%" data-prefix="+">0%</div>
+          <p class="stat-desc">revenue increase per additional star on review sites</p>
+          <cite class="stat-source">Harvard Business School, 2016</cite>
+        </div>
       </div>
     </div>
   </section>
@@ -182,19 +297,21 @@
   <!-- Services -->
   <section class="services" id="services">
     <div class="container">
-      <div class="section-label fade-in">What We Do</div>
-      <h2 class="fade-in">Six tools that pay for themselves.</h2>
-      <p class="section-desc fade-in">No fluff. Every service has a clear job: make you money or save you time. Usually both.</p>
+      <div class="section-header fade-in">
+        <p class="section-label">Services</p>
+        <h2>Six tools that pay for themselves.</h2>
+        <p class="section-desc">No fluff. Every service has a clear job: make you money or save you time.</p>
+      </div>
       <div class="services-grid">
         <div class="service-card fade-in">
           <div class="service-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
           <h3>AI Phone Answering</h3>
-          <p>An AI receptionist that picks up every call, answers common questions, and books appointments. It won't replace a human, but it's way better than voicemail.</p>
+          <p>An AI receptionist that picks up every call, answers common questions, and books appointments. Way better than voicemail.</p>
           <div class="service-meta">
             <span class="service-price">From $297/mo</span>
-            <span class="service-roi">24/7 coverage</span>
+            <span class="service-tag">24/7 coverage</span>
           </div>
         </div>
         <div class="service-card fade-in">
@@ -202,10 +319,10 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
           <h3>Missed Call Text-Back</h3>
-          <p>Can't pick up? Within 30 seconds, your missed caller gets a text: "Hey, sorry we missed you! How can we help?" Keeps the conversation alive.</p>
+          <p>Can't pick up? Within 30 seconds, your missed caller gets a text. Keeps the conversation alive instead of losing them forever.</p>
           <div class="service-meta">
             <span class="service-price">From $97/mo</span>
-            <span class="service-roi">Responds in under 30 sec</span>
+            <span class="service-tag">Under 30 sec response</span>
           </div>
         </div>
         <div class="service-card fade-in">
@@ -213,10 +330,10 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
           <h3>Google Review Automation</h3>
-          <p>After every job, your customer gets a friendly text asking for a review. One tap, done. Watch your rating climb without lifting a finger.</p>
+          <p>After every job, your customer gets a friendly text asking for a review. One tap, done. Watch your rating climb.</p>
           <div class="service-meta">
             <span class="service-price">From $147/mo</span>
-            <span class="service-roi">One-tap review link</span>
+            <span class="service-tag">One-tap review link</span>
           </div>
         </div>
         <div class="service-card fade-in">
@@ -227,7 +344,7 @@
           <p>Send targeted texts to your customer list: promos, seasonal offers, appointment reminders. 98% open rate beats email every time.</p>
           <div class="service-meta">
             <span class="service-price">From $147/mo</span>
-            <span class="service-roi">98% open rate (industry avg)</span>
+            <span class="service-tag">98% open rate</span>
           </div>
         </div>
         <div class="service-card fade-in">
@@ -235,10 +352,10 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <h3>Lead Follow-Up</h3>
-          <p>New lead comes in? They get a text in under a minute. Then another in an hour. Then tomorrow. Automated sequences that close deals while you work.</p>
+          <p>New lead comes in? They get a text in under a minute. Then another in an hour. Automated sequences that close deals while you work.</p>
           <div class="service-meta">
             <span class="service-price">From $197/mo</span>
-            <span class="service-roi">Automated sequences</span>
+            <span class="service-tag">Automated sequences</span>
           </div>
         </div>
         <div class="service-card fade-in">
@@ -246,104 +363,37 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3>Reputation Management</h3>
-          <p>Monitor every review across Google, Yelp, and Facebook. Get alerted instantly. Respond fast before a 1-star review tanks your ranking.</p>
+          <p>Monitor every review across Google, Yelp, and Facebook. Get alerted instantly. Respond fast before a bad review tanks your ranking.</p>
           <div class="service-meta">
             <span class="service-price">From $97/mo</span>
-            <span class="service-roi">Protect your 4.5+ rating</span>
+            <span class="service-tag">Real-time alerts</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why It Works — Industry Stats -->
-  <section class="results" id="results">
+  <!-- Social Proof -->
+  <section class="social-proof">
     <div class="container">
-      <div class="section-label fade-in">Why This Works</div>
-      <h2 class="fade-in">We're not making these numbers up.<br>Here's what the research says.</h2>
-      <p class="section-desc fade-in">We're a new company, so we don't have client testimonials yet. But the data behind what we do is solid.</p>
-      <div class="results-grid">
-        <div class="result-card fade-in">
-          <div class="result-type">📊 Speed Matters</div>
-          <h3>The 5-Minute Rule</h3>
-          <div class="result-metric">100x more likely to connect</div>
-          <div class="result-stats">
-            <div class="result-stat">
-              <span class="result-label">Source</span>
-              <span class="result-value">Harvard Business Review</span>
-            </div>
+      <div class="proof-bar fade-in">
+        <p class="proof-text">Built with the same AI that powers</p>
+        <div class="proof-logos">
+          <div class="proof-logo">
+            <svg width="80" height="20" viewBox="0 0 80 20" fill="var(--text-muted)">
+              <text x="0" y="15" font-family="Inter, sans-serif" font-weight="600" font-size="14">OpenAI</text>
+            </svg>
           </div>
-          <div class="result-extra">Businesses that respond to leads within 5 minutes are 100x more likely to connect than those that wait 30 minutes.</div>
-          <blockquote class="result-quote" style="border:none;padding-top:8px;font-size:0.8rem;opacity:0.7"><cite>— "The Short Life of Online Sales Leads," HBR, 2011</cite></blockquote>
-        </div>
-        <div class="result-card fade-in">
-          <div class="result-type">📞 Missed Calls = Lost Money</div>
-          <h3>They Won't Call Back</h3>
-          <div class="result-metric">85% won't leave a voicemail</div>
-          <div class="result-stats">
-            <div class="result-stat">
-              <span class="result-label">Source</span>
-              <span class="result-value">Forbes / Vonage Research</span>
-            </div>
+          <div class="proof-logo">
+            <svg width="80" height="20" viewBox="0 0 80 20" fill="var(--text-muted)">
+              <text x="0" y="15" font-family="Inter, sans-serif" font-weight="600" font-size="14">Twilio</text>
+            </svg>
           </div>
-          <div class="result-extra">When a call goes unanswered, 85% of callers won't try again. They just call the next business on Google.</div>
-          <blockquote class="result-quote" style="border:none;padding-top:8px;font-size:0.8rem;opacity:0.7"><cite>— Vonage / NewVoiceMedia research, 2019</cite></blockquote>
-        </div>
-        <div class="result-card fade-in">
-          <div class="result-type">⭐ Reviews Drive Revenue</div>
-          <h3>Stars = Dollars</h3>
-          <div class="result-metric">9% revenue per star on Yelp</div>
-          <div class="result-stats">
-            <div class="result-stat">
-              <span class="result-label">Source</span>
-              <span class="result-value">Harvard Business School</span>
-            </div>
+          <div class="proof-logo">
+            <svg width="80" height="20" viewBox="0 0 80 20" fill="var(--text-muted)">
+              <text x="0" y="15" font-family="Inter, sans-serif" font-weight="600" font-size="14">Google</text>
+            </svg>
           </div>
-          <div class="result-extra">A one-star increase on Yelp leads to a 5–9% increase in revenue for independent restaurants.</div>
-          <blockquote class="result-quote" style="border:none;padding-top:8px;font-size:0.8rem;opacity:0.7"><cite>— Michael Luca, Harvard Business School, 2016</cite></blockquote>
-        </div>
-      </div>
-      <div class="problem-bottom fade-in" style="margin-top:40px">
-        <p class="problem-kicker"><strong>Want to be one of our first clients?</strong> We're offering pilot pricing for early adopters. <a href="book-demo.html" style="color:var(--accent-blue);text-decoration:underline">Let's talk →</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Comparison Table -->
-  <section class="comparison" id="comparison">
-    <div class="container">
-      <div class="section-label fade-in">The Difference</div>
-      <h2 class="fade-in">Without Ax vs. With Ax</h2>
-      <div class="comparison-table fade-in">
-        <div class="comparison-header">
-          <div class="comparison-feature"></div>
-          <div class="comparison-without">Without Ax ❌</div>
-          <div class="comparison-with">With Ax ⚡</div>
-        </div>
-        <div class="comparison-row">
-          <div class="comparison-feature">Missed Calls</div>
-          <div class="comparison-without">62% go unanswered</div>
-          <div class="comparison-with">Under 5% missed</div>
-        </div>
-        <div class="comparison-row">
-          <div class="comparison-feature">Review Response Time</div>
-          <div class="comparison-without">Days (or never)</div>
-          <div class="comparison-with">Under 1 hour</div>
-        </div>
-        <div class="comparison-row">
-          <div class="comparison-feature">Lead Follow-Up Speed</div>
-          <div class="comparison-without">Hours or next day</div>
-          <div class="comparison-with">Under 60 seconds</div>
-        </div>
-        <div class="comparison-row">
-          <div class="comparison-feature">After-Hours Coverage</div>
-          <div class="comparison-without">Voicemail</div>
-          <div class="comparison-with">24/7 AI + text-back</div>
-        </div>
-        <div class="comparison-row">
-          <div class="comparison-feature">Monthly Cost</div>
-          <div class="comparison-without">$3,200+ (staff hire)</div>
-          <div class="comparison-with">From $97/mo</div>
         </div>
       </div>
     </div>
@@ -352,33 +402,54 @@
   <!-- How It Works -->
   <section class="how" id="how">
     <div class="container">
-      <div class="section-label fade-in">How It Works</div>
-      <h2 class="fade-in">Up and running in 48 hours.<br>Not 48 days.</h2>
-      <div class="steps">
-        <div class="step fade-in">
-          <div class="step-num">01</div>
-          <div class="step-content">
-            <h3>We talk</h3>
-            <p>15-minute call. You tell me what's going on: missed calls, no reviews, leads ghosting you. I'll figure out what actually makes sense for your business. No pitch deck.</p>
-          </div>
-        </div>
-        <div class="step fade-in">
-          <div class="step-num">02</div>
-          <div class="step-content">
-            <h3>We build</h3>
-            <p>I set everything up. Your AI receptionist, text-back flows, review requests. Customized to your business, your hours, your style. You approve it before anything goes live.</p>
-          </div>
-        </div>
-        <div class="step fade-in">
-          <div class="step-num">03</div>
-          <div class="step-content">
-            <h3>You grow</h3>
-            <p>Calls get answered. Leads get followed up. Reviews roll in. You check your dashboard, see the numbers, and wonder why you didn't do this sooner.</p>
-          </div>
-        </div>
+      <div class="section-header fade-in">
+        <p class="section-label">How It Works</p>
+        <h2>Up and running in 48 hours.</h2>
       </div>
-      <div class="how-cta fade-in">
-        <a href="book-demo.html" class="btn btn-primary">Book Your Free Demo →</a>
+      <div class="steps-grid">
+        <div class="step-card fade-in">
+          <div class="step-number">1</div>
+          <div class="step-illustration">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="20" stroke="var(--blue)" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <circle cx="24" cy="18" r="6" stroke="var(--blue)" stroke-width="1.5"/>
+              <path d="M12 38c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>We talk</h3>
+          <p>15-minute call. You tell me what's going on. I'll figure out what actually makes sense for your business.</p>
+        </div>
+        <div class="step-connector fade-in">
+          <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--border)" stroke-width="2" stroke-dasharray="6 4"/></svg>
+        </div>
+        <div class="step-card fade-in">
+          <div class="step-number">2</div>
+          <div class="step-illustration">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <rect x="8" y="8" width="32" height="32" rx="6" stroke="var(--blue)" stroke-width="1.5"/>
+              <path d="M16 24h16M16 18h10M16 30h12" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>We build</h3>
+          <p>I set everything up: AI receptionist, text-back flows, review requests. Customized to your business. You approve before anything goes live.</p>
+        </div>
+        <div class="step-connector fade-in">
+          <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--border)" stroke-width="2" stroke-dasharray="6 4"/></svg>
+        </div>
+        <div class="step-card fade-in">
+          <div class="step-number">3</div>
+          <div class="step-illustration">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <path d="M12 32l8-8 6 6 10-14" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="32" r="2.5" fill="var(--blue)"/>
+              <circle cx="20" cy="24" r="2.5" fill="var(--blue)"/>
+              <circle cx="26" cy="30" r="2.5" fill="var(--blue)"/>
+              <circle cx="36" cy="16" r="2.5" fill="var(--blue)"/>
+            </svg>
+          </div>
+          <h3>You grow</h3>
+          <p>Calls get answered. Leads get followed up. Reviews roll in. You check your dashboard and wonder why you didn't do this sooner.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -386,14 +457,21 @@
   <!-- About -->
   <section class="about" id="about">
     <div class="container">
-      <div class="about-inner fade-in">
-        <div class="section-label">About</div>
-        <h2>Built by a college student who got tired of seeing local businesses lose to voicemail.</h2>
-        <p class="about-text">I'm Ethan, a 21-year-old finance student at Drexel University in Philadelphia. I started Ax Automations after watching my friends' parents lose customers because they couldn't answer the phone while doing the actual work.</p>
-        <p class="about-text">A plumber can't pick up mid-job. A dentist can't pause a filling. A salon owner has scissors in their hands. But their customers don't wait. They call the next place on Google.</p>
-        <p class="about-text">So I built a system using AI tools that already exist (OpenAI, Twilio, etc.) and packaged them so small businesses don't need to be tech-savvy to use them. I handle the setup, the tech, and the monitoring. You just run your business.</p>
-        <p class="about-text"><strong>We're new.</strong> I'm not going to pretend we've been around for 10 years. But the technology we use isn't new, and I'm betting my reputation on every client we take on. No contracts, no BS. If it doesn't work, you stop paying.</p>
-        <p class="about-text muted">Yes, I answer my own phone too. (215) 769-9707.</p>
+      <div class="about-grid fade-in">
+        <div class="about-avatar">
+          <div class="avatar-placeholder">
+            <span>E</span>
+          </div>
+        </div>
+        <div class="about-content">
+          <p class="section-label">About</p>
+          <h2>Built by Ethan, a Drexel student who got tired of watching local businesses lose money to voicemail.</h2>
+          <p>I'm 21, studying finance at Drexel University in Philadelphia. I started Ax Automations after watching my friends' parents lose customers because they couldn't answer the phone while doing the actual work.</p>
+          <p>A plumber can't pick up mid-job. A dentist can't pause a filling. But their customers don't wait. They call the next place on Google.</p>
+          <p>So I built a system using AI tools that already exist (OpenAI, Twilio, Google) and packaged them so small businesses don't need to be tech-savvy to use them. I handle the setup, the tech, and the monitoring. You just run your business.</p>
+          <p><strong>We're new.</strong> I'm not going to pretend we've been around for 10 years. But the technology isn't new, and I'm betting my reputation on every client we take on. No contracts. If it doesn't work, you stop paying.</p>
+          <p class="about-phone">Yes, I answer my own phone too: <a href="tel:+12157699707">(215) 769-9707</a></p>
+        </div>
       </div>
     </div>
   </section>
@@ -401,12 +479,14 @@
   <!-- FAQ -->
   <section class="faq" id="faq">
     <div class="container">
-      <div class="section-label fade-in">FAQ</div>
-      <h2 class="fade-in">Questions we get a lot.</h2>
+      <div class="section-header fade-in">
+        <p class="section-label">FAQ</p>
+        <h2>Questions we get a lot.</h2>
+      </div>
       <div class="faq-list">
         <details class="faq-item fade-in">
           <summary>Will my customers know they're talking to AI?</summary>
-          <p>Most can't tell. Our AI is trained on natural conversation. It doesn't sound robotic or scripted. And if a caller needs a real human, the AI hands off seamlessly. You get a notification, the caller gets helped. Everyone wins.</p>
+          <p>Most can't tell. Our AI is trained on natural conversation. It doesn't sound robotic or scripted. And if a caller needs a real human, the AI hands off seamlessly. You get a notification, the caller gets helped.</p>
         </details>
         <details class="faq-item fade-in">
           <summary>How long does setup take?</summary>
@@ -414,7 +494,7 @@
         </details>
         <details class="faq-item fade-in">
           <summary>Is there a contract?</summary>
-          <p>No long-term contracts. Month-to-month. If we're not making you money, you shouldn't be paying us. Simple as that.</p>
+          <p>No long-term contracts. Month-to-month. If we're not making you money, you shouldn't be paying us.</p>
         </details>
         <details class="faq-item fade-in">
           <summary>What kind of businesses do you work with?</summary>
@@ -426,7 +506,7 @@
         </details>
         <details class="faq-item fade-in">
           <summary>How do I see results?</summary>
-          <p>You get a dashboard showing every call answered, text sent, review requested, and lead captured. Real numbers, updated in real time. No guessing.</p>
+          <p>You get a dashboard showing every call answered, text sent, review requested, and lead captured. Real numbers, updated in real time.</p>
         </details>
       </div>
     </div>
@@ -435,9 +515,9 @@
   <!-- Final CTA -->
   <section class="final-cta">
     <div class="container fade-in">
-      <h2>Want to see it in action?<br>Let's talk.</h2>
-      <p>15 minutes. I'll show you how the system works and you can decide if it makes sense for your business. No pressure, seriously.</p>
-      <a href="book-demo.html" class="btn btn-primary btn-lg">Book a Free Demo</a>
+      <h2>Want to see it work for your business?</h2>
+      <p>15 minutes. I'll show you how the system works and you can decide if it makes sense. No pressure.</p>
+      <a href="book-demo.html" class="btn btn-cta">Book a Free Demo</a>
       <span class="cta-note">Free. No credit card. No sales pitch.</span>
     </div>
   </section>
@@ -448,7 +528,11 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="nav-logo"><span class="logo-mark">⚡</span> Ax Automations</a>
-          <p>AI-powered customer communication for small businesses that can't afford to miss a call.</p>
+          <p>AI-powered customer communication for small businesses.</p>
+          <div class="footer-location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Philadelphia, PA
+          </div>
         </div>
         <div class="footer-col">
           <h4>Services</h4>
@@ -472,6 +556,8 @@
           <h4>Company</h4>
           <a href="#about">About</a>
           <a href="pricing.html">Pricing</a>
+          <a href="compare.html">Compare</a>
+          <a href="quiz.html">Free Quiz</a>
           <a href="#faq">FAQ</a>
           <a href="book-demo.html">Book a Demo</a>
         </div>
@@ -479,26 +565,20 @@
           <h4>Contact</h4>
           <a href="mailto:ethan@axautomations.com">ethan@axautomations.com</a>
           <a href="tel:+12157699707">(215) 769-9707</a>
-          <span>Philadelphia, PA</span>
         </div>
-      </div>
-      <div class="trust-badges">
-        <span class="trust-badge">🤖 Powered by OpenAI</span>
-        <span class="trust-badge">📞 Built on Twilio</span>
-        <span class="trust-badge">✅ TCPA Compliant</span>
-        <span class="trust-badge">🔒 Encrypted & Secure</span>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 Ax Automations. All rights reserved.</p>
+        <div class="footer-badges">
+          <span>Powered by OpenAI</span>
+          <span>Built on Twilio</span>
+          <span>TCPA Compliant</span>
+        </div>
       </div>
     </div>
   </footer>
 
   <script src="main.js"></script>
   <script src="chat.js"></script>
-
-  <!-- Chatbot loaded via chat.js -->
-
-
 </body>
 </html>
