@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OG Image Preview — Ax Automations</title>
+  <meta name="description" content="OG Image Preview — Ax Automations - AI-powered automation for small businesses in Philadelphia.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <!-- GA: paste tracking code here -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: #111; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .card {
+      width: 1200px; height: 630px;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      border-radius: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .bolt {
+      font-size: 120px; margin-bottom: 24px;
+      filter: drop-shadow(0 0 40px rgba(255,140,0,0.5));
+    }
+    .bolt svg { width: 120px; height: 120px; }
+    .title {
+      font-size: 56px; font-weight: 800; color: #fff;
+      letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    .subtitle {
+      font-size: 28px; font-weight: 500;
+      background: linear-gradient(90deg, #FFD600, #FF8C00);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .glow {
+      position: absolute; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,140,0,0.15) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="glow"></div>
+    <div class="bolt">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 2L8 18h6L12 30l12-18h-6z" fill="url(#og)" stroke="#c05800" stroke-width="0.3" stroke-linejoin="round"/>
+        <defs><linearGradient id="og" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFD600"/><stop offset="100%" stop-color="#FF8C00"/></linearGradient></defs>
+      </svg>
+    </div>
+    <div class="title">Ax Automations</div>
+    <div class="subtitle">AI for Small Business</div>
+  </div>
+</body>
+</html>

@@ -28,10 +28,44 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <!-- GA: paste tracking code here -->
+
+  <!-- LocalBusiness Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Ax Automations",
+    "description": "AI-powered phone answering, missed call text-back, and review automation for small businesses.",
+    "url": "https://ebailine.github.io/ax-automations-website/",
+    "telephone": "+1-215-769-9707",
+    "email": "ethan@axautomations.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Philadelphia",
+      "addressRegion": "PA",
+      "addressCountry": "US"
+    },
+    "areaServed": "Philadelphia, PA",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Automation Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Phone Answering" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Missed Call Text-Back" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Review Automation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SMS Marketing" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead Follow-Up" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reputation Management" } }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
   <!-- Nav -->
-  <nav class="nav" id="nav">
+  <nav class="nav" aria-label="Main navigation" id="nav">
     <div class="container nav-inner">
       <a href="#" class="nav-logo">
         <span class="logo-mark">⚡</span> Ax Automations
@@ -42,6 +76,7 @@
         <a href="#results">Results</a>
         <a href="#how">How It Works</a>
         <a href="#about">About</a>
+        <a href="pricing.html">Pricing</a>
         <a href="#faq">FAQ</a>
       </div>
       <a href="book-demo.html" class="btn btn-sm">Book a Demo</a>
@@ -417,7 +452,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" aria-label="Site footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -444,6 +479,7 @@
         <div class="footer-col">
           <h4>Company</h4>
           <a href="#about">About</a>
+          <a href="pricing.html">Pricing</a>
           <a href="#faq">FAQ</a>
           <a href="book-demo.html">Book a Demo</a>
         </div>
