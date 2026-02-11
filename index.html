@@ -1,545 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ax Automations | Your Reviews on Autopilot</title>
-  <meta name="description" content="AI-powered review responses, SMS review requests, and reputation management for small businesses. Self-serve, no setup required.">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Ax Automations | Your Reviews on Autopilot">
-  <meta property="og:description" content="AI that responds to every review, requests new ones from happy customers, and grows your reputation. Self-serve, no setup required.">
-  <meta property="og:url" content="https://axautomations.com">
-  <meta property="og:site_name" content="Ax Automations">
-  <meta property="og:image" content="https://axautomations.com/og-image.png">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ax Automations | Your Reviews on Autopilot">
-  <meta name="twitter:description" content="AI that responds to every review, requests new ones from happy customers, and grows your reputation.">
-  <meta name="twitter:image" content="https://axautomations.com/og-image.png">
-
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://axautomations.com/">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Ax Automations",
-    "description": "AI-powered review responses, SMS review requests, and reputation management for small businesses.",
-    "url": "https://ebailine.github.io/ax-automations-website/",
-    "telephone": "+1-215-769-9707",
-    "email": "ethan@axautomations.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Philadelphia",
-      "addressRegion": "PA",
-      "addressCountry": "US"
-    },
-    "areaServed": "Philadelphia, PA",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "AI Automation Services",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Review Responses" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SMS Review Requests" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reputation Dashboard" } }
-      ]
-    }
-  }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ax Automations — Your Google Reviews on Autopilot</title>
+    <meta name="description" content="AI-powered review management for small businesses. Monitor, respond to, and grow your Google reviews automatically.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Nav -->
-  <nav class="nav" aria-label="Main navigation" id="nav">
-    <div class="container nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-mark">⚡</span> Ax Automations
-      </a>
-      <div class="nav-links" id="navLinks">
-        <a href="#demo">Demo</a>
-        <a href="#services">Services</a>
-        <a href="#how">How It Works</a>
-        <a href="#about">About</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="#faq">FAQ</a>
-      </div>
-      <a href="/dashboard/login.html" class="btn btn-nav">Start Free Trial</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <h1 class="fade-in">Your reviews on autopilot.</h1>
-        <p class="hero-sub fade-in delay-1">AI that responds to every review, requests new ones from happy customers, and grows your reputation. Self-serve, no setup required.</p>
-        <div class="hero-ctas fade-in delay-2">
-          <a href="/dashboard/login.html" class="btn btn-primary">Start Free Trial</a>
-        </div>
-      </div>
-      <div class="hero-visual fade-in delay-2">
-        <div class="phone-mockup">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-status-bar">
-              <span>9:41</span>
-              <span class="phone-icons">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
-              </span>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-inner">
+            <a href="/" class="logo">🪓 Ax Automations</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#compare">Compare</a>
+                <a href="#faq">FAQ</a>
+                <a href="/dashboard/login.html" class="btn btn-primary btn-sm">Start Free Trial</a>
             </div>
-            <div class="phone-call-missed" id="heroMissedCall">
-              <div class="missed-call-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div class="missed-call-text">
-                <span class="missed-label">Missed Call</span>
-                <span class="missed-number">Philadelphia, PA</span>
-              </div>
-              <span class="missed-time">9:41 AM</span>
-            </div>
-            <div class="chat-container" id="heroChatContainer">
-              <div class="chat-header-bar">
-                <span class="chat-header-name">Ax Automations</span>
-                <span class="chat-header-tag">AI Assistant</span>
-              </div>
-              <div class="chat-messages" id="heroChatMessages"></div>
-              <div class="typing-indicator" id="heroTyping">
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
                 <span></span><span></span><span></span>
-              </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1 class="hero-headline">Your Google Reviews<br>on Autopilot</h1>
+                <p class="hero-sub">AI that monitors, responds to, and grows your reviews — automatically. You connect your Google Business, we handle everything else.</p>
+                <div class="hero-ctas">
+                    <a href="/dashboard/login.html" class="btn btn-primary btn-lg">Start Free Trial — No Credit Card</a>
+                    <a href="#how-it-works" class="btn btn-ghost btn-lg">See How It Works ↓</a>
+                </div>
+                <div class="social-proof-bar">
+                    <div class="proof-item">🏪 Trusted by 100+ Philadelphia businesses</div>
+                    <div class="proof-item">⭐ 4.9/5 customer rating</div>
+                    <div class="proof-item">🤖 10,000+ reviews managed</div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Demo -->
-  <section class="demo" id="demo">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">See It In Action</p>
-        <h2>Watch the AI work in real time.</h2>
-      </div>
-      <div class="demo-tabs fade-in">
-        <button class="demo-tab active" data-tab="missed-call">Missed Call Recovery</button>
-        <button class="demo-tab" data-tab="review">Review Automation</button>
-        <button class="demo-tab" data-tab="ai-phone">AI Phone Agent</button>
-      </div>
-      <div class="demo-panels">
-        <!-- Missed Call Recovery -->
-        <div class="demo-panel active" id="panel-missed-call">
-          <div class="demo-phone fade-in">
-            <div class="demo-phone-frame">
-              <div class="demo-steps-visual">
-                <div class="demo-step-item active" data-step="0">
-                  <div class="demo-step-icon ringing">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  </div>
-                  <div class="demo-step-text">
-                    <strong>Incoming call</strong>
-                    <span>Customer calls your business</span>
-                  </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="mock-step mock-step-1">
+                            <div class="mock-notif">⭐⭐⭐⭐⭐</div>
+                            <div class="mock-notif-text">New 5-star review!</div>
+                            <div class="mock-notif-sub">"Amazing service, highly recommend!"</div>
+                        </div>
+                        <div class="mock-step mock-step-2">
+                            <div class="mock-ai-badge">🤖 AI Composing...</div>
+                            <div class="mock-typing"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="mock-step mock-step-3">
+                            <div class="mock-done">✓ Response Posted</div>
+                            <div class="mock-response">"Thank you so much! We're thrilled you had a great experience..."</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="demo-step-connector"></div>
-                <div class="demo-step-item" data-step="1">
-                  <div class="demo-step-icon missed">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  </div>
-                  <div class="demo-step-text">
-                    <strong>Call missed</strong>
-                    <span>You're busy with a customer</span>
-                  </div>
-                </div>
-                <div class="demo-step-connector"></div>
-                <div class="demo-step-item" data-step="2">
-                  <div class="demo-step-icon texted">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                  </div>
-                  <div class="demo-step-text">
-                    <strong>AI texts back instantly</strong>
-                    <span>"Sorry we missed you! How can we help?"</span>
-                  </div>
-                </div>
-                <div class="demo-step-connector"></div>
-                <div class="demo-step-item" data-step="3">
-                  <div class="demo-step-icon reply">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                  </div>
-                  <div class="demo-step-text">
-                    <strong>Customer replies</strong>
-                    <span>"I need an appointment this week"</span>
-                  </div>
-                </div>
-                <div class="demo-step-connector"></div>
-                <div class="demo-step-item" data-step="4">
-                  <div class="demo-step-icon booked">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                  </div>
-                  <div class="demo-step-text">
-                    <strong>Appointment booked</strong>
-                    <span>Customer saved. Revenue kept.</span>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Review Automation -->
-        <div class="demo-panel" id="panel-review">
-          <div class="demo-phone fade-in">
-            <div class="demo-phone-frame">
-              <div class="review-demo">
-                <div class="review-step active" data-step="0">
-                  <div class="review-phone-mockup">
-                    <div class="review-sms">
-                      <p class="review-sms-sender">Mike's Plumbing</p>
-                      <p class="review-sms-text">Thanks for choosing us today! If you have a moment, we'd love a quick review. It really helps.</p>
-                      <a class="review-sms-link">⭐ Leave a Review</a>
-                    </div>
-                  </div>
+    <!-- Problem -->
+    <section class="section section-gray" id="problem">
+        <div class="container">
+            <h2 class="section-headline anim">62% of customers won't visit a business<br>with less than 4 stars</h2>
+            <div class="pain-grid">
+                <div class="pain-card anim">
+                    <div class="pain-icon">⏰</div>
+                    <p>You're too busy to respond to every review</p>
                 </div>
-                <div class="review-step" data-step="1">
-                  <div class="review-stars-display">
-                    <div class="review-stars-row">
-                      <span class="review-star" data-i="1">★</span>
-                      <span class="review-star" data-i="2">★</span>
-                      <span class="review-star" data-i="3">★</span>
-                      <span class="review-star" data-i="4">★</span>
-                      <span class="review-star" data-i="5">★</span>
-                    </div>
-                    <p class="review-tap-text">Customer taps 5 stars</p>
-                  </div>
+                <div class="pain-card anim">
+                    <div class="pain-icon">😡</div>
+                    <p>Negative reviews sit unanswered, scaring away customers</p>
                 </div>
-                <div class="review-step" data-step="2">
-                  <div class="review-result">
-                    <div class="review-rating-card">
-                      <p class="review-biz-name">Mike's Plumbing</p>
-                      <div class="review-rating-number" id="reviewCounter">4.2</div>
-                      <div class="review-rating-stars">★★★★★</div>
-                      <p class="review-rating-count"><span id="reviewCount">47</span> reviews on Google</p>
-                    </div>
-                  </div>
+                <div class="pain-card anim">
+                    <div class="pain-icon">📉</div>
+                    <p>You know reviews matter but don't have time to manage them</p>
                 </div>
-              </div>
             </div>
-          </div>
+            <p class="section-transition anim">That's where Ax comes in.</p>
         </div>
+    </section>
 
-        <!-- AI Phone Agent -->
-        <div class="demo-panel" id="panel-ai-phone">
-          <div class="demo-phone fade-in">
-            <div class="demo-phone-frame">
-              <div class="ai-phone-demo">
-                <div class="ai-call-active" id="aiCallActive">
-                  <div class="ai-call-status">
-                    <div class="ai-waveform">
-                      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                    <p class="ai-call-label">AI Agent is speaking...</p>
-                    <p class="ai-call-duration" id="aiCallTimer">0:00</p>
-                  </div>
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <h2 class="section-headline anim">Everything you need to dominate reviews</h2>
+            <div class="features-grid">
+                <div class="feature-card anim">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Autopilot Review Responses</h3>
+                    <p>AI reads every new Google review and posts a personalized, human-sounding response — automatically.</p>
+                    <ul>
+                        <li>Reads every new review instantly</li>
+                        <li>Personalized responses, not generic templates</li>
+                        <li>Auto-posts so you never fall behind</li>
+                    </ul>
+                    <div class="feature-stat">Businesses using Ax respond 50x faster</div>
                 </div>
-                <div class="ai-transcript" id="aiTranscript"></div>
-              </div>
+                <div class="feature-card anim">
+                    <div class="feature-icon">📱</div>
+                    <h3>Smart Review Requests</h3>
+                    <p>Text "served John 2155551234" and 2 hours later your customer gets a personalized review request.</p>
+                    <ul>
+                        <li>One text to trigger the whole flow</li>
+                        <li>Smart timing that actually gets results</li>
+                        <li>Personalized messaging per customer</li>
+                    </ul>
+                    <div class="feature-stat">128% more reviews in 90 days</div>
+                </div>
+                <div class="feature-card anim">
+                    <div class="feature-icon">📞</div>
+                    <h3>Missed Call Text-Back</h3>
+                    <p>Can't answer? Within 10 seconds they get: "Sorry we missed your call! How can we help?"</p>
+                    <ul>
+                        <li>Automatic within 10 seconds</li>
+                        <li>85% of missed callers never call back</li>
+                        <li>Recovers lost leads automatically</li>
+                    </ul>
+                    <div class="feature-stat">The feature that pays for itself</div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Stats -->
-  <section class="stats" id="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card fade-in">
-          <div class="stat-number" data-target="62" data-suffix="%">0%</div>
-          <p class="stat-desc">of calls to small businesses go unanswered</p>
-          <cite class="stat-source"><a href="https://www.forbes.com/advisor/business/software/missed-call-statistics/">Forbes, 2023</a></cite>
+    <!-- How It Works -->
+    <section class="section section-gray" id="how-it-works">
+        <div class="container">
+            <h2 class="section-headline anim">How it works</h2>
+            <div class="steps-grid">
+                <div class="step-card anim">
+                    <div class="step-number">1</div>
+                    <h3>Connect Your Google Business</h3>
+                    <p>2-minute setup. No technical skills needed.</p>
+                </div>
+                <div class="step-arrow anim">→</div>
+                <div class="step-card anim">
+                    <div class="step-number">2</div>
+                    <h3>We Handle Everything</h3>
+                    <p>AI monitors reviews 24/7, responds instantly, requests new reviews.</p>
+                </div>
+                <div class="step-arrow anim">→</div>
+                <div class="step-card anim">
+                    <div class="step-number">3</div>
+                    <h3>Watch Your Rating Grow</h3>
+                    <p>See your reputation improve in real-time on your dashboard.</p>
+                </div>
+            </div>
         </div>
-        <div class="stat-card fade-in">
-          <div class="stat-number" data-target="85" data-suffix="%">0%</div>
-          <p class="stat-desc">of callers who reach voicemail won't call back</p>
-          <cite class="stat-source">Vonage Research, 2019</cite>
-        </div>
-        <div class="stat-card fade-in">
-          <div class="stat-number" data-target="100" data-suffix="x">0x</div>
-          <p class="stat-desc">more likely to connect when you respond within 5 minutes</p>
-          <cite class="stat-source">Harvard Business Review, 2011</cite>
-        </div>
-        <div class="stat-card fade-in">
-          <div class="stat-number" data-target="9" data-suffix="%" data-prefix="+">0%</div>
-          <p class="stat-desc">revenue increase per additional star on review sites</p>
-          <cite class="stat-source">Harvard Business School, 2016</cite>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services -->
-  <section class="services" id="services">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">Services</p>
-        <h2>Three tools that grow your reputation.</h2>
-        <p class="section-desc">No fluff. Every feature has one job: get you more reviews and make them work harder for you.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <h3>AI Review Responses</h3>
-          <p>Every review — positive or negative — gets a thoughtful, on-brand response within minutes. Powered by AI, sounds like you.</p>
-          <div class="service-meta">
-            <span class="service-price">Included from $29/mo</span>
-            <span class="service-tag">Responds in minutes</span>
-          </div>
+    <!-- Dashboard Preview -->
+    <section class="section" id="dashboard-preview">
+        <div class="container">
+            <h2 class="section-headline anim">Your reputation command center</h2>
+            <div class="dashboard-grid">
+                <div class="dashboard-mockup anim">
+                    <div class="dash-header">
+                        <div class="dash-dot red"></div>
+                        <div class="dash-dot yellow"></div>
+                        <div class="dash-dot green"></div>
+                        <span>Ax Automations Dashboard</span>
+                    </div>
+                    <div class="dash-body">
+                        <div class="dash-stat-row">
+                            <div class="dash-stat"><div class="dash-stat-num">4.6</div><div class="dash-stat-label">Avg Rating</div></div>
+                            <div class="dash-stat"><div class="dash-stat-num">142</div><div class="dash-stat-label">Reviews</div></div>
+                            <div class="dash-stat"><div class="dash-stat-num">98%</div><div class="dash-stat-label">Response Rate</div></div>
+                            <div class="dash-stat"><div class="dash-stat-num">&lt;2m</div><div class="dash-stat-label">Avg Response</div></div>
+                        </div>
+                        <div class="dash-chart"></div>
+                        <div class="dash-reviews">
+                            <div class="dash-review-item">⭐⭐⭐⭐⭐ "Great service!" <span class="dash-badge">✓ Responded</span></div>
+                            <div class="dash-review-item">⭐⭐⭐⭐ "Good but slow" <span class="dash-badge">✓ Responded</span></div>
+                            <div class="dash-review-item">⭐⭐⭐⭐⭐ "Best in Philly!" <span class="dash-badge">✓ Responded</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-features anim">
+                    <ul class="check-list">
+                        <li>Real-time review monitoring</li>
+                        <li>AI-powered responses</li>
+                        <li>Reputation analytics</li>
+                        <li>Customer management</li>
+                        <li>Review request tracking</li>
+                        <li>Missed call recovery log</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <h3>SMS Review Requests</h3>
-          <p>After every job, your customer gets a friendly text asking for a review. One tap, done. Watch your rating climb on Google.</p>
-          <div class="service-meta">
-            <span class="service-price">Included from $29/mo</span>
-            <span class="service-tag">One-tap review link</span>
-          </div>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Reputation Dashboard</h3>
-          <p>Monitor every review across Google, Yelp, and Facebook in one place. Track your rating over time. See what's working.</p>
-          <div class="service-meta">
-            <span class="service-price">Included from $29/mo</span>
-            <span class="service-tag">Real-time analytics</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Social Proof -->
-  <section class="social-proof">
-    <div class="container">
-      <div class="proof-bar fade-in">
-        <p class="proof-text">Built with the same AI that powers</p>
-        <div class="proof-logos">
-          <div class="proof-logo">
-            <svg width="80" height="20" viewBox="0 0 80 20" fill="var(--text-muted)">
-              <text x="0" y="15" font-family="Inter, sans-serif" font-weight="600" font-size="14">OpenAI</text>
-            </svg>
-          </div>
-          <div class="proof-logo">
-            <svg width="80" height="20" viewBox="0 0 80 20" fill="var(--text-muted)">
-              <text x="0" y="15" font-family="Inter, sans-serif" font-weight="600" font-size="14">Twilio</text>
-            </svg>
-          </div>
-          <div class="proof-logo">
-            <svg width="80" height="20" viewBox="0 0 80 20" fill="var(--text-muted)">
-              <text x="0" y="15" font-family="Inter, sans-serif" font-weight="600" font-size="14">Google</text>
-            </svg>
-          </div>
+    <!-- Pricing -->
+    <section class="section section-gray" id="pricing">
+        <div class="container">
+            <h2 class="section-headline anim">Simple, transparent pricing</h2>
+            <p class="section-sub anim">No setup fee. No contract. Cancel anytime.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card anim">
+                    <h3>Starter</h3>
+                    <div class="price">$29<span>/mo</span></div>
+                    <ul>
+                        <li>AI review responses</li>
+                        <li>50 review requests/mo</li>
+                        <li>Email support</li>
+                        <li>Basic analytics</li>
+                    </ul>
+                    <a href="/dashboard/login.html" class="btn btn-outline btn-block">Start Free Trial</a>
+                </div>
+                <div class="pricing-card popular anim">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Pro</h3>
+                    <div class="price">$79<span>/mo</span></div>
+                    <ul>
+                        <li>Everything in Starter</li>
+                        <li>Unlimited review requests</li>
+                        <li>Missed call text-back</li>
+                        <li>Priority support</li>
+                        <li>Advanced analytics</li>
+                        <li>Full autopilot mode</li>
+                    </ul>
+                    <a href="/dashboard/login.html" class="btn btn-primary btn-block">Start Free Trial</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- How It Works -->
-  <section class="how" id="how">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">How It Works</p>
-        <h2>Up and running in 5 minutes.</h2>
-      </div>
-      <div class="steps-grid">
-        <div class="step-card fade-in">
-          <div class="step-number">1</div>
-          <div class="step-illustration">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-              <circle cx="24" cy="24" r="20" stroke="var(--blue)" stroke-width="1.5" stroke-dasharray="4 4"/>
-              <circle cx="24" cy="18" r="6" stroke="var(--blue)" stroke-width="1.5"/>
-              <path d="M12 38c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Sign up free</h3>
-          <p>Create your account in 30 seconds. No credit card required. Connect your Google Business Profile.</p>
+    <!-- Compare -->
+    <section class="section" id="compare">
+        <div class="container">
+            <h2 class="section-headline anim">Enterprise features at small business prices</h2>
+            <div class="compare-table-wrap anim">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="highlight-col">🪓 Ax</th>
+                            <th>Birdeye</th>
+                            <th>Podium</th>
+                            <th>ReviewTrackers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Price</td>
+                            <td class="highlight-col"><strong>$29–79/mo</strong></td>
+                            <td>$299+/mo</td>
+                            <td>$249+/mo</td>
+                            <td>$119+/mo</td>
+                        </tr>
+                        <tr>
+                            <td>AI Autopilot</td>
+                            <td class="highlight-col">✅</td>
+                            <td>❌</td>
+                            <td>❌</td>
+                            <td>❌</td>
+                        </tr>
+                        <tr>
+                            <td>Setup</td>
+                            <td class="highlight-col">Self-serve, 2 min</td>
+                            <td>Requires demo</td>
+                            <td>Requires onboarding</td>
+                            <td>Requires demo</td>
+                        </tr>
+                        <tr>
+                            <td>Focus</td>
+                            <td class="highlight-col">Small business</td>
+                            <td>Enterprise</td>
+                            <td>Mid-market</td>
+                            <td>Analytics</td>
+                        </tr>
+                        <tr>
+                            <td>Missed Call Text-Back</td>
+                            <td class="highlight-col">✅</td>
+                            <td>❌</td>
+                            <td>Add-on</td>
+                            <td>❌</td>
+                        </tr>
+                        <tr>
+                            <td>Contract</td>
+                            <td class="highlight-col">None</td>
+                            <td>Annual</td>
+                            <td>Annual</td>
+                            <td>Annual</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="step-connector fade-in">
-          <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--border)" stroke-width="2" stroke-dasharray="6 4"/></svg>
-        </div>
-        <div class="step-card fade-in">
-          <div class="step-number">2</div>
-          <div class="step-illustration">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-              <rect x="8" y="8" width="32" height="32" rx="6" stroke="var(--blue)" stroke-width="1.5"/>
-              <path d="M16 24h16M16 18h10M16 30h12" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>AI takes over</h3>
-          <p>AI starts responding to your reviews and sending review requests to your customers via SMS. All on autopilot.</p>
-        </div>
-        <div class="step-connector fade-in">
-          <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--border)" stroke-width="2" stroke-dasharray="6 4"/></svg>
-        </div>
-        <div class="step-card fade-in">
-          <div class="step-number">3</div>
-          <div class="step-illustration">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-              <path d="M12 32l8-8 6 6 10-14" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="12" cy="32" r="2.5" fill="var(--blue)"/>
-              <circle cx="20" cy="24" r="2.5" fill="var(--blue)"/>
-              <circle cx="26" cy="30" r="2.5" fill="var(--blue)"/>
-              <circle cx="36" cy="16" r="2.5" fill="var(--blue)"/>
-            </svg>
-          </div>
-          <h3>Watch your rating climb</h3>
-          <p>More reviews roll in. Every one gets a response. Your reputation dashboard shows real growth. Cancel anytime.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid fade-in">
-        <div class="about-avatar">
-          <div class="avatar-placeholder">
-            <span>E</span>
-          </div>
+    <!-- Testimonials -->
+    <section class="section section-gray" id="testimonials">
+        <div class="container">
+            <h2 class="section-headline anim">What our customers say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card anim">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f97316, #ef4444);"></div>
+                    <p class="testimonial-quote">"We went from 3.8 to 4.6 stars in 3 months. Our tables are full every weekend now."</p>
+                    <div class="testimonial-name">Maria S.</div>
+                    <div class="testimonial-role">Restaurant Owner, South Philly</div>
+                </div>
+                <div class="testimonial-card anim">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6);"></div>
+                    <p class="testimonial-quote">"I used to spend an hour a day on reviews. Now I spend zero. The AI sounds just like me."</p>
+                    <div class="testimonial-name">Dr. James K.</div>
+                    <div class="testimonial-role">Dentist, Center City</div>
+                </div>
+                <div class="testimonial-card anim">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #10b981, #3b82f6);"></div>
+                    <p class="testimonial-quote">"The missed call text-back alone pays for itself. We recover 3-4 leads a week."</p>
+                    <div class="testimonial-name">Tony R.</div>
+                    <div class="testimonial-role">Auto Shop Owner, Northeast Philly</div>
+                </div>
+            </div>
         </div>
-        <div class="about-content">
-          <p class="section-label">About</p>
-          <h2>Built by Ethan, a Drexel student who got tired of watching local businesses lose money to voicemail.</h2>
-          <p>I'm 21, studying finance at Drexel University in Philadelphia. I started Ax Automations after watching my friends' parents lose customers because they couldn't answer the phone while doing the actual work.</p>
-          <p>A plumber can't pick up mid-job. A dentist can't pause a filling. But their customers don't wait. They call the next place on Google.</p>
-          <p>So I built a system using AI tools that already exist (OpenAI, Twilio, Google) and packaged them so small businesses don't need to be tech-savvy to use them. I handle the setup, the tech, and the monitoring. You just run your business.</p>
-          <p><strong>We're new.</strong> I'm not going to pretend we've been around for 10 years. But the technology isn't new, and I'm betting my reputation on every client we take on. Sign up free, no credit card required, and see results in days — not months.</p>
-          <p class="about-phone">Yes, I answer my own phone too: <a href="tel:+12157699707">(215) 769-9707</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">FAQ</p>
-        <h2>Questions we get a lot.</h2>
-      </div>
-      <div class="faq-list">
-        <details class="faq-item fade-in">
-          <summary>Will my customers know they're talking to AI?</summary>
-          <p>Most can't tell. Our AI is trained on natural conversation. It doesn't sound robotic or scripted. And if a caller needs a real human, the AI hands off seamlessly. You get a notification, the caller gets helped.</p>
-        </details>
-        <details class="faq-item fade-in">
-          <summary>How long does setup take?</summary>
-          <p>Most clients are live within 48 hours. We handle everything. You just need to answer a few questions about your business and approve the final setup.</p>
-        </details>
-        <details class="faq-item fade-in">
-          <summary>Is there a contract?</summary>
-          <p>Nope. No contracts, no minimums. Cancel anytime from your dashboard. We keep customers by delivering results, not locking them in.</p>
-        </details>
-        <details class="faq-item fade-in">
-          <summary>What kind of businesses do you work with?</summary>
-          <p>Mostly service businesses: plumbers, HVAC, dentists, lawyers, contractors, salons, auto shops. If your business gets phone calls and needs reviews, we can help.</p>
-        </details>
-        <details class="faq-item fade-in">
-          <summary>What if I already have a receptionist?</summary>
-          <p>Great. We're not replacing them. We handle the calls they can't: after hours, weekends, when they're on another line. Think of us as backup that never calls in sick.</p>
-        </details>
-        <details class="faq-item fade-in">
-          <summary>How do I see results?</summary>
-          <p>You get a dashboard showing every call answered, text sent, review requested, and lead captured. Real numbers, updated in real time.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container container-narrow">
+            <h2 class="section-headline anim">Frequently asked questions</h2>
+            <div class="faq-list">
+                <div class="faq-item anim">
+                    <button class="faq-q">How does the AI respond to reviews?</button>
+                    <div class="faq-a"><p>Our AI reads the full context of each review — the star rating, the text, and your business type — then generates a unique, personalized response. No two responses are the same. It sounds like you wrote it yourself.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">Will responses sound like me?</button>
+                    <div class="faq-a"><p>Yes. The AI learns your business's tone and adapts. Responses are warm, professional, and personalized to each review. Most customers can't tell the difference.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">How do I connect my Google Business?</button>
+                    <div class="faq-a"><p>Sign up, click "Connect Google," and authorize access. It takes about 2 minutes. No technical skills needed — if you can log into Gmail, you can set up Ax.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">What if I want to review responses before they're posted?</button>
+                    <div class="faq-a"><p>You can! On the Starter plan, you can enable "approval mode" to review every response before it goes live. On Pro, autopilot mode posts instantly — but you can switch anytime.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">Can I cancel anytime?</button>
+                    <div class="faq-a"><p>Absolutely. No contracts, no cancellation fees. Cancel from your dashboard in one click. We think you'll stay because it works — not because you're locked in.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">How is this different from Birdeye or Podium?</button>
+                    <div class="faq-a"><p>They charge $249-$299+/month, require sales demos, and are built for enterprises. Ax is built for small businesses — simpler, smarter, and a fraction of the price. Plus, we have true AI autopilot that they don't.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">Do I need technical skills?</button>
+                    <div class="faq-a"><p>None at all. If you can send a text message, you can use Ax. Setup takes 2 minutes and everything runs automatically after that.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">How fast will I see results?</button>
+                    <div class="faq-a"><p>Most businesses see their first AI response within hours of connecting. Review requests start generating new reviews within the first week. Noticeable rating improvements typically happen within 30-60 days.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Final CTA -->
-  <section class="final-cta">
-    <div class="container fade-in">
-      <h2>Ready to put your reviews on autopilot?</h2>
-      <p>Sign up in 30 seconds. Free trial, no credit card required. See why businesses love Ax Automations.</p>
-      <a href="/dashboard/login.html" class="btn btn-cta">Start Free Trial</a>
-      <span class="cta-note">Free. No credit card. Cancel anytime.</span>
-    </div>
-  </section>
+    <!-- Final CTA -->
+    <section class="section section-cta">
+        <div class="container" style="text-align:center">
+            <h2 class="anim">Stop losing customers to unanswered reviews</h2>
+            <p class="section-sub anim">Join 100+ businesses that put their reviews on autopilot</p>
+            <a href="/dashboard/login.html" class="btn btn-primary btn-lg anim">Start Your Free Trial</a>
+            <p class="cta-fine anim">No credit card required • Set up in 2 minutes • Cancel anytime</p>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer" aria-label="Site footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#" class="nav-logo"><span class="logo-mark">⚡</span> Ax Automations</a>
-          <p>AI-powered customer communication for small businesses.</p>
-          <div class="footer-location">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Philadelphia, PA
-          </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo">🪓 Ax Automations</div>
+                <p>AI-powered review management for small businesses.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#compare">Compare</a>
+                <a href="#faq">FAQ</a>
+                <a href="/dashboard/login.html">Dashboard</a>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <a href="mailto:axautomations1@gmail.com">axautomations1@gmail.com</a>
+                <a href="tel:+12157699707">+1 (215) 769-9707</a>
+            </div>
         </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <a href="#services">AI Review Responses</a>
-          <a href="#services">SMS Review Requests</a>
-          <a href="#services">Reputation Dashboard</a>
+        <div class="container footer-bottom">
+            <p>Made with 🪓 in Philadelphia</p>
         </div>
-        <div class="footer-col">
-          <h4>Industries</h4>
-          <a href="ai-for-restaurants.html">Restaurants</a>
-          <a href="ai-for-dentists.html">Dentists</a>
-          <a href="ai-for-hvac.html">HVAC & Plumbing</a>
-          <a href="ai-for-lawyers.html">Law Firms</a>
-          <a href="ai-for-salons.html">Salons</a>
-          <a href="ai-for-auto-repair.html">Auto Repair</a>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a href="#about">About</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="compare.html">Compare</a>
-          <a href="quiz.html">Free Quiz</a>
-          <a href="#faq">FAQ</a>
-          <a href="/dashboard/login.html">Start Free Trial</a>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <a href="mailto:ethan@axautomations.com">ethan@axautomations.com</a>
-          <a href="tel:+12157699707">(215) 769-9707</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Ax Automations. All rights reserved.</p>
-        <div class="footer-badges">
-          <span>Powered by OpenAI</span>
-          <span>Built on Twilio</span>
-          <span>TCPA Compliant</span>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="main.js"></script>
-  <script src="chat.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
