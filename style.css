@@ -342,7 +342,7 @@ h4 {
 .phone-screen {
   background: var(--bg);
   border-radius: 28px;
-  min-height: 480px;
+  height: 480px;
   overflow: hidden;
   position: relative;
 }
@@ -451,6 +451,8 @@ h4 {
   flex-direction: column;
   gap: 8px;
   min-height: 260px;
+  max-height: 300px;
+  overflow: hidden;
 }
 
 .chat-bubble {
