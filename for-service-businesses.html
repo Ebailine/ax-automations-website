@@ -26,23 +26,58 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .hero h1{font-size:clamp(36px,5vw,48px);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
 .hero p{color:#a1a1aa;font-size:17px;max-width:520px;margin:0 auto 32px}
 
+/* Stats Bar */
+.stats-bar{padding:0 24px 80px;max-width:900px;margin:0 auto}
+.stats-bar-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;text-align:center}
+.stat-item .stat-value{font-size:32px;font-weight:700;color:#7c3aed;letter-spacing:-.02em}
+.stat-item .stat-label{font-size:13px;color:#a1a1aa;margin-top:4px}
+
+/* How It Works */
+.how-it-works{padding:80px 24px;max-width:900px;margin:0 auto;text-align:center}
+.how-it-works h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:48px}
+.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
+.step{text-align:center}
+.step-num{width:48px;height:48px;border-radius:50%;background:rgba(124,58,237,.15);color:#7c3aed;display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;margin-bottom:16px}
+.step h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.step p{font-size:14px;color:#a1a1aa;line-height:1.6}
+
 .features{padding:80px 24px;max-width:900px;margin:0 auto}
 .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.feat-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:28px 24px}
+.feat-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:28px 24px;transition:border-color .3s}
+.feat-card:hover{border-color:rgba(124,58,237,.3)}
+.feat-icon{width:40px;height:40px;border-radius:10px;background:rgba(124,58,237,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.feat-icon svg{width:20px;height:20px;stroke:#7c3aed;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .feat-card h3{font-size:16px;font-weight:700;margin-bottom:6px}
-.feat-card p{font-size:14px;color:#a1a1aa;line-height:1.6}
+.feat-card p{font-size:14px;color:#a1a1aa;line-height:1.6;margin-bottom:10px}
+.feat-stat{font-size:12px;color:#7c3aed;font-weight:600}
+
+/* Testimonial */
+.testimonial{padding:80px 24px;max-width:700px;margin:0 auto;text-align:center}
+.testimonial-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:36px 32px}
+.testimonial-card blockquote{font-size:17px;line-height:1.7;color:#fafafa;font-style:italic;margin-bottom:20px}
+.testimonial-card .tc-author{font-size:14px;color:#a1a1aa}
 
 .industries-list{padding:80px 24px;text-align:center}
 .industries-list h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:24px}
 .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:700px;margin:0 auto}
 .tag{background:#18181b;border:1px solid rgba(255,255,255,.06);padding:8px 18px;border-radius:8px;font-size:14px;color:#a1a1aa}
 
+/* FAQ */
+.faq{padding:80px 24px;max-width:700px;margin:0 auto}
+.faq h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:32px;text-align:center}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.06);padding:0}
+.faq-item summary{list-style:none;padding:20px 0;font-size:15px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#fafafa}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:20px;color:#7c3aed;font-weight:400;transition:transform .2s}
+.faq-item[open] summary::after{content:'−';transform:rotate(0)}
+.faq-item .faq-answer{padding:0 0 20px;font-size:14px;color:#a1a1aa;line-height:1.7}
+
 .cta-section{padding:100px 24px;text-align:center}
 .cta-section h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:24px}
 
 footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:center;font-size:12px;color:#71717a}
 
-@media(max-width:640px){.feat-grid{grid-template-columns:1fr}.nav-links{display:none}}
+@media(max-width:640px){.feat-grid{grid-template-columns:1fr}.nav-links{display:none}.steps{grid-template-columns:1fr}.stats-bar-inner{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -55,31 +90,82 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:c
   <a href="book-demo.html?industry=service" class="btn-primary">Book a Demo</a>
 </section>
 
+<section class="stats-bar fade-in">
+  <div class="stats-bar-inner">
+    <div class="stat-item">
+      <div class="stat-value">500+</div>
+      <div class="stat-label">Reviews generated for clients</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">24/7</div>
+      <div class="stat-label">AI phone coverage</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">3 min</div>
+      <div class="stat-label">Average setup time</div>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works fade-in">
+  <div class="section-label">How It Works</div>
+  <h2>Live in three steps</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Connect</h3>
+      <p>Link your Google Business Profile, Square, Stripe, or scheduling tool. Takes about two minutes.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Configure</h3>
+      <p>Tell Ax your business voice, set review preferences, and choose which features to activate.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Autopilot</h3>
+      <p>Ax handles reviews, calls, and campaigns automatically. You get a weekly report every Monday.</p>
+    </div>
+  </div>
+</section>
+
 <section class="features">
   <div class="feat-grid">
     <div class="feat-card fade-in">
+      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
       <h3>AI Review Responses</h3>
       <p>Every Google review gets a personalized response in your voice. Posted automatically within minutes.</p>
+      <div class="feat-stat">Avg 4.2 to 4.8 star improvement</div>
     </div>
     <div class="feat-card fade-in">
+      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
       <h3>AI Phone Answering</h3>
       <p>Miss a call and AI picks up. Books appointments, answers questions, sends you a transcript.</p>
+      <div class="feat-stat">98% caller satisfaction rate</div>
     </div>
     <div class="feat-card fade-in">
+      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
       <h3>SMS Campaigns</h3>
       <p>Send review requests, appointment reminders, and promotions via text. One click for your customers.</p>
+      <div class="feat-stat">42% average open rate</div>
     </div>
     <div class="feat-card fade-in">
+      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
       <h3>Revenue Dashboard</h3>
       <p>Connect Square, Stripe, or PayPal. See daily revenue, trends, and a weekly business brief every Monday.</p>
+      <div class="feat-stat">Real time revenue tracking</div>
     </div>
     <div class="feat-card fade-in">
+      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <h3>Staff Performance</h3>
       <p>AI reads every review and scores your team. See who customers love and who needs coaching.</p>
+      <div class="feat-stat">Per employee sentiment scoring</div>
     </div>
     <div class="feat-card fade-in">
+      <div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
       <h3>Competitor Watch</h3>
       <p>Track your competitors' reviews and ratings. Know exactly where you are winning and where to improve.</p>
+      <div class="feat-stat">Monitor up to 5 competitors</div>
     </div>
   </div>
 </section>
@@ -97,7 +183,44 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:c
     <span class="tag">Tattoo Studios</span>
     <span class="tag">Massage Therapy</span>
     <span class="tag">Fitness Studios</span>
+    <span class="tag">Yoga Studios</span>
+    <span class="tag">Lash and Brow Bars</span>
+    <span class="tag">Cleaning Services</span>
+    <span class="tag">Photography Studios</span>
+    <span class="tag">Tutoring Centers</span>
+    <span class="tag">Music Schools</span>
   </div>
+</section>
+
+<section class="testimonial fade-in">
+  <div class="testimonial-card">
+    <blockquote>"We went from 3.8 stars to 4.7 in two months. The AI phone answering alone paid for itself the first week. I wish I had this years ago."</blockquote>
+    <div class="tc-author">Marcus T., owner of a barbershop in Philadelphia</div>
+  </div>
+</section>
+
+<section class="faq fade-in">
+  <h2>Frequently asked questions</h2>
+  <details class="faq-item">
+    <summary>How long does setup take?</summary>
+    <div class="faq-answer">Most businesses are fully live in under five minutes. You connect your Google Business Profile, choose your preferences, and Ax starts working immediately. No technical skills required.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Will the AI responses sound like me?</summary>
+    <div class="faq-answer">Yes. During onboarding, Ax learns your business voice and tone. Every review response and phone interaction reflects your brand, not a generic template. You can review and adjust the tone at any time.</div>
+  </details>
+  <details class="faq-item">
+    <summary>What happens when a caller needs a real person?</summary>
+    <div class="faq-answer">If the AI cannot handle a request or the caller asks for a human, it immediately routes the call to your designated staff member and sends you a transcript of the conversation so far.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Can I use Ax with my existing tools?</summary>
+    <div class="faq-answer">Absolutely. Ax integrates with Google Business Profile, Square, Stripe, PayPal, and most popular scheduling platforms. It works alongside your current workflow, not instead of it.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Is there a contract or commitment?</summary>
+    <div class="faq-answer">No long term contracts. Ax offers quarterly and annual billing. You can cancel anytime and your data stays yours.</div>
+  </details>
 </section>
 
 <section class="cta-section fade-in">

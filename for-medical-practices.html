@@ -26,23 +26,61 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .hero h1{font-size:clamp(36px,5vw,48px);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
 .hero p{color:#a1a1aa;font-size:17px;max-width:520px;margin:0 auto 32px}
 
+/* Stats Bar */
+.stats-bar{padding:0 24px 80px;max-width:900px;margin:0 auto}
+.stats-bar-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;text-align:center}
+.stat-item .stat-value{font-size:32px;font-weight:700;color:#7c3aed;letter-spacing:-.02em}
+.stat-item .stat-label{font-size:13px;color:#a1a1aa;margin-top:4px}
+
+/* How It Works */
+.how-it-works{padding:80px 24px;max-width:900px;margin:0 auto;text-align:center}
+.how-it-works h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:48px}
+.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
+.step{text-align:center}
+.step-num{width:48px;height:48px;border-radius:50%;background:rgba(124,58,237,.15);color:#7c3aed;display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;margin-bottom:16px}
+.step h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.step p{font-size:14px;color:#a1a1aa;line-height:1.6}
+
 .two-up{padding:80px 24px;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px 28px}
+.card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px 28px;transition:border-color .3s}
+.card:hover{border-color:rgba(124,58,237,.3)}
 .card h3{font-size:20px;font-weight:700;margin-bottom:8px}
-.card p{font-size:14px;color:#a1a1aa;line-height:1.7}
+.card p{font-size:14px;color:#a1a1aa;line-height:1.7;margin-bottom:16px}
 .card .highlight{font-size:32px;font-weight:700;color:#22c55e;margin-bottom:12px}
+.card ul{list-style:none;margin:0;padding:0}
+.card ul li{font-size:13px;color:#a1a1aa;padding:5px 0;display:flex;align-items:center;gap:8px}
+.card ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:#7c3aed;flex-shrink:0}
+
+/* Why Reviews Matter */
+.why-reviews{padding:80px 24px;max-width:800px;margin:0 auto}
+.why-reviews h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:16px;text-align:center}
+.why-reviews .sub{font-size:15px;color:#a1a1aa;text-align:center;max-width:600px;margin:0 auto 40px;line-height:1.7}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.why-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px}
+.why-card .why-stat{font-size:28px;font-weight:700;color:#22c55e;margin-bottom:8px}
+.why-card p{font-size:14px;color:#a1a1aa;line-height:1.6}
 
 .practices{padding:80px 24px;text-align:center}
 .practices h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:24px}
-.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:600px;margin:0 auto}
+.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:700px;margin:0 auto}
 .tag{background:#18181b;border:1px solid rgba(255,255,255,.06);padding:8px 18px;border-radius:8px;font-size:14px;color:#a1a1aa}
+
+/* FAQ */
+.faq{padding:80px 24px;max-width:700px;margin:0 auto}
+.faq h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:32px;text-align:center}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
+.faq-item summary{list-style:none;padding:20px 0;font-size:15px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#fafafa}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:20px;color:#7c3aed;font-weight:400}
+.faq-item[open] summary::after{content:'−'}
+.faq-item .faq-answer{padding:0 0 20px;font-size:14px;color:#a1a1aa;line-height:1.7}
 
 .cta-section{padding:100px 24px;text-align:center}
 .cta-section h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:24px}
 
 footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:center;font-size:12px;color:#71717a}
 
-@media(max-width:640px){.two-up{grid-template-columns:1fr}.nav-links{display:none}}
+@media(max-width:640px){.two-up{grid-template-columns:1fr}.nav-links{display:none}.steps{grid-template-columns:1fr}.stats-bar-inner{grid-template-columns:1fr;gap:24px}.why-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -55,18 +93,95 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:c
   <a href="book-demo.html?industry=medical" class="btn-primary">Book a Demo</a>
 </section>
 
+<section class="stats-bar fade-in">
+  <div class="stats-bar-inner">
+    <div class="stat-item">
+      <div class="stat-value">4.8 to 4.9</div>
+      <div class="stat-label">Average star improvement</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">98%</div>
+      <div class="stat-label">Of calls answered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">HIPAA</div>
+      <div class="stat-label">Aware AI responses</div>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works fade-in">
+  <div class="section-label">How It Works</div>
+  <h2>Running in minutes, not months</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Connect Your Profile</h3>
+      <p>Link your Google Business Profile and set your practice details. No IT team needed.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Set Your Preferences</h3>
+      <p>Choose your tone, review response style, and phone answering protocols for your specialty.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Go Live</h3>
+      <p>Ax starts responding to reviews and answering calls immediately. You get transcripts and weekly reports.</p>
+    </div>
+  </div>
+</section>
+
 <section class="two-up">
   <div class="card fade-in">
     <div class="section-label">Reviews</div>
     <div class="highlight">4.9 ★</div>
     <h3>AI Review Optimization</h3>
     <p>Automatically request reviews after appointments. AI responds to every review in a professional, HIPAA aware tone. More five star reviews means higher Google rankings, which means more new patients finding you.</p>
+    <ul>
+      <li>Automatic post visit review requests via SMS</li>
+      <li>Personalized responses to every Google review</li>
+      <li>Negative review alerts sent to your phone instantly</li>
+      <li>Monthly review performance reports</li>
+      <li>Review funnel to filter feedback before it goes public</li>
+    </ul>
   </div>
   <div class="card fade-in">
     <div class="section-label">Phone</div>
     <div class="highlight" style="color:#7c3aed">24/7</div>
     <h3>AI Phone Answering</h3>
     <p>When your front desk is busy or closed, AI answers the phone. It handles scheduling questions, office hours, insurance inquiries, and routes urgent calls. Patients get answers. You get transcripts.</p>
+    <ul>
+      <li>Answers office hours, location, and insurance questions</li>
+      <li>Books and confirms appointments automatically</li>
+      <li>Routes urgent medical calls to on call staff</li>
+      <li>Full transcript emailed after every call</li>
+      <li>Custom greeting and hold messaging</li>
+    </ul>
+  </div>
+</section>
+
+<section class="why-reviews fade-in">
+  <div class="section-label" style="text-align:center">Patient Acquisition</div>
+  <h2>Why Google reviews matter for your practice</h2>
+  <div class="sub">New patients search Google before booking. Your star rating and review volume directly impact whether they choose you or the practice down the street.</div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-stat">84%</div>
+      <p>of patients use online reviews as their first step when choosing a new provider</p>
+    </div>
+    <div class="why-card">
+      <div class="why-stat">4.5+ ★</div>
+      <p>is the minimum star rating most patients consider before booking an appointment</p>
+    </div>
+    <div class="why-card">
+      <div class="why-stat">2.3x</div>
+      <p>more patient inquiries for practices that respond to every Google review</p>
+    </div>
+    <div class="why-card">
+      <div class="why-stat">#1</div>
+      <p>factor in Google local pack rankings is review volume and recency</p>
+    </div>
   </div>
 </section>
 
@@ -78,7 +193,38 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:c
     <span class="tag">Clinics</span>
     <span class="tag">Chiropractors</span>
     <span class="tag">Orthodontists</span>
+    <span class="tag">Dermatologists</span>
+    <span class="tag">Optometrists</span>
+    <span class="tag">Physical Therapy</span>
+    <span class="tag">Pediatrics</span>
+    <span class="tag">Urgent Care</span>
+    <span class="tag">Veterinary Clinics</span>
+    <span class="tag">Mental Health Practices</span>
   </div>
+</section>
+
+<section class="faq fade-in">
+  <h2>Frequently asked questions</h2>
+  <details class="faq-item">
+    <summary>Is Ax HIPAA compliant?</summary>
+    <div class="faq-answer">Ax is designed with HIPAA awareness in mind. AI review responses never include protected health information. Phone transcripts are stored securely and access is limited to authorized practice staff.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Will AI review responses sound professional enough for a medical practice?</summary>
+    <div class="faq-answer">Absolutely. Ax is trained to respond in a clinical yet warm tone appropriate for healthcare. Responses never disclose patient details and always maintain the professionalism your patients expect.</div>
+  </details>
+  <details class="faq-item">
+    <summary>How does the AI phone handle urgent medical calls?</summary>
+    <div class="faq-answer">You configure escalation rules during setup. If a caller reports an emergency or urgent symptom, the AI immediately routes the call to your on call staff or directs them to call 911. Non urgent calls are handled normally.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Do I need to replace my existing practice management software?</summary>
+    <div class="faq-answer">No. Ax is not a practice management system. It works alongside your existing PMS, EHR, and scheduling tools. Ax focuses specifically on Google reviews and phone answering.</div>
+  </details>
+  <details class="faq-item">
+    <summary>How quickly can my practice go live?</summary>
+    <div class="faq-answer">Most practices are fully operational within 10 minutes. Connect your Google Business Profile, set your preferences, and Ax starts working. No contracts with your IT department required.</div>
+  </details>
 </section>
 
 <section class="cta-section fade-in">
