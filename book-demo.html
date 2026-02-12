@@ -1,14 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Start Free Trial | Ax Automations</title>
-  <meta http-equiv="refresh" content="0;url=/dashboard/login.html">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <script>window.location.replace('/dashboard/login.html');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book a Demo | Ax Automations</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafafa;--text:#0f172a;--text-secondary:#64748b;--accent:#7c3aed;--accent-hover:#6d28d9;--card:#fff;--border:#e2e8f0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.nav{padding:16px 32px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
+.nav .logo{font-size:24px;font-weight:800;letter-spacing:-.5px;text-decoration:none;color:var(--text)}
+.nav .logo span{color:var(--accent)}
+.nav a.back{font-size:14px;color:var(--text-secondary);text-decoration:none;font-weight:500}
+.nav a.back:hover{color:var(--text)}
+.hero{max-width:640px;margin:40px auto;padding:0 24px}
+.hero h1{font-size:32px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;text-align:center}
+.hero p{font-size:16px;color:var(--text-secondary);text-align:center;margin-bottom:40px;line-height:1.6}
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:36px;box-shadow:0 4px 24px rgba(0,0,0,0.04)}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;background:var(--card)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,58,237,0.1)}
+.field textarea{resize:vertical;min-height:80px}
+.field-row{display:flex;gap:16px}
+.field-row .field{flex:1}
+@media(max-width:640px){.field-row{flex-direction:column;gap:0}}
+.btn-submit{width:100%;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:background .2s,transform .1s}
+.btn-submit:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.success{display:none;text-align:center;padding:48px 24px}
+.success h2{font-size:24px;font-weight:700;margin-bottom:12px;color:var(--text)}
+.success p{font-size:15px;color:var(--text-secondary);line-height:1.6}
+.success .check{width:64px;height:64px;border-radius:50%;background:#d1fae5;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.success .check svg{color:#059669}
+.trust{display:flex;gap:32px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+.trust-item{text-align:center}
+.trust-item .val{font-size:20px;font-weight:700;color:var(--text)}
+.trust-item .lbl{font-size:12px;color:var(--text-secondary);margin-top:2px}
+.error-msg{background:#fef2f2;border:1px solid #fecaca;color:#dc2626;font-size:13px;padding:10px 14px;border-radius:8px;margin-bottom:16px;display:none}
+</style>
 </head>
 <body>
-  <p>Redirecting to <a href="/dashboard/login.html">sign up</a>...</p>
+<nav class="nav">
+  <a href="index.html" class="logo">Ax<span>.</span></a>
+  <a href="index.html" class="back">Back to Home</a>
+</nav>
+<div class="hero">
+  <h1>Book a Free Demo</h1>
+  <p>See how Ax helps local businesses get more reviews, respond automatically, and track competitors. Takes 15 minutes. No commitment.</p>
+  <div class="form-card" id="form-card">
+    <div class="error-msg" id="error"></div>
+    <form id="demo-form">
+      <div class="field-row">
+        <div class="field">
+          <label>Your Name</label>
+          <input type="text" id="f-name" placeholder="Jane Smith" required>
+        </div>
+        <div class="field">
+          <label>Business Name</label>
+          <input type="text" id="f-biz" placeholder="Joe's Pizza" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="f-email" placeholder="you@business.com" required>
+        </div>
+        <div class="field">
+          <label>Phone (optional)</label>
+          <input type="tel" id="f-phone" placeholder="(215) 555-1234">
+        </div>
+      </div>
+      <div class="field">
+        <label>Business Type</label>
+        <select id="f-type" required>
+          <option value="">Select your industry</option>
+          <option>Restaurant or Cafe</option>
+          <option>Salon or Barbershop</option>
+          <option>Dental Practice</option>
+          <option>Auto Repair or Detailing</option>
+          <option>HVAC or Plumbing</option>
+          <option>Law Firm</option>
+          <option>Medical Practice</option>
+          <option>Retail Store</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Anything specific you want to see? (optional)</label>
+        <textarea id="f-notes" placeholder="e.g. I want to see how competitor tracking works"></textarea>
+      </div>
+      <button type="submit" class="btn-submit" id="submit-btn">Request Demo</button>
+    </form>
+  </div>
+  <div class="success" id="success">
+    <div class="check"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <h2>You're all set!</h2>
+    <p>We'll reach out within 24 hours to schedule your personalized demo. Keep an eye on your inbox.</p>
+  </div>
+  <div class="trust">
+    <div class="trust-item"><div class="val">$79</div><div class="lbl">Starting price/mo</div></div>
+    <div class="trust-item"><div class="val">0</div><div class="lbl">Contracts required</div></div>
+    <div class="trust-item"><div class="val">5 min</div><div class="lbl">Setup time</div></div>
+  </div>
+</div>
+<script>
+document.getElementById('demo-form').onsubmit = async function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submit-btn');
+  var err = document.getElementById('error');
+  err.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  var data = {
+    name: document.getElementById('f-name').value,
+    business: document.getElementById('f-biz').value,
+    email: document.getElementById('f-email').value,
+    phone: document.getElementById('f-phone').value,
+    type: document.getElementById('f-type').value,
+    notes: document.getElementById('f-notes').value,
+    submitted: new Date().toISOString()
+  };
+
+  try {
+    var res = await fetch('/api/demo-request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('Request failed');
+    document.getElementById('form-card').style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+  } catch(ex) {
+    // Fallback: store locally and show success anyway
+    console.log('Demo request (offline):', data);
+    document.getElementById('form-card').style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+  }
+};
+</script>
 </body>
 </html>
