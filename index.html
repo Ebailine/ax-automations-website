@@ -24,9 +24,11 @@ nav.scrolled{background:rgba(9,9,11,.85);backdrop-filter:blur(12px);border-botto
 .nav-cta:hover{background:#6d28d9}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
 .hamburger span{display:block;width:22px;height:2px;background:#fafafa;margin:5px 0;transition:.3s}
-.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:#18181b;padding:24px;flex-direction:column;gap:16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#09090b;padding:100px 32px 32px;flex-direction:column;gap:8px;z-index:90}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-size:16px;color:#a1a1aa;padding:8px 0}
+.mobile-menu a{font-size:22px;font-weight:600;color:#fafafa;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu-close{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;color:#a1a1aa;padding:8px}
 
 /* SHARED */
 .section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin-bottom:12px}
@@ -182,12 +184,15 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,.06);text-al
     </button>
   </div>
 </nav>
-<div class="mobile-menu">
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
   <a href="#product" onclick="this.parentElement.classList.remove('open')">Product</a>
   <a href="#industries" onclick="this.parentElement.classList.remove('open')">Industries</a>
   <a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
   <a href="/dashboard/login.html">Login</a>
-  <a href="book-demo.html" style="color:#7c3aed;font-weight:600">Book a Demo</a>
+  <a href="book-demo.html" style="color:#7c3aed">Book a Demo</a>
 </div>
 
 <!-- HERO -->
