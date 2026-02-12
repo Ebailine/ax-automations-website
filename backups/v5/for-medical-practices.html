@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ax for Medical Practices — More Google Reviews, Every Call Answered</title>
+<title>Ax for Medical Practices — AI Reviews and Phone Answering for Dentists and Doctors</title>
 <meta name="description" content="AI review optimization and phone answering for dental practices, physicians, and clinics. Boost your Google ranking and never miss a patient call.">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#09090b;color:#fafafa;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;display:flex;align-items:center;background:rgba(9,9,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
@@ -17,151 +16,92 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .nav-links a{font-size:14px;color:#a1a1aa}
 .nav-links a:hover{color:#fafafa}
 .nav-cta{background:#7c3aed;color:#fafafa !important;padding:8px 20px;border-radius:8px;font-weight:600;font-size:14px}
-.nav-cta:hover{background:#6d28d9}
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
-.hamburger span{display:block;width:22px;height:2px;background:#fafafa;margin:5px 0}
-.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#09090b;padding:100px 32px 32px;flex-direction:column;gap:8px;z-index:90}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-size:22px;font-weight:600;color:#fafafa;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.mobile-menu a:last-child{border-bottom:none}
-.mobile-menu-close{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;color:#a1a1aa;padding:8px}
 .section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin-bottom:12px}
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
-.btn-primary{display:inline-flex;align-items:center;background:#7c3aed;color:#fafafa;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;transition:background .2s;border:none;cursor:pointer}
+.btn-primary{display:inline-flex;background:#7c3aed;color:#fafafa;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;transition:background .2s;border:none;cursor:pointer}
 .btn-primary:hover{background:#6d28d9}
-.btn-secondary{display:inline-flex;align-items:center;gap:8px;color:#a1a1aa;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;border:1px solid rgba(255,255,255,.1);transition:border-color .2s,color .2s;cursor:pointer;background:none}
-.btn-secondary:hover{border-color:rgba(255,255,255,.2);color:#fafafa}
 
-.hero{padding:120px 24px 48px;text-align:center;max-width:720px;margin:0 auto}
+.hero{padding:140px 24px 80px;text-align:center;max-width:720px;margin:0 auto}
 .hero h1{font-size:clamp(36px,5vw,48px);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
-.hero p{color:#a1a1aa;font-size:17px;max-width:540px;margin:0 auto 28px}
-.hero-buttons{display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero p{color:#a1a1aa;font-size:17px;max-width:520px;margin:0 auto 32px}
 
 /* Stats Bar */
-.stats-bar{padding:32px 24px 64px;max-width:900px;margin:0 auto}
+.stats-bar{padding:0 24px 80px;max-width:900px;margin:0 auto}
 .stats-bar-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;text-align:center}
 .stat-item .stat-value{font-size:32px;font-weight:700;color:#7c3aed;letter-spacing:-.02em}
 .stat-item .stat-label{font-size:13px;color:#a1a1aa;margin-top:4px}
 
 /* How It Works */
-.how-it-works{padding:64px 24px;max-width:900px;margin:0 auto;text-align:center}
-.how-it-works h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:36px}
+.how-it-works{padding:80px 24px;max-width:900px;margin:0 auto;text-align:center}
+.how-it-works h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:48px}
 .steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
 .step{text-align:center}
 .step-num{width:48px;height:48px;border-radius:50%;background:rgba(124,58,237,.15);color:#7c3aed;display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;margin-bottom:16px}
 .step h3{font-size:16px;font-weight:700;margin-bottom:8px}
 .step p{font-size:14px;color:#a1a1aa;line-height:1.6}
 
-/* Two-up cards */
-.two-up{padding:64px 24px;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:28px 24px;transition:border-color .3s}
+.two-up{padding:80px 24px;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px 28px;transition:border-color .3s}
 .card:hover{border-color:rgba(124,58,237,.3)}
-.card h3{font-size:18px;font-weight:700;margin-bottom:8px}
-.card p{font-size:14px;color:#a1a1aa;line-height:1.7;margin-bottom:14px}
-.card .highlight{font-size:28px;font-weight:700;color:#22c55e;margin-bottom:10px}
+.card h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.card p{font-size:14px;color:#a1a1aa;line-height:1.7;margin-bottom:16px}
+.card .highlight{font-size:32px;font-weight:700;color:#22c55e;margin-bottom:12px}
 .card ul{list-style:none;margin:0;padding:0}
-.card ul li{font-size:13px;color:#a1a1aa;padding:4px 0;display:flex;align-items:center;gap:8px}
+.card ul li{font-size:13px;color:#a1a1aa;padding:5px 0;display:flex;align-items:center;gap:8px}
 .card ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:#7c3aed;flex-shrink:0}
 
 /* Why Reviews Matter */
-.why-reviews{padding:64px 24px;max-width:800px;margin:0 auto}
+.why-reviews{padding:80px 24px;max-width:800px;margin:0 auto}
 .why-reviews h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:16px;text-align:center}
-.why-reviews .sub{font-size:15px;color:#a1a1aa;text-align:center;max-width:600px;margin:0 auto 32px;line-height:1.7}
+.why-reviews .sub{font-size:15px;color:#a1a1aa;text-align:center;max-width:600px;margin:0 auto 40px;line-height:1.7}
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .why-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px}
 .why-card .why-stat{font-size:28px;font-weight:700;color:#22c55e;margin-bottom:8px}
 .why-card p{font-size:14px;color:#a1a1aa;line-height:1.6}
-.why-card .why-source{font-size:11px;color:#71717a;margin-top:6px}
 
-/* Video */
-.video-section{padding:64px 24px;text-align:center}
-.video-container{max-width:800px;margin:0 auto;background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:64px 24px}
-.play-btn{width:72px;height:72px;border-radius:50%;background:#7c3aed;display:inline-flex;align-items:center;justify-content:center;margin-bottom:20px;cursor:pointer;transition:transform .2s}
-.play-btn:hover{transform:scale(1.05)}
-.play-btn svg{width:28px;height:28px;fill:#fafafa;margin-left:4px}
-.video-text{font-size:18px;font-weight:600;margin-bottom:4px}
-.video-sub{font-size:14px;color:#a1a1aa}
-
-.practices{padding:64px 24px;text-align:center}
+.practices{padding:80px 24px;text-align:center}
 .practices h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:24px}
-.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:800px;margin:0 auto}
+.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:700px;margin:0 auto}
 .tag{background:#18181b;border:1px solid rgba(255,255,255,.06);padding:8px 18px;border-radius:8px;font-size:14px;color:#a1a1aa}
 
 /* FAQ */
-.faq{padding:64px 24px;max-width:700px;margin:0 auto}
+.faq{padding:80px 24px;max-width:700px;margin:0 auto}
 .faq h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:32px;text-align:center}
 .faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
 .faq-item summary{list-style:none;padding:20px 0;font-size:15px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#fafafa}
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary::after{content:'+';font-size:20px;color:#7c3aed;font-weight:400}
-.faq-item[open] summary::after{content:'x'}
+.faq-item[open] summary::after{content:'−'}
 .faq-item .faq-answer{padding:0 0 20px;font-size:14px;color:#a1a1aa;line-height:1.7}
 
-.cta-section{padding:64px 24px;text-align:center}
-.cta-section h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:12px}
-.cta-section p{color:#a1a1aa;font-size:15px;margin-bottom:24px}
+.cta-section{padding:100px 24px;text-align:center}
+.cta-section h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:24px}
 
 footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:center;font-size:12px;color:#71717a}
 
-@media(max-width:640px){
-  .two-up{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .hamburger{display:block}
-  .steps{grid-template-columns:1fr}
-  .stats-bar-inner{grid-template-columns:1fr;gap:24px}
-  .why-grid{grid-template-columns:1fr}
-  .hero,.how-it-works,.two-up,.why-reviews,.video-section,.practices,.faq,.cta-section{padding-top:48px;padding-bottom:48px}
-}
+@media(max-width:640px){.two-up{grid-template-columns:1fr}.nav-links{display:none}.steps{grid-template-columns:1fr}.stats-bar-inner{grid-template-columns:1fr;gap:24px}.why-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Ax</a>
-    <div class="nav-links">
-      <a href="index.html#product">Product</a>
-      <a href="index.html#pricing">Pricing</a>
-      <a href="/dashboard/login.html">Login</a>
-      <a href="book-demo.html?industry=medical" class="nav-cta">Book a Demo</a>
-    </div>
-    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobile-menu">
-  <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
-  <a href="index.html#product" onclick="this.parentElement.classList.remove('open')">Product</a>
-  <a href="index.html#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
-  <a href="/dashboard/login.html">Login</a>
-  <a href="book-demo.html?industry=medical" style="color:#7c3aed">Book a Demo</a>
-</div>
+<nav><div class="nav-inner"><a href="index.html" class="nav-logo">Ax</a><div class="nav-links"><a href="index.html#product">Product</a><a href="index.html#pricing">Pricing</a><a href="/dashboard/login.html">Login</a><a href="book-demo.html?industry=medical" class="nav-cta">Book a Demo</a></div></div></nav>
 
 <section class="hero fade-in">
   <div class="section-label">Medical Practices</div>
-  <h1>The practice down the street has 200 reviews. You have 34.</h1>
-  <p>You already have practice management software. You need better Google rankings and someone to pick up the phone when your staff cannot. Ax does both, on autopilot.</p>
-  <div class="hero-buttons">
-    <a href="book-demo.html?industry=medical" class="btn-primary">Book a Demo</a>
-    <a href="#video" class="btn-secondary">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      Watch it work
-    </a>
-  </div>
+  <h1>More Google reviews. Every call answered.</h1>
+  <p>You already have practice management software. You need better Google rankings and someone to pick up the phone when your staff cannot. That is what Ax does.</p>
+  <a href="book-demo.html?industry=medical" class="btn-primary">Book a Demo</a>
 </section>
 
 <section class="stats-bar fade-in">
   <div class="stats-bar-inner">
     <div class="stat-item">
-      <div class="stat-value">4x</div>
-      <div class="stat-label">More reviews per month</div>
+      <div class="stat-value">4.8 to 4.9</div>
+      <div class="stat-label">Average star improvement</div>
     </div>
     <div class="stat-item">
       <div class="stat-value">98%</div>
-      <div class="stat-label">Of patient calls answered</div>
+      <div class="stat-label">Of calls answered</div>
     </div>
     <div class="stat-item">
       <div class="stat-value">HIPAA</div>
@@ -195,30 +135,28 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:c
 <section class="two-up">
   <div class="card fade-in">
     <div class="section-label">Reviews</div>
-    <div class="highlight">4.9 &#9733;</div>
+    <div class="highlight">4.9 ★</div>
     <h3>AI Review Optimization</h3>
-    <p>Automatically request reviews after appointments. AI responds to every review in a professional, HIPAA aware tone. More five star reviews means higher Google rankings and more new patients.</p>
+    <p>Automatically request reviews after appointments. AI responds to every review in a professional, HIPAA aware tone. More five star reviews means higher Google rankings, which means more new patients finding you.</p>
     <ul>
-      <li>Automated post visit review requests via SMS</li>
-      <li>Personalized AI responses to every Google review</li>
+      <li>Automatic post visit review requests via SMS</li>
+      <li>Personalized responses to every Google review</li>
       <li>Negative review alerts sent to your phone instantly</li>
       <li>Monthly review performance reports</li>
       <li>Review funnel to filter feedback before it goes public</li>
-      <li>Avg. 34 to 120+ reviews in 90 days</li>
     </ul>
   </div>
   <div class="card fade-in">
     <div class="section-label">Phone</div>
     <div class="highlight" style="color:#7c3aed">24/7</div>
     <h3>AI Phone Answering</h3>
-    <p>When your front desk is busy or closed, AI answers the phone. It handles scheduling questions, office hours, insurance inquiries, and routes urgent calls to on call staff.</p>
+    <p>When your front desk is busy or closed, AI answers the phone. It handles scheduling questions, office hours, insurance inquiries, and routes urgent calls. Patients get answers. You get transcripts.</p>
     <ul>
       <li>Answers office hours, location, and insurance questions</li>
       <li>Books and confirms appointments automatically</li>
       <li>Routes urgent medical calls to on call staff</li>
       <li>Full transcript emailed after every call</li>
       <li>Custom greeting and hold messaging</li>
-      <li>Saves your front desk 15+ hours per week</li>
     </ul>
   </div>
 </section>
@@ -233,9 +171,8 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:c
       <p>of patients use online reviews as their first step when choosing a new provider</p>
     </div>
     <div class="why-card">
-      <div class="why-stat">30%</div>
-      <p>more revenue for businesses with 50+ reviews, according to Harvard Business School research</p>
-      <div class="why-source">Harvard Business School, 2016</div>
+      <div class="why-stat">4.5+ ★</div>
+      <p>is the minimum star rating most patients consider before booking an appointment</p>
     </div>
     <div class="why-card">
       <div class="why-stat">2.3x</div>
@@ -248,22 +185,11 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:c
   </div>
 </section>
 
-<section class="video-section" id="video">
-  <div class="video-container fade-in">
-    <div class="play-btn">
-      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-    </div>
-    <div class="video-text">See the platform in action</div>
-    <div class="video-sub">Watch a 60 second walkthrough</div>
-  </div>
-</section>
-
 <section class="practices fade-in">
   <h2>Built for these practices</h2>
   <div class="tags">
     <span class="tag">Dental Practices</span>
-    <span class="tag">General Physicians</span>
-    <span class="tag">Family Medicine</span>
+    <span class="tag">Physicians</span>
     <span class="tag">Clinics</span>
     <span class="tag">Chiropractors</span>
     <span class="tag">Orthodontists</span>
@@ -274,11 +200,6 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:c
     <span class="tag">Urgent Care</span>
     <span class="tag">Veterinary Clinics</span>
     <span class="tag">Mental Health Practices</span>
-    <span class="tag">Oral Surgery</span>
-    <span class="tag">ENT Specialists</span>
-    <span class="tag">Podiatry</span>
-    <span class="tag">OB/GYN</span>
-    <span class="tag">Cardiology</span>
   </div>
 </section>
 
@@ -304,15 +225,10 @@ footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:c
     <summary>How quickly can my practice go live?</summary>
     <div class="faq-answer">Most practices are fully operational within 10 minutes. Connect your Google Business Profile, set your preferences, and Ax starts working. No contracts with your IT department required.</div>
   </details>
-  <details class="faq-item">
-    <summary>What does it cost?</summary>
-    <div class="faq-answer">Ax starts at $89/mo for review management and goes up to $199/mo with AI phone answering included. Annual plans waive the setup fee. See full pricing on our homepage.</div>
-  </details>
 </section>
 
 <section class="cta-section fade-in">
-  <h2>Your patients are already searching Google.</h2>
-  <p>Make sure they find you first. Set up Ax in under 10 minutes.</p>
+  <h2>See it working for your practice</h2>
   <a href="book-demo.html?industry=medical" class="btn-primary">Book a Demo</a>
 </section>
 

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ax Automations — Get 4x More Google Reviews. Automatically.</title>
-<meta name="description" content="AI powered review management for appointment based businesses. Get more Google reviews, respond automatically, and grow your online reputation on autopilot.">
+<title>Ax Automations — The AI Powered CRM for Appointment Based Businesses</title>
+<meta name="description" content="Reviews, phone, SMS, scheduling, and revenue tracking on autopilot. Built for salons, dentists, med spas, and every appointment based business.">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -38,18 +38,26 @@ h2.section-title{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 64px}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px}
 .hero h1{font-size:clamp(40px,6vw,56px);font-weight:700;letter-spacing:-.03em;line-height:1.08;max-width:720px;margin-bottom:20px;position:relative}
 .hero h1::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120%;height:180%;background:radial-gradient(ellipse,rgba(124,58,237,.12) 0%,transparent 70%);pointer-events:none;z-index:-1}
-.hero .subtitle{font-size:17px;color:#a1a1aa;max-width:480px;margin:0 auto 32px;line-height:1.6}
-.hero-buttons{display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap}
+.social-proof-strip{padding:0 24px 60px;text-align:center;max-width:900px;margin:0 auto}
+.social-proof-strip .sp-inner{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap}
+.social-proof-strip .sp-item{font-size:14px;color:#71717a}
+.social-proof-strip .sp-item strong{color:#a1a1aa;font-weight:600}
+.how-works-home{padding:80px 24px;max-width:900px;margin:0 auto;text-align:center}
+.how-works-home h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:48px}
+.hw-steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
+.hw-step{text-align:center}
+.hw-num{width:48px;height:48px;border-radius:50%;background:rgba(124,58,237,.15);color:#7c3aed;display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;margin-bottom:16px}
+.hw-step h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.hw-step p{font-size:14px;color:#a1a1aa;line-height:1.6}
+.hero .subtitle{font-size:17px;color:#a1a1aa;max-width:480px;margin:0 auto 36px;line-height:1.6}
 .btn-primary{display:inline-flex;align-items:center;background:#7c3aed;color:#fafafa;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;transition:background .2s,transform .15s;border:none;cursor:pointer}
 .btn-primary:hover{background:#6d28d9;transform:translateY(-1px)}
-.btn-secondary{display:inline-flex;align-items:center;gap:8px;color:#a1a1aa;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;border:1px solid rgba(255,255,255,.1);transition:border-color .2s,color .2s;cursor:pointer;background:none}
-.btn-secondary:hover{border-color:rgba(255,255,255,.2);color:#fafafa}
 
 /* PRODUCT MOCKUP */
-.hero-mockup{margin-top:48px;width:100%;max-width:800px;background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px;position:relative;overflow:hidden}
+.hero-mockup{margin-top:56px;width:100%;max-width:800px;background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px;position:relative;overflow:hidden}
 .mockup-bar{display:flex;gap:6px;margin-bottom:20px}
 .mockup-dot{width:10px;height:10px;border-radius:50%;background:#27272a}
 .mockup-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
@@ -61,64 +69,51 @@ h2.section-title{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-
 .mockup-card .mc-bar{height:4px;border-radius:2px;background:#27272a;margin-top:8px}
 .mockup-card .mc-bar-fill{height:100%;border-radius:2px;background:#7c3aed}
 
-/* INTEGRATION LOGOS */
-.integrations-strip{padding:32px 24px 0;text-align:center;max-width:800px;margin:0 auto}
-.integrations-strip p{font-size:12px;color:#71717a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
-.integrations-logos{display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:wrap;font-size:14px;color:#52525b;font-weight:500}
+/* PRODUCT SECTIONS */
+.product-section{padding:120px 24px}
+.product-section .inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1100px;margin:0 auto}
+.product-section.reverse .inner{direction:rtl}
+.product-section.reverse .inner>*{direction:ltr}
+.product-text h2{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
+.product-text p{color:#a1a1aa;font-size:15px;line-height:1.7}
 
-/* PROBLEM */
-.problem{padding:64px 24px;text-align:center;max-width:720px;margin:0 auto}
-.problem h2{font-size:clamp(24px,3.5vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:32px}
-.problem-points{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;text-align:center}
-.problem-point{padding:20px 16px}
-.problem-point .pp-stat{font-size:28px;font-weight:700;color:#7c3aed;margin-bottom:8px}
-.problem-point p{font-size:14px;color:#a1a1aa;line-height:1.6}
+/* REVIEW MOCKUP */
+.review-mockup{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px}
+.rm-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.rm-avatar{width:36px;height:36px;border-radius:50%;background:#27272a;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#a1a1aa}
+.rm-name{font-size:14px;font-weight:600}
+.rm-stars{color:#facc15;font-size:13px;letter-spacing:2px}
+.rm-review{font-size:13px;color:#a1a1aa;line-height:1.6;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.rm-response{padding-left:16px;border-left:2px solid #7c3aed}
+.rm-response .rm-resp-label{font-size:11px;color:#7c3aed;font-weight:600;margin-bottom:6px}
+.rm-response p{font-size:13px;color:#a1a1aa;line-height:1.6}
 
-/* HOW IT WORKS */
-.how-works-home{padding:64px 24px;max-width:900px;margin:0 auto;text-align:center}
-.how-works-home h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:40px}
-.hw-steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
-.hw-step{text-align:center}
-.hw-num{width:48px;height:48px;border-radius:50%;background:rgba(124,58,237,.15);color:#7c3aed;display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;margin-bottom:16px}
-.hw-step h3{font-size:16px;font-weight:700;margin-bottom:8px}
-.hw-step p{font-size:14px;color:#a1a1aa;line-height:1.6}
+/* PHONE MOCKUP */
+.phone-mockup{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px;text-align:center}
+.pm-icon{width:64px;height:64px;border-radius:50%;background:rgba(124,58,237,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.3)}50%{box-shadow:0 0 0 16px rgba(124,58,237,0)}}
+.pm-icon svg{width:28px;height:28px;stroke:#7c3aed;fill:none;stroke-width:2}
+.pm-caller{font-size:18px;font-weight:600;margin-bottom:4px}
+.pm-status{font-size:13px;color:#22c55e;margin-bottom:20px}
+.pm-transcript{background:#09090b;border-radius:8px;padding:16px;text-align:left}
+.pm-line{font-size:12px;color:#a1a1aa;margin-bottom:8px;line-height:1.5}
+.pm-line span{color:#fafafa;font-weight:500}
 
-/* FEATURES */
-.features{padding:64px 24px;max-width:900px;margin:0 auto}
-.features h2{font-size:clamp(24px,3vw,32px);font-weight:700;text-align:center;margin-bottom:40px}
-.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;margin:0 auto}
-.feat-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:28px 24px;transition:border-color .3s}
-.feat-card:hover{border-color:rgba(124,58,237,.3)}
-.feat-card h3{font-size:16px;font-weight:700;margin-bottom:6px}
-.feat-card p{font-size:14px;color:#a1a1aa;line-height:1.6;margin-bottom:10px}
-.feat-stat{font-size:12px;color:#7c3aed;font-weight:600}
-
-/* BEFORE/AFTER */
-.before-after{padding:64px 24px;max-width:800px;margin:0 auto;text-align:center}
-.before-after h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:40px}
-.ba-cards{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center}
-.ba-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:28px 24px;text-align:center}
-.ba-card.after{border-color:rgba(124,58,237,.3)}
-.ba-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#71717a;margin-bottom:12px}
-.ba-card.after .ba-label{color:#7c3aed}
-.ba-stars{font-size:20px;color:#facc15;letter-spacing:3px;margin-bottom:8px}
-.ba-rating{font-size:36px;font-weight:700;margin-bottom:4px}
-.ba-reviews{font-size:14px;color:#a1a1aa}
-.ba-arrow{font-size:28px;color:#7c3aed;font-weight:700}
-
-/* VIDEO PLACEHOLDER */
-.video-section{padding:64px 24px;text-align:center}
-.video-container{max-width:800px;margin:0 auto;background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:64px 24px;position:relative}
-.play-btn{width:72px;height:72px;border-radius:50%;background:#7c3aed;display:inline-flex;align-items:center;justify-content:center;margin-bottom:20px;cursor:pointer;transition:transform .2s}
-.play-btn:hover{transform:scale(1.05)}
-.play-btn svg{width:28px;height:28px;fill:#fafafa;margin-left:4px}
-.video-text{font-size:18px;font-weight:600;margin-bottom:4px}
-.video-sub{font-size:14px;color:#a1a1aa}
+/* CHART MOCKUP */
+.chart-mockup{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px}
+.cm-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px}
+.cm-title{font-size:14px;font-weight:600}
+.cm-value{font-size:28px;font-weight:700;color:#22c55e}
+.cm-bars{display:flex;align-items:flex-end;gap:8px;height:120px}
+.cm-bar{flex:1;background:#27272a;border-radius:4px 4px 0 0;position:relative;min-height:12px;transition:height .6s ease}
+.cm-bar.highlight{background:#7c3aed}
+.cm-labels{display:flex;gap:8px;margin-top:8px}
+.cm-labels span{flex:1;text-align:center;font-size:10px;color:#71717a}
 
 /* INDUSTRIES */
-.industries{padding:64px 24px;text-align:center}
-.industry-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;margin:32px auto 0}
-.industry-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px 28px;text-align:left;transition:border-color .3s}
+.industries{padding:120px 24px;text-align:center}
+.industry-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;margin:40px auto 0}
+.industry-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:36px 28px;text-align:left;transition:border-color .3s}
 .industry-card:hover{border-color:rgba(124,58,237,.3)}
 .industry-card h3{font-size:20px;font-weight:700;margin-bottom:8px}
 .industry-card p{font-size:14px;color:#a1a1aa;line-height:1.6;margin-bottom:16px}
@@ -127,8 +122,8 @@ h2.section-title{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-
 .industry-card .card-link:hover{gap:8px}
 
 /* PRICING */
-.pricing{padding:64px 24px}
-.pricing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px}
+.pricing{padding:120px 24px}
+.pricing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:48px}
 .pricing-toggle span{font-size:14px;cursor:pointer;transition:color .2s}
 .pricing-toggle span.active{color:#fafafa;font-weight:600}
 .pricing-toggle span.inactive{color:#71717a}
@@ -139,32 +134,31 @@ h2.section-title{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-
 .toggle-thumb{position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fafafa;border-radius:50%;transition:.3s}
 .toggle-thumb.on{left:25px}
 .pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;max-width:960px;margin:0 auto}
-.price-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px 24px;position:relative}
+.price-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:36px 28px;position:relative}
 .price-card.featured{border-color:rgba(124,58,237,.4)}
 .price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fafafa;padding:3px 14px;border-radius:20px;font-size:12px;font-weight:600}
 .price-name{font-size:18px;font-weight:700;margin-bottom:4px}
 .price-amount{font-size:40px;font-weight:700;letter-spacing:-.02em;margin-bottom:2px}
 .price-amount span{font-size:16px;font-weight:400;color:#a1a1aa}
-.price-period{font-size:13px;color:#a1a1aa;margin-bottom:20px}
-.price-list{list-style:none;margin-bottom:24px}
-.price-list li{font-size:14px;color:#a1a1aa;padding:5px 0;display:flex;align-items:center;gap:8px}
+.price-period{font-size:13px;color:#a1a1aa;margin-bottom:24px}
+.price-list{list-style:none;margin-bottom:28px}
+.price-list li{font-size:14px;color:#a1a1aa;padding:6px 0;display:flex;align-items:center;gap:8px}
 .price-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:#7c3aed;flex-shrink:0}
 .price-card .btn-primary{width:100%;justify-content:center}
-.pricing-note{text-align:center;margin-top:24px;font-size:13px;color:#a1a1aa}
+.pricing-note{text-align:center;margin-top:32px;font-size:13px;color:#a1a1aa}
 
 /* TESTIMONIAL */
-.testimonial{padding:64px 24px;text-align:center}
-.testimonial-card{max-width:600px;margin:0 auto;background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:36px 32px}
-.testimonial-card blockquote{font-size:18px;font-weight:400;line-height:1.7;color:#fafafa;margin-bottom:20px;font-style:italic}
+.testimonial{padding:120px 24px;text-align:center}
+.testimonial-card{max-width:600px;margin:0 auto;background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:40px 36px}
+.testimonial-card blockquote{font-size:18px;font-weight:400;line-height:1.7;color:#fafafa;margin-bottom:24px;font-style:italic}
 .testimonial-card .tc-author{font-size:14px;color:#a1a1aa}
 
 /* FINAL CTA */
-.final-cta{padding:64px 24px;text-align:center}
-.final-cta h2{font-size:clamp(28px,4vw,36px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
-.final-cta p{color:#a1a1aa;font-size:15px;margin-bottom:24px}
+.final-cta{padding:120px 24px;text-align:center}
+.final-cta h2{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.02em;margin-bottom:24px}
 
 /* FOOTER */
-footer{padding:40px 24px 28px;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+footer{padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,.06);text-align:center}
 .footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:16px}
 .footer-links a{font-size:13px;color:#71717a;transition:color .2s}
 .footer-links a:hover{color:#a1a1aa}
@@ -176,15 +170,11 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(255,255,255,.06);text-al
   .hamburger{display:block}
   .mockup-grid{grid-template-columns:1fr}
   .hw-steps{grid-template-columns:1fr}
-  .problem-points{grid-template-columns:1fr}
-  .feat-grid{grid-template-columns:1fr}
-  .ba-cards{grid-template-columns:1fr;gap:16px}
-  .ba-arrow{transform:rotate(90deg)}
+  .product-section .inner{grid-template-columns:1fr;gap:40px}
+  .product-section.reverse .inner{direction:ltr}
   .industry-cards{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr}
   .price-amount{font-size:32px}
-  .hero{padding:100px 24px 48px}
-  .problem,.how-works-home,.features,.before-after,.video-section,.industries,.pricing,.testimonial,.final-cta{padding-top:48px;padding-bottom:48px}
 }
 @media(max-width:480px){
   .hero h1{font-size:32px}
@@ -222,21 +212,15 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(255,255,255,.06);text-al
 <!-- HERO -->
 <section class="hero">
   <div class="fade-in">
-    <h1>Get 4x more Google reviews. Automatically.</h1>
-    <p class="subtitle">Ax sends review requests after every appointment, responds to every review with AI, and answers your phone 24/7. Set it up in 3 minutes.</p>
-    <div class="hero-buttons">
-      <a href="book-demo.html" class="btn-primary">Book a Demo</a>
-      <a href="#video" class="btn-secondary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Watch it work
-      </a>
-    </div>
+    <h1>Your business, on autopilot</h1>
+    <p class="subtitle">The AI powered CRM for appointment based businesses. Reviews, phone, SMS, and scheduling handled automatically.</p>
+    <a href="book-demo.html" class="btn-primary">Book a Demo</a>
   </div>
   <div class="hero-mockup fade-in">
     <div class="mockup-bar"><div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div></div>
     <div class="mockup-grid">
       <div class="mockup-card">
-        <div class="mc-label">New Reviews This Month</div>
+        <div class="mc-label">Reviews This Month</div>
         <div class="mc-value mc-green">+47</div>
         <div class="mc-bar"><div class="mc-bar-fill" style="width:78%"></div></div>
       </div>
@@ -246,126 +230,100 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(255,255,255,.06);text-al
         <div class="mc-bar"><div class="mc-bar-fill" style="width:96%"></div></div>
       </div>
       <div class="mockup-card">
-        <div class="mc-label">Revenue from Reviews</div>
-        <div class="mc-value mc-purple">$8.4k</div>
-        <div class="mc-bar"><div class="mc-bar-fill" style="width:84%"></div></div>
+        <div class="mc-label">Calls Answered by AI</div>
+        <div class="mc-value mc-purple">128</div>
+        <div class="mc-bar"><div class="mc-bar-fill" style="width:64%"></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INTEGRATIONS -->
-<section class="integrations-strip fade-in">
-  <p>Integrates with</p>
-  <div class="integrations-logos">
-    <span>Google Business</span>
-    <span>Yelp</span>
-    <span>Facebook</span>
-    <span>Square</span>
-    <span>Stripe</span>
+<!-- SOCIAL PROOF -->
+<section class="social-proof-strip fade-in">
+  <div class="sp-inner">
+    <div class="sp-item"><strong>500+</strong> reviews generated</div>
+    <div class="sp-item"><strong>24/7</strong> AI phone coverage</div>
+    <div class="sp-item"><strong>3 min</strong> average setup</div>
+    <div class="sp-item">Trusted by <strong>local businesses</strong> across the US</div>
   </div>
 </section>
 
-<!-- PROBLEM -->
-<section class="problem fade-in">
-  <h2>Your competitors have 200+ reviews. You have 23.</h2>
-  <div class="problem-points">
-    <div class="problem-point">
-      <div class="pp-stat">76%</div>
-      <p>of customers trust online reviews as much as personal recommendations</p>
+<!-- PRODUCT: REVIEWS -->
+<section class="product-section" id="product">
+  <div class="inner fade-in">
+    <div class="product-text">
+      <div class="section-label">Reviews</div>
+      <h2>Every review gets a response. Automatically.</h2>
+      <p>AI reads every Google review and writes a response that sounds like you. Personalized, on brand, posted within minutes. Not templates.</p>
     </div>
-    <div class="problem-point">
-      <div class="pp-stat">3.3x</div>
-      <p>more clicks for businesses with 50+ reviews vs. businesses with fewer than 10</p>
-    </div>
-    <div class="problem-point">
-      <div class="pp-stat">$0</div>
-      <p>is what most businesses spend on review strategy, leaving money on the table every month</p>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how-works-home" id="product">
-  <div class="container fade-in">
-    <div class="section-label">How It Works</div>
-    <h2>Live in three steps</h2>
-    <div class="hw-steps">
-      <div class="hw-step">
-        <div class="hw-num">1</div>
-        <h3>Connect</h3>
-        <p>Link your Google Business Profile and payment processor. Takes about two minutes.</p>
+    <div class="review-mockup">
+      <div class="rm-header">
+        <div class="rm-avatar">JM</div>
+        <div><div class="rm-name">Jessica M.</div><div class="rm-stars">★★★★★</div></div>
       </div>
-      <div class="hw-step">
-        <div class="hw-num">2</div>
-        <h3>Configure</h3>
-        <p>Set your business voice, review preferences, and phone answering rules.</p>
-      </div>
-      <div class="hw-step">
-        <div class="hw-num">3</div>
-        <h3>Autopilot</h3>
-        <p>Ax handles reviews, calls, and campaigns. You get a weekly brief every Monday.</p>
+      <div class="rm-review">Best haircut I have ever gotten. Marcus really listened to what I wanted and the fade is perfect. Already booked my next appointment.</div>
+      <div class="rm-response">
+        <div class="rm-resp-label">AI Response (your voice)</div>
+        <p>Thank you so much, Jessica! Marcus will be thrilled to hear that. We are glad the fade turned out exactly how you envisioned it. See you at your next visit!</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features">
-  <h2 class="fade-in">What Ax does for you</h2>
-  <div class="feat-grid">
-    <div class="feat-card fade-in">
-      <h3>4x More Google Reviews</h3>
-      <p>Automated SMS review requests sent after every appointment. Customers tap once and leave a review.</p>
-      <div class="feat-stat">Avg. 12 to 47 reviews per month</div>
+<!-- PRODUCT: PHONE -->
+<section class="product-section reverse">
+  <div class="inner fade-in">
+    <div class="product-text">
+      <div class="section-label">AI Phone</div>
+      <h2>Never miss a call again</h2>
+      <p>When you are with a client, AI picks up. It answers questions, books appointments, and sends you a transcript. Callers think they talked to your front desk.</p>
     </div>
-    <div class="feat-card fade-in">
-      <h3>Every Review Answered in Minutes</h3>
-      <p>AI reads each review and writes a personalized response in your voice. No templates, no effort.</p>
-      <div class="feat-stat">Under 5 min avg. response time</div>
-    </div>
-    <div class="feat-card fade-in">
-      <h3>Never Miss a Call Again</h3>
-      <p>When you are with a client, AI picks up. It answers questions, books appointments, and sends you a transcript.</p>
-      <div class="feat-stat">98% caller satisfaction rate</div>
-    </div>
-    <div class="feat-card fade-in">
-      <h3>See What Is Working</h3>
-      <p>Revenue, reviews, call volume, staff performance. One dashboard, updated in real time, with a Monday brief.</p>
-      <div class="feat-stat">Real time revenue tracking</div>
+    <div class="phone-mockup">
+      <div class="pm-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="pm-caller">Incoming Call</div>
+      <div class="pm-status">AI answering</div>
+      <div class="pm-transcript">
+        <div class="pm-line"><span>Caller:</span> Hi, do you have any openings tomorrow afternoon?</div>
+        <div class="pm-line"><span>Ax AI:</span> Let me check for you. We have a 2:30 and a 4:00 available. Would either work?</div>
+        <div class="pm-line"><span>Caller:</span> 2:30 is perfect.</div>
+        <div class="pm-line"><span>Ax AI:</span> Great, you are booked for 2:30 tomorrow. We will send a confirmation text shortly.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BEFORE/AFTER -->
-<section class="before-after fade-in">
-  <div class="section-label">Results</div>
-  <h2>What 90 days on Ax looks like</h2>
-  <div class="ba-cards">
-    <div class="ba-card">
-      <div class="ba-label">Before Ax</div>
-      <div class="ba-stars">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
-      <div class="ba-rating">3.8</div>
-      <div class="ba-reviews">12 Google reviews</div>
+<!-- PRODUCT: REVENUE -->
+<section class="product-section">
+  <div class="inner fade-in">
+    <div class="product-text">
+      <div class="section-label">Dashboard</div>
+      <h2>See what is working</h2>
+      <p>Revenue, reviews, call volume, staff performance. Everything in one place, updated in real time. Get a weekly brief every Monday with what happened and what to do next.</p>
     </div>
-    <div class="ba-arrow">&rarr;</div>
-    <div class="ba-card after">
-      <div class="ba-label">After Ax</div>
-      <div class="ba-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div class="ba-rating">4.7</div>
-      <div class="ba-reviews">89 Google reviews</div>
+    <div class="chart-mockup">
+      <div class="cm-header">
+        <div class="cm-title">Monthly Revenue</div>
+        <div class="cm-value">$24,800</div>
+      </div>
+      <div class="cm-bars">
+        <div class="cm-bar" style="height:40%"></div>
+        <div class="cm-bar" style="height:55%"></div>
+        <div class="cm-bar" style="height:48%"></div>
+        <div class="cm-bar" style="height:62%"></div>
+        <div class="cm-bar" style="height:58%"></div>
+        <div class="cm-bar" style="height:75%"></div>
+        <div class="cm-bar" style="height:70%"></div>
+        <div class="cm-bar" style="height:82%"></div>
+        <div class="cm-bar" style="height:78%"></div>
+        <div class="cm-bar" style="height:88%"></div>
+        <div class="cm-bar" style="height:92%"></div>
+        <div class="cm-bar highlight" style="height:100%"></div>
+      </div>
+      <div class="cm-labels">
+        <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+        <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- VIDEO -->
-<section class="video-section" id="video">
-  <div class="video-container fade-in">
-    <div class="play-btn">
-      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-    </div>
-    <div class="video-text">See the platform in action</div>
-    <div class="video-sub">Watch a 60 second walkthrough</div>
   </div>
 </section>
 
@@ -379,13 +337,13 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(255,255,255,.06);text-al
         <h3>Service Businesses</h3>
         <p>The full platform. CRM, reviews, AI phone, SMS campaigns, scheduling, and revenue tracking. Everything you need to run and grow.</p>
         <div class="tags">Salons, Barbershops, Nail Salons, Med Spas, Trainers, Groomers, Auto Detailing, Tattoo, Massage</div>
-        <div class="card-link">See the full product &rarr;</div>
+        <div class="card-link">See the full product →</div>
       </a>
       <a href="for-medical-practices.html" class="industry-card">
         <h3>Medical Practices</h3>
         <p>You already have a CRM. You need more Google reviews and someone to answer the phone. That is exactly what we do.</p>
         <div class="tags">Dentists, Physicians, Clinics, Chiropractors, Orthodontists</div>
-        <div class="card-link">See how it works &rarr;</div>
+        <div class="card-link">See how it works →</div>
       </a>
     </div>
   </div>
@@ -456,12 +414,37 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(255,255,255,.06);text-al
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
+<section class="how-works-home">
+  <div class="container fade-in">
+    <div class="section-label">How It Works</div>
+    <h2>Live in three steps</h2>
+    <div class="hw-steps">
+      <div class="hw-step">
+        <div class="hw-num">1</div>
+        <h3>Connect</h3>
+        <p>Link your Google Business Profile and payment processor. Takes about two minutes.</p>
+      </div>
+      <div class="hw-step">
+        <div class="hw-num">2</div>
+        <h3>Configure</h3>
+        <p>Set your business voice, review preferences, and phone answering rules.</p>
+      </div>
+      <div class="hw-step">
+        <div class="hw-num">3</div>
+        <h3>Autopilot</h3>
+        <p>Ax handles reviews, calls, and campaigns. You get a weekly brief every Monday.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIAL -->
 <section class="testimonial">
   <div class="container fade-in">
     <div class="section-label">What Owners Are Saying</div>
     <div class="testimonial-card">
-      <blockquote>"We went from 12 reviews to 89 in three months. Our Google rating jumped from 3.8 to 4.7. The AI phone answering alone saved us 15+ hours a week and paid for itself the first week."</blockquote>
+      <blockquote>"We went from 3.8 stars to 4.7 in two months. The AI phone answering alone paid for itself the first week. I used to stress about missed calls every time I was with a client. Now I just focus on the work."</blockquote>
       <div class="tc-author">Marcus T., barbershop owner in Philadelphia</div>
     </div>
   </div>
@@ -470,8 +453,7 @@ footer{padding:40px 24px 28px;border-top:1px solid rgba(255,255,255,.06);text-al
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="container fade-in">
-    <h2>Your competitors are collecting reviews right now.</h2>
-    <p>Every day without a review strategy is a day you fall further behind. Start in 3 minutes.</p>
+    <h2>Stop managing. Start growing.</h2>
     <a href="book-demo.html" class="btn-primary">Book a Demo</a>
   </div>
 </section>
