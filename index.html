@@ -334,13 +334,13 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,.06);text-al
         <span class="toggle-track" id="t-track"></span>
         <span class="toggle-thumb" id="t-thumb"></span>
       </label>
-      <span id="t-annual" class="inactive" onclick="setPricing('annual')">Annual <span style="background:rgba(124,58,237,.2);color:#7c3aed;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px">Save 13% + no setup fee</span></span>
+      <span id="t-annual" class="inactive" onclick="setPricing('annual')">Annual <span style="background:rgba(124,58,237,.2);color:#7c3aed;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px">Save 11%</span></span>
     </div>
     <div class="pricing-grid fade-in">
       <div class="price-card">
         <div class="price-name">Growth</div>
-        <div class="price-amount" id="price-growth">$79<span>/mo</span></div>
-        <div class="price-period" id="period-growth">Billed $237 quarterly</div>
+        <div class="price-amount" id="price-growth">$89<span>/mo</span></div>
+        <div class="price-period" id="period-growth">Billed $267 every quarter</div>
         <ul class="price-list">
           <li>AI review responses</li>
           <li>SMS review campaigns</li>
@@ -353,8 +353,8 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,.06);text-al
       <div class="price-card featured">
         <div class="price-badge">Most Popular</div>
         <div class="price-name">Pro</div>
-        <div class="price-amount" id="price-pro">$149<span>/mo</span></div>
-        <div class="price-period" id="period-pro">Billed $447 quarterly</div>
+        <div class="price-amount" id="price-pro">$159<span>/mo</span></div>
+        <div class="price-period" id="period-pro">Billed $477 every quarter</div>
         <ul class="price-list">
           <li>Everything in Growth</li>
           <li>AI phone answering</li>
@@ -367,7 +367,7 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,.06);text-al
         <a href="book-demo.html" class="btn-primary">Book a Demo</a>
       </div>
     </div>
-    <div class="pricing-note fade-in" id="pricing-note">$199 one time setup fee. Waived with annual commitment.</div>
+    <div class="pricing-note fade-in" id="pricing-note">14 day money back guarantee on all plans.</div>
   </div>
 </section>
 
@@ -411,7 +411,7 @@ window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',wind
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el)});
 
-var prices={quarterly:{growth:['$79','/mo','Billed $237 every quarter'],pro:['$149','/mo','Billed $447 every quarter'],note:'$199 one time setup fee. Waived with annual commitment.'},annual:{growth:['$69','/mo','Billed $828 per year (save $120)'],pro:['$129','/mo','Billed $1,548 per year (save $240)'],note:'No setup fee with annual plans.'}};
+var prices={quarterly:{growth:['$89','/mo','Billed $267 every quarter'],pro:['$159','/mo','Billed $477 every quarter'],note:'14 day money back guarantee on all plans.'},annual:{growth:['$79','/mo','Billed $948 per year (save $120)'],pro:['$149','/mo','Billed $1,788 per year (save $120)'],note:'14 day money back guarantee on all plans.'}};
 function setPricing(plan){
   var p=prices[plan];
   document.getElementById('price-growth').innerHTML=p.growth[0]+'<span>'+p.growth[1]+'</span>';
