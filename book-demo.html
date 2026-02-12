@@ -78,15 +78,17 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
         <label>Business Type</label>
         <select id="f-type" required>
           <option value="">Select your industry</option>
-          <option>Restaurant or Cafe</option>
-          <option>Salon or Barbershop</option>
-          <option>Dental Practice</option>
-          <option>Auto Repair or Detailing</option>
-          <option>HVAC or Plumbing</option>
-          <option>Law Firm</option>
-          <option>Medical Practice</option>
-          <option>Retail Store</option>
-          <option>Other</option>
+          <option value="salons">Hair Salon or Barbershop</option>
+          <option value="dentists">Dental Practice</option>
+          <option value="doctors">Medical Practice or Clinic</option>
+          <option value="medspa">Med Spa or Aesthetics</option>
+          <option value="auto">Auto Repair or Detailing</option>
+          <option value="fitness">Fitness or Personal Training</option>
+          <option value="pets">Pet Grooming or Veterinary</option>
+          <option value="wellness">Wellness (Massage, Chiro, PT)</option>
+          <option value="nails">Nail Salon</option>
+          <option value="tattoo">Tattoo or Piercing Studio</option>
+          <option value="other">Other Appointment Based Business</option>
         </select>
       </div>
       <div class="field">
@@ -108,6 +110,21 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   </div>
 </div>
 <script>
+// Auto-select industry from URL parameter
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var industry = params.get('industry');
+  if (industry) {
+    var select = document.getElementById('f-type');
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value === industry) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  }
+})();
+
 document.getElementById('demo-form').onsubmit = async function(e) {
   e.preventDefault();
   var btn = document.getElementById('submit-btn');

@@ -157,6 +157,7 @@ nav .nav-inner {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .feature-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow); }
+#industries a:hover { transform: translateY(-4px); box-shadow: var(--card-shadow); }
 .feature-icon {
   width: 44px; height: 44px; border-radius: 10px;
   background: rgba(124,58,237,0.08); display: flex; align-items: center; justify-content: center;
@@ -286,6 +287,7 @@ footer { padding: 48px 24px 32px; background: var(--dark); color: #94A3B8; text-
   <div class="nav-inner">
     <a href="#" class="nav-logo">Ax</a>
     <div class="nav-links">
+      <a href="#industries">Industries</a>
       <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
       <a href="#compare">Compare</a>
@@ -298,6 +300,7 @@ footer { padding: 48px 24px 32px; background: var(--dark); color: #94A3B8; text-
   </div>
 </nav>
 <div class="mobile-menu">
+  <a href="#industries" onclick="this.parentElement.classList.remove('open')">Industries</a>
   <a href="#features" onclick="this.parentElement.classList.remove('open')">Features</a>
   <a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
   <a href="#compare" onclick="this.parentElement.classList.remove('open')">Compare</a>
@@ -328,6 +331,72 @@ footer { padding: 48px 24px 32px; background: var(--dark); color: #94A3B8; text-
       <span class="pill">Dentists</span>
       <span class="pill">Auto Shops</span>
       <span class="pill">Retail</span>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries" style="padding:100px 24px;background:var(--light-bg);">
+  <div class="container">
+    <h2 class="section-heading fade-in">Built for your industry</h2>
+    <p class="section-sub fade-in">Ax is designed for appointment based businesses. Choose your industry to see how we solve your specific challenges.</p>
+    <div class="fade-in" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1100px;margin:0 auto;">
+      <a href="ai-for-salons.html" style="background:var(--card);border:1px solid #E2E8F0;border-radius:12px;padding:28px 24px;transition:transform 0.3s,box-shadow 0.3s;text-decoration:none;color:inherit;">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(124,58,237,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v6"/><path d="M18 2v6"/><path d="M6 8a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4"/><path d="M6 8H4a2 2 0 0 0-2 2v2a6 6 0 0 0 6 6h8a6 6 0 0 0 6-6v-2a2 2 0 0 0-2-2h-2"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:600;margin-bottom:4px;">Hair Salons and Barbershops</h3>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.5;">Reviews on autopilot for stylists and barbers</p>
+      </a>
+      <a href="ai-for-dentists.html" style="background:var(--card);border:1px solid #E2E8F0;border-radius:12px;padding:28px 24px;transition:transform 0.3s,box-shadow 0.3s;text-decoration:none;color:inherit;">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(124,58,237,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 3 7l2 4h4l2-4c1-2 3-4 3-7a7 7 0 0 0-7-7z"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:600;margin-bottom:4px;">Dental Practices</h3>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.5;">Build patient trust with consistent reviews</p>
+      </a>
+      <a href="ai-for-doctors.html" style="background:var(--card);border:1px solid #E2E8F0;border-radius:12px;padding:28px 24px;transition:transform 0.3s,box-shadow 0.3s;text-decoration:none;color:inherit;">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(124,58,237,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:600;margin-bottom:4px;">Medical Practices</h3>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.5;">Compliant review management for clinics</p>
+      </a>
+      <a href="ai-for-medspa.html" style="background:var(--card);border:1px solid #E2E8F0;border-radius:12px;padding:28px 24px;transition:transform 0.3s,box-shadow 0.3s;text-decoration:none;color:inherit;">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(124,58,237,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4m10-10h-4M6 12H2m15.07-7.07l-2.83 2.83M9.76 14.24l-2.83 2.83m12.14 0l-2.83-2.83M9.76 9.76L6.93 6.93"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:600;margin-bottom:4px;">Med Spas and Aesthetics</h3>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.5;">Premium reputation for premium services</p>
+      </a>
+      <a href="ai-for-auto.html" style="background:var(--card);border:1px solid #E2E8F0;border-radius:12px;padding:28px 24px;transition:transform 0.3s,box-shadow 0.3s;text-decoration:none;color:inherit;">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(124,58,237,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M5 6l2-4h10l2 4"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:600;margin-bottom:4px;">Auto Repair and Detailing</h3>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.5;">Build trust in a trust challenged industry</p>
+      </a>
+      <a href="ai-for-fitness.html" style="background:var(--card);border:1px solid #E2E8F0;border-radius:12px;padding:28px 24px;transition:transform 0.3s,box-shadow 0.3s;text-decoration:none;color:inherit;">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(124,58,237,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2"/><path d="M6 8a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2"/><path d="M2 12h2m16 0h2"/><rect x="8" y="6" width="8" height="12" rx="1"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:600;margin-bottom:4px;">Fitness and Personal Training</h3>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.5;">Turn happy members into five star reviews</p>
+      </a>
+      <a href="ai-for-pets.html" style="background:var(--card);border:1px solid #E2E8F0;border-radius:12px;padding:28px 24px;transition:transform 0.3s,box-shadow 0.3s;text-decoration:none;color:inherit;">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(124,58,237,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="4" cy="8" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="7" cy="4" r="2" transform="translate(-2,0)"/><path d="M12 12c-2 4-4 6-4 8a4 4 0 0 0 8 0c0-2-2-4-4-8z"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:600;margin-bottom:4px;">Pet Groomers and Veterinary</h3>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.5;">Earn the trust of protective pet parents</p>
+      </a>
+      <a href="ai-for-wellness.html" style="background:var(--card);border:1px solid #E2E8F0;border-radius:12px;padding:28px 24px;transition:transform 0.3s,box-shadow 0.3s;text-decoration:none;color:inherit;">
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(124,58,237,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 style="font-size:17px;font-weight:600;margin-bottom:4px;">Wellness and Therapy</h3>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.5;">Massage, chiropractic, PT, and acupuncture</p>
+      </a>
     </div>
   </div>
 </section>
