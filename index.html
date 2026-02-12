@@ -121,7 +121,7 @@ h2.section-title{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-
 .toggle-track.on{background:#7c3aed}
 .toggle-thumb{position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fafafa;border-radius:50%;transition:.3s}
 .toggle-thumb.on{left:25px}
-.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;max-width:960px;margin:0 auto}
 .price-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:36px 28px;position:relative}
 .price-card.featured{border-color:rgba(124,58,237,.4)}
 .price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fafafa;padding:3px 14px;border-radius:20px;font-size:12px;font-weight:600}
@@ -161,6 +161,7 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,.06);text-al
   .product-section.reverse .inner{direction:ltr}
   .industry-cards{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr}
+  .price-amount{font-size:32px}
 }
 @media(max-width:480px){
   .hero h1{font-size:32px}
@@ -339,7 +340,7 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,.06);text-al
         <span class="toggle-track" id="t-track"></span>
         <span class="toggle-thumb" id="t-thumb"></span>
       </label>
-      <span id="t-annual" class="inactive" onclick="setPricing('annual')">Annual <span style="background:rgba(124,58,237,.2);color:#7c3aed;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px">Save 11%</span></span>
+      <span id="t-annual" class="inactive" onclick="setPricing('annual')">Annual <span style="background:rgba(124,58,237,.2);color:#7c3aed;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px">Save up to 14%</span></span>
     </div>
     <div class="pricing-grid fade-in">
       <div class="price-card">
@@ -348,31 +349,45 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,.06);text-al
         <div class="price-period" id="period-growth">Billed $267 every quarter</div>
         <ul class="price-list">
           <li>AI review responses</li>
-          <li>SMS review campaigns</li>
+          <li>SMS review campaigns (500/mo)</li>
           <li>Review funnel</li>
           <li>Analytics dashboard</li>
-          <li>Email and SMS alerts</li>
+          <li>Square and Google integrations</li>
         </ul>
         <a href="book-demo.html" class="btn-primary">Book a Demo</a>
       </div>
       <div class="price-card featured">
         <div class="price-badge">Most Popular</div>
         <div class="price-name">Pro</div>
-        <div class="price-amount" id="price-pro">$159<span>/mo</span></div>
-        <div class="price-period" id="period-pro">Billed $477 every quarter</div>
+        <div class="price-amount" id="price-pro">$199<span>/mo</span></div>
+        <div class="price-period" id="period-pro">Billed $597 every quarter</div>
         <ul class="price-list">
           <li>Everything in Growth</li>
-          <li>AI phone answering</li>
+          <li>AI phone answering and booking</li>
+          <li>200 AI phone minutes included</li>
           <li>Staff performance tracking</li>
           <li>Competitor monitoring</li>
           <li>Weekly business brief</li>
-          <li>Revenue integrations</li>
           <li>Priority support</li>
         </ul>
         <a href="book-demo.html" class="btn-primary">Book a Demo</a>
       </div>
+      <div class="price-card">
+        <div class="price-name">Pro+</div>
+        <div class="price-amount" id="price-proplus">$349<span>/mo</span></div>
+        <div class="price-period" id="period-proplus">Billed $1,047 every quarter</div>
+        <ul class="price-list">
+          <li>Everything in Pro</li>
+          <li>600 AI phone minutes included</li>
+          <li>Dedicated account manager</li>
+          <li>Custom AI voice training</li>
+          <li>Advanced analytics</li>
+          <li>Revenue integrations</li>
+        </ul>
+        <a href="book-demo.html" class="btn-primary">Book a Demo</a>
+      </div>
     </div>
-    <div class="pricing-note fade-in" id="pricing-note">14 day money back guarantee on all plans.</div>
+    <div class="pricing-note fade-in" id="pricing-note">$249 setup fee, waived on annual plans. Additional AI phone minutes at $0.25/min.</div>
   </div>
 </section>
 
@@ -408,13 +423,15 @@ window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',wind
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el)});
 
-var prices={quarterly:{growth:['$89','/mo','Billed $267 every quarter'],pro:['$159','/mo','Billed $477 every quarter'],note:'14 day money back guarantee on all plans.'},annual:{growth:['$79','/mo','Billed $948 per year (save $120)'],pro:['$149','/mo','Billed $1,788 per year (save $120)'],note:'14 day money back guarantee on all plans.'}};
+var prices={quarterly:{growth:['$89','/mo','Billed $267 every quarter'],pro:['$199','/mo','Billed $597 every quarter'],proplus:['$349','/mo','Billed $1,047 every quarter'],note:'$249 setup fee, waived on annual plans. Additional AI phone minutes at $0.25/min.'},annual:{growth:['$79','/mo','Billed $948 per year (save $120)'],pro:['$179','/mo','Billed $2,148 per year (save $240)'],proplus:['$299','/mo','Billed $3,588 per year (save $600)'],note:'Setup fee waived. Additional AI phone minutes at $0.25/min.'}};
 function setPricing(plan){
   var p=prices[plan];
   document.getElementById('price-growth').innerHTML=p.growth[0]+'<span>'+p.growth[1]+'</span>';
   document.getElementById('price-pro').innerHTML=p.pro[0]+'<span>'+p.pro[1]+'</span>';
+  document.getElementById('price-proplus').innerHTML=p.proplus[0]+'<span>'+p.proplus[1]+'</span>';
   document.getElementById('period-growth').textContent=p.growth[2];
   document.getElementById('period-pro').textContent=p.pro[2];
+  document.getElementById('period-proplus').textContent=p.proplus[2];
   document.getElementById('pricing-note').textContent=p.note;
   var tq=document.getElementById('t-quarterly'),ta=document.getElementById('t-annual');
   var tk=document.getElementById('t-track'),tt=document.getElementById('t-thumb');
