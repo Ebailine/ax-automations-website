@@ -329,10 +329,12 @@ footer{padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,.06);text-al
     </div>
     <div class="pricing-toggle fade-in">
       <span id="t-quarterly" class="active" onclick="setPricing('quarterly')">Quarterly</span>
-      <span class="inactive" style="color:#3f3f46">|</span>
-      <span id="t-biannual" class="inactive" onclick="setPricing('biannual')">Bi-yearly</span>
-      <span class="inactive" style="color:#3f3f46">|</span>
-      <span id="t-annual" class="inactive" onclick="setPricing('annual')">Annual <span style="background:rgba(124,58,237,.2);color:#7c3aed;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px">No setup fee</span></span>
+      <label class="toggle-switch" style="margin:0 8px">
+        <input type="checkbox" id="billing-toggle" onchange="setPricing(this.checked?'annual':'quarterly')">
+        <span class="toggle-track" id="t-track"></span>
+        <span class="toggle-thumb" id="t-thumb"></span>
+      </label>
+      <span id="t-annual" class="inactive" onclick="setPricing('annual')">Annual <span style="background:rgba(124,58,237,.2);color:#7c3aed;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px">Save 13% + no setup fee</span></span>
     </div>
     <div class="pricing-grid fade-in">
       <div class="price-card">
@@ -409,7 +411,7 @@ window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',wind
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el)});
 
-var prices={quarterly:{growth:['$79','/mo','Billed $237 quarterly'],pro:['$149','/mo','Billed $447 quarterly'],note:'$199 one time setup fee. Waived with annual commitment.'},biannual:{growth:['$74','/mo','Billed $444 every 6 months'],pro:['$139','/mo','Billed $834 every 6 months'],note:'$199 one time setup fee. Waived with annual commitment.'},annual:{growth:['$69','/mo','Billed $828 annually'],pro:['$129','/mo','Billed $1,548 annually'],note:'No setup fee with annual commitment.'}};
+var prices={quarterly:{growth:['$79','/mo','Billed $237 every quarter'],pro:['$149','/mo','Billed $447 every quarter'],note:'$199 one time setup fee. Waived with annual commitment.'},annual:{growth:['$69','/mo','Billed $828 per year (save $120)'],pro:['$129','/mo','Billed $1,548 per year (save $240)'],note:'No setup fee with annual plans.'}};
 function setPricing(plan){
   var p=prices[plan];
   document.getElementById('price-growth').innerHTML=p.growth[0]+'<span>'+p.growth[1]+'</span>';
@@ -417,11 +419,11 @@ function setPricing(plan){
   document.getElementById('period-growth').textContent=p.growth[2];
   document.getElementById('period-pro').textContent=p.pro[2];
   document.getElementById('pricing-note').textContent=p.note;
-  ['quarterly','biannual','annual'].forEach(function(k){
-    var el=document.getElementById('t-'+k);
-    if(k===plan){el.classList.add('active');el.classList.remove('inactive')}
-    else{el.classList.remove('active');el.classList.add('inactive')}
-  });
+  var tq=document.getElementById('t-quarterly'),ta=document.getElementById('t-annual');
+  var tk=document.getElementById('t-track'),tt=document.getElementById('t-thumb');
+  var cb=document.getElementById('billing-toggle');
+  if(plan==='annual'){tq.classList.remove('active');tq.classList.add('inactive');ta.classList.add('active');ta.classList.remove('inactive');tk.classList.add('on');tt.classList.add('on');cb.checked=true}
+  else{tq.classList.add('active');tq.classList.remove('inactive');ta.classList.remove('active');ta.classList.add('inactive');tk.classList.remove('on');tt.classList.remove('on');cb.checked=false}
 }
 </script>
 </body>
