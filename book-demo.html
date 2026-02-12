@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fafafa;--text:#0f172a;--text-secondary:#64748b;--accent:#7c3aed;--accent-hover:#6d28d9;--card:#fff;--border:#e2e8f0}
+:root{--bg:#09090b;--text:#fafafa;--text-secondary:#a1a1aa;--accent:#7c3aed;--accent-hover:#6d28d9;--card:#18181b;--border:rgba(255,255,255,.06)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 .nav{padding:16px 32px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
@@ -34,7 +34,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .success{display:none;text-align:center;padding:48px 24px}
 .success h2{font-size:24px;font-weight:700;margin-bottom:12px;color:var(--text)}
 .success p{font-size:15px;color:var(--text-secondary);line-height:1.6}
-.success .check{width:64px;height:64px;border-radius:50%;background:#d1fae5;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.success .check{width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
 .success .check svg{color:#059669}
 .trust{display:flex;gap:32px;justify-content:center;margin-top:32px;flex-wrap:wrap}
 .trust-item{text-align:center}
@@ -78,17 +78,18 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
         <label>Business Type</label>
         <select id="f-type" required>
           <option value="">Select your industry</option>
-          <option value="salons">Hair Salon or Barbershop</option>
-          <option value="dentists">Dental Practice</option>
-          <option value="doctors">Medical Practice or Clinic</option>
-          <option value="medspa">Med Spa or Aesthetics</option>
-          <option value="auto">Auto Repair or Detailing</option>
-          <option value="fitness">Fitness or Personal Training</option>
-          <option value="pets">Pet Grooming or Veterinary</option>
-          <option value="wellness">Wellness (Massage, Chiro, PT)</option>
-          <option value="nails">Nail Salon</option>
-          <option value="tattoo">Tattoo or Piercing Studio</option>
-          <option value="other">Other Appointment Based Business</option>
+          <option value="service-salon">Service Business: Hair Salon or Barbershop</option>
+          <option value="service-nails">Service Business: Nail Salon</option>
+          <option value="service-medspa">Service Business: Med Spa or Aesthetics</option>
+          <option value="service-fitness">Service Business: Fitness or Personal Training</option>
+          <option value="service-pets">Service Business: Pet Grooming or Vet</option>
+          <option value="service-auto">Service Business: Auto Repair or Detailing</option>
+          <option value="service-tattoo">Service Business: Tattoo or Piercing</option>
+          <option value="service-wellness">Service Business: Wellness (Massage, Chiro)</option>
+          <option value="medical-dental">Medical Practice: Dental</option>
+          <option value="medical-physician">Medical Practice: Physician or Clinic</option>
+          <option value="medical-other">Medical Practice: Other</option>
+          <option value="other">Other</option>
         </select>
       </div>
       <div class="field">
@@ -116,11 +117,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   var industry = params.get('industry');
   if (industry) {
     var select = document.getElementById('f-type');
+    // Direct match first
     for (var i = 0; i < select.options.length; i++) {
-      if (select.options[i].value === industry) {
-        select.selectedIndex = i;
-        break;
-      }
+      if (select.options[i].value === industry) { select.selectedIndex = i; return; }
+    }
+    // Prefix match (e.g. ?industry=service selects first service option)
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value.indexOf(industry) === 0) { select.selectedIndex = i; return; }
     }
   }
 })();
