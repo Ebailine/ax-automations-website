@@ -1,630 +1,780 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ax Automations — The AI Powered CRM for Appointment Based Businesses</title>
-<meta name="description" content="Reviews, phone, SMS, scheduling, and revenue tracking on autopilot. Built for salons, dentists, med spas, and every appointment based business.">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;background:#09090b;color:#fafafa;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:0 24px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ax Automations — Your Business, On Autopilot</title>
+  <meta name="description" content="AI powered reviews, phone answering, and business automation. Set up in 3 minutes. Built in Philadelphia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/glasswing-tokens.css">
+  <link rel="stylesheet" href="css/glasswing-components.css">
+  <link rel="stylesheet" href="css/glasswing-animations.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--ax-gray-300);
+      background: var(--bg-gradient-hero);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;display:flex;align-items:center;transition:background .3s}
-nav.scrolled{background:rgba(9,9,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav-inner{max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-size:22px;font-weight:700;color:#7c3aed;letter-spacing:-.5px}
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{font-size:14px;color:#a1a1aa;transition:color .2s}
-.nav-links a:hover{color:#fafafa}
-.nav-cta{background:#7c3aed;color:#fafafa !important;padding:8px 20px;border-radius:8px;font-weight:600;font-size:14px;transition:background .2s}
-.nav-cta:hover{background:#6d28d9}
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
-.hamburger span{display:block;width:22px;height:2px;background:#fafafa;margin:5px 0;transition:.3s}
-.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#09090b;padding:100px 32px 32px;flex-direction:column;gap:8px;z-index:90}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-size:22px;font-weight:600;color:#fafafa;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.mobile-menu a:last-child{border-bottom:none}
-.mobile-menu-close{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;color:#a1a1aa;padding:8px}
+    /* ── Layout ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-lg); }
+    .section { padding: 80px 0; position: relative; }
 
-/* SHARED */
-.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin-bottom:12px}
-h2.section-title{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px}
-.section-sub{color:#a1a1aa;font-size:16px;max-width:520px;line-height:1.6}
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
+    /* ── Nav ── */
+    .glass-nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display); font-weight: 800; font-size: var(--text-2xl);
+      color: var(--ax-white); letter-spacing: var(--tracking-tight);
+    }
+    .nav-links { display: flex; align-items: center; gap: var(--space-xl); list-style: none; }
+    .nav-links a {
+      font-size: var(--text-sm); font-weight: 500; color: var(--ax-gray-300);
+      transition: color var(--duration-fast) var(--ease-smooth);
+    }
+    .nav-links a:hover { color: var(--ax-white); }
+    .nav-actions { display: flex; align-items: center; gap: var(--space-md); }
+    .nav-login {
+      font-size: var(--text-sm); font-weight: 500; color: var(--ax-gray-300);
+      transition: color var(--duration-fast) var(--ease-smooth);
+    }
+    .nav-login:hover { color: var(--ax-white); }
+    .glass-nav .glass-btn-primary { font-size: var(--text-sm); padding: 6px var(--space-md); }
 
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 64px}
-.hero h1{font-size:clamp(40px,6vw,56px);font-weight:700;letter-spacing:-.03em;line-height:1.08;max-width:720px;margin-bottom:20px;position:relative}
-.hero h1::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120%;height:180%;background:radial-gradient(ellipse,rgba(124,58,237,.12) 0%,transparent 70%);pointer-events:none;z-index:-1}
-.hero .subtitle{font-size:17px;color:#a1a1aa;max-width:480px;margin:0 auto 36px;line-height:1.6}
-.btn-primary{display:inline-flex;align-items:center;background:#7c3aed;color:#fafafa;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;transition:background .2s,transform .15s;border:none;cursor:pointer}
-.btn-primary:hover{background:#6d28d9;transform:translateY(-1px)}
+    /* Hamburger */
+    .glass-nav-toggle {
+      display: none; flex-direction: column; gap: 5px; background: none; border: none;
+      cursor: pointer; padding: var(--space-xs); z-index: 310;
+    }
+    .glass-nav-toggle span {
+      display: block; width: 22px; height: 2px; background: var(--ax-white);
+      border-radius: 2px; transition: all var(--duration-normal) var(--ease-glass);
+    }
+    .glass-nav-toggle.is-open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .glass-nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+    .glass-nav-toggle.is-open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* PRODUCT SHOWCASE (browser chrome) */
-.hero-mockup{margin-top:48px;width:100%;max-width:860px}
-.browser-chrome{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden}
-.browser-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#111113;border-bottom:1px solid rgba(255,255,255,.06)}
-.browser-dot{width:10px;height:10px;border-radius:50%;background:#27272a}
-.browser-url{margin-left:12px;background:#09090b;border-radius:6px;padding:4px 12px;font-size:11px;color:#71717a;flex:1;max-width:280px}
-.browser-content{padding:24px}
-.dash-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px}
-.dash-stat{background:#09090b;border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:12px 14px;text-align:center}
-.dash-stat .ds-value{font-size:20px;font-weight:700}
-.dash-stat .ds-value.green{color:#22c55e}
-.dash-stat .ds-value.purple{color:#7c3aed}
-.dash-stat .ds-label{font-size:11px;color:#71717a;margin-top:2px}
-.dash-reviews{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.dash-review{background:#09090b;border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:14px}
-.dr-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.dr-avatar{width:28px;height:28px;border-radius:50%;background:#27272a;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#a1a1aa}
-.dr-name{font-size:12px;font-weight:600}
-.dr-stars{font-size:11px;color:#facc15;letter-spacing:1px}
-.dr-text{font-size:11px;color:#a1a1aa;line-height:1.5;margin-bottom:10px}
-.dr-ai{border-top:1px solid rgba(255,255,255,.06);padding-top:8px;margin-top:8px}
-.dr-ai-label{font-size:10px;color:#7c3aed;font-weight:600;margin-bottom:4px}
-.dr-ai p{font-size:11px;color:#71717a;line-height:1.4}
+    .glass-nav-menu { display: contents; }
 
-/* PROBLEM SECTION */
-.problem-section{padding:64px 24px;max-width:720px;margin:0 auto;text-align:center}
-.problem-section h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:32px;letter-spacing:-.02em}
-.problem-list{display:flex;flex-direction:column;gap:20px}
-.problem-item{font-size:16px;color:#a1a1aa;line-height:1.7;padding:20px 24px;background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;text-align:left}
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; padding-top: 100px; padding-bottom: 80px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center;
+    }
+    .hero-headline {
+      font-size: var(--text-6xl); font-weight: 800; line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight); color: var(--ax-white);
+      font-feature-settings: "cv11", "ss01";
+    }
+    .hero-subtitle {
+      font-size: var(--text-lg); color: var(--ax-gray-400); line-height: var(--leading-relaxed);
+      margin-top: var(--space-lg);
+    }
+    .hero-ctas { display: flex; gap: var(--space-md); margin-top: var(--space-xl); flex-wrap: wrap; }
+    .hero-proof {
+      display: flex; gap: var(--space-md); margin-top: var(--space-2xl); flex-wrap: wrap;
+    }
 
-/* CITED STATS */
-.cited-stats{padding:64px 24px;max-width:960px;margin:0 auto}
-.cited-stats-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
-.cited-stat{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:28px 24px;text-align:center}
-.cited-stat .cs-number{font-size:36px;font-weight:700;color:#7c3aed;letter-spacing:-.02em;margin-bottom:8px}
-.cited-stat .cs-desc{font-size:14px;color:#a1a1aa;line-height:1.5;margin-bottom:8px}
-.cited-stat .cs-source{font-size:11px;color:#71717a}
+    /* Dashboard mockup */
+    .hero-mockup { position: relative; }
+    .mockup-card {
+      padding: var(--space-xl); position: relative;
+    }
+    .mockup-card .animate-float { animation-delay: 0.5s; }
+    .mockup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-lg); }
+    .mockup-title { font-size: var(--text-sm); font-weight: 600; color: var(--ax-white); }
+    .mockup-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); margin-bottom: var(--space-lg); }
+    .mockup-stat { text-align: center; }
+    .mockup-stat-value { font-size: var(--text-2xl); font-weight: 700; color: var(--ax-white); }
+    .mockup-stat-label { font-size: var(--text-xs); color: var(--ax-gray-400); margin-top: 2px; }
+    .mockup-review {
+      padding: var(--space-md); border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    }
+    .mockup-review + .mockup-review { margin-top: var(--space-sm); }
+    .mockup-stars { color: var(--ax-warning); font-size: var(--text-sm); letter-spacing: 2px; }
+    .mockup-review-text { font-size: var(--text-xs); color: var(--ax-gray-400); margin-top: 4px; }
 
-/* SOCIAL PROOF */
-.social-proof-strip{padding:0 24px 48px;text-align:center;max-width:900px;margin:0 auto}
-.social-proof-strip .sp-inner{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap}
-.social-proof-strip .sp-item{font-size:14px;color:#71717a}
-.social-proof-strip .sp-item strong{color:#a1a1aa;font-weight:600}
+    /* ── Pain Points ── */
+    .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+    .pain-card { padding: var(--space-xl); }
+    .pain-icon {
+      width: 48px; height: 48px; border-radius: var(--radius-md);
+      background: var(--ax-primary-glow); display: flex; align-items: center; justify-content: center;
+      font-size: var(--text-xl); margin-bottom: var(--space-md);
+    }
+    .pain-title { font-size: var(--text-lg); font-weight: 600; color: var(--ax-white); margin-bottom: var(--space-sm); }
+    .pain-text { font-size: var(--text-sm); color: var(--ax-gray-400); line-height: var(--leading-relaxed); }
+    .stat-pills { display: flex; gap: var(--space-md); justify-content: center; margin-top: var(--space-xl); flex-wrap: wrap; }
 
-/* HOW WORKS */
-.how-works-home{padding:64px 24px;max-width:900px;margin:0 auto;text-align:center}
-.how-works-home h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:32px}
-.hw-steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
-.hw-step{text-align:center}
-.hw-num{width:48px;height:48px;border-radius:50%;background:rgba(124,58,237,.15);color:#7c3aed;display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;margin-bottom:16px}
-.hw-step h3{font-size:16px;font-weight:700;margin-bottom:8px}
-.hw-step p{font-size:14px;color:#a1a1aa;line-height:1.6}
+    /* ── Feature Sections ── */
+    .feature-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center;
+    }
+    .feature-row.reverse .feature-content { order: 2; }
+    .feature-row.reverse .feature-visual { order: 1; }
+    .feature-label {
+      display: inline-block; margin-bottom: var(--space-md);
+    }
+    .feature-headline {
+      font-size: var(--text-4xl); font-weight: 700; color: var(--ax-white);
+      letter-spacing: var(--tracking-tight); line-height: var(--leading-snug);
+    }
+    .feature-desc {
+      font-size: var(--text-base); color: var(--ax-gray-400); line-height: var(--leading-relaxed);
+      margin-top: var(--space-md);
+    }
+    .feature-visual-card { padding: var(--space-xl); }
 
-/* PRODUCT SECTIONS */
-.product-section{padding:64px 24px}
-.product-section .inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:1100px;margin:0 auto}
-.product-section.reverse .inner{direction:rtl}
-.product-section.reverse .inner>*{direction:ltr}
-.product-text h2{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
-.product-text p{color:#a1a1aa;font-size:15px;line-height:1.7}
-.product-img{border-radius:12px;border:1px solid rgba(255,255,255,.06);width:100%;height:auto;display:block}
+    /* Review mockup */
+    .review-mock-header { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md); }
+    .review-mock-avatar {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--ax-primary-glow);
+      display: flex; align-items: center; justify-content: center;
+      font-size: var(--text-sm); font-weight: 600; color: var(--ax-primary-light);
+    }
+    .review-mock-name { font-size: var(--text-sm); font-weight: 600; color: var(--ax-white); }
+    .review-mock-body { font-size: var(--text-sm); color: var(--ax-gray-300); line-height: var(--leading-relaxed); }
+    .ai-response {
+      margin-top: var(--space-md); padding: var(--space-md); border-radius: var(--radius-md);
+      background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.15);
+    }
+    .ai-response-label { font-size: var(--text-xs); font-weight: 600; color: var(--ax-primary-light); margin-bottom: var(--space-xs); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+    .ai-response-text { font-size: var(--text-sm); color: var(--ax-gray-300); line-height: var(--leading-relaxed); }
 
-/* REVIEW MOCKUP */
-.review-mockup{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px}
-.rm-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.rm-avatar{width:36px;height:36px;border-radius:50%;background:#27272a;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#a1a1aa}
-.rm-name{font-size:14px;font-weight:600}
-.rm-stars{color:#facc15;font-size:13px;letter-spacing:2px}
-.rm-review{font-size:13px;color:#a1a1aa;line-height:1.6;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06)}
-.rm-response{padding-left:16px;border-left:2px solid #7c3aed}
-.rm-response .rm-resp-label{font-size:11px;color:#7c3aed;font-weight:600;margin-bottom:6px}
-.rm-response p{font-size:13px;color:#a1a1aa;line-height:1.6}
+    /* Phone mockup */
+    .phone-line { display: flex; gap: var(--space-sm); margin-bottom: var(--space-sm); align-items: flex-start; }
+    .phone-speaker { font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: var(--tracking-wide); min-width: 30px; }
+    .phone-speaker.ai { color: var(--ax-primary-light); }
+    .phone-speaker.caller { color: var(--ax-secondary); }
+    .phone-text { font-size: var(--text-sm); color: var(--ax-gray-300); line-height: var(--leading-relaxed); }
 
-/* PHONE MOCKUP */
-.phone-mockup{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px;text-align:center}
-.pm-icon{width:64px;height:64px;border-radius:50%;background:rgba(124,58,237,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.3)}50%{box-shadow:0 0 0 16px rgba(124,58,237,0)}}
-.pm-icon svg{width:28px;height:28px;stroke:#7c3aed;fill:none;stroke-width:2}
-.pm-caller{font-size:18px;font-weight:600;margin-bottom:4px}
-.pm-status{font-size:13px;color:#22c55e;margin-bottom:20px}
-.pm-transcript{background:#09090b;border-radius:8px;padding:16px;text-align:left}
-.pm-line{font-size:12px;color:#a1a1aa;margin-bottom:8px;line-height:1.5}
-.pm-line span{color:#fafafa;font-weight:500}
+    /* Dashboard chart mockup */
+    .chart-bars { display: flex; align-items: flex-end; gap: var(--space-sm); height: 120px; padding-top: var(--space-md); }
+    .chart-bar {
+      flex: 1; border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      background: linear-gradient(to top, var(--ax-primary), var(--ax-primary-light));
+      transition: height var(--duration-slow) var(--ease-glass);
+      min-height: 8px;
+    }
+    .chart-labels { display: flex; gap: var(--space-sm); margin-top: var(--space-xs); }
+    .chart-label { flex: 1; font-size: 10px; color: var(--ax-gray-500); text-align: center; }
+    .chart-summary { display: flex; justify-content: space-between; margin-top: var(--space-lg); }
+    .chart-metric-value { font-size: var(--text-xl); font-weight: 700; color: var(--ax-white); }
+    .chart-metric-label { font-size: var(--text-xs); color: var(--ax-gray-400); }
 
-/* CHART MOCKUP */
-.chart-mockup{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px}
-.cm-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px}
-.cm-title{font-size:14px;font-weight:600}
-.cm-value{font-size:28px;font-weight:700;color:#22c55e}
-.cm-bars{display:flex;align-items:flex-end;gap:8px;height:120px}
-.cm-bar{flex:1;background:#27272a;border-radius:4px 4px 0 0;position:relative;min-height:12px;transition:height .6s ease}
-.cm-bar.highlight{background:#7c3aed}
-.cm-labels{display:flex;gap:8px;margin-top:8px}
-.cm-labels span{flex:1;text-align:center;font-size:10px;color:#71717a}
+    /* ── How It Works ── */
+    .steps-row { display: flex; align-items: flex-start; justify-content: center; gap: var(--space-3xl); position: relative; }
+    .step { text-align: center; flex: 1; max-width: 280px; position: relative; }
+    .step-number {
+      width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: var(--text-2xl); font-weight: 700; color: var(--ax-white); margin: 0 auto var(--space-md);
+      background: var(--glass-bg-medium); backdrop-filter: var(--blur-standard); -webkit-backdrop-filter: var(--blur-standard);
+      border: var(--glass-border-medium); box-shadow: var(--glass-shadow-md);
+    }
+    .step-title { font-size: var(--text-lg); font-weight: 600; color: var(--ax-white); margin-bottom: var(--space-sm); }
+    .step-text { font-size: var(--text-sm); color: var(--ax-gray-400); line-height: var(--leading-relaxed); }
+    .steps-line {
+      position: absolute; top: 32px; left: 20%; right: 20%; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), rgba(255,255,255,0.15), transparent);
+      z-index: 0;
+    }
 
-/* FOUNDER */
-.founder-section{padding:64px 24px;text-align:center;max-width:640px;margin:0 auto}
-.founder-section h2{font-size:clamp(20px,3vw,24px);font-weight:700;margin-bottom:24px;letter-spacing:-.02em}
-.founder-quote{font-size:18px;font-style:italic;line-height:1.7;color:#d4d4d8;margin-bottom:20px}
-.founder-name{font-size:15px;color:#7c3aed;font-weight:600}
+    /* ── Founder ── */
+    .founder-card { max-width: 720px; margin: 0 auto; padding: var(--space-2xl); text-align: center; }
+    .founder-quote {
+      font-size: var(--text-xl); color: var(--ax-gray-200); line-height: var(--leading-relaxed);
+      font-style: italic; margin-bottom: var(--space-lg);
+    }
+    .founder-name { font-size: var(--text-base); font-weight: 600; color: var(--ax-white); }
+    .founder-role { font-size: var(--text-sm); color: var(--ax-gray-400); margin-top: 4px; }
 
-/* INTEGRATIONS */
-.integrations-bar{padding:48px 24px;text-align:center}
-.integrations-bar h3{font-size:14px;color:#71717a;font-weight:400;margin-bottom:16px}
-.integrations-logos{font-size:18px;color:#71717a;letter-spacing:.02em}
+    /* ── Integrations ── */
+    .integrations-list {
+      display: flex; gap: var(--space-xl); justify-content: center; align-items: center;
+      flex-wrap: wrap; margin-top: var(--space-xl);
+    }
+    .integration-item {
+      font-size: var(--text-base); font-weight: 500; color: var(--ax-gray-400);
+      padding: var(--space-sm) var(--space-md); border-radius: var(--radius-pill);
+      background: var(--glass-bg-light); border: var(--glass-border-dark);
+      backdrop-filter: var(--blur-subtle); -webkit-backdrop-filter: var(--blur-subtle);
+    }
 
-/* INDUSTRIES */
-.industries{padding:64px 24px;text-align:center}
-.industry-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;margin:32px auto 0}
-.industry-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:0;text-align:left;transition:border-color .3s;overflow:hidden}
-.industry-card:hover{border-color:rgba(124,58,237,.3)}
-.industry-card-img{width:100%;height:160px;object-fit:cover;display:block}
-.industry-card-body{padding:28px 24px}
-.industry-card h3{font-size:20px;font-weight:700;margin-bottom:8px}
-.industry-card p{font-size:14px;color:#a1a1aa;line-height:1.6;margin-bottom:16px}
-.industry-card .tags{font-size:12px;color:#71717a;line-height:1.8}
-.industry-card .card-link{font-size:14px;color:#7c3aed;font-weight:600;display:inline-flex;align-items:center;gap:4px;margin-top:16px;transition:gap .2s}
-.industry-card .card-link:hover{gap:8px}
+    /* ── Industry Paths ── */
+    .paths-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
+    .path-card {
+      padding: 0; overflow: hidden; display: flex; flex-direction: column;
+    }
+    .path-image {
+      width: 100%; height: 220px; object-fit: cover;
+    }
+    .path-body { padding: var(--space-xl); flex: 1; display: flex; flex-direction: column; }
+    .path-title { font-size: var(--text-2xl); font-weight: 700; color: var(--ax-white); margin-bottom: var(--space-sm); }
+    .path-tags { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-lg); }
+    .path-body .glass-btn-primary { margin-top: auto; align-self: flex-start; }
 
-/* PRICING */
-.pricing{padding:72px 24px}
-.pricing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:32px}
-.pricing-toggle span{font-size:14px;cursor:pointer;transition:color .2s}
-.pricing-toggle span.active{color:#fafafa;font-weight:600}
-.pricing-toggle span.inactive{color:#71717a}
-.toggle-switch{position:relative;width:48px;height:26px;cursor:pointer}
-.toggle-switch input{opacity:0;width:0;height:0}
-.toggle-track{position:absolute;inset:0;background:#27272a;border-radius:26px;transition:.3s}
-.toggle-track.on{background:#7c3aed}
-.toggle-thumb{position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fafafa;border-radius:50%;transition:.3s}
-.toggle-thumb.on{left:25px}
-.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;max-width:960px;margin:0 auto}
-.price-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:36px 28px;position:relative}
-.price-card.featured{border-color:rgba(124,58,237,.4)}
-.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#7c3aed;color:#fafafa;padding:3px 14px;border-radius:20px;font-size:12px;font-weight:600}
-.price-name{font-size:18px;font-weight:700;margin-bottom:4px}
-.price-amount{font-size:40px;font-weight:700;letter-spacing:-.02em;margin-bottom:2px}
-.price-amount span{font-size:16px;font-weight:400;color:#a1a1aa}
-.price-period{font-size:13px;color:#a1a1aa;margin-bottom:24px}
-.price-list{list-style:none;margin-bottom:28px}
-.price-list li{font-size:14px;color:#a1a1aa;padding:6px 0;display:flex;align-items:center;gap:8px}
-.price-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:#7c3aed;flex-shrink:0}
-.price-card .btn-primary{width:100%;justify-content:center}
-.pricing-note{text-align:center;margin-top:32px;font-size:13px;color:#a1a1aa}
+    /* ── Pricing ── */
+    .pricing-toggle { display: flex; align-items: center; justify-content: center; gap: var(--space-md); margin-bottom: var(--space-2xl); }
+    .pricing-toggle-label { font-size: var(--text-sm); font-weight: 500; color: var(--ax-gray-400); }
+    .pricing-toggle-label.active { color: var(--ax-white); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+    .pricing-card { padding: var(--space-xl); text-align: center; position: relative; }
+    .pricing-card.popular {
+      border-color: rgba(99,102,241,0.4); box-shadow: var(--glass-shadow-lg), var(--glass-shadow-glow);
+    }
+    .pricing-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    }
+    .pricing-plan { font-size: var(--text-lg); font-weight: 600; color: var(--ax-white); margin-bottom: var(--space-sm); }
+    .pricing-amount { font-size: var(--text-5xl); font-weight: 800; color: var(--ax-white); }
+    .pricing-period { font-size: var(--text-sm); color: var(--ax-gray-400); }
+    .pricing-features { list-style: none; margin: var(--space-xl) 0; text-align: left; }
+    .pricing-features li {
+      font-size: var(--text-sm); color: var(--ax-gray-300); padding: var(--space-sm) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pricing-features li::before { content: "\2713\00a0"; color: var(--ax-success); font-weight: 600; }
 
-/* TESTIMONIAL */
-.testimonial{padding:64px 24px;text-align:center}
-.testimonial-card{max-width:600px;margin:0 auto;background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:40px 36px}
-.testimonial-card blockquote{font-size:18px;font-weight:400;line-height:1.7;color:#fafafa;margin-bottom:24px;font-style:italic}
-.testimonial-card .tc-author{font-size:14px;color:#a1a1aa}
+    /* ── Testimonial ── */
+    .testimonial-card { max-width: 720px; margin: 0 auto; padding: var(--space-2xl); text-align: center; }
+    .testimonial-text {
+      font-size: var(--text-xl); color: var(--ax-gray-200); line-height: var(--leading-relaxed);
+      font-style: italic; margin-bottom: var(--space-lg);
+    }
+    .testimonial-author { font-size: var(--text-base); font-weight: 600; color: var(--ax-white); }
+    .testimonial-role { font-size: var(--text-sm); color: var(--ax-gray-400); margin-top: 4px; }
 
-/* FINAL CTA */
-.final-cta{padding:72px 24px;text-align:center}
-.final-cta h2{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.02em;margin-bottom:24px}
+    /* ── Final CTA ── */
+    .final-cta-panel {
+      padding: var(--space-4xl) var(--space-2xl); text-align: center;
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(6,182,212,0.1));
+      border-radius: var(--radius-3xl); border: var(--glass-border-medium);
+      backdrop-filter: var(--blur-heavy); -webkit-backdrop-filter: var(--blur-heavy);
+    }
+    .final-cta-headline {
+      font-size: var(--text-5xl); font-weight: 800; color: var(--ax-white);
+      letter-spacing: var(--tracking-tight); line-height: var(--leading-tight);
+    }
+    .final-cta-sub { font-size: var(--text-lg); color: var(--ax-gray-400); margin-top: var(--space-md); }
+    .btn-glow {
+      font-size: var(--text-xl); padding: var(--space-md) var(--space-2xl);
+      box-shadow: 0 0 40px var(--ax-primary-glow), 0 8px 24px var(--ax-primary-glow);
+    }
+    .btn-glow:hover { box-shadow: 0 0 60px var(--ax-primary-glow), 0 12px 32px var(--ax-primary-glow); }
 
-/* FOOTER */
-footer{padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,.06);text-align:center}
-.footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:16px}
-.footer-links a{font-size:13px;color:#71717a;transition:color .2s}
-.footer-links a:hover{color:#a1a1aa}
-.footer-copy{font-size:12px;color:#71717a}
+    /* ── Footer ── */
+    .site-footer {
+      padding: var(--space-2xl) 0; background: var(--glass-bg-dark);
+      backdrop-filter: var(--blur-standard); -webkit-backdrop-filter: var(--blur-standard);
+      border-top: var(--glass-border-dark);
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-lg); }
+    .footer-links { display: flex; gap: var(--space-lg); flex-wrap: wrap; }
+    .footer-links a { font-size: var(--text-sm); color: var(--ax-gray-400); transition: color var(--duration-fast); }
+    .footer-links a:hover { color: var(--ax-white); }
+    .footer-bottom { text-align: center; margin-top: var(--space-lg); font-size: var(--text-xs); color: var(--ax-gray-500); }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .hamburger{display:block}
-  .dash-stats,.dash-reviews{grid-template-columns:1fr}
-  .hw-steps{grid-template-columns:1fr}
-  .product-section .inner{grid-template-columns:1fr;gap:32px}
-  .product-section.reverse .inner{direction:ltr}
-  .industry-cards{grid-template-columns:1fr}
-  .pricing-grid{grid-template-columns:1fr}
-  .price-amount{font-size:32px}
-  .cited-stats-inner{grid-template-columns:1fr}
-  .product-section{padding:48px 24px}
-  .industries,.pricing,.testimonial,.final-cta,.how-works-home,.problem-section,.cited-stats,.founder-section{padding-top:48px;padding-bottom:48px}
-}
-@media(max-width:480px){
-  .hero h1{font-size:32px}
-}
-</style>
+    /* ── Section Headings ── */
+    .section-label { text-align: center; margin-bottom: var(--space-md); }
+    .section-headline {
+      text-align: center; font-size: var(--text-4xl); font-weight: 700;
+      color: var(--ax-white); letter-spacing: var(--tracking-tight);
+      line-height: var(--leading-snug); margin-bottom: var(--space-md);
+    }
+    .section-sub { text-align: center; font-size: var(--text-lg); color: var(--ax-gray-400); max-width: 600px; margin: 0 auto var(--space-2xl); }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .section { padding: 48px 0; }
+      .hero { min-height: auto; padding-top: 120px; padding-bottom: 48px; }
+      .hero-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+      .hero-headline { font-size: var(--text-4xl); }
+      .hero-mockup { order: -1; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .feature-row { grid-template-columns: 1fr; gap: var(--space-xl); }
+      .feature-row.reverse .feature-content { order: 1; }
+      .feature-row.reverse .feature-visual { order: 2; }
+      .feature-headline { font-size: var(--text-3xl); }
+      .steps-row { flex-direction: column; gap: var(--space-xl); align-items: center; }
+      .steps-line { display: none; }
+      .paths-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .final-cta-headline { font-size: var(--text-3xl); }
+      .final-cta-panel { padding: var(--space-2xl) var(--space-lg); }
+      .footer-inner { flex-direction: column; text-align: center; }
+
+      .glass-nav-toggle { display: flex; }
+      .glass-nav-menu {
+        display: none; position: fixed; inset: 0; z-index: 300;
+        background: rgba(17,25,40,0.95); backdrop-filter: var(--blur-mega); -webkit-backdrop-filter: var(--blur-mega);
+        flex-direction: column; align-items: center; justify-content: center; gap: var(--space-xl);
+      }
+      .glass-nav-menu.is-open { display: flex; }
+      .glass-nav-menu .nav-links { flex-direction: column; gap: var(--space-xl); }
+      .glass-nav-menu .nav-links a { font-size: var(--text-xl); }
+      .glass-nav-menu .nav-actions { flex-direction: column; gap: var(--space-md); }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline { font-size: var(--text-3xl); }
+      .section-headline { font-size: var(--text-3xl); }
+      .mockup-stat-row { grid-template-columns: 1fr; gap: var(--space-sm); }
+    }
+  </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">Ax</a>
-    <div class="nav-links">
-      <a href="#product">Product</a>
-      <a href="#industries">Industries</a>
-      <a href="#pricing">Pricing</a>
-      <a href="/dashboard/login.html">Login</a>
-      <a href="book-demo.html" class="nav-cta">Book a Demo</a>
-    </div>
-    <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobile-menu">
-  <button class="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
-  <a href="#product" onclick="this.parentElement.classList.remove('open')">Product</a>
-  <a href="#industries" onclick="this.parentElement.classList.remove('open')">Industries</a>
-  <a href="#pricing" onclick="this.parentElement.classList.remove('open')">Pricing</a>
-  <a href="/dashboard/login.html">Login</a>
-  <a href="book-demo.html" style="color:#7c3aed">Book a Demo</a>
+<!-- Animated Background -->
+<div class="glasswing-bg">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="fade-in">
-    <h1>Your business, on autopilot</h1>
-    <p class="subtitle">The AI powered CRM for appointment based businesses. Reviews, phone, SMS, and scheduling handled automatically.</p>
-    <a href="book-demo.html" class="btn-primary">Book a Demo</a>
-  </div>
-  <div class="hero-mockup fade-in">
-    <div class="browser-chrome">
-      <div class="browser-bar">
-        <div class="browser-dot"></div>
-        <div class="browser-dot"></div>
-        <div class="browser-dot"></div>
-        <div class="browser-url">app.axautomations.com/dashboard</div>
-      </div>
-      <div class="browser-content">
-        <div class="dash-stats">
-          <div class="dash-stat">
-            <div class="ds-value green">47</div>
-            <div class="ds-label">New Reviews</div>
-          </div>
-          <div class="dash-stat">
-            <div class="ds-value">4.9</div>
-            <div class="ds-label">Avg Rating</div>
-          </div>
-          <div class="dash-stat">
-            <div class="ds-value purple">98%</div>
-            <div class="ds-label">Responded</div>
-          </div>
-        </div>
-        <div class="dash-reviews">
-          <div class="dash-review">
-            <div class="dr-header">
-              <div class="dr-avatar">JM</div>
-              <div><div class="dr-name">Jessica M.</div><div class="dr-stars">★★★★★</div></div>
-            </div>
-            <div class="dr-text">Best haircut I have ever gotten. Marcus really listened to what I wanted.</div>
-            <div class="dr-ai">
-              <div class="dr-ai-label">AI Response</div>
-              <p>Thank you, Jessica! Marcus will be thrilled. See you next visit!</p>
-            </div>
-          </div>
-          <div class="dash-review">
-            <div class="dr-header">
-              <div class="dr-avatar">RP</div>
-              <div><div class="dr-name">Robert P.</div><div class="dr-stars">★★★★</div></div>
-            </div>
-            <div class="dr-text">Good service overall. Wait time was a bit long but the cut was solid.</div>
-          </div>
-          <div class="dash-review">
-            <div class="dr-header">
-              <div class="dr-avatar">AK</div>
-              <div><div class="dr-name">Aisha K.</div><div class="dr-stars">★★★★★</div></div>
-            </div>
-            <div class="dr-text">Love this place. Been coming here for two years and never been disappointed.</div>
-          </div>
-        </div>
+<!-- ════════════════════════════════════
+     1. GLASS NAV
+     ════════════════════════════════════ -->
+<nav class="glass-nav" role="navigation" aria-label="Main navigation">
+  <div class="glass-nav-inner">
+    <a href="/" class="nav-logo">Ax</a>
+    <button class="glass-nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="glass-nav-menu">
+      <ul class="nav-links">
+        <li><a href="#features">Product</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/dashboard/login.html" class="nav-login">Login</a>
+        <a href="book-demo.html" class="glass-btn-primary">Book a Demo</a>
       </div>
     </div>
   </div>
-</section>
+</nav>
 
-<!-- SOCIAL PROOF -->
-<section class="social-proof-strip fade-in">
-  <div class="sp-inner">
-    <div class="sp-item"><strong>500+</strong> reviews generated</div>
-    <div class="sp-item"><strong>24/7</strong> AI phone coverage</div>
-    <div class="sp-item"><strong>3 min</strong> average setup</div>
-    <div class="sp-item">Trusted by <strong>local businesses</strong> across the US</div>
-  </div>
-</section>
-
-<!-- PROBLEM SECTION -->
-<section class="problem-section fade-in">
-  <h2>Sound familiar?</h2>
-  <div class="problem-list">
-    <div class="problem-item">A happy customer left your shop yesterday. They meant to leave a review. They forgot.</div>
-    <div class="problem-item">Someone called while you were with a client. They hung up and called the shop down the street.</div>
-    <div class="problem-item">You have 14 Google reviews. Your competitor has 89. Guess who shows up first.</div>
-  </div>
-</section>
-
-<!-- CITED STATS -->
-<section class="cited-stats fade-in">
-  <div class="cited-stats-inner">
-    <div class="cited-stat">
-      <div class="cs-number">87%</div>
-      <div class="cs-desc">of consumers read online reviews for local businesses</div>
-      <div class="cs-source">BrightLocal 2024</div>
-    </div>
-    <div class="cited-stat">
-      <div class="cs-number">30%</div>
-      <div class="cs-desc">more revenue for businesses with 50+ Google reviews</div>
-      <div class="cs-source">Harvard Business School</div>
-    </div>
-    <div class="cited-stat">
-      <div class="cs-number">76%</div>
-      <div class="cs-desc">of customers asked to leave a review will do so</div>
-      <div class="cs-source">BrightLocal 2024</div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCT: REVIEWS -->
-<section class="product-section" id="product">
-  <div class="inner fade-in">
-    <div class="product-text">
-      <div class="section-label">Reviews</div>
-      <h2>Every review gets a response. Automatically.</h2>
-      <p>AI reads every Google review and writes a response that sounds like you. Personalized, on brand, posted within minutes. Not templates.</p>
-    </div>
-    <div class="review-mockup">
-      <div class="rm-header">
-        <div class="rm-avatar">JM</div>
-        <div><div class="rm-name">Jessica M.</div><div class="rm-stars">★★★★★</div></div>
-      </div>
-      <div class="rm-review">Best haircut I have ever gotten. Marcus really listened to what I wanted and the fade is perfect. Already booked my next appointment.</div>
-      <div class="rm-response">
-        <div class="rm-resp-label">AI Response (your voice)</div>
-        <p>Thank you so much, Jessica! Marcus will be thrilled to hear that. We are glad the fade turned out exactly how you envisioned it. See you at your next visit!</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCT: PHONE -->
-<section class="product-section reverse">
-  <div class="inner fade-in">
-    <div class="product-text">
-      <div class="section-label">AI Phone</div>
-      <h2>Never miss a call again</h2>
-      <p>When you are with a client, AI picks up. It answers questions, books appointments, and sends you a transcript. Callers think they talked to your front desk.</p>
-    </div>
-    <div class="phone-mockup">
-      <div class="pm-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="pm-caller">Incoming Call</div>
-      <div class="pm-status">AI answering</div>
-      <div class="pm-transcript">
-        <div class="pm-line"><span>Caller:</span> Hi, do you have any openings tomorrow afternoon?</div>
-        <div class="pm-line"><span>Ax AI:</span> Let me check for you. We have a 2:30 and a 4:00 available. Would either work?</div>
-        <div class="pm-line"><span>Caller:</span> 2:30 is perfect.</div>
-        <div class="pm-line"><span>Ax AI:</span> Great, you are booked for 2:30 tomorrow. We will send a confirmation text shortly.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCT: REVENUE -->
-<section class="product-section">
-  <div class="inner fade-in">
-    <div class="product-text">
-      <div class="section-label">Dashboard</div>
-      <h2>See what is working</h2>
-      <p>Revenue, reviews, call volume, staff performance. Everything in one place, updated in real time. Get a weekly brief every Monday with what happened and what to do next.</p>
-    </div>
-    <div class="chart-mockup">
-      <div class="cm-header">
-        <div class="cm-title">Monthly Revenue</div>
-        <div class="cm-value">$24,800</div>
-      </div>
-      <div class="cm-bars">
-        <div class="cm-bar" style="height:40%"></div>
-        <div class="cm-bar" style="height:55%"></div>
-        <div class="cm-bar" style="height:48%"></div>
-        <div class="cm-bar" style="height:62%"></div>
-        <div class="cm-bar" style="height:58%"></div>
-        <div class="cm-bar" style="height:75%"></div>
-        <div class="cm-bar" style="height:70%"></div>
-        <div class="cm-bar" style="height:82%"></div>
-        <div class="cm-bar" style="height:78%"></div>
-        <div class="cm-bar" style="height:88%"></div>
-        <div class="cm-bar" style="height:92%"></div>
-        <div class="cm-bar highlight" style="height:100%"></div>
-      </div>
-      <div class="cm-labels">
-        <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
-        <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER -->
-<section class="founder-section fade-in">
-  <h2>Built in Philadelphia by Ethan Bailine</h2>
-  <p class="founder-quote">"Local businesses deserve the same AI tools that big companies use, without the big company price tag. I built Ax because getting more reviews and answering every call should not require a marketing team."</p>
-  <div class="founder-name">Ethan Bailine, Founder</div>
-</section>
-
-<!-- INTEGRATIONS -->
-<section class="integrations-bar fade-in">
-  <h3>Works with the tools you already use</h3>
-  <div class="integrations-logos">Google Business &middot; Yelp &middot; Facebook &middot; Square &middot; Stripe</div>
-</section>
-
-<!-- INDUSTRIES -->
-<section class="industries" id="industries">
-  <div class="container fade-in">
-    <div class="section-label">Built for your industry</div>
-    <h2 class="section-title">Two paths. One platform.</h2>
-    <div class="industry-cards">
-      <a href="for-service-businesses.html" class="industry-card">
-        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop" alt="Hair salon interior" class="industry-card-img" loading="lazy">
-        <div class="industry-card-body">
-          <h3>Service Businesses</h3>
-          <p>The full platform. CRM, reviews, AI phone, SMS campaigns, scheduling, and revenue tracking. Everything you need to run and grow.</p>
-          <div class="tags">Salons, Barbershops, Nail Salons, Med Spas, Trainers, Groomers, Auto Detailing, Tattoo, Massage</div>
-          <div class="card-link">See the full product →</div>
-        </div>
-      </a>
-      <a href="for-medical-practices.html" class="industry-card">
-        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop" alt="Dental office" class="industry-card-img" loading="lazy">
-        <div class="industry-card-body">
-          <h3>Medical Practices</h3>
-          <p>You already have a CRM. You need more Google reviews and someone to answer the phone. That is exactly what we do.</p>
-          <div class="tags">Dentists, Physicians, Clinics, Chiropractors, Orthodontists</div>
-          <div class="card-link">See how it works →</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing" id="pricing">
+<!-- ════════════════════════════════════
+     2. HERO
+     ════════════════════════════════════ -->
+<section class="hero section">
   <div class="container">
-    <div class="fade-in" style="text-align:center;margin-bottom:12px">
-      <div class="section-label">Pricing</div>
-      <h2 class="section-title">Simple pricing. No surprises.</h2>
-    </div>
-    <div class="pricing-toggle fade-in">
-      <span id="t-quarterly" class="active" onclick="setPricing('quarterly')">Quarterly</span>
-      <label class="toggle-switch" style="margin:0 8px">
-        <input type="checkbox" id="billing-toggle" onchange="setPricing(this.checked?'annual':'quarterly')">
-        <span class="toggle-track" id="t-track"></span>
-        <span class="toggle-thumb" id="t-thumb"></span>
-      </label>
-      <span id="t-annual" class="inactive" onclick="setPricing('annual')">Annual <span style="background:rgba(124,58,237,.2);color:#7c3aed;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:4px">Save up to 14%</span></span>
-    </div>
-    <div class="pricing-grid fade-in">
-      <div class="price-card">
-        <div class="price-name">Growth</div>
-        <div class="price-amount" id="price-growth">$89<span>/mo</span></div>
-        <div class="price-period" id="period-growth">Billed $267 every quarter</div>
-        <ul class="price-list">
-          <li>AI review responses</li>
-          <li>SMS review campaigns (500/mo)</li>
-          <li>Review funnel</li>
-          <li>Analytics dashboard</li>
-          <li>Square and Google integrations</li>
-        </ul>
-        <a href="book-demo.html" class="btn-primary">Book a Demo</a>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-headline animate-on-scroll fade-up">Your business,<br>on autopilot</h1>
+        <p class="hero-subtitle animate-on-scroll fade-up stagger-1">Ax handles your reviews, answers your phone, and runs your front desk so you can focus on what you do best.</p>
+        <div class="hero-ctas animate-on-scroll fade-up stagger-2">
+          <a href="book-demo.html" class="glass-btn-primary">Book a Demo</a>
+          <a href="#how-it-works" class="glass-btn-secondary">See how it works</a>
+        </div>
+        <div class="hero-proof animate-on-scroll fade-up stagger-3">
+          <span class="glass-pill">500+ reviews generated</span>
+          <span class="glass-pill">24/7 AI phone</span>
+          <span class="glass-pill">3 min setup</span>
+        </div>
       </div>
-      <div class="price-card featured">
-        <div class="price-badge">Most Popular</div>
-        <div class="price-name">Pro</div>
-        <div class="price-amount" id="price-pro">$199<span>/mo</span></div>
-        <div class="price-period" id="period-pro">Billed $597 every quarter</div>
-        <ul class="price-list">
+      <div class="hero-mockup animate-on-scroll scale-in stagger-2">
+        <div class="glass-card-elevated mockup-card animate-float">
+          <div class="mockup-header">
+            <span class="mockup-title">Dashboard</span>
+            <span class="glass-badge glass-badge-success">Live</span>
+          </div>
+          <div class="mockup-stat-row">
+            <div class="mockup-stat">
+              <div class="mockup-stat-value">142</div>
+              <div class="mockup-stat-label">Reviews</div>
+            </div>
+            <div class="mockup-stat">
+              <div class="mockup-stat-value">4.9</div>
+              <div class="mockup-stat-label">Avg Rating</div>
+            </div>
+            <div class="mockup-stat">
+              <div class="mockup-stat-value">97%</div>
+              <div class="mockup-stat-label">Response Rate</div>
+            </div>
+          </div>
+          <div class="mockup-review">
+            <div class="mockup-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="mockup-review-text">"Best haircut I've ever had. Will definitely be back!"</div>
+          </div>
+          <div class="mockup-review">
+            <div class="mockup-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="mockup-review-text">"Amazing service, super friendly staff."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     3. PAIN POINTS
+     ════════════════════════════════════ -->
+<section class="section" id="pain-points">
+  <div class="container">
+    <h2 class="section-headline animate-on-scroll fade-up">Sound familiar?</h2>
+    <div class="pain-grid">
+      <div class="glass-card pain-card animate-on-scroll fade-up stagger-1">
+        <div class="pain-icon">
+          <svg width="24" height="24" fill="none" stroke="var(--ax-primary-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="pain-title">Reviews slip through the cracks</h3>
+        <p class="pain-text">You know reviews matter, but who has time to ask every single customer? Meanwhile, your competitors keep climbing the rankings.</p>
+      </div>
+      <div class="glass-card pain-card animate-on-scroll fade-up stagger-2">
+        <div class="pain-icon" style="background: var(--ax-secondary-glow);">
+          <svg width="24" height="24" fill="none" stroke="var(--ax-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <h3 class="pain-title">Missed calls, missed revenue</h3>
+        <p class="pain-text">Every unanswered call is a lost customer. You can not be by the phone 24 hours a day, but your customers expect someone to pick up.</p>
+      </div>
+      <div class="glass-card pain-card animate-on-scroll fade-up stagger-3">
+        <div class="pain-icon" style="background: var(--ax-accent-purple-glow);">
+          <svg width="24" height="24" fill="none" stroke="var(--ax-accent-purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 class="pain-title">No time to manage it all</h3>
+        <p class="pain-text">Between scheduling, payments, and customer follow ups, you are spending more time managing the business than growing it.</p>
+      </div>
+    </div>
+    <div class="stat-pills animate-on-scroll fade-up stagger-4">
+      <span class="glass-pill">87% of consumers read online reviews &mdash; BrightLocal</span>
+      <span class="glass-pill">30% revenue lost from missed calls &mdash; Harvard</span>
+      <span class="glass-pill">76% expect a response within 24h &mdash; BrightLocal</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     4. FEATURES
+     ════════════════════════════════════ -->
+<section class="section" id="features">
+  <div class="container">
+
+    <!-- Reviews -->
+    <div class="feature-row" style="margin-bottom: 80px;">
+      <div class="feature-content animate-on-scroll fade-up">
+        <span class="glass-pill feature-label">Reviews</span>
+        <h2 class="feature-headline">Reviews on autopilot</h2>
+        <p class="feature-desc">Ax automatically asks every customer for a review via text or email, then responds with a personalized, on brand message. No templates. No copy paste. Just genuine replies, powered by AI.</p>
+      </div>
+      <div class="feature-visual animate-on-scroll fade-up stagger-2">
+        <div class="glass-card-elevated feature-visual-card">
+          <div class="review-mock-header">
+            <div class="review-mock-avatar">JT</div>
+            <div>
+              <div class="review-mock-name">Jake Thompson</div>
+              <div class="mockup-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <p class="review-mock-body">"Honestly the best barbershop in the city. Mike always knows exactly what I want. Clean fade every time."</p>
+          <div class="ai-response">
+            <div class="ai-response-label">AI Response</div>
+            <p class="ai-response-text">Thanks so much, Jake! Mike will be stoked to hear that. We love having regulars like you. See you next time!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Phone -->
+    <div class="feature-row reverse" style="margin-bottom: 80px;">
+      <div class="feature-content animate-on-scroll fade-up">
+        <span class="glass-pill feature-label">AI Phone</span>
+        <h2 class="feature-headline">Never miss a call again</h2>
+        <p class="feature-desc">Your AI receptionist picks up every call, books appointments, answers FAQs, and escalates when needed. It sounds natural, works 24/7, and never calls in sick.</p>
+      </div>
+      <div class="feature-visual animate-on-scroll fade-up stagger-2">
+        <div class="glass-card-elevated feature-visual-card">
+          <div style="margin-bottom: var(--space-sm);">
+            <span class="glass-badge">Live Call Transcript</span>
+          </div>
+          <div class="phone-line">
+            <span class="phone-speaker caller">Caller</span>
+            <span class="phone-text">Hi, I'd like to book a cleaning for next Thursday if possible.</span>
+          </div>
+          <div class="phone-line">
+            <span class="phone-speaker ai">Ax</span>
+            <span class="phone-text">Of course! I have openings at 10 AM and 2 PM on Thursday. Which works better for you?</span>
+          </div>
+          <div class="phone-line">
+            <span class="phone-speaker caller">Caller</span>
+            <span class="phone-text">2 PM sounds great.</span>
+          </div>
+          <div class="phone-line">
+            <span class="phone-speaker ai">Ax</span>
+            <span class="phone-text">You're all set for Thursday at 2 PM. We'll send a confirmation text shortly. Anything else I can help with?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="feature-row">
+      <div class="feature-content animate-on-scroll fade-up">
+        <span class="glass-pill feature-label">Dashboard</span>
+        <h2 class="feature-headline">Everything in one place</h2>
+        <p class="feature-desc">See your reviews, calls, revenue, and customer trends in a single dashboard. No more switching between five different apps. Ax gives you the full picture.</p>
+      </div>
+      <div class="feature-visual animate-on-scroll fade-up stagger-2">
+        <div class="glass-card-elevated feature-visual-card">
+          <div class="mockup-header">
+            <span class="mockup-title">Monthly Revenue</span>
+            <span class="glass-badge glass-badge-success">+23%</span>
+          </div>
+          <div class="chart-bars">
+            <div class="chart-bar" style="height: 40%;"></div>
+            <div class="chart-bar" style="height: 55%;"></div>
+            <div class="chart-bar" style="height: 45%;"></div>
+            <div class="chart-bar" style="height: 65%;"></div>
+            <div class="chart-bar" style="height: 72%;"></div>
+            <div class="chart-bar" style="height: 85%;"></div>
+            <div class="chart-bar" style="height: 100%;"></div>
+          </div>
+          <div class="chart-labels">
+            <span class="chart-label">Jan</span>
+            <span class="chart-label">Feb</span>
+            <span class="chart-label">Mar</span>
+            <span class="chart-label">Apr</span>
+            <span class="chart-label">May</span>
+            <span class="chart-label">Jun</span>
+            <span class="chart-label">Jul</span>
+          </div>
+          <div class="chart-summary">
+            <div>
+              <div class="chart-metric-value">$48,200</div>
+              <div class="chart-metric-label">This Month</div>
+            </div>
+            <div style="text-align: right;">
+              <div class="chart-metric-value">312</div>
+              <div class="chart-metric-label">Appointments</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     5. HOW IT WORKS
+     ════════════════════════════════════ -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <h2 class="section-headline animate-on-scroll fade-up">How it works</h2>
+    <p class="section-sub animate-on-scroll fade-up stagger-1">Up and running in three simple steps</p>
+    <div class="steps-row" style="position: relative;">
+      <div class="steps-line"></div>
+      <div class="step animate-on-scroll fade-up stagger-1">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Connect</h3>
+        <p class="step-text">Link your Google Business, Yelp, and phone number. Takes about 3 minutes.</p>
+      </div>
+      <div class="step animate-on-scroll fade-up stagger-2">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Configure</h3>
+        <p class="step-text">Set your brand voice, business hours, and preferences. Ax learns how you talk to customers.</p>
+      </div>
+      <div class="step animate-on-scroll fade-up stagger-3">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Autopilot</h3>
+        <p class="step-text">Ax takes over reviews, calls, and follow ups. You focus on running your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     6. FOUNDER
+     ════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="glass-card-elevated founder-card animate-on-scroll scale-in">
+      <p class="founder-quote">"I built Ax because I watched small business owners drown in busywork that software should handle. They did not start a business to manage review responses and answer phones all day. They started it to do great work. Ax gives them that time back."</p>
+      <div class="founder-name">Ethan Bailine</div>
+      <div class="founder-role">Founder, Ax Automations. Built in Philadelphia.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     7. INTEGRATIONS
+     ════════════════════════════════════ -->
+<section class="section">
+  <div class="container" style="text-align: center;">
+    <h2 class="section-headline animate-on-scroll fade-up">Works with the tools you already use</h2>
+    <div class="integrations-list animate-on-scroll fade-up stagger-1">
+      <span class="integration-item">Google Business</span>
+      <span class="integration-item">Yelp</span>
+      <span class="integration-item">Facebook</span>
+      <span class="integration-item">Square</span>
+      <span class="integration-item">Stripe</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     8. INDUSTRY PATHS
+     ════════════════════════════════════ -->
+<section class="section" id="industries">
+  <div class="container">
+    <h2 class="section-headline animate-on-scroll fade-up">Two paths. One platform.</h2>
+    <div class="paths-grid">
+      <a href="for-service-businesses.html" class="glass-card-interactive path-card animate-on-scroll fade-up stagger-1">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop" alt="Salon interior" class="path-image" loading="lazy">
+        <div class="path-body">
+          <h3 class="path-title">Service Businesses</h3>
+          <div class="path-tags">
+            <span class="glass-badge">Salons</span>
+            <span class="glass-badge">Barbershops</span>
+            <span class="glass-badge">Spas</span>
+            <span class="glass-badge">Home Services</span>
+          </div>
+          <span class="glass-btn-primary">Learn More</span>
+        </div>
+      </a>
+      <a href="for-medical-practices.html" class="glass-card-interactive path-card animate-on-scroll fade-up stagger-2">
+        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop" alt="Dental office" class="path-image" loading="lazy">
+        <div class="path-body">
+          <h3 class="path-title">Medical Practices</h3>
+          <div class="path-tags">
+            <span class="glass-badge">Dental</span>
+            <span class="glass-badge">Dermatology</span>
+            <span class="glass-badge">Chiropractic</span>
+            <span class="glass-badge">Optometry</span>
+          </div>
+          <span class="glass-btn-primary">Learn More</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     9. PRICING
+     ════════════════════════════════════ -->
+<section class="section" id="pricing">
+  <div class="container">
+    <h2 class="section-headline animate-on-scroll fade-up">Simple, transparent pricing</h2>
+    <div class="pricing-toggle animate-on-scroll fade-up stagger-1">
+      <span class="pricing-toggle-label active" data-period="quarterly">Quarterly</span>
+      <div class="glass-toggle" id="pricing-toggle" role="switch" aria-checked="false" tabindex="0"></div>
+      <span class="pricing-toggle-label" data-period="annual">Annual <span style="color: var(--ax-success); font-weight: 600;">Save 20%</span></span>
+    </div>
+    <div class="pricing-grid">
+      <!-- Growth -->
+      <div class="glass-card-elevated pricing-card animate-on-scroll fade-up stagger-1">
+        <div class="pricing-plan">Growth</div>
+        <div class="pricing-amount"><span style="font-size: var(--text-2xl); vertical-align: top;">$</span><span data-count-to="89" data-count-from="0" data-count-duration="1200">89</span></div>
+        <div class="pricing-period">per month</div>
+        <ul class="pricing-features">
+          <li>Review generation via SMS</li>
+          <li>AI review responses</li>
+          <li>Basic dashboard</li>
+          <li>Google Business integration</li>
+          <li>Email support</li>
+        </ul>
+        <a href="book-demo.html" class="glass-btn-primary" style="width: 100%; justify-content: center;">Book a Demo</a>
+      </div>
+      <!-- Pro -->
+      <div class="glass-card-elevated pricing-card popular animate-on-scroll fade-up stagger-2">
+        <span class="glass-badge glass-badge-primary pricing-badge">Most Popular</span>
+        <div class="pricing-plan">Pro</div>
+        <div class="pricing-amount"><span style="font-size: var(--text-2xl); vertical-align: top;">$</span><span data-count-to="199" data-count-from="0" data-count-duration="1200">199</span></div>
+        <div class="pricing-period">per month</div>
+        <ul class="pricing-features">
           <li>Everything in Growth</li>
-          <li>AI phone answering and booking</li>
-          <li>200 AI phone minutes included</li>
-          <li>Staff performance tracking</li>
-          <li>Competitor monitoring</li>
-          <li>Weekly business brief</li>
+          <li>AI phone receptionist</li>
+          <li>Appointment booking</li>
+          <li>Multi platform reviews (Google, Yelp, Facebook)</li>
+          <li>Analytics dashboard</li>
           <li>Priority support</li>
         </ul>
-        <a href="book-demo.html" class="btn-primary">Book a Demo</a>
+        <a href="book-demo.html" class="glass-btn-primary" style="width: 100%; justify-content: center;">Book a Demo</a>
       </div>
-      <div class="price-card">
-        <div class="price-name">Pro+</div>
-        <div class="price-amount" id="price-proplus">$349<span>/mo</span></div>
-        <div class="price-period" id="period-proplus">Billed $1,047 every quarter</div>
-        <ul class="price-list">
+      <!-- Pro+ -->
+      <div class="glass-card-elevated pricing-card animate-on-scroll fade-up stagger-3">
+        <div class="pricing-plan">Pro+</div>
+        <div class="pricing-amount"><span style="font-size: var(--text-2xl); vertical-align: top;">$</span><span data-count-to="349" data-count-from="0" data-count-duration="1200">349</span></div>
+        <div class="pricing-period">per month</div>
+        <ul class="pricing-features">
           <li>Everything in Pro</li>
-          <li>600 AI phone minutes included</li>
-          <li>Dedicated account manager</li>
           <li>Custom AI voice training</li>
-          <li>Advanced analytics</li>
-          <li>Revenue integrations</li>
+          <li>Multi location support</li>
+          <li>Advanced analytics and reporting</li>
+          <li>API access</li>
+          <li>Dedicated account manager</li>
+          <li>White glove onboarding</li>
         </ul>
-        <a href="book-demo.html" class="btn-primary">Book a Demo</a>
-      </div>
-    </div>
-    <div class="pricing-note fade-in" id="pricing-note">$249 setup fee, waived on annual plans. Additional AI phone minutes at $0.25/min.</div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how-works-home">
-  <div class="container fade-in">
-    <div class="section-label">How It Works</div>
-    <h2>Live in three steps</h2>
-    <div class="hw-steps">
-      <div class="hw-step">
-        <div class="hw-num">1</div>
-        <h3>Connect</h3>
-        <p>Link your Google Business Profile and payment processor. Takes about two minutes.</p>
-      </div>
-      <div class="hw-step">
-        <div class="hw-num">2</div>
-        <h3>Configure</h3>
-        <p>Set your business voice, review preferences, and phone answering rules.</p>
-      </div>
-      <div class="hw-step">
-        <div class="hw-num">3</div>
-        <h3>Autopilot</h3>
-        <p>Ax handles reviews, calls, and campaigns. You get a weekly brief every Monday.</p>
+        <a href="book-demo.html" class="glass-btn-primary" style="width: 100%; justify-content: center;">Book a Demo</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<section class="testimonial">
-  <div class="container fade-in">
-    <div class="section-label">What Owners Are Saying</div>
-    <div class="testimonial-card">
-      <blockquote>"We went from 3.8 stars to 4.7 in two months. The AI phone answering alone paid for itself the first week. I used to stress about missed calls every time I was with a client. Now I just focus on the work."</blockquote>
-      <div class="tc-author">Marcus T., barbershop owner in Philadelphia</div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="container fade-in">
-    <h2>Stop managing. Start growing.</h2>
-    <a href="book-demo.html" class="btn-primary">Book a Demo</a>
-  </div>
-</section>
-
-<footer>
+<!-- ════════════════════════════════════
+     10. TESTIMONIAL
+     ════════════════════════════════════ -->
+<section class="section">
   <div class="container">
-    <div class="footer-links">
-      <a href="#" class="nav-logo" style="font-size:18px;color:#7c3aed">Ax</a>
-      <a href="#product">Product</a>
-      <a href="#industries">Industries</a>
-      <a href="#pricing">Pricing</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="/dashboard/login.html">Login</a>
+    <div class="glass-card testimonial-card animate-on-scroll scale-in">
+      <p class="testimonial-text">"We went from 12 Google reviews to over 200 in four months. Ax handles everything. The AI phone agent books appointments while I am cutting hair. It is like having a full time receptionist for a fraction of the cost."</p>
+      <div class="testimonial-author">Marcus Rivera</div>
+      <div class="testimonial-role">Owner, Rivera's Classic Cuts, Philadelphia</div>
     </div>
-    <p class="footer-copy">Built in Philadelphia. &copy; 2026 Ax Automations.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     11. FINAL CTA
+     ════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="final-cta-panel animate-on-scroll scale-in">
+      <h2 class="final-cta-headline">Stop managing.<br>Start growing.</h2>
+      <p class="final-cta-sub">Join hundreds of businesses that let Ax handle the busywork.</p>
+      <a href="book-demo.html" class="glass-btn-primary btn-glow" style="margin-top: var(--space-xl); display: inline-flex;">Book a Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     12. FOOTER
+     ════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="/" class="nav-logo">Ax</a>
+      <div class="footer-links">
+        <a href="#features">Product</a>
+        <a href="#industries">Industries</a>
+        <a href="#pricing">Pricing</a>
+        <a href="book-demo.html">Book a Demo</a>
+        <a href="/dashboard/login.html">Login</a>
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Ax Automations. Built in Philadelphia.
+    </div>
   </div>
 </footer>
 
-<script>
-var nav=document.getElementById('nav');
-window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>20)});
-
-var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.1});
-document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el)});
-
-var prices={quarterly:{growth:['$89','/mo','Billed $267 every quarter'],pro:['$199','/mo','Billed $597 every quarter'],proplus:['$349','/mo','Billed $1,047 every quarter'],note:'$249 setup fee, waived on annual plans. Additional AI phone minutes at $0.25/min.'},annual:{growth:['$79','/mo','Billed $948 per year (save $120)'],pro:['$179','/mo','Billed $2,148 per year (save $240)'],proplus:['$299','/mo','Billed $3,588 per year (save $600)'],note:'Setup fee waived. Additional AI phone minutes at $0.25/min.'}};
-function setPricing(plan){
-  var p=prices[plan];
-  document.getElementById('price-growth').innerHTML=p.growth[0]+'<span>'+p.growth[1]+'</span>';
-  document.getElementById('price-pro').innerHTML=p.pro[0]+'<span>'+p.pro[1]+'</span>';
-  document.getElementById('price-proplus').innerHTML=p.proplus[0]+'<span>'+p.proplus[1]+'</span>';
-  document.getElementById('period-growth').textContent=p.growth[2];
-  document.getElementById('period-pro').textContent=p.pro[2];
-  document.getElementById('period-proplus').textContent=p.proplus[2];
-  document.getElementById('pricing-note').textContent=p.note;
-  var tq=document.getElementById('t-quarterly'),ta=document.getElementById('t-annual');
-  var tk=document.getElementById('t-track'),tt=document.getElementById('t-thumb');
-  var cb=document.getElementById('billing-toggle');
-  if(plan==='annual'){tq.classList.remove('active');tq.classList.add('inactive');ta.classList.add('active');ta.classList.remove('inactive');tk.classList.add('on');tt.classList.add('on');cb.checked=true}
-  else{tq.classList.add('active');tq.classList.remove('inactive');ta.classList.remove('active');ta.classList.add('inactive');tk.classList.remove('on');tt.classList.remove('on');cb.checked=false}
-}
-</script>
+<script src="js/glasswing-interactions.js"></script>
 </body>
 </html>
