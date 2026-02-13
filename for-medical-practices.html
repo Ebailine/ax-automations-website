@@ -1,262 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ax for Medical Practices — AI Reviews and Phone Answering for Dentists and Doctors</title>
-<meta name="description" content="AI review optimization and phone answering for dental practices, physicians, and clinics. Boost your Google ranking and never miss a patient call.">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#09090b;color:#fafafa;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;display:flex;align-items:center;background:rgba(9,9,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav-inner{max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-size:22px;font-weight:700;color:#7c3aed}
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{font-size:14px;color:#a1a1aa}
-.nav-links a:hover{color:#fafafa}
-.nav-cta{background:#7c3aed;color:#fafafa !important;padding:8px 20px;border-radius:8px;font-weight:600;font-size:14px}
-.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#7c3aed;margin-bottom:12px}
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-.btn-primary{display:inline-flex;background:#7c3aed;color:#fafafa;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;transition:background .2s;border:none;cursor:pointer}
-.btn-primary:hover{background:#6d28d9}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ax Automations for Medical Practices — AI Reviews and AI Phone</title>
+  <meta name="description" content="AI powered review generation and phone answering for medical practices. HIPAA aware. Built for dentists, physicians, chiropractors, and specialists.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/glasswing-tokens.css">
+  <link rel="stylesheet" href="css/glasswing-components.css">
+  <link rel="stylesheet" href="css/glasswing-animations.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--ax-gray-300);
+      background: var(--bg-gradient-hero);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-.hero{padding:100px 24px 64px;text-align:center;max-width:720px;margin:0 auto}
-.hero h1{font-size:clamp(36px,5vw,48px);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
-.hero p{color:#a1a1aa;font-size:17px;max-width:520px;margin:0 auto 32px}
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-lg); }
+    .section { padding: 80px 0; position: relative; }
 
-/* Hero image */
-.hero-img{max-width:900px;margin:0 auto;padding:0 24px 48px;text-align:center}
-.hero-img img{width:100%;max-width:600px;height:280px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.06)}
+    /* Nav */
+    .glass-nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: var(--font-display); font-weight: 800; font-size: var(--text-2xl); color: var(--ax-white); letter-spacing: var(--tracking-tight); }
+    .nav-links { display: flex; align-items: center; gap: var(--space-xl); list-style: none; }
+    .nav-links a { font-size: var(--text-sm); font-weight: 500; color: var(--ax-gray-300); transition: color var(--duration-fast) var(--ease-smooth); }
+    .nav-links a:hover { color: var(--ax-white); }
+    .nav-actions { display: flex; align-items: center; gap: var(--space-md); }
+    .nav-login { font-size: var(--text-sm); font-weight: 500; color: var(--ax-gray-300); transition: color var(--duration-fast) var(--ease-smooth); }
+    .nav-login:hover { color: var(--ax-white); }
+    .glass-nav .glass-btn-primary { font-size: var(--text-sm); padding: 6px var(--space-md); }
 
-/* Cited Stats */
-.cited-stats{padding:48px 24px;max-width:960px;margin:0 auto}
-.cited-stats-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
-.cited-stat{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:28px 24px;text-align:center}
-.cited-stat .cs-number{font-size:36px;font-weight:700;color:#7c3aed;letter-spacing:-.02em;margin-bottom:8px}
-.cited-stat .cs-desc{font-size:14px;color:#a1a1aa;line-height:1.5;margin-bottom:8px}
-.cited-stat .cs-source{font-size:11px;color:#71717a}
+    .glass-nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: var(--space-xs); z-index: 310; }
+    .glass-nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ax-white); border-radius: 2px; transition: all var(--duration-normal) var(--ease-glass); }
+    .glass-nav-toggle.is-open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .glass-nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+    .glass-nav-toggle.is-open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .glass-nav-menu { display: contents; }
 
-/* How It Works */
-.how-it-works{padding:64px 24px;max-width:900px;margin:0 auto;text-align:center}
-.how-it-works h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:32px}
-.steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
-.step{text-align:center}
-.step-num{width:48px;height:48px;border-radius:50%;background:rgba(124,58,237,.15);color:#7c3aed;display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;margin-bottom:16px}
-.step h3{font-size:16px;font-weight:700;margin-bottom:8px}
-.step p{font-size:14px;color:#a1a1aa;line-height:1.6}
+    /* Hero */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; padding-bottom: 80px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; }
+    .hero-headline { font-size: var(--text-6xl); font-weight: 800; line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); color: var(--ax-white); font-feature-settings: "cv11", "ss01"; }
+    .hero-subtitle { font-size: var(--text-lg); color: var(--ax-gray-400); line-height: var(--leading-relaxed); margin-top: var(--space-lg); }
+    .hero-ctas { display: flex; gap: var(--space-md); margin-top: var(--space-xl); flex-wrap: wrap; }
 
-.two-up{padding:64px 24px;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px 28px;transition:border-color .3s}
-.card:hover{border-color:rgba(124,58,237,.3)}
-.card h3{font-size:20px;font-weight:700;margin-bottom:8px}
-.card p{font-size:14px;color:#a1a1aa;line-height:1.7;margin-bottom:16px}
-.card .highlight{font-size:32px;font-weight:700;color:#22c55e;margin-bottom:12px}
-.card ul{list-style:none;margin:0;padding:0}
-.card ul li{font-size:13px;color:#a1a1aa;padding:5px 0;display:flex;align-items:center;gap:8px}
-.card ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:#7c3aed;flex-shrink:0}
+    .hero-image-card { padding: 0; overflow: hidden; border-radius: var(--radius-2xl); }
+    .hero-image-card img { width: 100%; height: 400px; object-fit: cover; }
 
-/* Why Reviews Matter */
-.why-reviews{padding:64px 24px;max-width:800px;margin:0 auto}
-.why-reviews h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:16px;text-align:center}
-.why-reviews .sub{font-size:15px;color:#a1a1aa;text-align:center;max-width:600px;margin:0 auto 32px;line-height:1.7}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.why-card{background:#18181b;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px}
-.why-card .why-stat{font-size:28px;font-weight:700;color:#22c55e;margin-bottom:8px}
-.why-card p{font-size:14px;color:#a1a1aa;line-height:1.6}
+    .industry-tags { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-xl); }
 
-.practices{padding:64px 24px;text-align:center}
-.practices h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:24px}
-.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:700px;margin:0 auto}
-.tag{background:#18181b;border:1px solid rgba(255,255,255,.06);padding:8px 18px;border-radius:8px;font-size:14px;color:#a1a1aa}
+    /* Section headings */
+    .section-label { text-align: center; margin-bottom: var(--space-md); }
+    .section-headline { text-align: center; font-size: var(--text-4xl); font-weight: 700; color: var(--ax-white); letter-spacing: var(--tracking-tight); line-height: var(--leading-snug); margin-bottom: var(--space-md); }
+    .section-sub { text-align: center; font-size: var(--text-lg); color: var(--ax-gray-400); max-width: 600px; margin: 0 auto var(--space-2xl); }
 
-/* FAQ */
-.faq{padding:64px 24px;max-width:700px;margin:0 auto}
-.faq h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:32px;text-align:center}
-.faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
-.faq-item summary{list-style:none;padding:20px 0;font-size:15px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#fafafa}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';font-size:20px;color:#7c3aed;font-weight:400}
-.faq-item[open] summary::after{content:'−'}
-.faq-item .faq-answer{padding:0 0 20px;font-size:14px;color:#a1a1aa;line-height:1.7}
+    /* Feature rows */
+    .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; }
+    .feature-row.reverse .feature-content { order: 2; }
+    .feature-row.reverse .feature-visual { order: 1; }
+    .feature-label { display: inline-block; margin-bottom: var(--space-md); }
+    .feature-headline { font-size: var(--text-4xl); font-weight: 700; color: var(--ax-white); letter-spacing: var(--tracking-tight); line-height: var(--leading-snug); }
+    .feature-desc { font-size: var(--text-base); color: var(--ax-gray-400); line-height: var(--leading-relaxed); margin-top: var(--space-md); }
+    .feature-visual-card { padding: var(--space-xl); }
 
-.cta-section{padding:72px 24px;text-align:center}
-.cta-section h2{font-size:clamp(24px,3vw,32px);font-weight:700;margin-bottom:24px}
+    /* Review mockup */
+    .review-mock-header { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-md); }
+    .review-mock-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--ax-primary-glow); display: flex; align-items: center; justify-content: center; font-size: var(--text-sm); font-weight: 600; color: var(--ax-primary-light); }
+    .review-mock-name { font-size: var(--text-sm); font-weight: 600; color: var(--ax-white); }
+    .review-mock-body { font-size: var(--text-sm); color: var(--ax-gray-300); line-height: var(--leading-relaxed); }
+    .mockup-stars { color: var(--ax-warning); font-size: var(--text-sm); letter-spacing: 2px; }
+    .ai-response { margin-top: var(--space-md); padding: var(--space-md); border-radius: var(--radius-md); background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.15); }
+    .ai-response-label { font-size: var(--text-xs); font-weight: 600; color: var(--ax-primary-light); margin-bottom: var(--space-xs); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+    .ai-response-text { font-size: var(--text-sm); color: var(--ax-gray-300); line-height: var(--leading-relaxed); }
 
-footer{padding:32px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:center;font-size:12px;color:#71717a}
+    /* Phone mockup */
+    .phone-line { display: flex; gap: var(--space-sm); margin-bottom: var(--space-sm); align-items: flex-start; }
+    .phone-speaker { font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: var(--tracking-wide); min-width: 30px; }
+    .phone-speaker.ai { color: var(--ax-primary-light); }
+    .phone-speaker.caller { color: var(--ax-secondary); }
+    .phone-text { font-size: var(--text-sm); color: var(--ax-gray-300); line-height: var(--leading-relaxed); }
 
-@media(max-width:640px){
-  .two-up{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .steps{grid-template-columns:1fr}
-  .cited-stats-inner{grid-template-columns:1fr}
-  .why-grid{grid-template-columns:1fr}
-  .hero,.how-it-works,.two-up,.why-reviews,.practices,.faq,.cta-section,.cited-stats{padding-top:48px;padding-bottom:48px}
-}
-</style>
+    /* How it works pipeline */
+    .pipeline-steps { display: flex; align-items: center; justify-content: center; gap: var(--space-lg); flex-wrap: wrap; }
+    .pipeline-step { text-align: center; flex: 1; min-width: 200px; max-width: 280px; }
+    .pipeline-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); background: var(--glass-bg-medium); backdrop-filter: var(--blur-standard); -webkit-backdrop-filter: var(--blur-standard); border: var(--glass-border-medium); box-shadow: var(--glass-shadow-md); }
+    .pipeline-icon svg { width: 28px; height: 28px; }
+    .pipeline-title { font-size: var(--text-lg); font-weight: 600; color: var(--ax-white); margin-bottom: var(--space-sm); }
+    .pipeline-text { font-size: var(--text-sm); color: var(--ax-gray-400); line-height: var(--leading-relaxed); }
+    .pipeline-arrow { font-size: var(--text-2xl); color: var(--ax-gray-500); flex-shrink: 0; }
+
+    /* Stats */
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }
+    .stat-card { padding: var(--space-xl); text-align: center; }
+    .stat-value { font-family: var(--font-mono); font-size: var(--text-4xl); font-weight: 700; color: var(--ax-white); }
+    .stat-label { font-size: var(--text-sm); color: var(--ax-gray-400); margin-top: var(--space-sm); }
+    .stat-source { font-size: var(--text-xs); color: var(--ax-gray-500); margin-top: var(--space-xs); }
+
+    /* HIPAA badge */
+    .hipaa-banner { display: flex; align-items: center; justify-content: center; gap: var(--space-md); padding: var(--space-md) var(--space-xl); margin: 0 auto; max-width: 600px; }
+    .hipaa-banner p { font-size: var(--text-sm); color: var(--ax-gray-300); line-height: var(--leading-relaxed); }
+
+    /* Pricing */
+    .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); max-width: 760px; margin: 0 auto; }
+    .pricing-card { padding: var(--space-xl); text-align: center; position: relative; }
+    .pricing-card.popular { border-color: rgba(99,102,241,0.4); box-shadow: var(--glass-shadow-lg), var(--glass-shadow-glow); }
+    .pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); }
+    .pricing-plan { font-size: var(--text-lg); font-weight: 600; color: var(--ax-white); margin-bottom: var(--space-sm); }
+    .pricing-amount { font-size: var(--text-5xl); font-weight: 800; color: var(--ax-white); }
+    .pricing-period { font-size: var(--text-sm); color: var(--ax-gray-400); }
+    .pricing-features { list-style: none; margin: var(--space-xl) 0; text-align: left; }
+    .pricing-features li { font-size: var(--text-sm); color: var(--ax-gray-300); padding: var(--space-sm) 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .pricing-features li::before { content: "\2713\00a0"; color: var(--ax-success); font-weight: 600; }
+
+    /* FAQ */
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .faq-question { width: 100%; background: none; border: none; color: var(--ax-white); font-family: var(--font-body); font-size: var(--text-lg); font-weight: 600; text-align: left; padding: var(--space-lg) 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-question:hover { color: var(--ax-primary-light); }
+    .faq-icon { font-size: var(--text-xl); transition: transform var(--duration-normal) var(--ease-glass); color: var(--ax-gray-400); }
+    .faq-item.is-open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height var(--duration-slow) var(--ease-glass); }
+    .faq-answer-inner { padding: 0 0 var(--space-lg) 0; font-size: var(--text-base); color: var(--ax-gray-400); line-height: var(--leading-relaxed); }
+
+    /* Final CTA */
+    .final-cta-panel { padding: var(--space-4xl) var(--space-2xl); text-align: center; background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(6,182,212,0.1)); border-radius: var(--radius-3xl); border: var(--glass-border-medium); backdrop-filter: var(--blur-heavy); -webkit-backdrop-filter: var(--blur-heavy); }
+    .final-cta-headline { font-size: var(--text-5xl); font-weight: 800; color: var(--ax-white); letter-spacing: var(--tracking-tight); line-height: var(--leading-tight); }
+    .final-cta-sub { font-size: var(--text-lg); color: var(--ax-gray-400); margin-top: var(--space-md); }
+    .btn-glow { font-size: var(--text-xl); padding: var(--space-md) var(--space-2xl); box-shadow: 0 0 40px var(--ax-primary-glow), 0 8px 24px var(--ax-primary-glow); }
+    .btn-glow:hover { box-shadow: 0 0 60px var(--ax-primary-glow), 0 12px 32px var(--ax-primary-glow); }
+
+    /* Footer */
+    .site-footer { padding: var(--space-2xl) 0; background: var(--glass-bg-dark); backdrop-filter: var(--blur-standard); -webkit-backdrop-filter: var(--blur-standard); border-top: var(--glass-border-dark); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-lg); }
+    .footer-links { display: flex; gap: var(--space-lg); flex-wrap: wrap; }
+    .footer-links a { font-size: var(--text-sm); color: var(--ax-gray-400); transition: color var(--duration-fast); }
+    .footer-links a:hover { color: var(--ax-white); }
+    .footer-bottom { text-align: center; margin-top: var(--space-lg); font-size: var(--text-xs); color: var(--ax-gray-500); }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .section { padding: 48px 0; }
+      .hero { min-height: auto; padding-top: 120px; padding-bottom: 48px; }
+      .hero-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+      .hero-headline { font-size: var(--text-4xl); }
+      .feature-row { grid-template-columns: 1fr; gap: var(--space-xl); }
+      .feature-row.reverse .feature-content { order: 1; }
+      .feature-row.reverse .feature-visual { order: 2; }
+      .feature-headline { font-size: var(--text-3xl); }
+      .stats-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pipeline-steps { flex-direction: column; }
+      .pipeline-arrow { transform: rotate(90deg); }
+      .final-cta-headline { font-size: var(--text-3xl); }
+      .final-cta-panel { padding: var(--space-2xl) var(--space-lg); }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .glass-nav-toggle { display: flex; }
+      .glass-nav-menu { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(17,25,40,0.95); backdrop-filter: var(--blur-mega); -webkit-backdrop-filter: var(--blur-mega); flex-direction: column; align-items: center; justify-content: center; gap: var(--space-xl); }
+      .glass-nav-menu.is-open { display: flex; }
+      .glass-nav-menu .nav-links { flex-direction: column; gap: var(--space-xl); }
+      .glass-nav-menu .nav-links a { font-size: var(--text-xl); }
+      .glass-nav-menu .nav-actions { flex-direction: column; gap: var(--space-md); }
+    }
+    @media (max-width: 480px) {
+      .hero-headline { font-size: var(--text-3xl); }
+      .section-headline { font-size: var(--text-3xl); }
+    }
+  </style>
 </head>
 <body>
-<nav><div class="nav-inner"><a href="index.html" class="nav-logo">Ax</a><div class="nav-links"><a href="index.html#product">Product</a><a href="index.html#pricing">Pricing</a><a href="/dashboard/login.html">Login</a><a href="book-demo.html?industry=medical" class="nav-cta">Book a Demo</a></div></div></nav>
 
-<section class="hero fade-in">
-  <div class="section-label">Medical Practices</div>
-  <h1>More Google reviews. Every call answered.</h1>
-  <p>You already have practice management software. You need better Google rankings and someone to pick up the phone when your staff cannot. That is what Ax does.</p>
-  <a href="book-demo.html?industry=medical" class="btn-primary">Book a Demo</a>
-</section>
-
-<div class="hero-img fade-in">
-  <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop" alt="Modern dental office" loading="lazy">
+<!-- Animated Background -->
+<div class="glasswing-bg">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
 </div>
 
-<section class="cited-stats fade-in">
-  <div class="cited-stats-inner">
-    <div class="cited-stat">
-      <div class="cs-number">87%</div>
-      <div class="cs-desc">of consumers read online reviews for local businesses</div>
-      <div class="cs-source">BrightLocal 2024</div>
+<!-- Nav -->
+<nav class="glass-nav" role="navigation" aria-label="Main navigation">
+  <div class="glass-nav-inner">
+    <a href="/" class="nav-logo">Ax</a>
+    <button class="glass-nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="glass-nav-menu">
+      <ul class="nav-links">
+        <li><a href="/#features">Product</a></li>
+        <li><a href="/#industries">Industries</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/dashboard/login.html" class="nav-login">Login</a>
+        <a href="book-demo.html?industry=medical" class="glass-btn-primary">Book a Demo</a>
+      </div>
     </div>
-    <div class="cited-stat">
-      <div class="cs-number">30%</div>
-      <div class="cs-desc">more revenue for businesses with 50+ Google reviews</div>
-      <div class="cs-source">Harvard Business School</div>
-    </div>
-    <div class="cited-stat">
-      <div class="cs-number">76%</div>
-      <div class="cs-desc">of customers asked to leave a review will do so</div>
-      <div class="cs-source">BrightLocal 2024</div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero section">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-headline animate-on-scroll fade-up">More patients start with more reviews</h1>
+        <p class="hero-subtitle animate-on-scroll fade-up stagger-1">Ax generates reviews from your patients automatically and answers every call to your practice 24/7. HIPAA aware. No patient data touches our servers.</p>
+        <div class="hero-ctas animate-on-scroll fade-up stagger-2">
+          <a href="book-demo.html?industry=medical" class="glass-btn-primary">Book a Demo</a>
+          <a href="#how-it-works" class="glass-btn-secondary">See how it works</a>
+        </div>
+        <div class="industry-tags animate-on-scroll fade-up stagger-3">
+          <span class="glass-pill">Dentists</span>
+          <span class="glass-pill">Physicians</span>
+          <span class="glass-pill">Chiropractors</span>
+          <span class="glass-pill">Orthodontists</span>
+          <span class="glass-pill">Oral Surgery</span>
+          <span class="glass-pill">ENT</span>
+          <span class="glass-pill">Podiatry</span>
+          <span class="glass-pill">OB/GYN</span>
+          <span class="glass-pill">Family Medicine</span>
+          <span class="glass-pill">Dermatology</span>
+          <span class="glass-pill">Physical Therapy</span>
+          <span class="glass-pill">Optometry</span>
+          <span class="glass-pill">Cardiology</span>
+          <span class="glass-pill">Pediatrics</span>
+        </div>
+      </div>
+      <div class="animate-on-scroll scale-in stagger-2">
+        <div class="glass-card-elevated hero-image-card animate-float">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop" alt="Modern dental office" loading="lazy">
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="how-it-works fade-in">
-  <div class="section-label">How It Works</div>
-  <h2>Running in minutes, not months</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h3>Connect Your Profile</h3>
-      <p>Link your Google Business Profile and set your practice details. No IT team needed.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h3>Set Your Preferences</h3>
-      <p>Choose your tone, review response style, and phone answering protocols for your specialty.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h3>Go Live</h3>
-      <p>Ax starts responding to reviews and answering calls immediately. You get transcripts and weekly reports.</p>
+<!-- HIPAA Banner -->
+<section class="section" style="padding-top: 0; padding-bottom: 40px;">
+  <div class="container">
+    <div class="glass-card hipaa-banner animate-on-scroll fade-up">
+      <span class="glass-badge glass-badge-success">HIPAA Aware</span>
+      <p>Ax never stores, processes, or transmits protected health information. Review requests use only the patient's first name and your practice name. All communication is handled through secure, compliant channels.</p>
     </div>
   </div>
 </section>
 
-<section class="two-up">
-  <div class="card fade-in">
-    <div class="section-label">Reviews</div>
-    <div class="highlight">4.9 ★</div>
-    <h3>AI Review Optimization</h3>
-    <p>Automatically request reviews after appointments. AI responds to every review in a professional, HIPAA aware tone. More five star reviews means higher Google rankings, which means more new patients finding you.</p>
-    <ul>
-      <li>Automatic post visit review requests via SMS</li>
-      <li>Personalized responses to every Google review</li>
-      <li>Negative review alerts sent to your phone instantly</li>
-      <li>Monthly review performance reports</li>
-      <li>Review funnel to filter feedback before it goes public</li>
-    </ul>
-  </div>
-  <div class="card fade-in">
-    <div class="section-label">Phone</div>
-    <div class="highlight" style="color:#7c3aed">24/7</div>
-    <h3>AI Phone Answering</h3>
-    <p>When your front desk is busy or closed, AI answers the phone. It handles scheduling questions, office hours, insurance inquiries, and routes urgent calls. Patients get answers. You get transcripts.</p>
-    <ul>
-      <li>Answers office hours, location, and insurance questions</li>
-      <li>Books and confirms appointments automatically</li>
-      <li>Routes urgent medical calls to on call staff</li>
-      <li>Full transcript emailed after every call</li>
-      <li>Custom greeting and hold messaging</li>
-    </ul>
-  </div>
-</section>
-
-<section class="why-reviews fade-in">
-  <div class="section-label" style="text-align:center">Patient Acquisition</div>
-  <h2>Why Google reviews matter for your practice</h2>
-  <div class="sub">New patients search Google before booking. Your star rating and review volume directly impact whether they choose you or the practice down the street.</div>
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="why-stat">84%</div>
-      <p>of patients use online reviews as their first step when choosing a new provider</p>
-    </div>
-    <div class="why-card">
-      <div class="why-stat">4.5+ ★</div>
-      <p>is the minimum star rating most patients consider before booking an appointment</p>
-    </div>
-    <div class="why-card">
-      <div class="why-stat">2.3x</div>
-      <p>more patient inquiries for practices that respond to every Google review</p>
-    </div>
-    <div class="why-card">
-      <div class="why-stat">#1</div>
-      <p>factor in Google local pack rankings is review volume and recency</p>
+<!-- Statistics -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-headline animate-on-scroll fade-up">Patients choose doctors based on reviews</h2>
+    <p class="section-sub animate-on-scroll fade-up stagger-1">Your online reputation is the single biggest factor in new patient acquisition</p>
+    <div class="stats-grid">
+      <div class="glass-card-elevated stat-card animate-on-scroll fade-up stagger-1">
+        <div class="stat-value">94%</div>
+        <div class="stat-label">of patients use online reviews to evaluate doctors</div>
+        <div class="stat-source">Software Advice, 2024</div>
+      </div>
+      <div class="glass-card-elevated stat-card animate-on-scroll fade-up stagger-2">
+        <div class="stat-value">84%</div>
+        <div class="stat-label">trust online reviews as much as personal recommendations</div>
+        <div class="stat-source">BrightLocal, 2024</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="practices fade-in">
-  <h2>Built for these practices</h2>
-  <div class="tags">
-    <span class="tag">Dental Practices</span>
-    <span class="tag">Physicians</span>
-    <span class="tag">Clinics</span>
-    <span class="tag">Chiropractors</span>
-    <span class="tag">Orthodontists</span>
-    <span class="tag">Dermatologists</span>
-    <span class="tag">Optometrists</span>
-    <span class="tag">Physical Therapy</span>
-    <span class="tag">Pediatrics</span>
-    <span class="tag">Urgent Care</span>
-    <span class="tag">Veterinary Clinics</span>
-    <span class="tag">Mental Health Practices</span>
+<!-- How it works pipeline -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <h2 class="section-headline animate-on-scroll fade-up">Reviews drive new patients</h2>
+    <p class="section-sub animate-on-scroll fade-up stagger-1">A simple cycle that compounds over time</p>
+    <div class="pipeline-steps animate-on-scroll fade-up stagger-2">
+      <div class="pipeline-step">
+        <div class="pipeline-icon">
+          <svg fill="none" stroke="var(--ax-primary-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="pipeline-title">More Reviews</h3>
+        <p class="pipeline-text">Ax asks every patient for a review after their visit</p>
+      </div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">
+        <div class="pipeline-icon">
+          <svg fill="none" stroke="var(--ax-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <h3 class="pipeline-title">Higher Rankings</h3>
+        <p class="pipeline-text">Google rewards practices with more recent, positive reviews</p>
+      </div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">
+        <div class="pipeline-icon">
+          <svg fill="none" stroke="var(--ax-success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="pipeline-title">New Patients</h3>
+        <p class="pipeline-text">Patients searching for care find and choose your practice</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="faq fade-in">
-  <h2>Frequently asked questions</h2>
-  <details class="faq-item">
-    <summary>Is Ax HIPAA compliant?</summary>
-    <div class="faq-answer">Ax is designed with HIPAA awareness in mind. AI review responses never include protected health information. Phone transcripts are stored securely and access is limited to authorized practice staff.</div>
-  </details>
-  <details class="faq-item">
-    <summary>Will AI review responses sound professional enough for a medical practice?</summary>
-    <div class="faq-answer">Absolutely. Ax is trained to respond in a clinical yet warm tone appropriate for healthcare. Responses never disclose patient details and always maintain the professionalism your patients expect.</div>
-  </details>
-  <details class="faq-item">
-    <summary>How does the AI phone handle urgent medical calls?</summary>
-    <div class="faq-answer">You configure escalation rules during setup. If a caller reports an emergency or urgent symptom, the AI immediately routes the call to your on call staff or directs them to call 911. Non urgent calls are handled normally.</div>
-  </details>
-  <details class="faq-item">
-    <summary>Do I need to replace my existing practice management software?</summary>
-    <div class="faq-answer">No. Ax is not a practice management system. It works alongside your existing PMS, EHR, and scheduling tools. Ax focuses specifically on Google reviews and phone answering.</div>
-  </details>
-  <details class="faq-item">
-    <summary>How quickly can my practice go live?</summary>
-    <div class="faq-answer">Most practices are fully operational within 10 minutes. Connect your Google Business Profile, set your preferences, and Ax starts working. No contracts with your IT department required.</div>
-  </details>
+<!-- Features -->
+<section class="section" id="features">
+  <div class="container">
+
+    <!-- AI Reviews -->
+    <div class="feature-row" style="margin-bottom: 80px;">
+      <div class="feature-content animate-on-scroll fade-up">
+        <span class="glass-pill feature-label">AI Reviews</span>
+        <h2 class="feature-headline">Patient reviews on autopilot</h2>
+        <p class="feature-desc">After every appointment, Ax sends a friendly text inviting the patient to share their experience. When reviews come in, Ax responds with a warm, professional, HIPAA compliant reply. No protected health information is ever included in responses.</p>
+      </div>
+      <div class="feature-visual animate-on-scroll fade-up stagger-2">
+        <div class="glass-card-elevated feature-visual-card">
+          <div class="review-mock-header">
+            <div class="review-mock-avatar">LW</div>
+            <div>
+              <div class="review-mock-name">Laura Wilson</div>
+              <div class="mockup-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+          <p class="review-mock-body">"Dr. Chen and his team are wonderful. I used to be terrified of the dentist but they made me feel completely at ease. The office is clean, modern, and they always run on time."</p>
+          <div class="ai-response">
+            <div class="ai-response-label">AI Response</div>
+            <p class="ai-response-text">Thank you so much for the kind words, Laura! Our team works hard to create a comfortable experience for every patient. We truly appreciate you taking the time to share your feedback.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Phone -->
+    <div class="feature-row reverse">
+      <div class="feature-content animate-on-scroll fade-up">
+        <span class="glass-pill feature-label">AI Phone</span>
+        <h2 class="feature-headline">Every call answered, every time</h2>
+        <p class="feature-desc">Your AI receptionist answers calls after hours, during lunch, and when your front desk is busy with patients. It schedules appointments, provides office hours and directions, and transfers urgent calls to the on call provider. No clinical information is discussed.</p>
+      </div>
+      <div class="feature-visual animate-on-scroll fade-up stagger-2">
+        <div class="glass-card-elevated feature-visual-card">
+          <div style="margin-bottom: var(--space-sm);"><span class="glass-badge">Live Call Transcript</span></div>
+          <div class="phone-line">
+            <span class="phone-speaker caller">Caller</span>
+            <span class="phone-text">Hi, I need to schedule a cleaning. Do you take Delta Dental insurance?</span>
+          </div>
+          <div class="phone-line">
+            <span class="phone-speaker ai">Ax</span>
+            <span class="phone-text">Yes, we are in network with Delta Dental. I have openings next Tuesday at 9 AM and Thursday at 2 PM. Would either of those work for you?</span>
+          </div>
+          <div class="phone-line">
+            <span class="phone-speaker caller">Caller</span>
+            <span class="phone-text">Tuesday at 9 works great.</span>
+          </div>
+          <div class="phone-line">
+            <span class="phone-speaker ai">Ax</span>
+            <span class="phone-text">Wonderful. You are booked for Tuesday at 9 AM. We will send a confirmation text with all the details. Is there anything else I can help with?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<section class="cta-section fade-in">
-  <h2>See it working for your practice</h2>
-  <a href="book-demo.html?industry=medical" class="btn-primary">Book a Demo</a>
+<!-- Pricing -->
+<section class="section" id="pricing">
+  <div class="container">
+    <h2 class="section-headline animate-on-scroll fade-up">Simple pricing for medical practices</h2>
+    <p class="section-sub animate-on-scroll fade-up stagger-1">Choose the plan that fits your practice. No contracts, cancel anytime.</p>
+    <div class="pricing-grid animate-on-scroll fade-up stagger-2">
+      <div class="glass-card-elevated pricing-card">
+        <div class="pricing-plan">Growth</div>
+        <div class="pricing-amount"><span style="font-size: var(--text-2xl); vertical-align: top;">$</span>89</div>
+        <div class="pricing-period">per month</div>
+        <ul class="pricing-features">
+          <li>Review generation via SMS</li>
+          <li>AI review responses</li>
+          <li>HIPAA aware messaging</li>
+          <li>Google Business integration</li>
+          <li>Basic analytics dashboard</li>
+          <li>Email support</li>
+        </ul>
+        <a href="book-demo.html?industry=medical" class="glass-btn-primary" style="width: 100%; justify-content: center;">Book a Demo</a>
+      </div>
+      <div class="glass-card-elevated pricing-card popular">
+        <span class="glass-badge glass-badge-primary pricing-badge">Recommended</span>
+        <div class="pricing-plan">Pro</div>
+        <div class="pricing-amount"><span style="font-size: var(--text-2xl); vertical-align: top;">$</span>199</div>
+        <div class="pricing-period">per month</div>
+        <ul class="pricing-features">
+          <li>Everything in Growth</li>
+          <li>AI phone receptionist</li>
+          <li>Appointment scheduling</li>
+          <li>Insurance verification prompts</li>
+          <li>Multi platform reviews (Google, Healthgrades)</li>
+          <li>Advanced analytics</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="book-demo.html?industry=medical" class="glass-btn-primary" style="width: 100%; justify-content: center;">Book a Demo</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer>&copy; 2026 Ax Automations. Built in Philadelphia.</footer>
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-headline animate-on-scroll fade-up">Frequently asked questions</h2>
+    <div class="faq-list animate-on-scroll fade-up stagger-1">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Is Ax HIPAA compliant?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Ax is designed to be HIPAA aware. We never store, process, or transmit protected health information (PHI). Review requests use only the patient's first name and your practice name. AI review responses never reference diagnoses, treatments, or any clinical details. Our system operates entirely outside the scope of PHI.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Will the AI accidentally disclose patient information in a review response?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Our AI is specifically trained to never acknowledge or reference any clinical details, even if a patient mentions them in their review. Responses are limited to thanking the reviewer, expressing gratitude, and inviting them back. We err on the side of caution every time.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can the AI phone agent handle insurance questions?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. You provide Ax with a list of insurance plans your practice accepts, and the AI can confirm coverage to callers. For specific benefit or eligibility questions, the AI will let the caller know that a team member will follow up to verify their specific plan details.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">What if a patient calls with a medical emergency?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Ax is trained to recognize emergency language and immediately directs the caller to dial 911. It can also transfer the call to your on call provider if you have one configured. Patient safety is always the top priority.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">How do patients receive review requests?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">After their appointment, the patient receives a simple text message that says something like "Hi Laura, thank you for visiting Dr. Chen's office today! If you had a great experience, we would love a quick Google review." It is short, friendly, and includes a direct link. No clinical details are ever mentioned.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Do we need to change our practice management software?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Ax works alongside your existing systems. You do not need to replace your PMS, EHR, or scheduling software. Ax handles reviews and phone coverage as a separate layer, connecting through your Google Business profile and phone forwarding.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Final CTA -->
+<section class="section">
+  <div class="container">
+    <div class="final-cta-panel animate-on-scroll scale-in">
+      <h2 class="final-cta-headline">Your next patient is reading reviews right now.</h2>
+      <p class="final-cta-sub">Make sure your practice is the one they choose.</p>
+      <a href="book-demo.html?industry=medical" class="glass-btn-primary btn-glow" style="margin-top: var(--space-xl); display: inline-flex;">Book a Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="/" class="nav-logo">Ax</a>
+      <div class="footer-links">
+        <a href="/#features">Product</a>
+        <a href="/#industries">Industries</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="book-demo.html?industry=medical">Book a Demo</a>
+        <a href="/dashboard/login.html">Login</a>
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 Ax Automations. Built in Philadelphia.</div>
+  </div>
+</footer>
+
+<script src="js/glasswing-interactions.js"></script>
 <script>
-var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.1});
-document.querySelectorAll('.fade-in').forEach(function(el){observer.observe(el)});
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('is-open');
+    document.querySelectorAll('.faq-item.is-open').forEach(open => {
+      open.classList.remove('is-open');
+      open.querySelector('.faq-answer').style.maxHeight = '0';
+      open.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('is-open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
 </script>
 </body>
 </html>
