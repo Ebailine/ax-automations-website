@@ -532,3 +532,22 @@
     background: rgba(17, 25, 40, 0.7);
   }
 }
+
+/* ─────────────────────────────────────
+   Focus States (Accessibility)
+   ───────────────────────────────────── */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--ax-primary, #6366F1);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.25);
+}
+
+.glass-input:focus-visible {
+  outline: none;
+  border-color: var(--ax-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
