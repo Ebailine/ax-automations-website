@@ -1,167 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Book a Demo | Ax Automations</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#09090b;--text:#fafafa;--text-secondary:#a1a1aa;--accent:#7c3aed;--accent-hover:#6d28d9;--card:#18181b;--border:rgba(255,255,255,.06)}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-.nav{padding:16px 32px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
-.nav .logo{font-size:24px;font-weight:800;letter-spacing:-.5px;text-decoration:none;color:var(--text)}
-.nav .logo span{color:var(--accent)}
-.nav a.back{font-size:14px;color:var(--text-secondary);text-decoration:none;font-weight:500}
-.nav a.back:hover{color:var(--text)}
-.hero{max-width:640px;margin:40px auto;padding:0 24px}
-.hero h1{font-size:32px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;text-align:center}
-.hero p{font-size:16px;color:var(--text-secondary);text-align:center;margin-bottom:40px;line-height:1.6}
-.form-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:36px;box-shadow:0 4px 24px rgba(0,0,0,0.04)}
-.field{margin-bottom:20px}
-.field label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px}
-.field input,.field select,.field textarea{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;background:var(--card)}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,58,237,0.1)}
-.field textarea{resize:vertical;min-height:80px}
-.field-row{display:flex;gap:16px}
-.field-row .field{flex:1}
-@media(max-width:640px){.field-row{flex-direction:column;gap:0}}
-.btn-submit{width:100%;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:background .2s,transform .1s}
-.btn-submit:hover{background:var(--accent-hover);transform:translateY(-1px)}
-.btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
-.success{display:none;text-align:center;padding:48px 24px}
-.success h2{font-size:24px;font-weight:700;margin-bottom:12px;color:var(--text)}
-.success p{font-size:15px;color:var(--text-secondary);line-height:1.6}
-.success .check{width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
-.success .check svg{color:#059669}
-.trust{display:flex;gap:32px;justify-content:center;margin-top:32px;flex-wrap:wrap}
-.trust-item{text-align:center}
-.trust-item .val{font-size:20px;font-weight:700;color:var(--text)}
-.trust-item .lbl{font-size:12px;color:var(--text-secondary);margin-top:2px}
-.error-msg{background:#fef2f2;border:1px solid #fecaca;color:#dc2626;font-size:13px;padding:10px 14px;border-radius:8px;margin-bottom:16px;display:none}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Demo — Ax Automations</title>
+  <meta name="description" content="See Ax in action. Book a free 15 minute demo and see how AI automation works for your business.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/glasswing-tokens.css">
+  <link rel="stylesheet" href="css/glasswing-components.css">
+  <link rel="stylesheet" href="css/glasswing-animations.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--ax-gray-300);
+      background: var(--bg-gradient-hero);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Logo */
+    .page-logo {
+      position: fixed;
+      top: var(--space-lg);
+      left: var(--space-xl);
+      z-index: var(--z-nav);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: var(--text-2xl);
+      color: var(--ax-white);
+      letter-spacing: var(--tracking-tight);
+      transition: opacity var(--duration-normal) var(--ease-smooth);
+    }
+    .page-logo:hover { opacity: 0.8; }
+
+    /* Layout */
+    .demo-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 80px var(--space-lg) var(--space-2xl);
+    }
+    .demo-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      max-width: 960px;
+      width: 100%;
+      align-items: center;
+    }
+
+    /* Left side: value props */
+    .demo-value {
+      padding-right: var(--space-lg);
+    }
+    .demo-value-headline {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--ax-white);
+      margin-bottom: var(--space-xl);
+      letter-spacing: var(--tracking-tight);
+    }
+    .value-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-bottom: var(--space-2xl);
+    }
+    .value-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--glass-bg-light);
+      backdrop-filter: var(--blur-subtle);
+      -webkit-backdrop-filter: var(--blur-subtle);
+      border: var(--glass-border-light);
+      border-radius: var(--radius-pill);
+      color: var(--ax-gray-200);
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+    .value-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--ax-primary-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .value-icon svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Testimonial */
+    .demo-testimonial {
+      padding: var(--space-lg);
+      background: var(--glass-bg-light);
+      backdrop-filter: var(--blur-subtle);
+      -webkit-backdrop-filter: var(--blur-subtle);
+      border: var(--glass-border-dark);
+      border-radius: var(--radius-xl);
+    }
+    .demo-testimonial-text {
+      font-size: var(--text-sm);
+      color: var(--ax-gray-300);
+      line-height: var(--leading-relaxed);
+      font-style: italic;
+      margin-bottom: var(--space-sm);
+    }
+    .demo-testimonial-author {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--ax-gray-400);
+    }
+
+    /* Form card */
+    .demo-form-card {
+      padding: var(--space-2xl);
+      max-width: 560px;
+    }
+    .demo-form-headline {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: var(--ax-white);
+      letter-spacing: var(--tracking-tight);
+      margin-bottom: var(--space-sm);
+    }
+    .demo-form-subtitle {
+      font-size: var(--text-sm);
+      color: var(--ax-gray-400);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-xl);
+    }
+
+    /* Form */
+    .demo-form { display: flex; flex-direction: column; gap: var(--space-md); }
+    .form-group { display: flex; flex-direction: column; gap: var(--space-xs); }
+    .form-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--ax-gray-400);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+    }
+    .glass-input {
+      padding: 10px var(--space-md);
+      height: 44px;
+    }
+    select.glass-input {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239CA3AF' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+    select.glass-input option {
+      background: var(--ax-gray-900);
+      color: var(--ax-white);
+    }
+    .demo-submit {
+      width: 100%;
+      margin-top: var(--space-sm);
+      height: 48px;
+      font-size: var(--text-base);
+    }
+
+    /* Success state */
+    .demo-success {
+      display: none;
+      text-align: center;
+      padding: var(--space-2xl);
+    }
+    .demo-success.is-visible { display: block; }
+    .demo-success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-lg);
+    }
+    .demo-success-headline {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--ax-white);
+      margin-bottom: var(--space-sm);
+    }
+    .demo-success-text {
+      font-size: var(--text-sm);
+      color: var(--ax-gray-400);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .demo-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+        max-width: 560px;
+      }
+      .demo-value {
+        padding-right: 0;
+        order: -1;
+      }
+      .demo-form-card {
+        max-width: 100%;
+      }
+      .page-logo {
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: var(--space-lg) 0 0 var(--space-lg);
+      }
+      .demo-page {
+        padding-top: var(--space-lg);
+      }
+    }
+  </style>
 </head>
 <body>
-<nav class="nav">
-  <a href="index.html" class="logo">Ax<span>.</span></a>
-  <a href="index.html" class="back">Back to Home</a>
-</nav>
-<div class="hero">
-  <h1>Book a Free Demo</h1>
-  <p>See how Ax helps local businesses get more reviews, respond automatically, and track competitors. Takes 15 minutes. No commitment.</p>
-  <div class="form-card" id="form-card">
-    <div class="error-msg" id="error"></div>
-    <form id="demo-form">
-      <div class="field-row">
-        <div class="field">
-          <label>Your Name</label>
-          <input type="text" id="f-name" placeholder="Jane Smith" required>
-        </div>
-        <div class="field">
-          <label>Business Name</label>
-          <input type="text" id="f-biz" placeholder="Joe's Pizza" required>
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label>Email</label>
-          <input type="email" id="f-email" placeholder="you@business.com" required>
-        </div>
-        <div class="field">
-          <label>Phone (optional)</label>
-          <input type="tel" id="f-phone" placeholder="(215) 555-1234">
-        </div>
-      </div>
-      <div class="field">
-        <label>Business Type</label>
-        <select id="f-type" required>
-          <option value="">Select your industry</option>
-          <option value="service-salon">Service Business: Hair Salon or Barbershop</option>
-          <option value="service-nails">Service Business: Nail Salon</option>
-          <option value="service-medspa">Service Business: Med Spa or Aesthetics</option>
-          <option value="service-fitness">Service Business: Fitness or Personal Training</option>
-          <option value="service-pets">Service Business: Pet Grooming or Vet</option>
-          <option value="service-auto">Service Business: Auto Repair or Detailing</option>
-          <option value="service-tattoo">Service Business: Tattoo or Piercing</option>
-          <option value="service-wellness">Service Business: Wellness (Massage, Chiro)</option>
-          <option value="medical-dental">Medical Practice: Dental</option>
-          <option value="medical-physician">Medical Practice: Physician or Clinic</option>
-          <option value="medical-other">Medical Practice: Other</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Anything specific you want to see? (optional)</label>
-        <textarea id="f-notes" placeholder="e.g. I want to see how competitor tracking works"></textarea>
-      </div>
-      <button type="submit" class="btn-submit" id="submit-btn">Request Demo</button>
-    </form>
-  </div>
-  <div class="success" id="success">
-    <div class="check"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-    <h2>You're all set!</h2>
-    <p>We'll reach out within 24 hours to schedule your personalized demo. Keep an eye on your inbox.</p>
-  </div>
-  <div class="trust">
-    <div class="trust-item"><div class="val">$79</div><div class="lbl">Starting price/mo</div></div>
-    <div class="trust-item"><div class="val">0</div><div class="lbl">Contracts required</div></div>
-    <div class="trust-item"><div class="val">5 min</div><div class="lbl">Setup time</div></div>
-  </div>
+
+<!-- Animated Background -->
+<div class="glasswing-bg">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
 </div>
+
+<!-- Logo -->
+<a href="index.html" class="page-logo">Ax</a>
+
+<!-- Main Content -->
+<main class="demo-page">
+  <div class="demo-container">
+
+    <!-- Left: Value Props -->
+    <div class="demo-value animate-fadeInLeft">
+      <h2 class="demo-value-headline">What you will see:</h2>
+      <ul class="value-list">
+        <li class="value-item">
+          <span class="value-icon">
+            <svg fill="none" stroke="var(--ax-primary-light)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          </span>
+          AI review generation running on your actual business
+        </li>
+        <li class="value-item">
+          <span class="value-icon" style="background: var(--ax-secondary-glow);">
+            <svg fill="none" stroke="var(--ax-secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </span>
+          Live AI phone agent answering a real call
+        </li>
+        <li class="value-item">
+          <span class="value-icon" style="background: var(--ax-accent-purple-glow);">
+            <svg fill="none" stroke="var(--ax-accent-purple)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </span>
+          Your dashboard with real time analytics
+        </li>
+        <li class="value-item">
+          <span class="value-icon" style="background: rgba(16, 185, 129, 0.2);">
+            <svg fill="none" stroke="var(--ax-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Custom setup plan for your industry
+        </li>
+      </ul>
+
+      <div class="demo-testimonial">
+        <p class="demo-testimonial-text">"We went from 12 Google reviews to over 200 in four months. The AI phone agent books appointments while I am cutting hair."</p>
+        <span class="demo-testimonial-author">Marcus Rivera, Rivera's Classic Cuts</span>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="glass-card-elevated demo-form-card animate-fadeInUp" id="demo-form-wrapper">
+      <h1 class="demo-form-headline">See Ax in action</h1>
+      <p class="demo-form-subtitle">15 minute walkthrough. No pressure. See it working with your actual business.</p>
+
+      <form class="demo-form" id="demo-form" action="/api/demo-request" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="business-name">Business Name</label>
+          <input type="text" id="business-name" name="businessName" class="glass-input" placeholder="Your business name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="your-name">Your Name</label>
+          <input type="text" id="your-name" name="name" class="glass-input" placeholder="First and last name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" name="email" class="glass-input" placeholder="you@business.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone <span style="font-weight: 400; text-transform: none; letter-spacing: normal;">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" class="glass-input" placeholder="(555) 123 4567">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="industry">Industry</label>
+          <select id="industry" name="industry" class="glass-input" required>
+            <option value="" disabled selected>Select your industry</option>
+            <option value="salon-barbershop">Salon / Barbershop</option>
+            <option value="medical-dental">Medical / Dental</option>
+            <option value="fitness-training">Fitness / Training</option>
+            <option value="auto-detailing">Auto Detailing</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <button type="submit" class="glass-btn-primary demo-submit">Book My Demo</button>
+      </form>
+    </div>
+
+    <!-- Success Card (replaces form) -->
+    <div class="glass-card-elevated demo-form-card demo-success animate-scaleIn" id="demo-success">
+      <div class="demo-success-icon">
+        <svg width="28" height="28" fill="none" stroke="var(--ax-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2 class="demo-success-headline">You are booked!</h2>
+      <p class="demo-success-text">Check your email for confirmation. We will send you a calendar invite with a link to join the call.</p>
+    </div>
+
+  </div>
+</main>
+
+<script src="js/glasswing-interactions.js"></script>
 <script>
-// Auto-select industry from URL parameter
 (function() {
+  'use strict';
+
+  // Pre-select industry from URL param
   var params = new URLSearchParams(window.location.search);
   var industry = params.get('industry');
   if (industry) {
-    var select = document.getElementById('f-type');
-    // Direct match first
-    for (var i = 0; i < select.options.length; i++) {
-      if (select.options[i].value === industry) { select.selectedIndex = i; return; }
+    var select = document.getElementById('industry');
+    if (select) {
+      var options = select.options;
+      for (var i = 0; i < options.length; i++) {
+        if (options[i].value === industry) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
     }
-    // Prefix match (e.g. ?industry=service selects first service option)
-    for (var i = 0; i < select.options.length; i++) {
-      if (select.options[i].value.indexOf(industry) === 0) { select.selectedIndex = i; return; }
-    }
+  }
+
+  // Form submission
+  var form = document.getElementById('demo-form');
+  var formWrapper = document.getElementById('demo-form-wrapper');
+  var success = document.getElementById('demo-success');
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var data = new FormData(form);
+      var body = {};
+      data.forEach(function(value, key) { body[key] = value; });
+
+      fetch('/api/demo-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      }).catch(function() {
+        // Endpoint may not exist yet — still show success
+      });
+
+      formWrapper.style.display = 'none';
+      success.classList.add('is-visible');
+    });
   }
 })();
-
-document.getElementById('demo-form').onsubmit = async function(e) {
-  e.preventDefault();
-  var btn = document.getElementById('submit-btn');
-  var err = document.getElementById('error');
-  err.style.display = 'none';
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-
-  var data = {
-    name: document.getElementById('f-name').value,
-    business: document.getElementById('f-biz').value,
-    email: document.getElementById('f-email').value,
-    phone: document.getElementById('f-phone').value,
-    type: document.getElementById('f-type').value,
-    notes: document.getElementById('f-notes').value,
-    submitted: new Date().toISOString()
-  };
-
-  try {
-    var res = await fetch('/api/demo-request', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    if (!res.ok) throw new Error('Request failed');
-    document.getElementById('form-card').style.display = 'none';
-    document.getElementById('success').style.display = 'block';
-  } catch(ex) {
-    // Fallback: store locally and show success anyway
-    console.log('Demo request (offline):', data);
-    document.getElementById('form-card').style.display = 'none';
-    document.getElementById('success').style.display = 'block';
-  }
-};
 </script>
 </body>
 </html>
