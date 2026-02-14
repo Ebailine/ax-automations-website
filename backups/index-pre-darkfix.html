@@ -239,21 +239,6 @@
     .section-light { background: #fafafa; color: #18181b; }
     .section-light .text-secondary { color: #52525b; }
     .section-light .section-overline { color: var(--indigo); }
-    .section-light h2, .section-light h3 { color: #111827; }
-    .section-light p, .section-light li { color: #4b5563; }
-    .section-light .pricing-card { background: #ffffff; border-color: #e5e7eb; }
-    .section-light .pricing-card.popular { border-color: rgba(99,102,241,0.5); box-shadow: 0 0 40px rgba(99,102,241,0.1); }
-    .section-light .pricing-plan-name { color: #6b7280; }
-    .section-light .pricing-amount { color: #111827; }
-    .section-light .pricing-period { color: #6b7280; }
-    .section-light .pricing-divider { background: #e5e7eb; }
-    .section-light .pricing-features li { color: #4b5563; }
-    .section-light .faq-item { border-bottom-color: #e5e7eb; }
-    .section-light .faq-question { color: #111827; }
-    .section-light .faq-question:hover { color: var(--indigo); }
-    .section-light .faq-icon { color: #9ca3af; }
-    .section-light .faq-answer { color: #4b5563; }
-    .section-light .text-lg { color: #4b5563; }
     .section-overline {
       font-size: 13px; font-weight: 600; color: var(--indigo-light);
       text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;
@@ -445,6 +430,45 @@
     .footer-links a:hover { color: var(--text-primary); }
     .footer-bottom { text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-tertiary); }
 
+    /* ── White section overrides ── */
+    .section-light .industry-tab {
+      border-color: #e5e7eb; color: #6b7280;
+    }
+    .section-light .industry-tab:hover:not(.active) { border-color: #d1d5db; color: #111827; }
+    .section-light .industry-tab.active { background: var(--indigo); color: white; border-color: var(--indigo); }
+    .section-light .industry-copy h3 { color: #111827; }
+    .section-light .industry-copy p { color: #4b5563; }
+    .section-light .industry-copy li { color: #4b5563; }
+    .section-light .industry-mockup {
+      background: #f3f4f6; border-color: #e5e7eb;
+    }
+    .section-light .mockup-header { color: #6b7280; }
+    .section-light .mockup-stat { background: #ffffff; border-color: #e5e7eb; }
+    .section-light .mockup-stat-val { color: #111827; }
+    .section-light .mockup-stat-label { color: #6b7280; }
+    .section-light .mockup-item { border-top-color: #e5e7eb; }
+    .section-light .mockup-item-name { color: #111827; }
+    .section-light .pricing-card {
+      background: #ffffff; border-color: #e5e7eb;
+    }
+    .section-light .pricing-card.popular {
+      border-color: rgba(99,102,241,0.5);
+      box-shadow: 0 0 40px rgba(99,102,241,0.1);
+    }
+    .section-light .pricing-plan-name { color: #6b7280; }
+    .section-light .pricing-amount { color: #111827; }
+    .section-light .pricing-period { color: #6b7280; }
+    .section-light .pricing-divider { background: #e5e7eb; }
+    .section-light .pricing-features li { color: #4b5563; }
+    .section-light .faq-item { border-bottom-color: #e5e7eb; }
+    .section-light .faq-question { color: #111827; }
+    .section-light .faq-question:hover { color: var(--indigo); }
+    .section-light .faq-icon { color: #9ca3af; }
+    .section-light .faq-answer { color: #4b5563; }
+    .section-light .text-lg { color: #4b5563; }
+    .section-light .timeline-title { color: #111827; }
+    .section-light .timeline-desc { color: #4b5563; }
+
     /* ── Animations ── */
     .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-up.is-visible { opacity: 1; transform: translateY(0); }
@@ -535,48 +559,6 @@
         or <a href="#how-it-works">see how it works</a>
       </p>
     </div>
-
-    <!-- Dashboard Preview -->
-    <div class="dashboard-preview fade-up">
-      <div class="dashboard-frame">
-        <div class="dashboard-bar">
-          <div class="dashboard-dot"></div>
-          <div class="dashboard-dot"></div>
-          <div class="dashboard-dot"></div>
-        </div>
-        <div class="dashboard-body">
-          <div class="dash-stat">
-            <div class="dash-stat-label">Total Reviews</div>
-            <div class="dash-stat-val">247</div>
-            <div class="dash-stat-change">+34 this month</div>
-          </div>
-          <div class="dash-stat">
-            <div class="dash-stat-label">Avg Rating</div>
-            <div class="dash-stat-val">4.8</div>
-            <div class="dash-stat-change">Up from 4.3</div>
-          </div>
-          <div class="dash-stat">
-            <div class="dash-stat-label">Response Rate</div>
-            <div class="dash-stat-val">100%</div>
-            <div class="dash-stat-change">AI-powered</div>
-          </div>
-          <div class="dash-reviews">
-            <div class="dash-review-item">
-              <div><div class="dash-review-name">Jennifer M.</div><div class="dash-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-              <span class="dash-review-badge badge-replied">AI Replied</span>
-            </div>
-            <div class="dash-review-item">
-              <div><div class="dash-review-name">Robert K.</div><div class="dash-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-              <span class="dash-review-badge badge-replied">AI Replied</span>
-            </div>
-            <div class="dash-review-item">
-              <div><div class="dash-review-name">Amanda S.</div><div class="dash-review-stars">&#9733;&#9733;&#9733;&#9733;</div></div>
-              <span class="dash-review-badge badge-pending">Pending</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -593,39 +575,39 @@
       <div id="score-error-msg" style="color:var(--text-secondary);font-size:15px;">Couldn't find that business. Try including your city name.</div>
     </div>
     <div class="score-result hidden" id="score-result">
-      <div class="score-biz-name" id="score-biz-name"></div>
-      <div id="score-address" style="font-size:13px;color:var(--text-tertiary);margin-top:4px;margin-bottom:8px;"></div>
-      <div class="score-number" id="score-val">0</div>
-      <div id="score-grade" style="font-size:20px;font-weight:700;margin-bottom:4px;"></div>
-      <div class="score-label">Bynde Review Health Score</div>
-      <div class="score-metrics">
-        <div><div class="score-metric-val" id="sm-rating">0</div><div class="score-metric-label">Star Rating</div></div>
-        <div><div class="score-metric-val" id="sm-reviews">0</div><div class="score-metric-label">Reviews</div></div>
-        <div><div class="score-metric-val" id="sm-grade">-</div><div class="score-metric-label">Grade</div></div>
+      <div class="score-biz-name" id="score-biz-name" style="font-size:16px;"></div>
+      <div id="score-address" style="font-size:12px;color:var(--text-tertiary);margin-top:2px;margin-bottom:6px;"></div>
+      <div class="score-number" id="score-val" style="font-size:48px;margin:4px 0;">0</div>
+      <div id="score-grade" style="font-size:16px;font-weight:700;margin-bottom:2px;"></div>
+      <div class="score-label" style="font-size:11px;margin-bottom:8px;">Bynde Review Health Score</div>
+      <div style="display:flex;justify-content:center;gap:24px;margin-bottom:12px;">
+        <div><div style="font-size:18px;font-weight:700;" id="sm-rating">0</div><div style="font-size:10px;color:var(--text-tertiary);">Star Rating</div></div>
+        <div><div style="font-size:18px;font-weight:700;" id="sm-reviews">0</div><div style="font-size:10px;color:var(--text-tertiary);">Reviews</div></div>
+        <div><div style="font-size:18px;font-weight:700;" id="sm-grade">-</div><div style="font-size:10px;color:var(--text-tertiary);">Grade</div></div>
       </div>
-      <div id="score-breakdown" style="margin-bottom:24px;">
-        <div style="margin-bottom:8px;" class="breakdown-row"><span style="font-size:13px;color:var(--text-secondary);">Rating</span><div style="flex:1;margin:0 12px;background:rgba(255,255,255,0.1);border-radius:4px;height:8px;overflow:hidden;"><div id="bar-rating" style="height:100%;border-radius:4px;background:#22c55e;width:0%;transition:width 1s ease;"></div></div><span style="font-size:13px;font-weight:600;" id="bar-rating-label">0</span></div>
-        <div style="margin-bottom:8px;" class="breakdown-row"><span style="font-size:13px;color:var(--text-secondary);">Volume</span><div style="flex:1;margin:0 12px;background:rgba(255,255,255,0.1);border-radius:4px;height:8px;overflow:hidden;"><div id="bar-volume" style="height:100%;border-radius:4px;background:var(--success);width:0%;transition:width 1s ease;"></div></div><span style="font-size:13px;font-weight:600;" id="bar-volume-label">0</span></div>
-        <div style="margin-bottom:8px;" class="breakdown-row"><span style="font-size:13px;color:var(--text-secondary);">Presence</span><div style="flex:1;margin:0 12px;background:rgba(255,255,255,0.1);border-radius:4px;height:8px;overflow:hidden;"><div id="bar-presence" style="height:100%;border-radius:4px;background:var(--warning);width:0%;transition:width 1s ease;"></div></div><span style="font-size:13px;font-weight:600;" id="bar-presence-label">0</span></div>
+      <div id="score-breakdown" style="margin-bottom:12px;">
+        <div style="margin-bottom:6px;display:flex;align-items:center;" class="breakdown-row"><span style="font-size:11px;color:var(--text-secondary);width:60px;">Rating</span><div style="flex:1;margin:0 8px;background:rgba(255,255,255,0.1);border-radius:4px;height:6px;overflow:hidden;"><div id="bar-rating" style="height:100%;border-radius:4px;background:#22c55e;width:0%;transition:width 1s ease;"></div></div><span style="font-size:11px;font-weight:600;" id="bar-rating-label">0</span></div>
+        <div style="margin-bottom:6px;display:flex;align-items:center;" class="breakdown-row"><span style="font-size:11px;color:var(--text-secondary);width:60px;">Volume</span><div style="flex:1;margin:0 8px;background:rgba(255,255,255,0.1);border-radius:4px;height:6px;overflow:hidden;"><div id="bar-volume" style="height:100%;border-radius:4px;background:var(--success);width:0%;transition:width 1s ease;"></div></div><span style="font-size:11px;font-weight:600;" id="bar-volume-label">0</span></div>
+        <div style="margin-bottom:6px;display:flex;align-items:center;" class="breakdown-row"><span style="font-size:11px;color:var(--text-secondary);width:60px;">Presence</span><div style="flex:1;margin:0 8px;background:rgba(255,255,255,0.1);border-radius:4px;height:6px;overflow:hidden;"><div id="bar-presence" style="height:100%;border-radius:4px;background:var(--warning);width:0%;transition:width 1s ease;"></div></div><span style="font-size:11px;font-weight:600;" id="bar-presence-label">0</span></div>
       </div>
-      <div id="score-recs" style="margin-bottom:24px;text-align:left;"></div>
-      <a href="book-demo.html" class="btn-primary" style="width:100%;justify-content:center;padding:16px;">Want to improve your score? Book a Demo</a>
-      <a id="score-gmaps" href="#" target="_blank" style="display:block;text-align:center;margin-top:12px;font-size:13px;color:var(--text-tertiary);">View on Google Maps →</a>
+      <div id="score-recs" style="margin-bottom:12px;text-align:left;"></div>
+      <a href="book-demo.html" class="btn-primary" style="width:100%;justify-content:center;padding:12px;font-size:14px;">Want to improve your score? Book a Demo</a>
+      <div style="display:flex;justify-content:center;gap:16px;margin-top:8px;">
+        <a id="score-gmaps" href="#" target="_blank" style="font-size:12px;color:var(--text-tertiary);">View on Google Maps →</a>
+      </div>
       <!-- Deep Audit Email Capture -->
-      <div id="audit-capture" style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);">
+      <div id="audit-capture" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.1);">
         <div id="audit-form-section">
-          <p style="font-size:15px;font-weight:600;margin-bottom:4px;">🔍 Want the full picture?</p>
-          <p style="font-size:13px;color:var(--text-tertiary);margin-bottom:12px;">Get your free Personalized Review Audit with competitor analysis, sentiment insights, and an action plan.</p>
+          <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Get your free Personalized Review Audit</p>
           <div style="display:flex;gap:8px;max-width:400px;margin:0 auto;">
-            <input type="email" id="audit-email" placeholder="Enter your email" style="flex:1;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:#fff;font-size:14px;outline:none;">
-            <button id="audit-submit-btn" onclick="requestAudit()" style="padding:12px 20px;border-radius:8px;background:#6366F1;color:#fff;border:none;font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap;">Get My Audit</button>
+            <input type="email" id="audit-email" placeholder="Enter your email" style="flex:1;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:#fff;font-size:13px;outline:none;">
+            <button id="audit-submit-btn" onclick="requestAudit()" style="padding:10px 16px;border-radius:8px;background:#6366F1;color:#fff;border:none;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap;">Get Audit</button>
           </div>
-          <p id="audit-error" style="display:none;color:#ef4444;font-size:12px;margin-top:8px;"></p>
+          <p id="audit-error" style="display:none;color:#ef4444;font-size:11px;margin-top:6px;"></p>
         </div>
         <div id="audit-success" style="display:none;text-align:center;">
-          <div style="font-size:32px;margin-bottom:8px;">📧</div>
-          <p style="font-size:15px;font-weight:600;">Check your email!</p>
-          <p style="font-size:13px;color:var(--text-tertiary);">We sent a verification link. Click it to view your full audit report.</p>
+          <p style="font-size:14px;font-weight:600;">📧 Check your email!</p>
+          <p style="font-size:12px;color:var(--text-tertiary);">Click the verification link to view your full audit.</p>
         </div>
       </div>
     </div>
@@ -685,12 +667,9 @@
     <div class="timeline-cta fade-up">
       <a href="book-demo.html" class="btn-primary">Start Your 30 Days</a>
     </div>
-  </div>
-</section>
 
-<!-- ── INDUSTRY VERTICALS ── -->
-<section class="section" id="industries">
-  <div class="container">
+    <!-- Industry Verticals (merged into white section) -->
+    <div style="margin-top:100px;" id="industries">
     <div style="text-align:center;margin-bottom:48px;">
       <p class="section-overline fade-up">Built for Your Industry</p>
       <h2 class="heading-lg fade-up stagger-1">Bynde works for businesses like yours</h2>
@@ -791,13 +770,62 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
-<!-- ── TESTIMONIALS ── -->
-<section class="section" style="padding-top:80px;">
+<!-- ── SECTION 3: DARK — Dashboard + Testimonials ── -->
+<section class="section" style="padding:100px 0;">
   <div class="container">
-    <div style="text-align:center;">
+    <!-- Dashboard Preview -->
+    <div style="text-align:center;margin-bottom:24px;">
+      <p class="section-overline fade-up">The Dashboard</p>
+      <h2 class="heading-lg fade-up stagger-1">Everything in one place</h2>
+      <p class="text-lg fade-up stagger-2" style="max-width:540px;margin:20px auto 0;">Track reviews, ratings, and AI responses from a single, beautiful dashboard.</p>
+    </div>
+    <div class="dashboard-preview fade-up" style="margin-top:48px;">
+      <div class="dashboard-frame">
+        <div class="dashboard-bar">
+          <div class="dashboard-dot"></div>
+          <div class="dashboard-dot"></div>
+          <div class="dashboard-dot"></div>
+        </div>
+        <div class="dashboard-body">
+          <div class="dash-stat">
+            <div class="dash-stat-label">Total Reviews</div>
+            <div class="dash-stat-val">247</div>
+            <div class="dash-stat-change">+34 this month</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-label">Avg Rating</div>
+            <div class="dash-stat-val">4.8</div>
+            <div class="dash-stat-change">Up from 4.3</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-label">Response Rate</div>
+            <div class="dash-stat-val">100%</div>
+            <div class="dash-stat-change">AI-powered</div>
+          </div>
+          <div class="dash-reviews">
+            <div class="dash-review-item">
+              <div><div class="dash-review-name">Jennifer M.</div><div class="dash-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+              <span class="dash-review-badge badge-replied">AI Replied</span>
+            </div>
+            <div class="dash-review-item">
+              <div><div class="dash-review-name">Robert K.</div><div class="dash-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+              <span class="dash-review-badge badge-replied">AI Replied</span>
+            </div>
+            <div class="dash-review-item">
+              <div><div class="dash-review-name">Amanda S.</div><div class="dash-review-stars">&#9733;&#9733;&#9733;&#9733;</div></div>
+              <span class="dash-review-badge badge-pending">Pending</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div style="margin-top:100px;text-align:center;">
       <p class="section-overline fade-up">Results</p>
       <h2 class="heading-lg fade-up stagger-1">Real numbers from real businesses</h2>
     </div>
@@ -827,29 +855,19 @@
   </div>
 </section>
 
-<!-- ── PRICING + FAQ (White Section) ── -->
-<section class="section section-light" id="pricing">
+<!-- ── SECTION 4: WHITE — Pricing + FAQ ── -->
+<section class="section section-light" id="pricing" style="padding:100px 0;">
   <div class="container">
     <div style="text-align:center;">
       <p class="section-overline fade-up">Pricing</p>
       <h2 class="heading-lg fade-up stagger-1">Simple, transparent pricing</h2>
-      <p class="text-lg fade-up stagger-2" style="max-width:500px;margin:20px auto 0;">No hidden fees. Cancel anytime. Save up to 22% with annual billing.</p>
-    </div>
-    <!-- Pricing Toggle -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:40px;margin-bottom:-24px;" class="fade-up stagger-2">
-      <span id="toggle-monthly-label" style="font-size:15px;font-weight:600;color:#111827;">Monthly</span>
-      <button id="pricing-toggle" onclick="togglePricing()" style="position:relative;width:52px;height:28px;border-radius:999px;border:none;background:#d1d5db;cursor:pointer;transition:background 0.3s ease;padding:0;">
-        <span id="toggle-knob" style="position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform 0.3s ease;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></span>
-      </button>
-      <span id="toggle-annual-label" style="font-size:15px;font-weight:500;color:#6b7280;">Annual</span>
-      <span id="annual-save-badge" style="font-size:12px;font-weight:600;color:#fff;background:var(--success);padding:4px 10px;border-radius:999px;opacity:0.6;transition:opacity 0.3s ease;">Save 20%</span>
+      <p class="text-lg fade-up stagger-2" style="max-width:500px;margin:20px auto 0;">No hidden fees. No long-term contracts. Cancel anytime.</p>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card fade-up stagger-1">
         <div class="pricing-plan-name">Growth</div>
-        <div class="pricing-amount" data-monthly="89" data-annual="69"><span>$</span>89</div>
+        <div class="pricing-amount"><span>$</span>89</div>
         <div class="pricing-period">per month</div>
-        <div class="pricing-annual-note" style="display:none;font-size:12px;color:var(--success);margin-top:-20px;margin-bottom:20px;">billed annually — <strong>You save $240/yr</strong></div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
           <li>Review generation via SMS</li>
@@ -863,12 +881,11 @@
       <div class="pricing-card popular fade-up stagger-2">
         <span class="pricing-popular-badge">Most Popular</span>
         <div class="pricing-plan-name">Pro</div>
-        <div class="pricing-amount" data-monthly="199" data-annual="159"><span>$</span>199</div>
+        <div class="pricing-amount"><span>$</span>199</div>
         <div class="pricing-period">per month</div>
-        <div class="pricing-annual-note" style="display:none;font-size:12px;color:var(--success);margin-top:-20px;margin-bottom:20px;">billed annually — <strong>You save $480/yr</strong></div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
-          <li style="background:rgba(99,102,241,0.08);border-left:3px solid #6366F1;padding:6px 10px;border-radius:0 6px 6px 0;margin-left:-10px;margin-bottom:4px;font-weight:600;color:#6366F1;">Everything in Growth +</li>
+          <li>Everything in Growth</li>
           <li>AI phone receptionist</li>
           <li>Multi-platform reviews</li>
           <li>Analytics dashboard</li>
@@ -878,12 +895,11 @@
       </div>
       <div class="pricing-card fade-up stagger-3">
         <div class="pricing-plan-name">Pro+</div>
-        <div class="pricing-amount" data-monthly="349" data-annual="279"><span>$</span>349</div>
+        <div class="pricing-amount"><span>$</span>349</div>
         <div class="pricing-period">per month</div>
-        <div class="pricing-annual-note" style="display:none;font-size:12px;color:var(--success);margin-top:-20px;margin-bottom:20px;">billed annually — <strong>You save $840/yr</strong></div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
-          <li style="background:rgba(99,102,241,0.08);border-left:3px solid #6366F1;padding:6px 10px;border-radius:0 6px 6px 0;margin-left:-10px;margin-bottom:4px;font-weight:600;color:#6366F1;">Everything in Pro +</li>
+          <li>Everything in Pro</li>
           <li>Multi-location support</li>
           <li>Custom AI voice training</li>
           <li>Advanced analytics</li>
@@ -925,7 +941,7 @@
   </div>
 </section>
 
-<!-- ── FINAL CTA ── -->
+<!-- ── SECTION 5: DARK — Final CTA + Footer ── -->
 <section class="final-cta-section">
   <div class="container">
     <div class="final-cta fade-up">
@@ -1066,48 +1082,9 @@ document.querySelectorAll('.industry-tab').forEach(function(tab){
           document.getElementById('bar-presence').style.width=d.breakdown.presence.score+'%';
           document.getElementById('bar-presence-label').textContent=d.breakdown.presence.score+' — '+d.breakdown.presence.label;
         },100);
-        // Smart recommendation engine
-        var rating=d.rating, vol=d.reviewCount, rScore=d.breakdown.rating.score, vScore=d.breakdown.volume.score;
-        var rec={feature:'',reason:'',plan:'Growth',color:'#6366F1'};
-        
-        if(d.score<60){
-          rec.feature='Automated Review Collection';
-          rec.reason='Your online presence needs attention. Bynde can turn this around in 30 days with automated review requests and AI responses.';
-          rec.plan='Growth';
-        } else if(rating>=4.3 && vol<100){
-          rec.feature='Automated Review Requests';
-          rec.reason='Great rating, but low volume. Businesses with 200+ reviews get 3x more clicks on Google Maps. You need more reviews, fast.';
-          rec.plan='Growth';
-        } else if(vol>=100 && vScore>=70 && rScore<80){
-          rec.feature='AI Review Response Management';
-          rec.reason='You have solid volume but your rating has room to grow. Responding to every review (especially negative ones) boosts your rating and builds trust.';
-          rec.plan='Growth';
-        } else if(rating>=4.3 && vol>=100 && vol<300){
-          rec.feature='Competitor Intelligence + Alerts';
-          rec.reason='Your reviews are strong, but are you stronger than the competition? Stay ahead with real-time competitor tracking and weekly AI analysis.';
-          rec.plan='Pro';
-        } else if(rating>=4.3 && vol>=300){
-          rec.feature='Full Automation Suite';
-          rec.reason='Your reviews are excellent. The next level is automating your entire customer journey: appointment reminders, follow-up sequences, win-back campaigns, and AI phone receptionist.';
-          rec.plan='Pro';
-        } else {
-          rec.feature='Review Health Optimization';
-          rec.reason='Based on your profile, there are clear opportunities to improve your online reputation and attract more customers through Google.';
-          rec.plan='Growth';
-        }
-
-        var recsHtml='<div style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);border-radius:10px;padding:12px;margin-bottom:8px;text-align:left;">';
-        recsHtml+='<div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#6366F1;font-weight:700;margin-bottom:4px;">Recommended for you</div>';
-        recsHtml+='<div style="font-size:14px;font-weight:700;margin-bottom:4px;">'+rec.feature+'</div>';
-        recsHtml+='<div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">'+rec.reason+'</div>';
-        recsHtml+='<div style="font-size:11px;color:var(--text-tertiary);">Included in the <strong>'+rec.plan+' plan</strong></div>';
-        recsHtml+='</div>';
+        var recsHtml='';
+        d.recommendations.forEach(function(r){recsHtml+='<div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">💡 '+r+'</div>';});
         document.getElementById('score-recs').innerHTML=recsHtml;
-        
-        // Update CTA to match recommendation
-        var ctaEl=document.querySelector('#score-result .btn-primary');
-        if(ctaEl) ctaEl.textContent='Book a Demo — See how '+rec.feature+' works';
-
         var gmaps=document.getElementById('score-gmaps');
         if(d.googleMapsUrl){gmaps.href=d.googleMapsUrl;gmaps.style.display='block';}else{gmaps.style.display='none';}
         result.classList.remove('hidden');
@@ -1131,34 +1108,6 @@ document.querySelectorAll('.industry-tab').forEach(function(tab){
   closeBtn.addEventListener('click',function(){overlay.classList.remove('active');});
   overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.classList.remove('active');});
 })();
-
-// Pricing toggle
-var isAnnual=false;
-function togglePricing(){
-  isAnnual=!isAnnual;
-  var knob=document.getElementById('toggle-knob');
-  var toggle=document.getElementById('pricing-toggle');
-  var mLabel=document.getElementById('toggle-monthly-label');
-  var aLabel=document.getElementById('toggle-annual-label');
-  var badge=document.getElementById('annual-save-badge');
-  var notes=document.querySelectorAll('.pricing-annual-note');
-  if(isAnnual){
-    knob.style.transform='translateX(24px)';toggle.style.background='var(--indigo)';
-    mLabel.style.fontWeight='500';mLabel.style.color='#6b7280';
-    aLabel.style.fontWeight='600';aLabel.style.color='#111827';
-    badge.style.opacity='1';
-  }else{
-    knob.style.transform='translateX(0)';toggle.style.background='#d1d5db';
-    mLabel.style.fontWeight='600';mLabel.style.color='#111827';
-    aLabel.style.fontWeight='500';aLabel.style.color='#6b7280';
-    badge.style.opacity='0.6';
-  }
-  document.querySelectorAll('.pricing-amount[data-monthly]').forEach(function(el){
-    var price=isAnnual?el.dataset.annual:el.dataset.monthly;
-    el.innerHTML='<span>$</span>'+price;
-  });
-  notes.forEach(function(n){n.style.display=isAnnual?'block':'none';});
-}
 
 function requestAudit(){
   var email=document.getElementById('audit-email').value.trim();

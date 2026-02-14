@@ -146,8 +146,7 @@
     .score-overlay.active { display: flex; }
     .score-card {
       background: var(--bg-elevated); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px 32px; max-width: 480px; width: 90%;
-      max-height: 85vh; overflow-y: auto;
+      border-radius: 16px; padding: 48px; max-width: 480px; width: 90%;
       text-align: center; position: relative;
       animation: scoreIn 0.4s ease forwards;
     }
@@ -181,7 +180,6 @@
     .score-loading.active { display: flex; }
     .score-result { display: block; }
     .score-result.hidden { display: none; }
-    .score-error.hidden { display: none; }
     .spinner {
       width: 40px; height: 40px; border: 3px solid var(--border);
       border-top-color: var(--indigo); border-radius: 50%;
@@ -239,21 +237,6 @@
     .section-light { background: #fafafa; color: #18181b; }
     .section-light .text-secondary { color: #52525b; }
     .section-light .section-overline { color: var(--indigo); }
-    .section-light h2, .section-light h3 { color: #111827; }
-    .section-light p, .section-light li { color: #4b5563; }
-    .section-light .pricing-card { background: #ffffff; border-color: #e5e7eb; }
-    .section-light .pricing-card.popular { border-color: rgba(99,102,241,0.5); box-shadow: 0 0 40px rgba(99,102,241,0.1); }
-    .section-light .pricing-plan-name { color: #6b7280; }
-    .section-light .pricing-amount { color: #111827; }
-    .section-light .pricing-period { color: #6b7280; }
-    .section-light .pricing-divider { background: #e5e7eb; }
-    .section-light .pricing-features li { color: #4b5563; }
-    .section-light .faq-item { border-bottom-color: #e5e7eb; }
-    .section-light .faq-question { color: #111827; }
-    .section-light .faq-question:hover { color: var(--indigo); }
-    .section-light .faq-icon { color: #9ca3af; }
-    .section-light .faq-answer { color: #4b5563; }
-    .section-light .text-lg { color: #4b5563; }
     .section-overline {
       font-size: 13px; font-weight: 600; color: var(--indigo-light);
       text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;
@@ -827,29 +810,19 @@
   </div>
 </section>
 
-<!-- ── PRICING + FAQ (White Section) ── -->
-<section class="section section-light" id="pricing">
+<!-- ── PRICING ── -->
+<section class="section" id="pricing">
   <div class="container">
     <div style="text-align:center;">
       <p class="section-overline fade-up">Pricing</p>
       <h2 class="heading-lg fade-up stagger-1">Simple, transparent pricing</h2>
-      <p class="text-lg fade-up stagger-2" style="max-width:500px;margin:20px auto 0;">No hidden fees. Cancel anytime. Save up to 22% with annual billing.</p>
-    </div>
-    <!-- Pricing Toggle -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:40px;margin-bottom:-24px;" class="fade-up stagger-2">
-      <span id="toggle-monthly-label" style="font-size:15px;font-weight:600;color:#111827;">Monthly</span>
-      <button id="pricing-toggle" onclick="togglePricing()" style="position:relative;width:52px;height:28px;border-radius:999px;border:none;background:#d1d5db;cursor:pointer;transition:background 0.3s ease;padding:0;">
-        <span id="toggle-knob" style="position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform 0.3s ease;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></span>
-      </button>
-      <span id="toggle-annual-label" style="font-size:15px;font-weight:500;color:#6b7280;">Annual</span>
-      <span id="annual-save-badge" style="font-size:12px;font-weight:600;color:#fff;background:var(--success);padding:4px 10px;border-radius:999px;opacity:0.6;transition:opacity 0.3s ease;">Save 20%</span>
+      <p class="text-lg fade-up stagger-2" style="max-width:500px;margin:20px auto 0;">No hidden fees. No long-term contracts. Cancel anytime.</p>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card fade-up stagger-1">
         <div class="pricing-plan-name">Growth</div>
-        <div class="pricing-amount" data-monthly="89" data-annual="69"><span>$</span>89</div>
+        <div class="pricing-amount"><span>$</span>89</div>
         <div class="pricing-period">per month</div>
-        <div class="pricing-annual-note" style="display:none;font-size:12px;color:var(--success);margin-top:-20px;margin-bottom:20px;">billed annually — <strong>You save $240/yr</strong></div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
           <li>Review generation via SMS</li>
@@ -863,12 +836,11 @@
       <div class="pricing-card popular fade-up stagger-2">
         <span class="pricing-popular-badge">Most Popular</span>
         <div class="pricing-plan-name">Pro</div>
-        <div class="pricing-amount" data-monthly="199" data-annual="159"><span>$</span>199</div>
+        <div class="pricing-amount"><span>$</span>199</div>
         <div class="pricing-period">per month</div>
-        <div class="pricing-annual-note" style="display:none;font-size:12px;color:var(--success);margin-top:-20px;margin-bottom:20px;">billed annually — <strong>You save $480/yr</strong></div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
-          <li style="background:rgba(99,102,241,0.08);border-left:3px solid #6366F1;padding:6px 10px;border-radius:0 6px 6px 0;margin-left:-10px;margin-bottom:4px;font-weight:600;color:#6366F1;">Everything in Growth +</li>
+          <li>Everything in Growth</li>
           <li>AI phone receptionist</li>
           <li>Multi-platform reviews</li>
           <li>Analytics dashboard</li>
@@ -878,12 +850,11 @@
       </div>
       <div class="pricing-card fade-up stagger-3">
         <div class="pricing-plan-name">Pro+</div>
-        <div class="pricing-amount" data-monthly="349" data-annual="279"><span>$</span>349</div>
+        <div class="pricing-amount"><span>$</span>349</div>
         <div class="pricing-period">per month</div>
-        <div class="pricing-annual-note" style="display:none;font-size:12px;color:var(--success);margin-top:-20px;margin-bottom:20px;">billed annually — <strong>You save $840/yr</strong></div>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
-          <li style="background:rgba(99,102,241,0.08);border-left:3px solid #6366F1;padding:6px 10px;border-radius:0 6px 6px 0;margin-left:-10px;margin-bottom:4px;font-weight:600;color:#6366F1;">Everything in Pro +</li>
+          <li>Everything in Pro</li>
           <li>Multi-location support</li>
           <li>Custom AI voice training</li>
           <li>Advanced analytics</li>
@@ -892,9 +863,12 @@
         <a href="book-demo.html" class="btn-primary">Book a Demo</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- FAQ merged into white section -->
-    <div style="margin-top:100px;" id="faq">
+<!-- ── FAQ ── -->
+<section class="section" id="faq">
+  <div class="container">
     <div style="text-align:center;">
       <p class="section-overline fade-up">FAQ</p>
       <h2 class="heading-lg fade-up stagger-1">Frequently asked questions</h2>
@@ -920,7 +894,6 @@
         <button class="faq-question" type="button">Can I cancel anytime?<span class="faq-icon">+</span></button>
         <div class="faq-answer">Yes. No long-term contracts. Cancel at the end of your billing period with no penalties.</div>
       </div>
-    </div>
     </div>
   </div>
 </section>
@@ -1066,48 +1039,9 @@ document.querySelectorAll('.industry-tab').forEach(function(tab){
           document.getElementById('bar-presence').style.width=d.breakdown.presence.score+'%';
           document.getElementById('bar-presence-label').textContent=d.breakdown.presence.score+' — '+d.breakdown.presence.label;
         },100);
-        // Smart recommendation engine
-        var rating=d.rating, vol=d.reviewCount, rScore=d.breakdown.rating.score, vScore=d.breakdown.volume.score;
-        var rec={feature:'',reason:'',plan:'Growth',color:'#6366F1'};
-        
-        if(d.score<60){
-          rec.feature='Automated Review Collection';
-          rec.reason='Your online presence needs attention. Bynde can turn this around in 30 days with automated review requests and AI responses.';
-          rec.plan='Growth';
-        } else if(rating>=4.3 && vol<100){
-          rec.feature='Automated Review Requests';
-          rec.reason='Great rating, but low volume. Businesses with 200+ reviews get 3x more clicks on Google Maps. You need more reviews, fast.';
-          rec.plan='Growth';
-        } else if(vol>=100 && vScore>=70 && rScore<80){
-          rec.feature='AI Review Response Management';
-          rec.reason='You have solid volume but your rating has room to grow. Responding to every review (especially negative ones) boosts your rating and builds trust.';
-          rec.plan='Growth';
-        } else if(rating>=4.3 && vol>=100 && vol<300){
-          rec.feature='Competitor Intelligence + Alerts';
-          rec.reason='Your reviews are strong, but are you stronger than the competition? Stay ahead with real-time competitor tracking and weekly AI analysis.';
-          rec.plan='Pro';
-        } else if(rating>=4.3 && vol>=300){
-          rec.feature='Full Automation Suite';
-          rec.reason='Your reviews are excellent. The next level is automating your entire customer journey: appointment reminders, follow-up sequences, win-back campaigns, and AI phone receptionist.';
-          rec.plan='Pro';
-        } else {
-          rec.feature='Review Health Optimization';
-          rec.reason='Based on your profile, there are clear opportunities to improve your online reputation and attract more customers through Google.';
-          rec.plan='Growth';
-        }
-
-        var recsHtml='<div style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);border-radius:10px;padding:12px;margin-bottom:8px;text-align:left;">';
-        recsHtml+='<div style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#6366F1;font-weight:700;margin-bottom:4px;">Recommended for you</div>';
-        recsHtml+='<div style="font-size:14px;font-weight:700;margin-bottom:4px;">'+rec.feature+'</div>';
-        recsHtml+='<div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">'+rec.reason+'</div>';
-        recsHtml+='<div style="font-size:11px;color:var(--text-tertiary);">Included in the <strong>'+rec.plan+' plan</strong></div>';
-        recsHtml+='</div>';
+        var recsHtml='';
+        d.recommendations.forEach(function(r){recsHtml+='<div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">💡 '+r+'</div>';});
         document.getElementById('score-recs').innerHTML=recsHtml;
-        
-        // Update CTA to match recommendation
-        var ctaEl=document.querySelector('#score-result .btn-primary');
-        if(ctaEl) ctaEl.textContent='Book a Demo — See how '+rec.feature+' works';
-
         var gmaps=document.getElementById('score-gmaps');
         if(d.googleMapsUrl){gmaps.href=d.googleMapsUrl;gmaps.style.display='block';}else{gmaps.style.display='none';}
         result.classList.remove('hidden');
@@ -1131,34 +1065,6 @@ document.querySelectorAll('.industry-tab').forEach(function(tab){
   closeBtn.addEventListener('click',function(){overlay.classList.remove('active');});
   overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.classList.remove('active');});
 })();
-
-// Pricing toggle
-var isAnnual=false;
-function togglePricing(){
-  isAnnual=!isAnnual;
-  var knob=document.getElementById('toggle-knob');
-  var toggle=document.getElementById('pricing-toggle');
-  var mLabel=document.getElementById('toggle-monthly-label');
-  var aLabel=document.getElementById('toggle-annual-label');
-  var badge=document.getElementById('annual-save-badge');
-  var notes=document.querySelectorAll('.pricing-annual-note');
-  if(isAnnual){
-    knob.style.transform='translateX(24px)';toggle.style.background='var(--indigo)';
-    mLabel.style.fontWeight='500';mLabel.style.color='#6b7280';
-    aLabel.style.fontWeight='600';aLabel.style.color='#111827';
-    badge.style.opacity='1';
-  }else{
-    knob.style.transform='translateX(0)';toggle.style.background='#d1d5db';
-    mLabel.style.fontWeight='600';mLabel.style.color='#111827';
-    aLabel.style.fontWeight='500';aLabel.style.color='#6b7280';
-    badge.style.opacity='0.6';
-  }
-  document.querySelectorAll('.pricing-amount[data-monthly]').forEach(function(el){
-    var price=isAnnual?el.dataset.annual:el.dataset.monthly;
-    el.innerHTML='<span>$</span>'+price;
-  });
-  notes.forEach(function(n){n.style.display=isAnnual?'block':'none';});
-}
 
 function requestAudit(){
   var email=document.getElementById('audit-email').value.trim();

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Review Audit — Bynde</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#6366F1;--primary-dark:#4f46e5;--bg:#f8fafc;--card:#fff;--text:#18181b;--text-secondary:#52525b;--text-tertiary:#a1a1aa;--border:#e4e4e7;--success:#22c55e;--warning:#f59e0b;--danger:#ef4444;--radius:12px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:24px 16px}
+.header{background:var(--primary);padding:32px 0;text-align:center;color:#fff}
+.header h1{font-size:20px;font-weight:700;margin-bottom:4px}
+.header p{font-size:14px;opacity:.8}
+.card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:28px;margin-bottom:20px}
+.card h2{font-size:18px;font-weight:700;margin-bottom:16px;color:var(--text)}
+.card h3{font-size:15px;font-weight:600;margin-bottom:8px}
+.score-hero{text-align:center;padding:40px 28px}
+.score-big{font-size:72px;font-weight:800;color:var(--primary);line-height:1}
+.score-grade{font-size:28px;font-weight:700;margin:8px 0 4px}
+.score-label{font-size:14px;color:var(--text-tertiary)}
+.biz-name{font-size:20px;font-weight:700;margin-bottom:4px}
+.biz-address{font-size:13px;color:var(--text-tertiary)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.metric{text-align:center;padding:16px;background:var(--bg);border-radius:8px}
+.metric-val{font-size:24px;font-weight:700;color:var(--primary)}
+.metric-label{font-size:12px;color:var(--text-tertiary);margin-top:2px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;padding:10px 12px;background:var(--bg);font-weight:600;border-bottom:2px solid var(--border);font-size:13px;color:var(--text-secondary)}
+td{padding:10px 12px;border-bottom:1px solid var(--border)}
+tr.you{background:#eef2ff;font-weight:600}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
+.badge-high{background:#dcfce7;color:#166534}
+.badge-med{background:#fef9c3;color:#854d0e}
+.badge-low{background:#fee2e2;color:#991b1b}
+.theme-tag{display:inline-block;padding:4px 10px;border-radius:6px;font-size:13px;margin:3px}
+.theme-pos{background:#dcfce7;color:#166534}
+.theme-neg{background:#fee2e2;color:#991b1b}
+.action-item{padding:16px;border-left:3px solid var(--primary);margin-bottom:12px;background:var(--bg);border-radius:0 8px 8px 0}
+.action-item h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.action-item p{font-size:13px;color:var(--text-secondary)}
+.action-meta{display:flex;gap:8px;margin-top:6px}
+.cta-section{text-align:center;padding:48px 28px;background:linear-gradient(135deg,#6366F1,#8b5cf6);border-radius:var(--radius);color:#fff;margin:20px 0}
+.cta-section h2{font-size:24px;font-weight:700;margin-bottom:8px}
+.cta-section p{opacity:.9;margin-bottom:24px;font-size:15px}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer}
+.btn-white{background:#fff;color:var(--primary)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);margin-left:12px}
+.loading{text-align:center;padding:80px 20px}
+.spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error{text-align:center;padding:80px 20px}
+.error h2{color:var(--danger);margin-bottom:8px}
+.revenue-highlight{background:linear-gradient(135deg,#fef3c7,#fde68a);padding:20px;border-radius:8px;text-align:center;margin-bottom:16px}
+.revenue-highlight .big{font-size:24px;font-weight:700;color:#92400e}
+@media(max-width:600px){
+  .metrics{grid-template-columns:1fr}
+  .btn-outline{margin:12px 0 0;display:block}
+  .btn{display:block;text-align:center}
+  table{font-size:12px}
+  th,td{padding:8px 6px}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Bynde</h1>
+  <p>Personalized Review Audit</p>
+</div>
+
+<div class="container">
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+    <p style="color:var(--text-tertiary)">Loading your audit report...</p>
+  </div>
+
+  <div id="error" class="error" style="display:none">
+    <h2 id="error-title">Something went wrong</h2>
+    <p id="error-msg" style="color:var(--text-secondary)"></p>
+  </div>
+
+  <div id="report" style="display:none">
+
+    <!-- Score Hero -->
+    <div class="card score-hero">
+      <div class="biz-name" id="r-biz-name"></div>
+      <div class="biz-address" id="r-address"></div>
+      <div class="score-big" id="r-score"></div>
+      <div class="score-grade" id="r-grade"></div>
+      <div class="score-label">Review Health Score</div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val" id="r-rating"></div><div class="metric-label">Star Rating</div></div>
+        <div class="metric"><div class="metric-val" id="r-reviews"></div><div class="metric-label">Total Reviews</div></div>
+        <div class="metric"><div class="metric-val" id="r-overall-grade"></div><div class="metric-label">Overall Grade</div></div>
+      </div>
+    </div>
+
+    <!-- Grade Explanation -->
+    <div class="card">
+      <h2>📊 Overall Assessment</h2>
+      <p id="r-grade-explanation" style="color:var(--text-secondary);font-size:15px"></p>
+    </div>
+
+    <!-- Competitor Comparison -->
+    <div class="card">
+      <h2>🏆 Competitor Comparison</h2>
+      <p id="r-comp-summary" style="color:var(--text-secondary);font-size:14px;margin-bottom:16px"></p>
+      <div style="overflow-x:auto">
+        <table id="r-comp-table">
+          <thead><tr><th>Business</th><th>Rating</th><th>Reviews</th><th>Notes</th></tr></thead>
+          <tbody id="r-comp-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Sentiment Analysis -->
+    <div class="card">
+      <h2>💬 Sentiment Analysis</h2>
+      <p id="r-sentiment-summary" style="color:var(--text-secondary);font-size:14px;margin-bottom:16px"></p>
+      <div style="margin-bottom:12px">
+        <h3 style="color:var(--success)">✅ What Customers Love</h3>
+        <div id="r-pos-themes"></div>
+      </div>
+      <div>
+        <h3 style="color:var(--danger)">⚠️ Areas for Improvement</h3>
+        <div id="r-neg-themes"></div>
+      </div>
+    </div>
+
+    <!-- Response Rate -->
+    <div class="card">
+      <h2>💬 Review Response Rate</h2>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px">
+          <div style="font-size:32px;font-weight:700;color:var(--primary)" id="r-response-rate"></div>
+          <div style="font-size:13px;color:var(--text-tertiary)">Estimated Response Rate</div>
+        </div>
+        <div style="flex:2;min-width:200px">
+          <p id="r-response-explanation" style="font-size:14px;color:var(--text-secondary);margin-bottom:8px"></p>
+          <p id="r-response-rec" style="font-size:13px;color:var(--primary);font-weight:500"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Revenue Impact -->
+    <div class="card">
+      <h2>💰 Revenue Impact</h2>
+      <div class="revenue-highlight">
+        <div class="big" id="r-revenue-headline"></div>
+      </div>
+      <p id="r-revenue-details" style="font-size:14px;color:var(--text-secondary);margin-bottom:8px"></p>
+      <p id="r-revenue-position" style="font-size:13px;color:var(--text-tertiary)"></p>
+    </div>
+
+    <!-- Action Items -->
+    <div class="card">
+      <h2>🎯 Your Personalized Action Plan</h2>
+      <p style="font-size:14px;color:var(--text-secondary);margin-bottom:20px">Ranked by potential impact on your business:</p>
+      <div id="r-actions"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Ready to Improve Your Reviews?</h2>
+      <p>Bynde automates review collection, monitoring, and response — so you can focus on your business.</p>
+      <a href="book-demo.html" class="btn btn-white">Book a Demo</a>
+      <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+    </div>
+
+    <div style="text-align:center;padding:20px;font-size:12px;color:var(--text-tertiary)">
+      Generated by Bynde · <span id="r-generated-at"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get('id');
+  if (!id) { showError('Missing Report ID', 'No audit ID provided in the URL.'); return; }
+
+  var loadingEl = document.getElementById('loading');
+  var reportEl = document.getElementById('report');
+  var errorEl = document.getElementById('error');
+
+  function showError(title, msg) {
+    loadingEl.style.display = 'none';
+    errorEl.style.display = 'block';
+    document.getElementById('error-title').textContent = title;
+    document.getElementById('error-msg').textContent = msg;
+  }
+
+  var attempts = 0;
+  function loadReport() {
+    fetch('/api/audit/report/' + id)
+      .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, status: r.status, data: d }; }); })
+      .then(function(resp) {
+        if (resp.status === 202 && attempts < 10) {
+          attempts++;
+          setTimeout(loadReport, 3000);
+          return;
+        }
+        if (!resp.ok) {
+          showError('Unable to Load Audit', resp.data.error || 'Something went wrong.');
+          return;
+        }
+        renderReport(resp.data);
+      })
+      .catch(function() { showError('Connection Error', 'Could not reach the server. Please try again.'); });
+  }
+
+  function renderReport(d) {
+    loadingEl.style.display = 'none';
+    reportEl.style.display = 'block';
+
+    document.getElementById('r-biz-name').textContent = d.businessName || '';
+    document.getElementById('r-address').textContent = d.address || '';
+    document.getElementById('r-score').textContent = d.score || '—';
+    document.getElementById('r-grade').textContent = 'Grade: ' + (d.grade || d.overallGrade || '—');
+    document.getElementById('r-rating').textContent = (d.rating || 0) + '★';
+    document.getElementById('r-reviews').textContent = (d.reviewCount || 0).toLocaleString();
+    document.getElementById('r-overall-grade').textContent = d.overallGrade || d.grade || '—';
+    document.getElementById('r-grade-explanation').textContent = d.gradeExplanation || '';
+
+    // Competitor comparison
+    var comp = d.competitorComparison || {};
+    document.getElementById('r-comp-summary').textContent = (comp.summary || '') + (comp.ranking ? ' You rank ' + comp.ranking + '.' : '');
+    var tbody = document.getElementById('r-comp-body');
+    // Add the business itself first
+    tbody.innerHTML = '<tr class="you"><td>⭐ ' + (d.businessName || '') + ' (You)</td><td>' + (d.rating || 0) + '★</td><td>' + (d.reviewCount || 0) + '</td><td>—</td></tr>';
+    (comp.competitors || []).forEach(function(c) {
+      tbody.innerHTML += '<tr><td>' + (c.name || '') + '</td><td>' + (c.rating || 0) + '★</td><td>' + (c.reviewCount || 0) + '</td><td style="font-size:12px;color:var(--text-tertiary)">' + (c.comparison || '') + '</td></tr>';
+    });
+
+    // Sentiment
+    var sent = d.sentimentAnalysis || {};
+    document.getElementById('r-sentiment-summary').textContent = sent.summary || '';
+    var posEl = document.getElementById('r-pos-themes');
+    (sent.positiveThemes || []).forEach(function(t) { posEl.innerHTML += '<span class="theme-tag theme-pos">' + t + '</span>'; });
+    var negEl = document.getElementById('r-neg-themes');
+    (sent.negativeThemes || []).forEach(function(t) { negEl.innerHTML += '<span class="theme-tag theme-neg">' + t + '</span>'; });
+    if (!sent.negativeThemes || sent.negativeThemes.length === 0) negEl.innerHTML = '<span style="font-size:13px;color:var(--text-tertiary)">None identified</span>';
+
+    // Response Rate
+    var rr = d.responseRateEstimate || {};
+    document.getElementById('r-response-rate').textContent = rr.estimate || 'N/A';
+    document.getElementById('r-response-explanation').textContent = rr.explanation || '';
+    document.getElementById('r-response-rec').textContent = rr.recommendation ? '💡 ' + rr.recommendation : '';
+
+    // Revenue Impact
+    var rev = d.revenueImpact || {};
+    document.getElementById('r-revenue-headline').textContent = rev.headline || '';
+    document.getElementById('r-revenue-details').textContent = rev.details || '';
+    document.getElementById('r-revenue-position').textContent = rev.currentPosition ? 'Your position: ' + rev.currentPosition : '';
+
+    // Action Items
+    var actionsEl = document.getElementById('r-actions');
+    (d.actionItems || []).forEach(function(a) {
+      var impactClass = a.impact === 'High' ? 'badge-high' : a.impact === 'Medium' ? 'badge-med' : 'badge-low';
+      actionsEl.innerHTML += '<div class="action-item"><h4>#' + a.priority + ' — ' + a.title + '</h4><p>' + a.description + '</p><div class="action-meta"><span class="badge ' + impactClass + '">Impact: ' + a.impact + '</span><span class="badge" style="background:#f4f4f5;color:var(--text-secondary)">Effort: ' + (a.effort || 'N/A') + '</span></div></div>';
+    });
+
+    // Generated at
+    document.getElementById('r-generated-at').textContent = d.generatedAt ? new Date(d.generatedAt).toLocaleDateString() : '';
+  }
+
+  loadReport();
+})();
+</script>
+</body>
+</html>

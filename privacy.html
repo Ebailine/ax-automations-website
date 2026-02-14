@@ -1,88 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Bynde</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:#334155;line-height:1.7}
-.nav{background:#0f172a;padding:16px 0}
-.nav-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
-.nav a.logo{color:#fff;font-size:20px;font-weight:900;text-decoration:none;letter-spacing:-0.5px}
-.nav a.logo span{color:#3b82f6}
-.nav a.back{color:#94a3b8;font-size:14px;text-decoration:none;font-weight:500}
-.nav a.back:hover{color:#fff}
-.container{max-width:760px;margin:0 auto;padding:48px 24px 80px}
-h1{font-size:32px;font-weight:800;color:#0f172a;margin-bottom:8px}
-.updated{font-size:14px;color:#64748b;margin-bottom:40px}
-h2{font-size:20px;font-weight:700;color:#0f172a;margin-top:36px;margin-bottom:12px}
-p,li{font-size:15px;margin-bottom:12px}
-ul{padding-left:24px}
-a{color:#3b82f6}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Bynde</title>
+  <meta name="description" content="Bynde Privacy Policy — how we collect, use, and protect your data.">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: #a1a1aa; background: #050507; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.6;
+    }
+    a { color: #818CF8; text-decoration: none; }
+    a:hover { color: #fafafa; }
+    :root {
+      --indigo: #6366F1; --indigo-light: #818CF8; --bg: #050507; --bg-elevated: #0a0a0f;
+      --border: rgba(255,255,255,0.06); --text-primary: #fafafa; --text-secondary: #a1a1aa; --text-tertiary: #71717a;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0;
+      background: rgba(5,5,7,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: inline-flex; align-items: center; height: 32px; }
+    .nav-logo svg { height: 32px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-tertiary); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 24px; font-size: 14px; font-weight: 600; color: white;
+      background: var(--indigo); border: none; border-radius: 8px; cursor: pointer;
+      transition: all 0.2s; text-decoration: none;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .btn-primary:hover { background: #5558e6; transform: translateY(-1px); color: white; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 310; }
+    .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--text-primary); border-radius: 2px; transition: all 0.3s; }
+    .nav-toggle.is-open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+    .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.is-open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+    .nav-menu { display: contents; }
+
+    /* Content */
+    .legal-hero { padding: 140px 0 60px; text-align: center; }
+    .legal-hero h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: var(--text-primary); letter-spacing: -0.025em; }
+    .legal-hero .updated { font-size: 14px; color: var(--text-tertiary); margin-top: 12px; }
+    .legal-content { max-width: 760px; margin: 0 auto; padding-bottom: 120px; }
+    .legal-content h2 { font-size: 22px; font-weight: 700; color: var(--text-primary); margin: 48px 0 16px; }
+    .legal-content h3 { font-size: 18px; font-weight: 600; color: var(--text-primary); margin: 32px 0 12px; }
+    .legal-content p { margin-bottom: 16px; line-height: 1.8; }
+    .legal-content ul, .legal-content ol { margin: 0 0 16px 24px; }
+    .legal-content li { margin-bottom: 8px; line-height: 1.7; }
+    .legal-content strong { color: var(--text-primary); }
+
+    /* Footer */
+    .site-footer { padding: 48px 0; border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .footer-links { display: flex; gap: 32px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: var(--text-tertiary); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-primary); }
+    .footer-bottom { text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-tertiary); }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      .nav-menu {
+        display: none; position: fixed; inset: 0; z-index: 300;
+        background: rgba(5,5,7,0.97); backdrop-filter: blur(40px);
+        flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      }
+      .nav-menu.is-open { display: flex; }
+      .nav-menu .nav-links { flex-direction: column; gap: 24px; text-align: center; }
+      .nav-menu .nav-links a { font-size: 18px; }
+      .nav-menu .nav-right { flex-direction: column; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .legal-hero { padding: 120px 0 40px; }
+    }
+  </style>
 </head>
 <body>
-<div class="nav"><div class="nav-inner"><a href="/" class="logo">Bynde<span>.</span></a><a href="/" class="back">← Back to home</a></div></div>
+
+<nav class="site-nav" role="navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Bynde home">
+        <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" height="32">
+          <path d="M6 28L18 4" stroke="#6366F1" stroke-width="3" stroke-linecap="round"/>
+          <path d="M14 4C14 4 20 2 24 6C28 10 26 16 26 16L18 8L14 4Z" fill="#6366F1"/>
+          <path d="M18 8L26 16" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <text x="34" y="24" font-family="-apple-system, sans-serif" font-weight="800" font-size="22" fill="white" letter-spacing="-0.5">Bynde</text>
+        </svg>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="/#how-it-works">How It Works</a></li>
+          <li><a href="/#industries">Industries</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="book-demo.html" class="btn-primary">Book a Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="legal-hero">
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: February 2026</p>
+  </div>
+</section>
+
 <div class="container">
-<h1>Privacy Policy</h1>
-<p class="updated">Last updated: February 11, 2026</p>
+  <div class="legal-content">
 
-<p>Bynde ("we", "us", "our") operates the Bynde platform. This Privacy Policy explains how we collect, use, and protect your information.</p>
+    <h2>1. Introduction</h2>
+    <p>Bynde ("we," "us," or "our"), operated by Ax Automations, provides an automated business communications platform including review management, appointment reminders, SMS communications, and business analytics. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform and services.</p>
+    <p>By using Bynde, you agree to the collection and use of information as described in this policy. If you do not agree, please do not use our services.</p>
 
-<h2>1. Information We Collect</h2>
-<p>When you create an account, we collect:</p>
-<ul>
-<li>Business name, type, phone number, and email address</li>
-<li>Google Business Profile data (reviews, ratings) when you connect your account</li>
-<li>Customer names and phone numbers that you add to the platform</li>
-<li>Usage data and analytics about how you interact with the dashboard</li>
-</ul>
+    <h2>2. Information We Collect</h2>
 
-<h2>2. How We Use Your Information</h2>
-<ul>
-<li>To provide AI-generated review responses for your business</li>
-<li>To send SMS review requests to your customers on your behalf</li>
-<li>To provide missed call text-back services</li>
-<li>To generate analytics and reputation reports</li>
-<li>To process payments and manage your subscription</li>
-<li>To improve our services and develop new features</li>
-</ul>
+    <h3>2.1 Business Account Information</h3>
+    <p>When you sign up for Bynde, we collect:</p>
+    <ul>
+      <li>Business name, address, phone number, and email</li>
+      <li>Google Business Profile connection details</li>
+      <li>Account owner name and contact information</li>
+      <li>Billing and payment information</li>
+    </ul>
 
-<h2>3. Data Sharing</h2>
-<p>We do not sell your data. We share information only with:</p>
-<ul>
-<li><strong>Twilio</strong> — to send SMS messages and handle phone calls</li>
-<li><strong>OpenAI</strong> — to generate AI review responses (review text only, no personal data)</li>
-<li><strong>Stripe</strong> — to process payments</li>
-<li><strong>Google</strong> — to sync your Business Profile reviews (with your authorization)</li>
-<li><strong>Supabase</strong> — to store your data securely</li>
-</ul>
+    <h3>2.2 Customer Data (Provided by Your Business)</h3>
+    <p>To provide our services, your business may upload or sync the following customer data:</p>
+    <ul>
+      <li>Customer names, phone numbers, and email addresses</li>
+      <li>Review data (content, ratings, timestamps)</li>
+      <li>Call logs and communication history</li>
+      <li>Transaction and appointment data</li>
+    </ul>
 
-<h2>4. Data Security</h2>
-<p>We use industry-standard security measures including encrypted connections (SSL/TLS), secure database storage with row-level security, and never store plaintext passwords.</p>
+    <h3>2.3 Automatically Collected Information</h3>
+    <ul>
+      <li>Device and browser information</li>
+      <li>IP address and approximate location</li>
+      <li>Usage data and interaction logs within the platform</li>
+    </ul>
 
-<h2>5. Data Retention</h2>
-<p>We retain your data as long as your account is active. If you delete your account, we will remove your data within 30 days, except where required by law.</p>
+    <h2>3. How We Use Your Information</h2>
+    <p>We use collected information to:</p>
+    <ul>
+      <li>Provide and operate the Bynde platform, including automated review management, appointment reminders, and SMS communications</li>
+      <li>Generate AI-powered review responses and business analytics</li>
+      <li>Send review requests and customer communications on behalf of your business</li>
+      <li>Process billing and manage your account</li>
+      <li>Improve our services and develop new features</li>
+      <li>Provide customer support</li>
+      <li>Comply with legal obligations</li>
+    </ul>
 
-<h2>6. Your Rights</h2>
-<p>You can:</p>
-<ul>
-<li>Access and export your data at any time from your dashboard</li>
-<li>Update or correct your information in Settings</li>
-<li>Delete your account by contacting us</li>
-<li>Opt out of marketing communications</li>
-</ul>
+    <h2>4. SMS &amp; Messaging Communications</h2>
+    <p>Bynde sends SMS and text messages on behalf of businesses to their customers for review requests, appointment reminders, and customer follow-ups.</p>
+    <ul>
+      <li><strong>Message frequency varies</strong> based on business activity and customer interactions</li>
+      <li><strong>Message and data rates may apply</strong> — standard messaging and data rates from your carrier apply</li>
+      <li><strong>Opt-out:</strong> Reply <strong>STOP</strong> to any message to opt out of future communications</li>
+      <li><strong>Help:</strong> Reply <strong>HELP</strong> to any message or email <a href="mailto:hello@bynde.io">hello@bynde.io</a> for support</li>
+    </ul>
+    <p><strong>TCPA Compliance:</strong> We comply with the Telephone Consumer Protection Act (TCPA) and all applicable federal and state regulations regarding SMS and telephone communications. Messages are sent only to individuals whose business has represented that proper consent has been obtained. Businesses using Bynde are responsible for obtaining and maintaining valid consent from their customers before adding them to the platform for SMS communications. We maintain records of consent and provide clear opt-out mechanisms in every message.</p>
 
-<h2>7. Cookies</h2>
-<p>We use essential cookies for authentication. We do not use third-party tracking cookies.</p>
+    <h2>5. Data Ownership</h2>
+    <p><strong>Customer data belongs to the business, not Bynde.</strong> You retain full ownership of all customer data you provide to or generate through our platform. We act as a data processor on your behalf. If you terminate your account, you may request a full export of your data before deletion.</p>
 
-<h2>8. Changes to This Policy</h2>
-<p>We may update this policy from time to time. We'll notify you of significant changes via email or in-app notification.</p>
+    <h2>6. Third-Party Services</h2>
+    <p>We use the following third-party services to operate our platform:</p>
+    <ul>
+      <li><strong>Google Business Profile API</strong> — to manage and respond to reviews</li>
+      <li><strong>Twilio</strong> — to send and receive SMS messages</li>
+      <li><strong>OpenAI</strong> — to power AI-generated review responses and other AI features</li>
+      <li><strong>Stripe</strong> — to process payments and manage billing</li>
+      <li><strong>Supabase</strong> — for secure data storage and management</li>
+    </ul>
+    <p>Each third-party provider has their own privacy policy governing their use of data. We only share the minimum data necessary for each service to function.</p>
 
-<h2>9. Contact</h2>
-<p>Questions? Email us at <a href="mailto:axautomations1@gmail.com">axautomations1@gmail.com</a></p>
+    <h2>7. Data Sharing &amp; Selling</h2>
+    <p><strong>We do NOT sell your data to third parties.</strong> We do not share, rent, or trade personal information or customer data with third parties for their marketing purposes.</p>
+    <p>Data is NOT used for marketing purposes beyond the business's own customer communications managed through our platform.</p>
+    <p>We may disclose information only when:</p>
+    <ul>
+      <li>Required by law, subpoena, or legal process</li>
+      <li>Necessary to protect our rights, safety, or property</li>
+      <li>With your explicit consent</li>
+      <li>To our service providers who assist in operating the platform (as listed in Section 6), under strict confidentiality agreements</li>
+    </ul>
+
+    <h2>8. Data Security</h2>
+    <p>We implement industry-standard security measures to protect your data, including encryption in transit (TLS) and at rest, access controls, and regular security reviews. However, no method of transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+    <h2>9. Data Retention &amp; Deletion</h2>
+    <p>We retain your data for as long as your account is active and as needed to provide our services. Upon account termination:</p>
+    <ul>
+      <li>You may request a data export within 30 days of cancellation</li>
+      <li>Customer data will be permanently deleted within 90 days of account termination</li>
+      <li>We may retain anonymized, aggregated data for analytics purposes</li>
+      <li>Certain data may be retained as required by law (e.g., billing records)</li>
+    </ul>
+    <p>To request data deletion at any time, contact us at <a href="mailto:hello@bynde.io">hello@bynde.io</a>.</p>
+
+    <h2>10. Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have the right to:</p>
+    <ul>
+      <li>Access the personal data we hold about you</li>
+      <li>Request correction of inaccurate data</li>
+      <li>Request deletion of your data</li>
+      <li>Object to or restrict processing of your data</li>
+      <li>Data portability</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:hello@bynde.io">hello@bynde.io</a>.</p>
+
+    <h2>11. Children's Privacy</h2>
+    <p>Bynde is not intended for use by individuals under the age of 18. We do not knowingly collect personal information from children.</p>
+
+    <h2>12. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the updated policy on this page and updating the "Last updated" date. Your continued use of Bynde after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>13. Contact Us</h2>
+    <p>If you have questions about this Privacy Policy or our data practices, please contact us:</p>
+    <p><strong>Email:</strong> <a href="mailto:hello@bynde.io">hello@bynde.io</a><br>
+    <strong>Company:</strong> Bynde, operated by Ax Automations</p>
+
+  </div>
 </div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="/" class="nav-logo" aria-label="Bynde home">
+        <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" height="28">
+          <path d="M6 28L18 4" stroke="#6366F1" stroke-width="3" stroke-linecap="round"/>
+          <path d="M14 4C14 4 20 2 24 6C28 10 26 16 26 16L18 8L14 4Z" fill="#6366F1"/>
+          <path d="M18 8L26 16" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <text x="34" y="24" font-family="-apple-system, sans-serif" font-weight="800" font-size="22" fill="white" letter-spacing="-0.5">Bynde</text>
+        </svg>
+      </a>
+      <div class="footer-links">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="book-demo.html">Book a Demo</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Bynde. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.querySelector('.nav-toggle'),m=document.querySelector('.nav-menu');
+  if(!t||!m)return;
+  t.addEventListener('click',function(){
+    var o=m.classList.toggle('is-open');
+    t.classList.toggle('is-open',o);
+    t.setAttribute('aria-expanded',String(o));
+    document.body.style.overflow=o?'hidden':'';
+  });
+})();
+</script>
 </body>
 </html>
