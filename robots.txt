@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ebailine.github.io/ax-automations-website/sitemap.xml
+Sitemap: https://ebailine.github.io/bynde-website/sitemap.xml

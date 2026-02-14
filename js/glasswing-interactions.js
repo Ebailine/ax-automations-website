@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   GLASSWING INTERACTIONS — Ax Automations
+   GLASSWING INTERACTIONS — Bynde
    JavaScript for scroll reveal, specular highlights,
    nav behavior, and interactive effects
    ═══════════════════════════════════════════════════════════ */
