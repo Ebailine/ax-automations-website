@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>See Bynde in Action — Interactive Product Tour</title>
+  <meta name="description" content="Take a self-guided tour of Bynde's AI-powered review management platform. See how local businesses automate reviews, calls, bookings, and marketing.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: #a1a1aa; background: #050507; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    :root {
+      --indigo: #6366F1; --indigo-light: #818CF8; --indigo-glow: rgba(99,102,241,0.15);
+      --cyan: #06B6D4; --cyan-glow: rgba(6,182,212,0.12);
+      --bg: #050507; --bg-elevated: #0a0a0f; --bg-card: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.06); --border-hover: rgba(255,255,255,0.12);
+      --text-primary: #fafafa; --text-secondary: #a1a1aa; --text-tertiary: #71717a;
+      --success: #22c55e; --warning: #f59e0b;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0;
+      background: rgba(5,5,7,0.8); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: inline-flex; align-items: center; height: 32px; }
+    .nav-logo svg { height: 32px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-tertiary); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 32px; font-size: 15px; font-weight: 600; color: white;
+      background: var(--indigo); border: none; border-radius: 8px;
+      transition: all 0.2s; text-decoration: none;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .btn-primary:hover { background: #5558e6; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(99,102,241,0.3); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 32px; font-size: 15px; font-weight: 600; color: var(--text-primary);
+      background: transparent; border: 1px solid var(--border-hover); border-radius: 8px;
+      transition: all 0.2s; text-decoration: none;
+    }
+    .btn-secondary:hover { border-color: var(--indigo); color: white; }
+    .nav-right .btn-primary { padding: 10px 24px; font-size: 14px; }
+
+    /* Hero */
+    .hero {
+      padding: 160px 0 100px; position: relative;
+      background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.08) 0%, transparent 60%);
+    }
+    .hero-content { text-align: center; max-width: 860px; margin: 0 auto; }
+    .hero-overline {
+      font-size: 13px; font-weight: 600; color: var(--indigo-light);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;
+    }
+    .heading-xl {
+      font-size: clamp(36px, 5vw, 64px); font-weight: 800; color: var(--text-primary);
+      letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 20px;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--indigo-light) 0%, var(--cyan) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: clamp(16px, 1.8vw, 19px); color: var(--text-secondary);
+      line-height: 1.7; max-width: 600px; margin: 0 auto 40px;
+    }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* Sections */
+    .section { padding: 100px 0; position: relative; }
+    .section-label {
+      font-size: 13px; font-weight: 600; color: var(--cyan); text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 12px; text-align: center;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; color: var(--text-primary);
+      letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; text-align: center;
+    }
+    .section-desc {
+      font-size: 17px; color: var(--text-secondary); max-width: 600px;
+      margin: 0 auto 60px; text-align: center; line-height: 1.7;
+    }
+    .section + .section { border-top: 1px solid var(--border); }
+
+    /* Feature Cards */
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+    .feature-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 40px 32px; transition: all 0.3s;
+    }
+    .feature-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; font-size: 24px; margin-bottom: 20px;
+    }
+    .feature-card h3 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+    .feature-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* Before/After */
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+    .ba-card {
+      border-radius: 16px; padding: 32px; border: 1px solid var(--border);
+    }
+    .ba-card.before { background: rgba(239,68,68,0.05); border-color: rgba(239,68,68,0.15); }
+    .ba-card.after { background: rgba(34,197,94,0.05); border-color: rgba(34,197,94,0.15); }
+    .ba-label {
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 16px; display: inline-block; padding: 4px 12px; border-radius: 6px;
+    }
+    .ba-card.before .ba-label { color: #ef4444; background: rgba(239,68,68,0.1); }
+    .ba-card.after .ba-label { color: #22c55e; background: rgba(34,197,94,0.1); }
+    .ba-review { font-size: 14px; line-height: 1.7; }
+    .ba-review .stars { color: #f59e0b; margin-bottom: 8px; font-size: 16px; }
+    .ba-review .reviewer { color: var(--text-tertiary); font-size: 13px; margin-bottom: 8px; }
+    .ba-review .text { color: var(--text-secondary); }
+    .ba-review .response { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .ba-review .response-label { color: var(--text-tertiary); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+
+    /* How It Works */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 900px; margin: 0 auto; }
+    .step { text-align: center; position: relative; }
+    .step-num {
+      width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 24px; font-weight: 800; color: white;
+      background: linear-gradient(135deg, var(--indigo) 0%, var(--cyan) 100%);
+      margin: 0 auto 20px; position: relative;
+    }
+    .step h3 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
+    .step p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+    .step:not(:last-child)::after {
+      content: ''; position: absolute; top: 32px; left: calc(50% + 48px); width: calc(100% - 96px);
+      height: 2px; background: linear-gradient(90deg, var(--indigo), var(--cyan));
+      opacity: 0.3;
+    }
+
+    /* Pricing Table */
+    .pricing-table { max-width: 800px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+    .pricing-table table { width: 100%; border-collapse: collapse; }
+    .pricing-table th, .pricing-table td { padding: 16px 24px; text-align: left; font-size: 14px; }
+    .pricing-table th { background: rgba(99,102,241,0.08); color: var(--text-primary); font-weight: 700; font-size: 15px; }
+    .pricing-table td { border-top: 1px solid var(--border); color: var(--text-secondary); }
+    .pricing-table tr td:first-child { color: var(--text-primary); font-weight: 600; }
+    .pricing-table .highlight { background: rgba(99,102,241,0.04); }
+    .pricing-table .highlight td { color: var(--text-primary); }
+    .check { color: var(--success); }
+    .cross { color: #ef4444; opacity: 0.5; }
+
+    /* CTA */
+    .cta-section {
+      padding: 100px 0; text-align: center;
+      background: radial-gradient(ellipse at 50% 100%, rgba(99,102,241,0.08) 0%, transparent 60%);
+    }
+    .cta-section .section-title { margin-bottom: 16px; }
+    .cta-section .section-desc { margin-bottom: 40px; }
+    .demo-creds {
+      max-width: 400px; margin: 32px auto 0; padding: 24px; border-radius: 12px;
+      background: var(--bg-card); border: 1px solid var(--border);
+    }
+    .demo-creds p { font-size: 14px; color: var(--text-tertiary); margin-bottom: 12px; }
+    .demo-creds code {
+      display: block; font-size: 14px; color: var(--indigo-light); font-family: 'SF Mono', Monaco, monospace;
+      padding: 4px 0;
+    }
+
+    /* Footer */
+    .footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
+    .footer p { font-size: 13px; color: var(--text-tertiary); }
+    .footer a { color: var(--indigo-light); }
+
+    /* Mobile Nav */
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px; background: none; border: none;
+      cursor: pointer; padding: 8px; z-index: 310;
+    }
+    .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--text-primary); border-radius: 2px; transition: all 0.3s; }
+    .nav-menu { display: contents; }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      .nav-menu {
+        display: none; position: fixed; inset: 0; background: rgba(5,5,7,0.97);
+        flex-direction: column; align-items: center; justify-content: center; gap: 40px; z-index: 300;
+      }
+      .nav-menu.is-open { display: flex; }
+      .nav-menu .nav-links { flex-direction: column; gap: 24px; text-align: center; }
+      .nav-menu .nav-right { flex-direction: column; }
+      .before-after { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 48px; }
+      .step:not(:last-child)::after { display: none; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .pricing-table th, .pricing-table td { padding: 12px 14px; font-size: 13px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="site-nav scrolled">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">
+        <svg viewBox="0 0 540 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="12" width="96" height="96" rx="20" fill="url(#lg)"/>
+          <path d="M30 60 C30 38, 54 28, 74 40 C64 28, 86 20, 96 40 C106 58, 74 84, 54 96 C34 84, 18 58, 30 60Z" fill="white" fill-opacity=".95"/>
+          <text x="124" y="82" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="68" font-weight="800" fill="#FAFAFA" letter-spacing="-2">Bynde</text>
+          <defs><linearGradient id="lg" x1="6" y1="12" x2="102" y2="108"><stop stop-color="#818CF8"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs>
+        </svg>
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('is-open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
+          <li><a href="/compare.html">Compare</a></li>
+          <li><a href="/demo.html" style="color:var(--cyan);">Live Demo</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="/dashboard/login.html" style="font-size:14px;font-weight:500;color:var(--text-tertiary);">Login</a>
+          <a href="book-demo.html" class="btn-primary">Book a Demo</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-overline">Interactive Product Tour</div>
+      <h1 class="heading-xl">See <span class="gradient-text">Bynde</span> in Action</h1>
+      <p class="hero-subtitle">Explore how Bynde automates review management, answers phone calls with AI, fills your booking calendar, and grows revenue — all on autopilot.</p>
+      <div class="hero-buttons">
+        <a href="/dashboard/login.html?email=demo@joespizza.com&password=demo123456" class="btn-primary" style="padding:16px 40px;font-size:16px;">🚀 Try the Live Demo</a>
+        <a href="#features" class="btn-secondary" style="padding:16px 40px;font-size:16px;">↓ Take the Tour</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Review Responses -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-label">Feature 1</div>
+      <h2 class="section-title">AI Review Responses</h2>
+      <p class="section-desc">Every Google review gets a thoughtful, on-brand reply within minutes — not days. Your AI learns your business voice and handles it all.</p>
+      <div class="before-after">
+        <div class="ba-card before">
+          <span class="ba-label">Before Bynde</span>
+          <div class="ba-review">
+            <div class="stars">★★★☆☆</div>
+            <div class="reviewer">— Sarah M., 3 days ago</div>
+            <div class="text">"Food was decent but service was slow. Waited 20 minutes for our appetizers."</div>
+            <div class="response">
+              <div class="response-label">Owner Response</div>
+              <div class="text" style="color:var(--text-tertiary);font-style:italic;">No response (2 weeks and counting...)</div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-card after">
+          <span class="ba-label">With Bynde</span>
+          <div class="ba-review">
+            <div class="stars">★★★☆☆</div>
+            <div class="reviewer">— Sarah M., 3 days ago</div>
+            <div class="text">"Food was decent but service was slow. Waited 20 minutes for our appetizers."</div>
+            <div class="response">
+              <div class="response-label">Owner Response · 4 min later</div>
+              <div class="text" style="color:var(--success);">"Hi Sarah, thank you for your feedback! We're sorry about the wait — we had an unexpected rush that evening. We've added an extra prep cook during peak hours to prevent this. We'd love for you to give us another try — mention this review for a complimentary appetizer! — Joe"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Platform Features</div>
+      <h2 class="section-title">Everything You Need to <span class="gradient-text">Grow</span></h2>
+      <p class="section-desc">Six powerful tools working together, so you can focus on running your business.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(99,102,241,0.1);">📞</div>
+          <h3>AI Phone Receptionist</h3>
+          <p>Never miss a call again. Bynde's AI answers your phone 24/7 — handles FAQs, takes messages, books appointments, and sends you a transcript. Callers think they're talking to your front desk.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(6,182,212,0.1);">📅</div>
+          <h3>Online Booking</h3>
+          <p>Embed a booking widget on your website or share a direct link. Customers book instantly, you get notifications, and no-shows drop with automatic reminders. No more phone tag.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(34,197,94,0.1);">⭐</div>
+          <h3>Smart Review Requests</h3>
+          <p>After every visit, Bynde automatically sends a friendly SMS or email asking for a review. Happy customers go to Google; unhappy ones come to you privately first. Your rating climbs fast.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(245,158,11,0.1);">📊</div>
+          <h3>Dashboard Overview</h3>
+          <p>One screen shows your review score, new reviews, call logs, upcoming bookings, and campaign performance. Open it with your morning coffee — everything's handled.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(236,72,153,0.1);">📣</div>
+          <h3>Marketing Campaigns</h3>
+          <p>Send targeted SMS and email campaigns to your customer list. Announce specials, holidays, or events. Track opens, clicks, and conversions — all from one place.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(168,85,247,0.1);">🤝</div>
+          <h3>Referral Program</h3>
+          <p>Turn your best customers into ambassadors. Automated referral tracking, reward management, and shareable links make word-of-mouth your #1 growth channel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Getting Started</div>
+      <h2 class="section-title">Up and Running in <span class="gradient-text">3 Steps</span></h2>
+      <p class="section-desc">No technical setup. No contracts. We handle everything.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Connect Your Profile</h3>
+          <p>Link your Google Business Profile in one click. We import your existing reviews and business info automatically.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Bynde Goes to Work</h3>
+          <p>AI starts responding to reviews, answering calls, sending review requests, and filling your calendar — immediately.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Watch Revenue Grow</h3>
+          <p>More 5-star reviews, fewer missed calls, a full schedule, and happy customers. Track it all in your dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Comparison -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Why Bynde</div>
+      <h2 class="section-title">How We <span class="gradient-text">Compare</span></h2>
+      <p class="section-desc">Enterprise features at a fraction of the cost. No contracts, no hidden fees.</p>
+      <div class="pricing-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th style="color:var(--indigo-light);">Bynde</th>
+              <th>Birdeye</th>
+              <th>Podium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td>Starting Price</td>
+              <td><strong style="color:var(--success);">$89/mo</strong></td>
+              <td>$299/mo</td>
+              <td>$399/mo</td>
+            </tr>
+            <tr>
+              <td>AI Review Responses</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✗</span></td>
+            </tr>
+            <tr>
+              <td>AI Phone Receptionist</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+            </tr>
+            <tr>
+              <td>Online Booking</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Smart Review Requests</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Marketing Campaigns</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Contract Required</td>
+              <td><strong style="color:var(--success);">None</strong></td>
+              <td>12 months</td>
+              <td>12 months</td>
+            </tr>
+            <tr>
+              <td>Setup Fee</td>
+              <td><strong style="color:var(--success);">$0</strong></td>
+              <td>$500+</td>
+              <td>$500+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="section-title">Ready to <span class="gradient-text">Transform</span> Your Business?</h2>
+      <p class="section-desc">Join hundreds of local businesses already growing with Bynde.</p>
+      <div class="hero-buttons">
+        <a href="book-demo.html" class="btn-primary" style="padding:16px 40px;font-size:16px;">📅 Book a Personalized Demo</a>
+        <a href="/dashboard/login.html?email=demo@joespizza.com&password=demo123456" class="btn-secondary" style="padding:16px 40px;font-size:16px;">🚀 Try It Yourself</a>
+      </div>
+      <div class="demo-creds">
+        <p>Or log in with the demo account:</p>
+        <code>Email: demo@joespizza.com</code>
+        <code>Password: demo123456</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Bynde. All rights reserved. · <a href="/">Home</a> · <a href="/pricing.html">Pricing</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

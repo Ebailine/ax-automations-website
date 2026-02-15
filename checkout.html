@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started — Bynde</title>
+  <meta name="description" content="Choose your Bynde plan and get started with AI-powered review management.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/glasswing-tokens.css">
+  <link rel="stylesheet" href="css/glasswing-components.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #a1a1aa; background: #050507;
+      min-height: 100vh; -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page-logo {
+      position: fixed; top: 24px; left: 32px; z-index: 100;
+      font-weight: 800; font-size: 1.5rem; color: #fafafa;
+      letter-spacing: -0.02em;
+    }
+    .checkout-page {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; padding: 80px 24px 48px;
+    }
+    .checkout-container {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; max-width: 920px; width: 100%; align-items: start;
+    }
+    @media (max-width: 768px) {
+      .checkout-container { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* Plan summary */
+    .plan-summary {
+      padding: 32px; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06); border-radius: 20px;
+      backdrop-filter: blur(20px); position: sticky; top: 100px;
+    }
+    .plan-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: #818CF8; font-weight: 600; margin-bottom: 8px; }
+    .plan-name { font-size: 1.75rem; font-weight: 700; color: #fafafa; margin-bottom: 4px; }
+    .plan-price { font-size: 2.5rem; font-weight: 800; color: #fafafa; }
+    .plan-price span { font-size: 1rem; font-weight: 400; color: #71717a; }
+    .billing-toggle {
+      display: flex; gap: 4px; margin: 20px 0;
+      background: rgba(255,255,255,0.04); border-radius: 10px; padding: 4px;
+    }
+    .billing-btn {
+      flex: 1; padding: 10px; text-align: center; border: none;
+      background: transparent; color: #71717a; font-weight: 500;
+      font-size: 0.9rem; border-radius: 8px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .billing-btn.active { background: rgba(99,102,241,0.15); color: #818CF8; }
+    .plan-features { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .plan-features li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: #d4d4d8; }
+    .plan-features li::before { content: '✓'; color: #22c55e; font-weight: 700; }
+    .plan-selector { margin-bottom: 20px; }
+    .plan-selector label { display: block; font-size: 0.85rem; color: #71717a; margin-bottom: 6px; }
+    .plan-select {
+      width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
+      color: #fafafa; font-size: 1rem; cursor: pointer; appearance: none;
+    }
+    .plan-select option { background: #0a0a0f; }
+    .save-badge {
+      display: inline-block; padding: 3px 10px; background: rgba(34,197,94,0.12);
+      color: #22c55e; font-size: 0.75rem; font-weight: 600; border-radius: 20px;
+      margin-left: 8px;
+    }
+
+    /* Form */
+    .checkout-form-card {
+      padding: 32px; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06); border-radius: 20px;
+      backdrop-filter: blur(20px);
+    }
+    .form-title { font-size: 1.25rem; font-weight: 700; color: #fafafa; margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.85rem; color: #71717a; margin-bottom: 6px; font-weight: 500; }
+    .form-group input {
+      width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 10px;
+      color: #fafafa; font-size: 1rem; transition: border-color 0.2s;
+    }
+    .form-group input:focus { outline: none; border-color: rgba(99,102,241,0.5); }
+    .form-group input::placeholder { color: #52525b; }
+    .submit-btn {
+      width: 100%; padding: 16px; margin-top: 8px;
+      background: linear-gradient(135deg, #6366F1, #818CF8);
+      color: #fff; font-weight: 600; font-size: 1.05rem;
+      border: none; border-radius: 12px; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(99,102,241,0.3); }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .form-note { font-size: 0.8rem; color: #52525b; text-align: center; margin-top: 12px; }
+    .error-msg { color: #ef4444; font-size: 0.85rem; margin-top: 8px; display: none; }
+  </style>
+</head>
+<body>
+  <a href="/" class="page-logo">bynde</a>
+  <div class="checkout-page">
+    <div class="checkout-container">
+      <!-- Plan Summary -->
+      <div class="plan-summary">
+        <div class="plan-selector">
+          <label>Select Plan</label>
+          <select class="plan-select" id="planSelect">
+            <option value="growth">Growth — $89/mo</option>
+            <option value="pro">Pro — $179/mo</option>
+            <option value="proplus">Pro+ — $299/mo</option>
+          </select>
+        </div>
+        <div class="billing-toggle">
+          <button class="billing-btn active" data-billing="monthly">Monthly</button>
+          <button class="billing-btn" data-billing="annual">Annual <span class="save-badge">Save 20%</span></button>
+        </div>
+        <div class="plan-label">Selected Plan</div>
+        <div class="plan-name" id="displayName">Pro</div>
+        <div class="plan-price" id="displayPrice">$179<span>/mo</span></div>
+        <ul class="plan-features" id="displayFeatures"></ul>
+      </div>
+
+      <!-- Form -->
+      <div class="checkout-form-card">
+        <div class="form-title">Complete Your Setup</div>
+        <form id="checkoutForm">
+          <div class="form-group">
+            <label>Business Name</label>
+            <input type="text" id="businessName" placeholder="Acme Dental" required>
+          </div>
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="ownerName" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="jane@acmedental.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" id="phone" placeholder="(555) 123-4567">
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">Complete Setup →</button>
+          <div class="error-msg" id="errorMsg"></div>
+          <p class="form-note">You won't be charged today. We'll reach out to finalize your setup.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API = 'https://bynde.io/api/checkout';
+    const PLANS = {
+      growth: {
+        name: 'Growth', monthly: 89, annual: 69,
+        features: ['AI Review Responses', 'Review Monitoring (Google + Yelp)', 'Smart Review Requests (SMS + Email)', 'Basic Analytics Dashboard', 'Email Support']
+      },
+      pro: {
+        name: 'Pro', monthly: 179, annual: 149,
+        features: ['Everything in Growth', 'Competitor Analysis', 'Social Media Management', 'Advanced Analytics & Reports', 'Priority Support', 'Custom AI Voice & Tone']
+      },
+      proplus: {
+        name: 'Pro+', monthly: 299, annual: 249,
+        features: ['Everything in Pro', 'Dedicated Account Manager', 'Multi-location Support', 'API Access', 'White-label Options', 'Phone Support']
+      }
+    };
+
+    let currentPlan = 'pro';
+    let currentBilling = 'monthly';
+
+    function updateDisplay() {
+      const p = PLANS[currentPlan];
+      const price = p[currentBilling];
+      document.getElementById('displayName').textContent = p.name;
+      document.getElementById('displayPrice').innerHTML = `$${price}<span>/mo</span>`;
+      const fl = document.getElementById('displayFeatures');
+      fl.innerHTML = p.features.map(f => `<li>${f}</li>`).join('');
+      document.getElementById('planSelect').value = currentPlan;
+      document.querySelectorAll('.billing-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.billing === currentBilling);
+      });
+    }
+
+    // Read URL params
+    const params = new URLSearchParams(location.search);
+    if (params.get('plan') && PLANS[params.get('plan')]) currentPlan = params.get('plan');
+    if (params.get('billing') === 'annual') currentBilling = 'annual';
+    updateDisplay();
+
+    document.getElementById('planSelect').addEventListener('change', e => { currentPlan = e.target.value; updateDisplay(); });
+    document.querySelectorAll('.billing-btn').forEach(b => b.addEventListener('click', () => { currentBilling = b.dataset.billing; updateDisplay(); }));
+
+    document.getElementById('checkoutForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const errEl = document.getElementById('errorMsg');
+      errEl.style.display = 'none';
+      btn.disabled = true; btn.textContent = 'Processing...';
+
+      try {
+        const res = await fetch(API + '/session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            plan: currentPlan,
+            billing: currentBilling,
+            email: document.getElementById('email').value,
+            businessName: document.getElementById('businessName').value,
+            ownerName: document.getElementById('ownerName').value,
+            phone: document.getElementById('phone').value
+          })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Something went wrong');
+        window.location.href = data.redirectUrl || data.url || '/checkout-success.html';
+      } catch (err) {
+        errEl.textContent = err.message; errEl.style.display = 'block';
+        btn.disabled = false; btn.textContent = 'Complete Setup →';
+      }
+    });
+  </script>
+</body>
+</html>

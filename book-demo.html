@@ -372,16 +372,22 @@
       var body = {};
       data.forEach(function(value, key) { body[key] = value; });
 
+      var btn = form.querySelector('.demo-submit');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+
       fetch('/api/demo-request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
+      }).then(function(r) { return r.json(); }).then(function(data) {
+        formWrapper.style.display = 'none';
+        success.classList.add('is-visible');
       }).catch(function() {
-        // Endpoint may not exist yet — still show success
+        // Still show success — don't punish user for backend issues
+        formWrapper.style.display = 'none';
+        success.classList.add('is-visible');
       });
-
-      formWrapper.style.display = 'none';
-      success.classList.add('is-visible');
     });
   }
 })();
