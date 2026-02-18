@@ -464,14 +464,19 @@
     .stagger-2 { transition-delay: 0.2s; }
     .stagger-3 { transition-delay: 0.3s; }
 
+    /* ── Mobile/Desktop visibility ── */
+    .mobile-only { display: none; }
 
-    /* ── MOBILE RESPONSIVE ── */
+    /* ── MOBILE OVERHAUL ── */
     @media (max-width: 768px) {
+      .mobile-only { display: block !important; }
+      .desktop-only { display: none !important; }
+
       .container { padding: 0 20px; }
 
-      /* Nav */
-      .site-nav { padding: 10px 0; }
-      .nav-logo svg { height: 24px; }
+      /* Nav — compact 56px */
+      .site-nav { padding: 12px 0; }
+      .nav-logo svg { height: 26px; }
       .nav-toggle { display: flex; }
       .nav-menu {
         display: none; position: fixed; inset: 0; z-index: 300;
@@ -483,113 +488,125 @@
       .nav-menu .nav-links a { font-size: 18px; }
       .nav-menu .nav-right { flex-direction: column; }
 
-      /* Hero — tight, one screen */
-      .hero { padding: 90px 0 40px; }
-      .hero-overline { font-size: 11px; margin-bottom: 12px; }
-      .heading-xl { font-size: 26px; line-height: 1.1; margin-bottom: 12px; }
-      .hero-subtitle { font-size: 14px; line-height: 1.5; margin-bottom: 24px; }
-      .health-tool { max-width: 100%; }
-      .health-input-wrap { flex-direction: column; gap: 8px; }
-      .health-input { padding: 14px 16px; font-size: 15px; }
-      .health-btn { padding: 14px 16px; font-size: 15px; min-height: 48px; }
-      .dashboard-preview { display: none; }
+      /* Hero — one screen, punchy */
+      .hero { padding: 80px 0 40px; }
+      .hero-overline { font-size: 11px; margin-bottom: 12px; letter-spacing: 0.12em; }
+      .heading-xl { font-size: 28px; line-height: 1.12; margin-bottom: 12px; }
+      .hero-subtitle { font-size: 15px; line-height: 1.5; margin-bottom: 24px; max-width: 100%; }
+      .health-tool { display: none !important; }
+      .hero-secondary { display: none !important; }
+      .dashboard-preview { display: none !important; }
+      .score-overlay { display: none !important; }
+      .hero-content .mobile-hero-cta { display: block !important; text-align: center; }
 
-      /* Sections — compact but not cramped */
+      /* Sections — tight */
       .section { padding: 48px 0; }
-      .heading-lg { font-size: 22px; line-height: 1.15; }
-      .text-lg { font-size: 14px; }
-      .section-overline { font-size: 11px; margin-bottom: 10px; }
+      .heading-lg { font-size: 22px; line-height: 1.2; }
+      .text-lg { font-size: 14px; line-height: 1.6; }
+      .section-overline { font-size: 11px; margin-bottom: 8px; }
 
-      /* Features — 2-col grid, compact cards, truncated text */
-      .features-grid {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 10px !important;
-      }
-      .features-grid > div {
-        padding: 16px 14px !important;
-      }
-      .features-grid > div > div:first-child {
-        width: 32px !important; height: 32px !important; margin-bottom: 10px !important;
-      }
-      .features-grid h3 { font-size: 13px !important; margin-bottom: 4px !important; }
-      .features-grid p { font-size: 12px !important; line-height: 1.4 !important;
-        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      /* Features — hide desktop cards, show mobile list */
+      .features-grid { display: none !important; }
+      .mobile-features-list { display: block !important; }
 
-      /* Industries — hide entirely on mobile (too heavy) */
-      #industries { display: none !important; }
+      /* Industries — hide desktop grid, show mobile version */
+      .industry-grid { display: none !important; }
+      .mobile-industries { display: block !important; }
 
-      /* Timeline — hide on mobile */
+      /* How it works — hide */
       #how-it-works { display: none !important; }
 
-      /* Testimonials — 2 cards, compact */
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        margin-top: 32px;
-      }
-      .testimonials-grid > div:nth-child(n+3) { display: none; }
-      .testimonial-card { padding: 20px 16px; }
-      .testimonial-metric { font-size: 24px; }
-      .testimonials-grid p[style*="font-size:15px"] { font-size: 13px !important; }
+      /* Testimonials — single featured */
+      .testimonials-grid { display: none !important; }
+      .mobile-testimonial { display: block !important; }
 
-      /* Pricing — single column, compact cards with truncated features */
-      .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 100%;
-        margin-top: 24px;
-        gap: 14px;
-      }
-      .pricing-card { padding: 22px 18px; }
+      /* Pricing — compact stack */
+      .pricing-grid { grid-template-columns: 1fr; max-width: 100%; margin-top: 24px; gap: 12px; }
+      .pricing-card { padding: 20px 18px; }
       .pricing-amount { font-size: 36px; }
-      .pricing-card ul { font-size: 13px; }
-      .pricing-card ul li { padding: 4px 0; }
-      .pricing-card .btn-primary { min-height: 44px; font-size: 14px; padding: 12px 20px; }
-      .btn-primary { min-height: 44px; padding: 12px 24px; font-size: 14px; }
-      #annual-save-badge { font-size: 10px !important; padding: 2px 6px !important; }
+      .pricing-period { margin-bottom: 16px; }
+      .pricing-divider { margin-bottom: 16px; }
+      .pricing-features { margin-bottom: 20px; }
+      .pricing-features li { font-size: 13px; padding: 4px 0; }
+      .pricing-card .btn-primary { min-height: 48px; font-size: 15px; }
+      /* Hide non-essential features on mobile pricing */
+      .pricing-card:not(.popular) .pricing-features li:nth-child(n+5) { display: none; }
+      .pricing-card.popular .pricing-features li:nth-child(n+6) { display: none; }
+      .btn-primary { min-height: 48px; padding: 14px 28px; font-size: 15px; }
 
-      /* Competitor comparison — hide table, too wide */
+      /* Competitor — hide desktop table, show mobile bullets */
       .mobile-hide-comparison { display: none !important; }
+      .mobile-comparison { display: block !important; }
 
-      /* FAQ — show 4, tight */
-      .faq-question { font-size: 14px; padding: 14px 0; }
-      .faq-answer { font-size: 13px; }
-      .faq-list .faq-item:nth-child(n+5) { display: none; }
+      /* FAQ — tight, 4 items max */
+      .faq-question { font-size: 15px; padding: 16px 0; }
+      .faq-answer { font-size: 13px; line-height: 1.6; }
+      .faq-list .faq-item:nth-child(n+5) { display: none !important; }
 
-      /* Final CTA — compact */
-      .final-cta-section { padding: 40px 0; }
-      .final-cta { padding: 32px 18px; border-radius: 14px; }
-      .final-cta h2 { font-size: 20px; margin-bottom: 8px; }
-      .final-cta p { font-size: 13px; margin-bottom: 16px; }
-      .final-email-row { flex-direction: column; border-radius: 8px; }
-      .final-email-input { padding: 14px 16px; min-height: 44px; }
-      .final-email-btn { padding: 14px 16px; min-height: 44px; text-align: center; }
+      /* Final CTA — minimal */
+      .final-cta-section { padding: 48px 0; }
+      .final-cta { padding: 32px 20px; border-radius: 16px; }
+      .final-cta h2 { font-size: 20px; margin-bottom: 12px; }
+      .final-cta p { font-size: 14px; margin-bottom: 20px; }
+      .final-email-row { display: none; }
+      .mobile-cta-btn { display: block !important; }
 
-      /* Footer */
+      /* Footer — compact centered */
       .site-footer { padding: 32px 0; }
       .footer-inner { flex-direction: column; text-align: center; gap: 16px; }
-      .footer-links { justify-content: center; gap: 14px; flex-wrap: wrap; }
+      .footer-links { justify-content: center; gap: 12px; flex-wrap: wrap; }
       .footer-links a { font-size: 13px; }
       .footer-bottom { margin-top: 16px; padding-top: 16px; font-size: 12px; }
 
-      /* Score overlay */
+      /* Score overlay mobile */
       .score-card { padding: 20px 16px; width: 95%; }
       .score-number { font-size: 48px; }
       .score-metrics { grid-template-columns: repeat(3, 1fr); gap: 6px; }
       .score-metric-val { font-size: 16px; }
       .score-metric-label { font-size: 10px; }
+
+      /* Pricing toggle */
+      #annual-save-badge { font-size: 10px !important; padding: 3px 8px !important; }
     }
 
-    @media (max-width: 480px) {
-      .heading-xl { font-size: 24px; }
-      .heading-lg { font-size: 20px; }
-      .hero { padding: 84px 0 36px; }
-      .section { padding: 40px 0; }
-      .features-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
-      .features-grid p { -webkit-line-clamp: 2; }
-      .pricing-card { padding: 20px 16px; }
-      .pricing-amount { font-size: 32px; }
+    /* ── Mobile-only component styles ── */
+    .mobile-features-list { display: none; max-width: 100%; }
+    .mobile-feature-row {
+      display: flex; align-items: flex-start; gap: 14px; padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-feature-row:last-child { border-bottom: none; }
+    .mobile-feature-icon {
+      width: 36px; height: 36px; flex-shrink: 0; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 18px;
+      background: rgba(99,102,241,0.1);
+    }
+    .mobile-feature-text h4 { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+    .mobile-feature-text p { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+
+    .mobile-industries { display: none; }
+    .mobile-industry-chips {
+      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; margin-bottom: 24px;
+    }
+    .mobile-industry-chip {
+      padding: 8px 14px; font-size: 13px; font-weight: 500; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--text-secondary); background: var(--bg-card);
     }
 
+    .mobile-testimonial { display: none; max-width: 100%; margin: 32px auto 0; }
+    .mobile-testimonial-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px 20px; text-align: center;
+    }
+    .mobile-testimonial-card .testimonial-metric { font-size: 32px; }
+
+    .mobile-comparison { display: none; }
+    .mobile-comparison-item {
+      padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 15px; color: var(--text-secondary); line-height: 1.6;
+    }
+    .mobile-comparison-item:last-child { border-bottom: none; }
+    .mobile-comparison-item strong { color: var(--text-primary); font-weight: 700; }
   </style>
 </head>
 <body>
@@ -638,6 +655,9 @@
       <p class="hero-subtitle fade-up stagger-2">
         AI phone receptionist, automated review management, smart scheduling, and business automation — everything your front desk needs in one platform.
       </p>
+      <div class="mobile-hero-cta mobile-only" style="display:none;margin-bottom:16px;">
+        <a href="book-demo.html" class="btn-primary" style="width:100%;justify-content:center;padding:16px 32px;font-size:16px;">Book a Demo</a>
+      </div>
       <div class="health-tool fade-up stagger-3">
         <div class="health-input-wrap">
           <input type="text" class="health-input" id="biz-input" placeholder="e.g. Joe's Pizza Philadelphia" autocomplete="off">
@@ -811,7 +831,52 @@
       </div>
 
     </div>
+    <!-- Mobile Features List -->
+    <div class="mobile-features-list mobile-only">
+      <div class="mobile-feature-row">
+        <div class="mobile-feature-icon">📞</div>
+        <div class="mobile-feature-text">
+          <h4>AI Phone Receptionist</h4>
+          <p>Answers every call 24/7, books appointments, handles FAQs</p>
+        </div>
+      </div>
+      <div class="mobile-feature-row">
+        <div class="mobile-feature-icon">⭐</div>
+        <div class="mobile-feature-text">
+          <h4>Review Management</h4>
+          <p>Auto-sends review requests, writes on-brand AI responses</p>
+        </div>
+      </div>
+      <div class="mobile-feature-row">
+        <div class="mobile-feature-icon">📅</div>
+        <div class="mobile-feature-text">
+          <h4>Appointment Scheduling</h4>
+          <p>Online booking, reminders, and no-show recovery built in</p>
+        </div>
+      </div>
+      <div class="mobile-feature-row">
+        <div class="mobile-feature-icon">📝</div>
+        <div class="mobile-feature-text">
+          <h4>Forms and Waivers</h4>
+          <p>Digital intake forms with e-signatures, sent after booking</p>
+        </div>
+      </div>
+      <div class="mobile-feature-row">
+        <div class="mobile-feature-icon">⚡</div>
+        <div class="mobile-feature-text">
+          <h4>Smart Automation</h4>
+          <p>Win-back campaigns, welcome sequences, birthday rewards</p>
+        </div>
+      </div>
+      <div class="mobile-feature-row">
+        <div class="mobile-feature-icon">🏢</div>
+        <div class="mobile-feature-text">
+          <h4>60+ Industry Templates</h4>
+          <p>Pick your industry, everything configures itself on signup</p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 <!-- ── INDUSTRY VERTICALS ── -->
 <section class="section section-light" id="industries">
@@ -821,7 +886,7 @@
       <h2 class="heading-lg fade-up stagger-1">Your industry. Your workflows. Ready on day one.</h2>
       <p style="font-size:18px;color:var(--text-secondary);max-width:580px;margin:20px auto 0;line-height:1.7;" class="fade-up stagger-2">Every template comes with custom phone scripts, review messaging, forms, and automation flows built for how your business runs.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1100px;margin:0 auto;" class="industry-grid fade-up stagger-2">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1100px;margin:0 auto;" class="industry-grid desktop-only fade-up stagger-2">
       <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px 20px;">
         <h4 style="font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Healthcare</h4>
         <p style="font-size:13px;color:var(--text-tertiary);line-height:1.6;">Dentists, chiropractors, optometrists, physical therapists, veterinarians, mental health practices</p>
@@ -871,7 +936,25 @@
         <p style="font-size:13px;color:var(--text-tertiary);line-height:1.6;">Photographers, DJs, event planners, escape rooms, bowling alleys, tour operators</p>
       </div>
     </div>
+    <!-- Mobile Industries -->
+    <div class="mobile-industries mobile-only" style="text-align:center;">
+      <div class="mobile-industry-chips">
+        <span class="mobile-industry-chip">Healthcare</span>
+        <span class="mobile-industry-chip">Beauty</span>
+        <span class="mobile-industry-chip">Fitness</span>
+        <span class="mobile-industry-chip">Home Services</span>
+        <span class="mobile-industry-chip">Automotive</span>
+        <span class="mobile-industry-chip">Food</span>
+        <span class="mobile-industry-chip">Legal</span>
+        <span class="mobile-industry-chip">Education</span>
+        <span class="mobile-industry-chip">Pet Services</span>
+        <span class="mobile-industry-chip">Retail</span>
+        <span class="mobile-industry-chip">Construction</span>
+        <span class="mobile-industry-chip">Events</span>
+      </div>
+      <a href="book-demo.html" class="btn-primary" style="padding:14px 32px;">Book a Demo</a>
     </div>
+  </div>
 </section>
 <!-- ── 30-DAY TIMELINE ── -->
 <section class="section section-light" id="how-it-works">
@@ -959,7 +1042,17 @@
         <div class="testimonial-role">Glow Beauty Studio</div>
       </div>
     </div>
+    <!-- Mobile Testimonial -->
+    <div class="mobile-testimonial mobile-only">
+      <div class="mobile-testimonial-card">
+        <div class="testimonial-metric gradient-text">12 to 89</div>
+        <div class="testimonial-metric-label">Google reviews in 60 days</div>
+        <p class="testimonial-text">"We went from 12 to 89 Google reviews in 60 days. Bynde made it completely hands off."</p>
+        <div class="testimonial-author">Sarah Chen</div>
+        <div class="testimonial-role">Downtown Dental</div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- ── PRICING + FAQ (White Section) ── -->
@@ -1123,7 +1216,29 @@
   </div>
 </section>
 
-
+<!-- ── MOBILE COMPETITOR COMPARISON ── -->
+<section class="section mobile-comparison mobile-only" style="padding:48px 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:24px;">
+      <p class="section-overline">The Smarter Choice</p>
+      <h2 class="heading-lg">Why businesses switch to Bynde</h2>
+    </div>
+    <div>
+      <div class="mobile-comparison-item">
+        <strong>Birdeye charges $350+/mo</strong> with a $350 setup fee. Bynde starts at <strong style="color:var(--success);">$79/mo</strong> with no setup fees.
+      </div>
+      <div class="mobile-comparison-item">
+        <strong>Podium starts at $399/mo</strong> and doesn't include AI review responses. Bynde includes them on every plan.
+      </div>
+      <div class="mobile-comparison-item">
+        Neither Birdeye nor Podium offer an <strong>AI phone receptionist</strong>. Bynde includes one in Pro.
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:24px;">
+      <a href="book-demo.html" class="btn-primary">See the Full Comparison</a>
+    </div>
+  </div>
+</section>
 
 <!-- ── FAQ ── -->
 <section class="section section-light" style="padding:100px 0;" id="faq">
@@ -1163,7 +1278,8 @@
     <div class="final-cta fade-up">
       <h2>Ready to automate your front desk?</h2>
       <p>Book a 15 minute demo and see how Bynde handles calls, reviews, scheduling, and automation for your business. No commitment required.</p>
-      <a href="book-demo.html" class="btn-primary" style="padding:18px 40px;font-size:17px;">Book a Demo</a>
+      <a href="book-demo.html" class="btn-primary desktop-only" style="padding:18px 40px;font-size:17px;">Book a Demo</a>
+      <a href="book-demo.html" class="btn-primary mobile-cta-btn mobile-only" style="display:none;width:100%;justify-content:center;padding:16px 32px;font-size:16px;">Book a Demo</a>
     </div>
   </div>
 </section>
