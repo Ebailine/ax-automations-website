@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /mission-control/
 
-Sitemap: https://ebailine.github.io/bynde-website/sitemap.xml
+Sitemap: https://bynde.io/sitemap.xml

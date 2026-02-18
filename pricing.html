@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing | Bynde</title>
-  <meta name="description" content="Bynde pricing — Growth plan at $79/mo, Pro at $199/mo. No contracts over $350/mo like Birdeye or Podium.">
+  <title>Pricing | Bynde — AI Business Automation</title>
+  <meta name="description" content="Bynde pricing — Growth at $89/mo, Pro at $199/mo, Pro+ at $349/mo. AI phone receptionist, review management, scheduling, and automation for local businesses.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,7 +13,8 @@
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     :root{
-      --navy:#0f172a;--navy-light:#1e293b;--blue:#3b82f6;--blue-light:#60a5fa;--amber:#f59e0b;--amber-light:#fbbf24;
+      --navy:#0f172a;--navy-light:#1e293b;--blue:#6366F1;--blue-light:#818CF8;
+      --cyan:#06B6D4;--amber:#f59e0b;--amber-light:#fbbf24;
       --white:#fff;--bg:#f8fafc;--surface:#fff;--border:#e2e8f0;--border-light:#f1f5f9;
       --text:#0f172a;--text-secondary:#475569;--text-muted:#64748b;--green:#10b981;--red:#ef4444;
       --radius:12px;--radius-sm:8px;--radius-lg:20px;
@@ -25,36 +26,28 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
 
-    /* Nav */
     .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-light);padding:16px 0}
     .nav-inner{display:flex;align-items:center;justify-content:space-between}
     .nav-logo{font-weight:700;font-size:1.125rem;display:flex;align-items:center;gap:8px}
-    .logo-mark{font-size:1.25rem}
     .nav-links{display:flex;gap:32px}
     .nav-links a{font-size:.875rem;font-weight:500;color:var(--text-secondary);transition:color var(--transition)}
     .nav-links a:hover{color:var(--text)}
     .btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:600;font-size:.9375rem;padding:12px 28px;border-radius:var(--radius);border:none;cursor:pointer;transition:all var(--transition);text-decoration:none}
     .btn-sm{padding:8px 20px;font-size:.8125rem;border-radius:var(--radius-sm)}
-    .btn-primary{background:var(--navy);color:var(--white)}
-    .btn-primary:hover{opacity:.85;transform:translateY(-1px)}
+    .btn-primary{background:var(--blue);color:var(--white)}
+    .btn-primary:hover{opacity:.9;transform:translateY(-1px)}
     .btn-ghost{background:transparent;border:1.5px solid var(--border);color:var(--text)}
     .btn-ghost:hover{border-color:var(--navy)}
-    .btn-blue{background:var(--blue);color:#fff}
-    .btn-blue:hover{background:#2563eb;transform:translateY(-1px)}
-    .btn-amber{background:var(--amber);color:var(--navy);font-weight:700}
-    .btn-amber:hover{background:var(--amber-light);transform:translateY(-1px)}
-    .btn-lg{padding:16px 36px;font-size:1rem;border-radius:var(--radius)}
     .btn-block{width:100%}
+    .btn-lg{padding:16px 36px;font-size:1rem}
 
-    /* Hero */
     .pricing-hero{padding:140px 0 40px;text-align:center;background:linear-gradient(180deg,#f0f4ff 0%,var(--white) 100%)}
     .pricing-hero h1{font-size:clamp(2rem,4.5vw,3.25rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px;color:var(--navy)}
-    .pricing-hero p{font-size:1.125rem;color:var(--text-secondary);max-width:560px;margin:0 auto}
-    .pricing-hero .trust-row{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:24px;flex-wrap:wrap}
+    .pricing-hero p{font-size:1.125rem;color:var(--text-secondary);max-width:600px;margin:0 auto}
+    .trust-row{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:24px;flex-wrap:wrap}
     .trust-item{display:flex;align-items:center;gap:6px;font-size:.875rem;color:var(--text-muted);font-weight:500}
-    .trust-item .ic{color:var(--green);font-size:1.1rem}
+    .trust-item .ic{color:var(--green);font-weight:700}
 
-    /* Toggle */
     .toggle-wrap{display:flex;align-items:center;justify-content:center;gap:16px;margin:40px 0 48px}
     .toggle-label{font-size:.9375rem;font-weight:500;color:var(--text-muted);cursor:pointer;transition:color var(--transition)}
     .toggle-label.active{color:var(--navy);font-weight:600}
@@ -64,23 +57,42 @@
     .toggle-track.annual .toggle-thumb{transform:translateX(24px)}
     .save-badge{font-size:.75rem;font-weight:600;background:#dcfce7;color:#10b981;padding:3px 10px;border-radius:20px}
 
-    /* Pricing Cards */
-    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:80px}
-    .price-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:36px 28px;position:relative;transition:all var(--transition)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:80px;align-items:stretch}
+    .price-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:36px 28px;position:relative;transition:all var(--transition);display:flex;flex-direction:column}
     .price-card:hover{border-color:#ccc;box-shadow:0 8px 30px rgba(0,0,0,.06)}
-    .price-card.popular{border-color:var(--blue);box-shadow:0 8px 30px rgba(59,130,246,.15)}
+    .price-card.popular{border-color:var(--blue);box-shadow:0 8px 30px rgba(99,102,241,.15)}
     .popular-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.75rem;font-weight:600;padding:4px 16px;border-radius:20px;white-space:nowrap}
     .card-tier{font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:8px}
     .card-price{display:flex;align-items:baseline;gap:4px;margin-bottom:4px}
     .card-price .amount{font-size:2.75rem;font-weight:800;letter-spacing:-0.03em;color:var(--navy)}
     .card-price .period{font-size:.9375rem;color:var(--text-muted);font-weight:500}
-    .card-desc{font-size:.875rem;color:var(--text-secondary);margin-bottom:24px;min-height:40px}
+    .card-desc{font-size:.875rem;color:var(--text-secondary);margin-bottom:20px;min-height:40px}
+    .card-note{font-size:.8125rem;color:var(--text-muted);margin-bottom:24px}
     .card-divider{height:1px;background:var(--border-light);margin:0 0 24px}
-    .card-features{list-style:none;margin-bottom:28px}
-    .card-features li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--text-secondary);padding:6px 0}
+    .card-features{list-style:none;margin-bottom:28px;flex:1}
+    .card-features li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--text-secondary);padding:5px 0}
     .card-features li .check{color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem;line-height:1.4}
+    .card-features li.section-label{font-weight:600;color:var(--navy);padding-top:12px;font-size:.8125rem;text-transform:uppercase;letter-spacing:.04em}
+    .annual-note{display:none;font-size:.8125rem;color:var(--green);font-weight:600;margin-bottom:16px}
+    .annual-note.show{display:block}
 
-    /* Competitor Comparison */
+    .setup-note{text-align:center;margin:24px auto 80px;max-width:600px;font-size:.9375rem;color:var(--text-secondary)}
+    .setup-note strong{color:var(--navy)}
+
+    .includes{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);border-radius:var(--radius-lg);padding:48px 40px;text-align:center;margin-bottom:80px;color:var(--white)}
+    .includes h3{font-size:1.25rem;font-weight:700;margin-bottom:8px}
+    .includes .includes-sub{color:rgba(255,255,255,.7);margin-bottom:24px;font-size:.9375rem}
+    .includes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 32px}
+    .includes-grid .item{display:flex;align-items:center;gap:10px;font-size:.875rem;color:rgba(255,255,255,.9);text-align:left}
+    .includes-grid .item .ic{color:var(--green);font-weight:700;flex-shrink:0}
+
+    .try-section{text-align:center;padding:60px 0 80px;background:linear-gradient(135deg,rgba(6,182,212,0.06),rgba(99,102,241,0.06));border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);margin-bottom:80px}
+    .try-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--navy);margin-bottom:12px}
+    .try-section p{color:var(--text-secondary);max-width:560px;margin:0 auto 32px;font-size:1rem}
+    .phone-link{display:inline-flex;align-items:center;gap:12px;font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:800;color:var(--navy);padding:20px 40px;border-radius:16px;background:rgba(6,182,212,0.08);border:2px solid rgba(6,182,212,0.2);transition:all 0.3s ease}
+    .phone-link:hover{background:rgba(6,182,212,0.14);border-color:rgba(6,182,212,0.4)}
+    .phone-link svg{flex-shrink:0}
+
     .competitor-section{padding:0 0 80px}
     .competitor-section h2{text-align:center;font-size:clamp(1.5rem,3vw,2rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:12px;color:var(--navy)}
     .competitor-section .section-sub{text-align:center;color:var(--text-secondary);margin-bottom:40px;font-size:1rem}
@@ -93,7 +105,6 @@
     .competitor-card .comp-details{font-size:.8125rem;color:var(--text-muted);line-height:1.6}
     .competitor-card .comp-details strong{color:var(--text-secondary)}
 
-    /* Feature Comparison */
     .compare-section{padding:0 0 80px}
     .compare-section h2{text-align:center;font-size:clamp(1.5rem,3vw,2rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:40px;color:var(--navy)}
     .compare-table{width:100%;border-collapse:collapse}
@@ -101,25 +112,10 @@
     .compare-table th:first-child,.compare-table td:first-child{text-align:left;font-weight:500;color:var(--text-secondary)}
     .compare-table thead th{font-weight:600;color:var(--navy);font-size:.8125rem;text-transform:uppercase;letter-spacing:.06em;padding-bottom:20px;border-bottom:2px solid var(--border)}
     .compare-table thead th.pop{color:var(--blue)}
-    .compare-table tbody tr:last-child td{border-bottom:none}
     .compare-table .check-icon{color:var(--green);font-size:1.1rem}
     .compare-table .dash{color:#ccc}
+    .compare-table .cat-row td{font-weight:600;color:var(--navy);font-size:.8125rem;text-transform:uppercase;letter-spacing:.04em;padding-top:24px;border-bottom:2px solid var(--border-light)}
 
-    /* Includes */
-    .includes{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);border-radius:var(--radius-lg);padding:48px 40px;text-align:center;margin-bottom:80px;color:var(--white)}
-    .includes h3{font-size:1.25rem;font-weight:700;margin-bottom:8px}
-    .includes .includes-sub{color:rgba(255,255,255,.7);margin-bottom:24px;font-size:.9375rem}
-    .includes-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:32px}
-    .includes-grid .item{display:flex;align-items:center;gap:8px;font-size:.9375rem;color:rgba(255,255,255,.9)}
-    .includes-grid .item .ic{font-size:1.1rem}
-
-    /* ROI Guarantee */
-    .guarantee{text-align:center;padding:0 0 80px}
-    .guarantee-box{background:linear-gradient(135deg,#fefce8,#fff7ed);border:2px solid var(--amber);border-radius:var(--radius-lg);padding:40px;max-width:640px;margin:0 auto}
-    .guarantee-box h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:8px}
-    .guarantee-box p{color:var(--text-secondary);font-size:.9375rem}
-
-    /* FAQ */
     .faq-section{padding:0 0 80px}
     .faq-section h2{text-align:center;font-size:clamp(1.5rem,3vw,2rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:40px;color:var(--navy)}
     .faq-list{max-width:680px;margin:0 auto}
@@ -130,41 +126,47 @@
     .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:.875rem;color:var(--text-secondary);line-height:1.7}
     .faq-item.open .faq-a{max-height:400px;padding-top:12px}
 
-    /* Bottom CTA */
     .bottom-cta{text-align:center;padding:60px 0 80px;background:linear-gradient(180deg,var(--white) 0%,#f0f4ff 100%)}
     .bottom-cta h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:12px;color:var(--navy)}
     .bottom-cta p{color:var(--text-secondary);margin-bottom:28px}
     .bottom-cta .cta-note{display:block;margin-top:12px;font-size:.8125rem;color:var(--text-muted)}
 
-    /* Footer */
     .footer{border-top:1px solid var(--border-light);padding:40px 0;text-align:center}
     .footer p{font-size:.8125rem;color:var(--text-muted)}
     .footer a{color:var(--text-secondary)}
 
-    /* Animations */
     .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
     .fade-in.visible{opacity:1;transform:translateY(0)}
 
     @media(max-width:900px){
       .pricing-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+      .pricing-grid{grid-template-columns:1fr}
       .price-card.popular{order:-1}
       .competitor-grid{grid-template-columns:1fr 1fr;gap:12px}
       .nav-links{display:none}
       .compare-table{font-size:.8rem}
       .compare-table th,.compare-table td{padding:10px 8px}
+      .includes-grid{grid-template-columns:1fr 1fr}
     }
     @media(max-width:520px){
       .competitor-grid{grid-template-columns:1fr}
+      .includes-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
 
-  <nav class="nav" aria-label="Main navigation">
+  <nav class="nav">
     <div class="container nav-inner">
-      <a href="index.html" class="nav-logo"><span class="logo-mark">⚡</span> Bynde</a>
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" height="28">
+          <path d="M6 28L18 4" stroke="#6366F1" stroke-width="3" stroke-linecap="round"/>
+          <path d="M14 4C14 4 20 2 24 6C28 10 26 16 26 16L18 8L14 4Z" fill="#6366F1"/>
+          <text x="34" y="24" font-family="-apple-system, sans-serif" font-weight="800" font-size="22" fill="#0f172a" letter-spacing="-0.5">Bynde</text>
+        </svg>
+      </a>
       <div class="nav-links">
-        <a href="index.html#industries">Services</a>
+        <a href="index.html#features">Features</a>
         <a href="pricing.html" style="color:var(--navy)">Pricing</a>
         <a href="index.html#how-it-works">How It Works</a>
         <a href="index.html#faq">FAQ</a>
@@ -173,158 +175,224 @@
     </div>
   </nav>
 
-  <!-- Hero -->
   <section class="pricing-hero">
     <div class="container">
-      <h1 class="fade-in">Simple pricing. No surprises.</h1>
-      <p class="fade-in">AI review management that pays for itself. Start free, upgrade when you're ready. No setup fees, no minimums, cancel anytime.</p>
+      <h1 class="fade-in">Everything your front desk needs. One platform.</h1>
+      <p class="fade-in">AI phone receptionist, review management, scheduling, forms, and automation. Monthly and annual billing. No setup fees. Cancel anytime.</p>
       <div class="trust-row fade-in">
-        <span class="trust-item"><span class="ic">✓</span> No commitment, cancel anytime</span>
-        <span class="trust-item"><span class="ic">✓</span> No setup fees</span>
-        <span class="trust-item"><span class="ic">✓</span> Cancel anytime</span>
+        <span class="trust-item"><span class="ic">&#10003;</span> No setup fees</span>
+        <span class="trust-item"><span class="ic">&#10003;</span> Monthly + annual billing</span>
+        <span class="trust-item"><span class="ic">&#10003;</span> Free migration from competitors</span>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Cards -->
   <section class="container">
     <div class="toggle-wrap fade-in">
-      <span class="toggle-label active" id="monthlyLabel">Quarterly</span>
+      <span class="toggle-label active" id="monthlyLabel">Monthly</span>
       <div class="toggle-track" id="billingToggle" onclick="toggleBilling()">
         <div class="toggle-thumb"></div>
       </div>
       <span class="toggle-label" id="annualLabel">Annual</span>
-      <span class="save-badge">Save up to 13%</span>
+      <span class="save-badge">Save ~15% with annual</span>
     </div>
 
-    <div class="pricing-grid" style="grid-template-columns:repeat(2,1fr);max-width:800px;margin-left:auto;margin-right:auto;margin-bottom:80px">
-      <!-- Starter -->
+    <div class="pricing-grid">
       <div class="price-card fade-in">
-        <div class="card-tier">Starter</div>
+        <div class="card-tier">Growth</div>
         <div class="card-price">
-          <span class="amount" data-quarterly="79" data-annual="69">$79</span>
+          <span class="amount" data-monthly="89" data-annual="79">$89</span>
           <span class="period">/mo</span>
         </div>
-        <p class="card-desc">Everything you need to manage your online reviews with AI. Perfect for getting started.</p>
-        <p style="font-size:.8125rem;color:var(--green);font-weight:600;margin-bottom:24px">No setup fees · No minimums · Cancel anytime</p>
+        <p class="card-desc">Review management and SMS outreach for businesses building their online reputation.</p>
+        <div class="annual-note" id="an-growth">Billed annually at $948/yr</div>
         <div class="card-divider"></div>
         <ul class="card-features">
-          <li><span class="check">✓</span> AI review responses (all platforms)</li>
-          <li><span class="check">✓</span> 50 SMS review requests/month</li>
-          <li><span class="check">✓</span> Reputation dashboard</li>
-          <li><span class="check">✓</span> Google Business Profile integration</li>
-          <li><span class="check">✓</span> Email support</li>
-          <li><span class="check">✓</span> 1 location</li>
+          <li class="section-label">Reviews</li>
+          <li><span class="check">&#10003;</span> Automated review requests (email + SMS)</li>
+          <li><span class="check">&#10003;</span> AI review responses</li>
+          <li><span class="check">&#10003;</span> Review follow-up sequences (3-day, 7-day)</li>
+          <li><span class="check">&#10003;</span> Competitor monitoring + weekly digest</li>
+          <li class="section-label">Operations</li>
+          <li><span class="check">&#10003;</span> Customer management + CSV import</li>
+          <li><span class="check">&#10003;</span> Email notifications</li>
+          <li><span class="check">&#10003;</span> Dashboard + analytics</li>
         </ul>
         <a href="/book-demo.html" class="btn btn-ghost btn-block">Book a Demo</a>
       </div>
 
-      <!-- Pro -->
       <div class="price-card popular fade-in">
         <div class="popular-badge">Most Popular</div>
         <div class="card-tier">Pro</div>
         <div class="card-price">
-          <span class="amount" data-quarterly="149" data-annual="129">$149</span>
+          <span class="amount" data-monthly="199" data-annual="179">$199</span>
           <span class="period">/mo</span>
         </div>
-        <p class="card-desc">For businesses serious about growth. Unlimited review requests, priority support, and advanced analytics.</p>
-        <p style="font-size:.8125rem;color:var(--green);font-weight:600;margin-bottom:24px">No setup fees · No minimums · Cancel anytime</p>
+        <p class="card-desc">Everything in Growth plus AI phone receptionist, scheduling, forms, and automation.</p>
+        <div class="annual-note" id="an-pro">Billed annually at $2,148/yr</div>
         <div class="card-divider"></div>
         <ul class="card-features">
-          <li><span class="check">✓</span> Everything in Starter</li>
-          <li><span class="check">✓</span> Unlimited SMS review requests</li>
-          <li><span class="check">✓</span> Advanced reputation analytics</li>
-          <li><span class="check">✓</span> Competitor benchmarking</li>
-          <li><span class="check">✓</span> Priority support</li>
-          <li><span class="check">✓</span> Up to 5 locations</li>
+          <li style="font-weight:600;color:var(--blue);padding-bottom:8px">Everything in Growth, plus:</li>
+          <li class="section-label">AI Phone</li>
+          <li><span class="check">&#10003;</span> AI phone receptionist (200 min/mo)</li>
+          <li><span class="check">&#10003;</span> Business hours + after-hours handling</li>
+          <li><span class="check">&#10003;</span> Call forwarding + voicemail</li>
+          <li><span class="check">&#10003;</span> FAQ knowledge base (synced to AI phone)</li>
+          <li class="section-label">Operations</li>
+          <li><span class="check">&#10003;</span> Smart appointment calendar</li>
+          <li><span class="check">&#10003;</span> Forms + waivers (digital signatures, PDF import)</li>
+          <li class="section-label">Automation</li>
+          <li><span class="check">&#10003;</span> Smart automation flows</li>
+          <li><span class="check">&#10003;</span> Industry-specific templates (10 industries)</li>
         </ul>
-        <a href="/book-demo.html" class="btn btn-blue btn-block">Book a Demo</a>
+        <a href="/book-demo.html" class="btn btn-primary btn-block">Book a Demo</a>
+      </div>
+
+      <div class="price-card fade-in">
+        <div class="card-tier">Pro+</div>
+        <div class="card-price">
+          <span class="amount" data-monthly="349" data-annual="299">$349</span>
+          <span class="period">/mo</span>
+        </div>
+        <p class="card-desc">Extended phone minutes, priority support, and custom automations for high-volume businesses.</p>
+        <div class="annual-note" id="an-proplus">Billed annually at $3,588/yr</div>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li style="font-weight:600;color:var(--blue);padding-bottom:8px">Everything in Pro, plus:</li>
+          <li class="section-label">Extended Phone</li>
+          <li><span class="check">&#10003;</span> 600 AI phone minutes/month</li>
+          <li><span class="check">&#10003;</span> Dedicated local phone number</li>
+          <li><span class="check">&#10003;</span> Advanced call analytics &amp; reporting</li>
+          <li class="section-label">Automation</li>
+          <li><span class="check">&#10003;</span> Custom automation flows (unlimited)</li>
+          <li><span class="check">&#10003;</span> Multi-location support</li>
+          <li class="section-label">Support</li>
+          <li><span class="check">&#10003;</span> Priority support (same-day response)</li>
+          <li><span class="check">&#10003;</span> Dedicated onboarding specialist</li>
+        </ul>
+        <a href="/book-demo.html" class="btn btn-ghost btn-block">Book a Demo</a>
+      </div>
+
+      <div class="price-card fade-in" style="background:linear-gradient(135deg,#f8fafc,#f0f4ff);border-style:dashed;">
+        <div class="card-tier">Enterprise</div>
+        <div style="font-size:1.75rem;font-weight:800;color:var(--navy);margin-bottom:4px;">Custom</div>
+        <p class="card-desc">Custom pricing for multi-location businesses, dedicated account manager, custom integrations, SLA guarantees, and priority support.</p>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li style="font-weight:600;color:var(--blue);padding-bottom:8px">Everything in Pro+, plus:</li>
+          <li><span class="check">&#10003;</span> Multi-location management</li>
+          <li><span class="check">&#10003;</span> Dedicated account manager</li>
+          <li><span class="check">&#10003;</span> Custom integrations</li>
+          <li><span class="check">&#10003;</span> SLA guarantees</li>
+          <li><span class="check">&#10003;</span> Priority support</li>
+          <li><span class="check">&#10003;</span> Custom onboarding</li>
+        </ul>
+        <a href="/book-demo.html" class="btn btn-primary btn-block">Contact Us</a>
       </div>
     </div>
+
+    <p class="setup-note fade-in">
+      Overage minutes billed at $0.25/min. No setup fees on any plan.
+    </p>
   </section>
 
   <!-- All Plans Include -->
   <section class="container">
     <div class="includes fade-in">
       <h3>Every plan includes</h3>
-      <p class="includes-sub">No surprises. No hidden fees. Just what you need to stop losing customers.</p>
+      <p class="includes-sub">Core features that come standard, regardless of your plan.</p>
       <div class="includes-grid">
-        <div class="item"><span class="ic">🚀</span> Self-serve setup in minutes</div>
-        <div class="item"><span class="ic">🔄</span> Free migration from competitors</div>
-        <div class="item"><span class="ic">⚡</span> Live in 5 minutes</div>
-        <div class="item"><span class="ic">📊</span> Real-time reputation dashboard</div>
-        <div class="item"><span class="ic">🎯</span> Google Business Profile sync</div>
-        <div class="item"><span class="ic">💳</span> No credit card required to start</div>
+        <div class="item"><span class="ic">&#10003;</span> Guided onboarding setup</div>
+        <div class="item"><span class="ic">&#10003;</span> Free migration from competitors</div>
+        <div class="item"><span class="ic">&#10003;</span> Automated review requests (email + SMS)</div>
+        <div class="item"><span class="ic">&#10003;</span> AI review responses</div>
+        <div class="item"><span class="ic">&#10003;</span> Competitor monitoring + weekly digest</div>
+        <div class="item"><span class="ic">&#10003;</span> Customer management + CSV import</div>
+        <div class="item"><span class="ic">&#10003;</span> Dashboard + analytics</div>
+        <div class="item"><span class="ic">&#10003;</span> Mobile-friendly dashboard</div>
+        <div class="item"><span class="ic">&#10003;</span> SSL encryption + data security</div>
       </div>
     </div>
+  </section>
+
+  <!-- Book a Demo -->
+  <section class="try-section">
+    <h2 class="fade-in">See Bynde in Action</h2>
+    <p class="fade-in">Book a personalized demo and see how Bynde's AI receptionist answers calls, books appointments, and manages reviews.</p>
+    <a href="/book-demo.html" class="btn btn-primary btn-lg fade-in" style="font-size:1.125rem;padding:18px 40px;">Book a Demo</a>
+    <p class="fade-in" style="margin-top:16px;font-size:.875rem;color:var(--text-muted);">Free 15-minute walkthrough. No commitment required.</p>
   </section>
 
   <!-- Competitor Comparison -->
   <section class="competitor-section container">
     <h2 class="fade-in">See what you're actually paying elsewhere</h2>
-    <p class="section-sub fade-in">Same features. A fraction of the price. Better results.</p>
+    <p class="section-sub fade-in">More features. Lower price. No long-term contracts.</p>
     <div class="competitor-grid">
       <div class="competitor-card fade-in">
         <div class="comp-name">Podium</div>
-        <div class="comp-price">$249+/mo</div>
-        <div class="comp-details">
-          12-24 month contract required<br>
-          <strong>Hidden pricing</strong> behind sales calls<br>
-          Setup fees apply
-        </div>
+        <div class="comp-price">$399+/mo</div>
+        <div class="comp-details">12-24 month contract required<br><strong>No AI phone receptionist</strong><br>Hidden pricing behind sales calls</div>
       </div>
       <div class="competitor-card fade-in">
         <div class="comp-name">Broadly</div>
         <div class="comp-price">$399+/mo</div>
-        <div class="comp-details">
-          $350 setup fee<br>
-          <strong>No AI voice calling</strong><br>
-          Long-term contracts
-        </div>
+        <div class="comp-details">$350 setup fee<br><strong>No AI voice calling</strong><br>Limited automation</div>
       </div>
       <div class="competitor-card fade-in">
         <div class="comp-name">Birdeye</div>
-        <div class="comp-price">$299+/mo</div>
-        <div class="comp-details">
-          Per-location pricing<br>
-          <strong>No AI call answering</strong><br>
-          Enterprise-focused, complex
-        </div>
+        <div class="comp-price">$350+/mo</div>
+        <div class="comp-details">Per-location pricing<br><strong>No AI call answering</strong><br>Enterprise-focused, complex</div>
       </div>
       <div class="competitor-card ours fade-in">
         <div class="comp-name">Bynde</div>
-        <div class="comp-price">$29/mo</div>
-        <div class="comp-details">
-          <strong>No contracts, cancel anytime</strong><br>
-          No credit card required<br>
-          Self-serve setup in minutes
-        </div>
+        <div class="comp-price">$79/mo</div>
+        <div class="comp-details"><strong>AI phone + reviews + scheduling</strong><br>Monthly + annual billing<br><strong>No setup fees</strong></div>
       </div>
     </div>
   </section>
 
-  <!-- Feature Comparison -->
+  <!-- Feature Comparison Table -->
   <section class="compare-section container">
     <h2 class="fade-in">Feature comparison</h2>
+    <div style="overflow-x:auto">
     <table class="compare-table fade-in">
       <thead>
         <tr>
           <th></th>
-          <th>Starter ($29/mo)</th>
-          <th class="pop">Pro ($79/mo)</th>
+          <th>Growth ($89/mo)</th>
+          <th class="pop">Pro ($199/mo)</th>
+          <th>Pro+ ($349/mo)</th>
+          <th>Enterprise</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>AI review responses</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-        <tr><td>SMS review requests</td><td>50/month</td><td>Unlimited</td></tr>
-        <tr><td>Reputation dashboard</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-        <tr><td>Google Business Profile sync</td><td class="check-icon">✓</td><td class="check-icon">✓</td></tr>
-        <tr><td>Advanced analytics</td><td class="dash">-</td><td class="check-icon">✓</td></tr>
-        <tr><td>Competitor benchmarking</td><td class="dash">-</td><td class="check-icon">✓</td></tr>
-        <tr><td>Priority support</td><td class="dash">-</td><td class="check-icon">✓</td></tr>
-        <tr><td>Locations</td><td>1</td><td>Up to 5</td></tr>
+        <tr class="cat-row"><td colspan="5">Reviews</td></tr>
+        <tr><td>Automated review requests (email + SMS)</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>AI review responses</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Review follow-up sequences (3/7-day)</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Competitor monitoring + weekly digest</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr class="cat-row"><td colspan="5">Operations</td></tr>
+        <tr><td>Customer management + CSV import</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Email notifications</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Dashboard + analytics</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr class="cat-row"><td colspan="5">Phone</td></tr>
+        <tr><td>AI phone receptionist</td><td class="dash">&mdash;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Included minutes</td><td class="dash">&mdash;</td><td>200/mo</td><td>600/mo</td><td>Custom</td></tr>
+        <tr><td>Business hours + after-hours handling</td><td class="dash">&mdash;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Call forwarding + voicemail</td><td class="dash">&mdash;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>FAQ knowledge base (synced to AI phone)</td><td class="dash">&mdash;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Smart appointment calendar</td><td class="dash">&mdash;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Forms + waivers (digital signatures, PDF import)</td><td class="dash">&mdash;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr class="cat-row"><td colspan="5">Automation</td></tr>
+        <tr><td>Smart automation flows</td><td class="dash">&mdash;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Industry-specific templates (10 industries)</td><td class="dash">&mdash;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr class="cat-row"><td colspan="5">Support</td></tr>
+        <tr><td>Email support</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Priority support</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
+        <tr><td>Custom automations</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check-icon">&#10003;</td><td class="check-icon">&#10003;</td></tr>
       </tbody>
     </table>
+    </div>
   </section>
 
   <!-- FAQ -->
@@ -333,56 +401,55 @@
     <div class="faq-list">
       <div class="faq-item fade-in">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a contract or minimum commitment?</div>
-        <div class="faq-a">No contracts, no minimums. You can cancel anytime from your dashboard. We keep customers by delivering results, not locking them in.</div>
+        <div class="faq-a">We offer monthly and annual billing. You can cancel at the end of your billing period with no penalties. Annual plans save ~15%. There are no setup fees on any plan.</div>
       </div>
       <div class="faq-item fade-in">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is there a setup fee?</div>
-        <div class="faq-a">No setup fees. Ever. Sign up, connect your Google Business Profile, and you're live in minutes. It's completely self-serve.</div>
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are there any setup fees?</div>
+        <div class="faq-a">No. There are no setup fees on any Bynde plan. Guided onboarding, Google Business Profile connection, AI phone configuration, and industry template setup are all included at no extra cost.</div>
       </div>
       <div class="faq-item fade-in">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I get started?</div>
-        <div class="faq-a">Book a quick demo and we'll get you set up. No credit card required. You get full access to the platform from day one.</div>
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What happens if I go over my phone minutes?</div>
+        <div class="faq-a">Overage minutes are billed at $0.25/minute. You'll receive alerts when you're approaching your limit so there are no surprises. You can also upgrade your plan at any time to get more included minutes.</div>
       </div>
       <div class="faq-item fade-in">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Will my customers know they're talking to AI?</div>
-        <div class="faq-a">Most can't tell. The AI is trained on natural conversation using your business details. It doesn't sound robotic or scripted. And if a caller needs a real human, it hands off to you with a notification.</div>
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Will callers know they're talking to AI?</div>
+        <div class="faq-a">Most cannot tell. The AI is trained on natural conversation using your business details, FAQs, and services. It doesn't sound robotic or scripted. If a caller needs a real person, it transfers the call or takes a detailed message.</div>
       </div>
       <div class="faq-item fade-in">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I switch plans later?</div>
-        <div class="faq-a">Yes. Upgrade or downgrade anytime from your dashboard. Changes take effect on your next billing cycle.</div>
+        <div class="faq-a">Yes. You can upgrade at any time and the price difference is prorated. Downgrades take effect at the start of your next billing cycle.</div>
       </div>
       <div class="faq-item fade-in">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does annual billing work?</div>
-        <div class="faq-a">Pay upfront for the year and save. Starter drops to $24/mo, Pro to $66/mo. Simple.</div>
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the AI phone receptionist work?</div>
+        <div class="faq-a">We provision a local phone number for your business (or port your existing number). Calls are answered 24/7 by our AI, which can take messages, answer FAQs from your knowledge base, book appointments on your calendar, and forward urgent calls to you directly.</div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is Bynde different from Birdeye or Podium?</div>
+        <div class="faq-a">Bynde includes an AI phone receptionist, smart scheduling, forms and waivers, and automation flows — features that competitors charge $350-$500/mo for separately. Our Pro plan at $199/mo covers what would cost $800+/mo pieced together from other vendors. Plus, we have no setup fees and offer flexible monthly or annual billing.</div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What industries does Bynde support?</div>
+        <div class="faq-a">Bynde has pre-built templates for 10 industries including dental, medical, salon/spa, legal, home services, automotive, fitness, restaurants, real estate, and veterinary. Templates auto-configure your AI receptionist script, review request messaging, and forms for your specific industry.</div>
       </div>
       <div class="faq-item fade-in">
         <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">I'm switching from Podium/Broadly. Is migration free?</div>
-        <div class="faq-a">100% free. We handle the entire transition so there's no gap in your coverage. Most migrations are done in under 48 hours.</div>
-      </div>
-      <div class="faq-item fade-in">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What kind of businesses is this for?</div>
-        <div class="faq-a">Service businesses that get phone calls and need reviews: plumbers, HVAC, dentists, lawyers, auto shops, salons, contractors. If you're missing calls while doing the actual work, this is for you.</div>
-      </div>
-      <div class="faq-item fade-in">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I get started?</div>
-        <div class="faq-a">Book a demo and we'll walk you through the setup. Connect your Google Business Profile and you're live in minutes. Completely hands on.</div>
+        <div class="faq-a">100% free. We handle the entire transition so there's no gap in your coverage. Most migrations complete in under 48 hours.</div>
       </div>
     </div>
   </section>
 
-  <!-- Bottom CTA -->
   <section class="bottom-cta">
     <div class="container fade-in">
-      <h2>Ready to grow your reputation?</h2>
-      <p>No credit card, no setup fees, no commitment.</p>
+      <h2>Ready to stop missing calls and reviews?</h2>
+      <p>Book a demo and see Bynde in action for your business.</p>
       <a href="/book-demo.html" class="btn btn-primary btn-lg">Book a Demo</a>
       <span class="cta-note">Questions? Email <a href="mailto:hello@bynde.io" style="color:var(--blue)">hello@bynde.io</a></span>
     </div>
   </section>
 
-  <footer class="footer" aria-label="Site footer">
+  <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Bynde. All rights reserved. &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="/book-demo.html">Book a Demo</a></p>
+      <p>&copy; 2026 Bynde. All rights reserved. &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="pricing.html">Pricing</a> &nbsp;|&nbsp; <a href="privacy.html">Privacy</a> &nbsp;|&nbsp; <a href="terms.html">Terms</a></p>
     </div>
   </footer>
 
@@ -394,18 +461,15 @@
       document.getElementById('monthlyLabel').classList.toggle('active', !isAnnual);
       document.getElementById('annualLabel').classList.toggle('active', isAnnual);
       document.querySelectorAll('.amount').forEach(el => {
-        const price = isAnnual ? el.dataset.annual : el.dataset.quarterly;
+        const price = isAnnual ? el.dataset.annual : el.dataset.monthly;
         el.textContent = '$' + price;
       });
-    }
-
-    // Fade-in on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+      document.querySelectorAll('.annual-note').forEach(el => {
+        el.classList.toggle('show', isAnnual);
       });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
