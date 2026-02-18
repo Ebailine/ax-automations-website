@@ -261,6 +261,11 @@
     .section-light .faq-icon { color: #9ca3af; }
     .section-light .faq-answer { color: #4b5563; }
     .section-light .text-lg { color: #4b5563; }
+    .section-light { --bg-card: rgba(0,0,0,0.03); --bg-elevated: #ffffff; --border: #e5e7eb; --text-primary: #111827; --text-secondary: #4b5563; --text-tertiary: #6b7280; }
+    .section-light table th { color: #4b5563 !important; }
+    .section-light table td { color: #374151 !important; }
+    .section-light table .text-success, .section-light td[style*="success"] { color: var(--success) !important; }
+    .section-light table .text-warning, .section-light td[style*="warning"] { color: var(--warning) !important; }
     .section-overline {
       font-size: 13px; font-weight: 600; color: var(--indigo-light);
       text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;
@@ -719,7 +724,7 @@
 </style>
 
 <!-- ── INDUSTRY VERTICALS ── -->
-<section class="section" id="industries">
+<section class="section section-light" id="industries">
   <div class="container">
     <div style="text-align:center;margin-bottom:56px;">
       <p class="section-overline fade-up">Built for 60+ Industries</p>
@@ -877,7 +882,7 @@
 </section>
 
 <!-- ── PRICING + FAQ (White Section) ── -->
-<section class="section section-light" id="pricing">
+<section class="section" id="pricing">
   <div class="container">
     <div style="text-align:center;">
       <p class="section-overline fade-up">Pricing</p>
@@ -965,7 +970,7 @@
 </section>
 
 <!-- ── COMPETITOR COMPARISON ── -->
-<section class="section" style="padding:100px 0;">
+<section class="section section-light" style="padding:100px 0;">
   <div class="container">
     <div style="text-align:center;margin-bottom:64px;">
       <p class="section-overline fade-up">The Smarter Choice</p>
