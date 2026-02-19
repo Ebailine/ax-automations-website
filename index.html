@@ -156,6 +156,7 @@
       border-radius: 16px; padding: 28px 32px; max-width: 480px; width: 90%;
       max-height: 85vh; overflow-y: auto;
       text-align: center; position: relative;
+      padding-bottom: 36px;
       animation: scoreIn 0.4s ease forwards;
     }
     @keyframes scoreIn {
@@ -1188,6 +1189,7 @@
         <a href="book-demo.html">Book a Demo</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
+        <a href="sms-consent.html">SMS Consent</a>
       </div>
     </div>
     <div class="footer-bottom">&copy; 2026 Bynde. All rights reserved.</div>
@@ -1292,10 +1294,13 @@ document.querySelectorAll('.industry-tab').forEach(function(tab){
         document.getElementById('sm-grade').textContent=d.grade;
         setTimeout(function(){
           document.getElementById('bar-rating').style.width=d.breakdown.rating.score+'%';
+          document.getElementById('bar-rating').style.background=d.breakdown.rating.score>=70?'#22c55e':d.breakdown.rating.score>=40?'#eab308':'#ef4444';
           document.getElementById('bar-rating-label').textContent=d.breakdown.rating.score+' — '+d.breakdown.rating.label;
           document.getElementById('bar-volume').style.width=d.breakdown.volume.score+'%';
+          document.getElementById('bar-volume').style.background=d.breakdown.volume.score>=70?'#22c55e':d.breakdown.volume.score>=40?'#eab308':'#ef4444';
           document.getElementById('bar-volume-label').textContent=d.breakdown.volume.score+' — '+d.breakdown.volume.label;
           document.getElementById('bar-presence').style.width=d.breakdown.presence.score+'%';
+          document.getElementById('bar-presence').style.background=d.breakdown.presence.score>=70?'#22c55e':d.breakdown.presence.score>=40?'#eab308':'#ef4444';
           document.getElementById('bar-presence-label').textContent=d.breakdown.presence.score+' — '+d.breakdown.presence.label;
         },100);
         // Smart recommendation engine
@@ -1338,7 +1343,7 @@ document.querySelectorAll('.industry-tab').forEach(function(tab){
         
         // Update CTA to match recommendation
         var ctaEl=document.querySelector('#score-result .btn-primary');
-        if(ctaEl) ctaEl.textContent='Book a Demo — See how '+rec.feature+' works';
+        if(ctaEl) ctaEl.textContent='Book a Demo';
 
         var gmaps=document.getElementById('score-gmaps');
         if(d.googleMapsUrl){gmaps.href=d.googleMapsUrl;gmaps.style.display='block';}else{gmaps.style.display='none';}

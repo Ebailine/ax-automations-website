@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMS Consent &amp; Opt-In | Bynde</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fafafa; }
+  .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
+  h1 { font-size: 2rem; margin-bottom: 8px; }
+  .date { color: #666; margin-bottom: 40px; }
+  h2 { font-size: 1.25rem; margin-top: 32px; margin-bottom: 12px; }
+  h3 { font-size: 1.1rem; margin-top: 24px; margin-bottom: 8px; }
+  p, li { margin-bottom: 12px; color: #333; }
+  ul, ol { padding-left: 24px; }
+  a { color: #6366f1; }
+  .back { display: inline-block; margin-bottom: 24px; color: #6366f1; text-decoration: none; }
+  .consent-box { background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; padding: 24px; margin: 24px 0; }
+  .consent-box h3 { margin-top: 0; }
+  .sample-form { background: #f8f9fa; border: 1px solid #d1d5db; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .sample-form label { display: block; margin-bottom: 8px; font-weight: 500; }
+  .sample-form input[type="text"], .sample-form input[type="tel"], .sample-form input[type="email"] { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; margin-bottom: 12px; font-size: 14px; }
+  .checkbox-row { display: flex; align-items: flex-start; gap: 8px; margin: 12px 0; }
+  .checkbox-row input[type="checkbox"] { margin-top: 4px; }
+  .checkbox-row label { font-size: 14px; color: #555; font-weight: normal; }
+  .btn { background: #6366f1; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer; }
+  .disclosure { font-size: 13px; color: #666; margin-top: 16px; padding-top: 12px; border-top: 1px solid #e5e7eb; }
+</style>
+</head>
+<body>
+<div class="container">
+<a href="/" class="back">&larr; Back to Bynde</a>
+<h1>SMS Consent &amp; Opt-In Information</h1>
+<p class="date">Last updated: February 19, 2026</p>
+
+<p>Bynde helps small businesses communicate with their customers through SMS text messages. This page explains how customer consent is obtained, what messages are sent, and how customers can opt out at any time.</p>
+
+<h2>About Bynde SMS Communications</h2>
+<p>Bynde sends the following types of text messages on behalf of businesses to their existing customers:</p>
+<ul>
+  <li><strong>Appointment reminders</strong> sent 24 hours and 2 hours before a scheduled appointment</li>
+  <li><strong>Review requests</strong> sent after a service visit asking for feedback</li>
+  <li><strong>Missed call follow-ups</strong> sent when a business misses a customer's call</li>
+  <li><strong>Rebooking reminders</strong> sent when it's time for a customer's next visit</li>
+</ul>
+<p>Message frequency varies based on the customer's interactions with the business. Typically 1 to 4 messages per month.</p>
+
+<h2>How Customers Opt In</h2>
+<p>Customers must provide consent before receiving any text messages from a business using Bynde. There are multiple ways consent is collected:</p>
+
+<div class="consent-box">
+<h3>Method 1: Online Booking Form</h3>
+<p>When a customer books an appointment through a business's website or Bynde-powered booking page, they provide their phone number and check a consent box agreeing to receive text messages.</p>
+
+<div class="sample-form">
+<p style="font-weight:600; margin-bottom:16px;">Book Your Appointment</p>
+<label>Your Name</label>
+<input type="text" placeholder="Jane Smith" disabled>
+<label>Phone Number</label>
+<input type="tel" placeholder="(215) 555-1234" disabled>
+<label>Email</label>
+<input type="email" placeholder="jane@example.com" disabled>
+<div class="checkbox-row">
+<input type="checkbox" checked disabled>
+<label>I agree to receive appointment reminders and follow-up text messages from this business via Bynde. Message frequency varies. Message and data rates may apply. Reply STOP to opt out at any time. View our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms</a>.</label>
+</div>
+<button class="btn" disabled>Book Appointment</button>
+<div class="disclosure">By booking, you consent to receive SMS messages from this business. No mobile information will be shared with third parties for marketing purposes. Reply STOP to cancel. Reply HELP for help.</div>
+</div>
+</div>
+
+<div class="consent-box">
+<h3>Method 2: In-Person Consent</h3>
+<p>When a customer visits a business in person, they provide their phone number directly to the business staff during check-in, appointment booking, or at the point of sale. The business verbally confirms: "Can we send you text reminders about your appointments and a quick review request after your visit?" The customer's phone number is then entered into the Bynde platform with a record that verbal consent was obtained.</p>
+</div>
+
+<div class="consent-box">
+<h3>Method 3: Text-In Opt-In</h3>
+<p>Customers can text <strong>START</strong> to the business's phone number to opt in to receiving text messages. They will receive a confirmation message:</p>
+<p style="background:#f0f0f0;padding:12px;border-radius:6px;font-size:14px;margin:8px 0;">"You're now signed up to receive texts from [Business Name] via Bynde. Msg frequency varies. Msg & data rates may apply. Reply HELP for help, STOP to opt out."</p>
+</div>
+
+<h2>Required Disclosures</h2>
+<ul>
+  <li><strong>Program name:</strong> Bynde Business Messaging</li>
+  <li><strong>Message frequency:</strong> Message frequency varies. Typically 1 to 4 messages per month based on appointments and visits.</li>
+  <li><strong>Message and data rates may apply.</strong></li>
+  <li><strong>Opt-out:</strong> Reply STOP to any message to stop receiving texts. You will receive a confirmation and no further messages will be sent.</li>
+  <li><strong>Help:</strong> Reply HELP to any message for assistance, or contact support@bynde.io.</li>
+  <li><strong>Privacy:</strong> No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. See our <a href="/privacy.html">Privacy Policy</a>.</li>
+  <li><strong>Terms:</strong> See our <a href="/terms.html">Terms and Conditions</a>.</li>
+</ul>
+
+<h2>How to Opt Out</h2>
+<p>Customers can opt out of receiving text messages at any time by:</p>
+<ol>
+  <li>Replying <strong>STOP</strong> to any text message</li>
+  <li>Asking the business directly to remove them</li>
+  <li>Emailing support@bynde.io</li>
+</ol>
+<p>Once opted out, no further messages will be sent. Customers can re-subscribe at any time by texting START.</p>
+
+<h2>Contact</h2>
+<p>For questions about SMS messaging, consent, or to request removal:</p>
+<p>Email: support@bynde.io<br>Website: <a href="https://bynde.io">https://bynde.io</a></p>
+</div>
+</body>
+</html>

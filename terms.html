@@ -1,268 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service | Bynde</title>
-  <meta name="description" content="Bynde Terms of Service — rules and guidelines for using our platform.">
-  <link rel="canonical" href="https://bynde.io/terms.html">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      color: #a1a1aa; background: #050507; overflow-x: hidden;
-      -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.6;
-    }
-    a { color: #818CF8; text-decoration: none; }
-    a:hover { color: #fafafa; }
-    :root {
-      --indigo: #6366F1; --indigo-light: #818CF8; --bg: #050507; --bg-elevated: #0a0a0f;
-      --border: rgba(255,255,255,0.06); --text-primary: #fafafa; --text-secondary: #a1a1aa; --text-tertiary: #71717a;
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    .site-nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0;
-      background: rgba(5,5,7,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: inline-flex; align-items: center; height: 32px; }
-    .nav-logo svg { height: 32px; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-tertiary); transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text-primary); }
-    .nav-right { display: flex; align-items: center; gap: 16px; }
-    .btn-primary {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 10px 24px; font-size: 14px; font-weight: 600; color: white;
-      background: var(--indigo); border: none; border-radius: 8px; cursor: pointer;
-      transition: all 0.2s; text-decoration: none;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-    .btn-primary:hover { background: #5558e6; transform: translateY(-1px); color: white; }
-    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 310; }
-    .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--text-primary); border-radius: 2px; transition: all 0.3s; }
-    .nav-toggle.is-open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
-    .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
-    .nav-toggle.is-open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
-    .nav-menu { display: contents; }
-
-    .legal-hero { padding: 140px 0 60px; text-align: center; }
-    .legal-hero h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: var(--text-primary); letter-spacing: -0.025em; }
-    .legal-hero .updated { font-size: 14px; color: var(--text-tertiary); margin-top: 12px; }
-    .legal-content { max-width: 760px; margin: 0 auto; padding-bottom: 120px; }
-    .legal-content h2 { font-size: 22px; font-weight: 700; color: var(--text-primary); margin: 48px 0 16px; }
-    .legal-content h3 { font-size: 18px; font-weight: 600; color: var(--text-primary); margin: 32px 0 12px; }
-    .legal-content p { margin-bottom: 16px; line-height: 1.8; }
-    .legal-content ul, .legal-content ol { margin: 0 0 16px 24px; }
-    .legal-content li { margin-bottom: 8px; line-height: 1.7; }
-    .legal-content strong { color: var(--text-primary); }
-
-    .site-footer { padding: 48px 0; border-top: 1px solid var(--border); }
-    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
-    .footer-links { display: flex; gap: 32px; flex-wrap: wrap; }
-    .footer-links a { font-size: 14px; color: var(--text-tertiary); transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text-primary); }
-    .footer-bottom { text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-tertiary); }
-
-    @media (max-width: 768px) {
-      .nav-toggle { display: flex; }
-      .nav-menu {
-        display: none; position: fixed; inset: 0; z-index: 300;
-        background: rgba(5,5,7,0.97); backdrop-filter: blur(40px);
-        flex-direction: column; align-items: center; justify-content: center; gap: 32px;
-      }
-      .nav-menu.is-open { display: flex; }
-      .nav-menu .nav-links { flex-direction: column; gap: 24px; text-align: center; }
-      .nav-menu .nav-links a { font-size: 18px; }
-      .nav-menu .nav-right { flex-direction: column; }
-      .footer-inner { flex-direction: column; text-align: center; }
-      .legal-hero { padding: 120px 0 40px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms and Conditions | Bynde</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fafafa; }
+  .container { max-width: 800px; margin: 0 auto; padding: 60px 24px; }
+  h1 { font-size: 2rem; margin-bottom: 8px; }
+  .date { color: #666; margin-bottom: 40px; }
+  h2 { font-size: 1.25rem; margin-top: 32px; margin-bottom: 12px; }
+  p, li { margin-bottom: 12px; color: #333; }
+  ul { padding-left: 24px; }
+  a { color: #6366f1; }
+  .back { display: inline-block; margin-bottom: 24px; color: #6366f1; text-decoration: none; }
+</style>
 </head>
 <body>
-
-<nav class="site-nav" role="navigation">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="Bynde home">
-        <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" height="32">
-          <path d="M6 28L18 4" stroke="#6366F1" stroke-width="3" stroke-linecap="round"/>
-          <path d="M14 4C14 4 20 2 24 6C28 10 26 16 26 16L18 8L14 4Z" fill="#6366F1"/>
-          <path d="M18 8L26 16" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-          <text x="34" y="24" font-family="-apple-system, sans-serif" font-weight="800" font-size="22" fill="white" letter-spacing="-0.5">Bynde</text>
-        </svg>
-      </a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <div class="nav-menu">
-        <ul class="nav-links">
-          <li><a href="/#how-it-works">How It Works</a></li>
-          <li><a href="/#industries">Industries</a></li>
-          <li><a href="/#pricing">Pricing</a></li>
-          <li><a href="/#faq">FAQ</a></li>
-        </ul>
-        <div class="nav-right">
-          <a href="book-demo.html" class="btn-primary">Book a Demo</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<section class="legal-hero">
-  <div class="container">
-    <h1>Terms of Service</h1>
-    <p class="updated">Last updated: February 2026</p>
-  </div>
-</section>
-
 <div class="container">
-  <div class="legal-content">
+<a href="/" class="back">&larr; Back to Bynde</a>
+<h1>Terms and Conditions</h1>
+<p class="date">Last updated: February 19, 2026</p>
 
-    <h2>1. Overview</h2>
-    <p>These Terms of Service ("Terms") govern your use of the <strong>Bynde Business Communications Platform</strong> ("Bynde," "Platform," "Service"), operated by Bynde. By accessing or using Bynde, you agree to be bound by these Terms.</p>
-    <p>Bynde provides automated review management, appointment reminders, customer follow-ups, and business analytics for local businesses.</p>
+<p>These Terms and Conditions ("Terms") govern your use of the Bynde platform operated at bynde.io. By creating an account or using our services, you agree to these Terms.</p>
 
-    <h2>2. Messaging &amp; Communications</h2>
-    <p>Bynde sends SMS text messages, emails, and other communications on behalf of your business to your customers. By using our platform:</p>
-    <ul>
-      <li><strong>Message and data rates may apply.</strong> Standard messaging and data rates from your mobile carrier apply to all SMS communications.</li>
-      <li><strong>Message frequency varies</strong> based on your business activity and customer interactions. There is no fixed number of messages per period.</li>
-      <li><strong>Support:</strong> Reply <strong>HELP</strong> to any message or email <a href="mailto:hello@bynde.io">hello@bynde.io</a> for assistance.</li>
-      <li><strong>Opt-out:</strong> Reply <strong>STOP</strong> to any message to immediately opt out of future SMS communications. You will receive a confirmation message and no further messages will be sent.</li>
-    </ul>
+<h2>1. Service Description</h2>
+<p>Bynde is a business communication platform that helps small businesses manage customer relationships through automated SMS messaging, AI-powered review management, appointment reminders, and phone call handling. Businesses use Bynde to send messages to their existing customers who have provided consent to receive communications.</p>
 
-    <h2>3. Account Registration &amp; Eligibility</h2>
-    <p>To use Bynde, you must:</p>
-    <ul>
-      <li>Be at least 18 years of age</li>
-      <li>Be authorized to act on behalf of the business you register</li>
-      <li>Provide accurate and complete registration information</li>
-      <li>Maintain the security of your account credentials</li>
-    </ul>
-    <p>You are responsible for all activity that occurs under your account.</p>
+<h2>2. Account Registration</h2>
+<p>To use Bynde, you must create an account and provide accurate business information. You are responsible for maintaining the security of your account credentials and for all activity under your account.</p>
 
-    <h2>4. Service Tiers &amp; Billing</h2>
+<h2>3. SMS Messaging Terms</h2>
+<p>By using Bynde's SMS features, you agree to the following:</p>
+<ul>
+  <li><strong>Consent requirement:</strong> You must obtain proper consent from each customer before adding their phone number to the Bynde platform. Acceptable consent methods include: verbal consent during an in-person visit, written consent on an intake form, checking a consent box on your website booking form, or the customer texting START to your business number.</li>
+  <li><strong>Message types:</strong> Messages sent through Bynde are limited to legitimate business communications including appointment reminders, review requests after service, missed call follow-ups, rebooking reminders, and business updates.</li>
+  <li><strong>Opt-out handling:</strong> All messages include opt-out instructions. When a customer replies STOP, they are immediately removed from receiving further messages. You agree not to re-add customers who have opted out.</li>
+  <li><strong>Prohibited content:</strong> You may not use Bynde to send spam, unsolicited marketing to non-customers, content that violates any law, or messages to numbers without proper consent.</li>
+  <li><strong>Message and data rates:</strong> Standard message and data rates may apply to recipients. You are responsible for informing your customers of this.</li>
+</ul>
 
-    <h3>4.1 Plans</h3>
-    <p>Bynde offers multiple service tiers (Growth, Pro, Pro+) with different features and pricing. Current pricing is available on our website at <a href="/#pricing">bynde.io/pricing</a>.</p>
+<h2>4. AI-Generated Content</h2>
+<p>Bynde uses artificial intelligence to generate review responses, phone call handling, and business insights. While we strive for accuracy, AI-generated content should be reviewed by the business owner. You are responsible for any content sent on your behalf through the platform.</p>
 
-    <h3>4.2 Billing Terms</h3>
-    <ul>
-      <li>Services are billed on a monthly, quarterly, or annual basis depending on the plan selected</li>
-      <li>Quarterly and annual contracts are billed upfront for the full period</li>
-      <li>All fees are non-refundable unless otherwise specified</li>
-      <li>We reserve the right to change pricing with 30 days' notice to existing customers</li>
-    </ul>
+<h2>5. Phone Services</h2>
+<p>Bynde's AI phone receptionist handles incoming calls on your behalf. Calls may be recorded and transcribed for quality and service purposes. You are responsible for complying with applicable call recording laws in your jurisdiction.</p>
 
-    <h3>4.3 Cancellation</h3>
-    <ul>
-      <li>Monthly plans may be cancelled at any time, effective at the end of the current billing period</li>
-      <li>Quarterly and annual contracts remain active until the end of the contract period</li>
-      <li>Upon cancellation, you may request a data export within 30 days</li>
-    </ul>
+<h2>6. Acceptable Use</h2>
+<p>You agree not to use Bynde to:</p>
+<ul>
+  <li>Send messages to individuals who have not provided consent</li>
+  <li>Send deceptive, fraudulent, or illegal content</li>
+  <li>Violate any applicable laws, including the Telephone Consumer Protection Act (TCPA) and CAN-SPAM Act</li>
+  <li>Interfere with or disrupt the platform's operation</li>
+  <li>Resell or redistribute the service without authorization</li>
+</ul>
 
-    <h2>5. Customer Consent &amp; Compliance</h2>
-    <p><strong>You, as the business, are responsible for obtaining proper consent from your customers before adding them to the Bynde platform.</strong> This includes:</p>
-    <ul>
-      <li>Obtaining express written consent for SMS communications as required by the Telephone Consumer Protection Act (TCPA) and applicable state laws</li>
-      <li>Informing customers that they will receive automated messages</li>
-      <li>Providing opt-out information to customers</li>
-      <li>Maintaining records of customer consent</li>
-    </ul>
-    <p>Bynde provides tools to help manage consent, but the legal responsibility for obtaining consent rests with the business.</p>
+<h2>7. Billing and Payment</h2>
+<p>Subscription fees are billed according to the plan selected during signup. Overage charges for SMS messages or phone minutes beyond plan limits are billed at the rates specified in your plan. All fees are non-refundable except as required by law.</p>
 
-    <h2>6. Acceptable Use Policy</h2>
-    <p>You agree NOT to use Bynde to:</p>
-    <ul>
-      <li>Send spam, unsolicited messages, or communications to individuals who have not consented</li>
-      <li>Send messages containing illegal, harmful, threatening, abusive, or harassing content</li>
-      <li>Impersonate any person or entity</li>
-      <li>Violate any applicable local, state, national, or international law or regulation</li>
-      <li>Transmit malware, viruses, or any other harmful code</li>
-      <li>Attempt to gain unauthorized access to our systems or other users' accounts</li>
-      <li>Use the platform for any purpose other than legitimate business communications</li>
-      <li>Generate fake reviews or manipulate review platforms in violation of their terms</li>
-    </ul>
-    <p>Violation of this acceptable use policy may result in immediate suspension or termination of your account.</p>
+<h2>8. Account Termination</h2>
+<p>We may suspend or terminate your account if you violate these Terms, fail to pay fees, or use the platform in a way that could harm other users or our service. You may cancel your account at any time through your dashboard settings.</p>
 
-    <h2>7. Intellectual Property</h2>
-    <p>Bynde and its original content, features, and functionality are owned by Bynde and are protected by copyright, trademark, and other intellectual property laws. You retain ownership of all content and data you provide to the platform.</p>
+<h2>9. Limitation of Liability</h2>
+<p>Bynde is provided "as is" without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of the platform. Our total liability is limited to the fees you paid in the 12 months preceding the claim.</p>
 
-    <h2>8. Limitation of Liability</h2>
-    <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</p>
-    <ul>
-      <li>Bynde is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, express or implied</li>
-      <li>We do not guarantee that the service will be uninterrupted, error-free, or secure</li>
-      <li>We are not responsible for the content of reviews or third-party communications</li>
-      <li>We are not liable for any actions taken by third-party platforms (Google, Yelp, etc.) regarding your reviews or business listings</li>
-      <li>In no event shall Bynde, its directors, employees, or agents be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the service</li>
-      <li>Our total liability for any claims arising from these Terms or your use of the service shall not exceed the amount you paid to Bynde in the twelve (12) months preceding the claim</li>
-    </ul>
+<h2>10. Changes to Terms</h2>
+<p>We may update these Terms from time to time. We will notify you of material changes via email. Continued use of the platform after changes constitutes acceptance.</p>
 
-    <h2>9. Indemnification</h2>
-    <p>You agree to indemnify and hold harmless Bynde and its officers, directors, employees, and agents from any claims, damages, losses, or expenses (including reasonable attorney fees) arising from your use of the platform, your violation of these Terms, or your violation of any third-party rights, including failure to obtain proper customer consent.</p>
-
-    <h2>10. Termination</h2>
-    <p>We may suspend or terminate your access to Bynde at any time, with or without cause, with or without notice. Upon termination:</p>
-    <ul>
-      <li>Your right to use the platform ceases immediately</li>
-      <li>You may request a data export within 30 days</li>
-      <li>Outstanding fees remain due and payable</li>
-    </ul>
-
-    <h2>11. Governing Law</h2>
-    <p>These Terms shall be governed by and construed in accordance with the laws of the United States. Any disputes arising from these Terms shall be resolved through binding arbitration, except where prohibited by law.</p>
-
-    <h2>12. Changes to These Terms</h2>
-    <p>We reserve the right to modify these Terms at any time. We will notify you of material changes by posting the updated Terms on this page and updating the "Last updated" date. Continued use of the platform after changes constitutes acceptance of the revised Terms.</p>
-
-    <h2>13. Contact Us</h2>
-    <p>If you have questions about these Terms of Service, please contact us:</p>
-    <p><strong>Email:</strong> <a href="mailto:hello@bynde.io">hello@bynde.io</a><br>
-    <strong>Company:</strong> Bynde, operated by Bynde</p>
-
-  </div>
+<h2>11. Contact</h2>
+<p>Questions about these Terms? Contact us at support@bynde.io.</p>
 </div>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-inner">
-      <a href="/" class="nav-logo" aria-label="Bynde home">
-        <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" height="28">
-          <path d="M6 28L18 4" stroke="#6366F1" stroke-width="3" stroke-linecap="round"/>
-          <path d="M14 4C14 4 20 2 24 6C28 10 26 16 26 16L18 8L14 4Z" fill="#6366F1"/>
-          <path d="M18 8L26 16" stroke="#818CF8" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-          <text x="34" y="24" font-family="-apple-system, sans-serif" font-weight="800" font-size="22" fill="white" letter-spacing="-0.5">Bynde</text>
-        </svg>
-      </a>
-      <div class="footer-links">
-        <a href="/#how-it-works">How It Works</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#faq">FAQ</a>
-        <a href="book-demo.html">Book a Demo</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-      </div>
-    </div>
-    <div class="footer-bottom">&copy; 2026 Bynde. All rights reserved.</div>
-  </div>
-</footer>
-
-<script>
-(function(){
-  var t=document.querySelector('.nav-toggle'),m=document.querySelector('.nav-menu');
-  if(!t||!m)return;
-  t.addEventListener('click',function(){
-    var o=m.classList.toggle('is-open');
-    t.classList.toggle('is-open',o);
-    t.setAttribute('aria-expanded',String(o));
-    document.body.style.overflow=o?'hidden':'';
-  });
-})();
-</script>
 </body>
 </html>
